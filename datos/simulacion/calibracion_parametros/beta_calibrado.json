@@ -1,0 +1,95 @@
+{
+  "grilla": {
+    "camas": 40,
+    "plantas_por_cama": 125,
+    "dx_m": 0.8,
+    "dy_m": 2.5
+  },
+  "p_fondo": 1e-05,
+  "reps": 8,
+  "dias_max": 365,
+  "ventana_r_plantas": [
+    10,
+    250
+  ],
+  "betas": [
+    0.00316,
+    0.00464,
+    0.00681,
+    0.01,
+    0.01468,
+    0.02154,
+    0.03162,
+    0.04642,
+    0.06813,
+    0.1,
+    0.14678,
+    0.21544,
+    0.31623,
+    0.46416,
+    0.68129,
+    1.0
+  ],
+  "semillas": [
+    20261023,
+    7,
+    11
+  ],
+  "resultado": {
+    "antracnosis": {
+      "r_objetivo": 0.07,
+      "beta_calibrado": 1.0,
+      "alcanzable_con_beta_le_1": false,
+      "r_max_en_rango_beta": 0.0528,
+      "latente_dias": 7,
+      "infeccioso_dias": 10,
+      "suma_pesos_kernel": 2.26,
+      "r_con_fondo_x10_en_beta_calibrado": 0.0996,
+      "velocidad_frente_m_dia_en_beta_calibrado_sin_fondo": 0.132
+    },
+    "botrytis": {
+      "r_objetivo": 0.08,
+      "beta_calibrado": 0.0196,
+      "alcanzable_con_beta_le_1": true,
+      "r_max_en_rango_beta": 0.3874,
+      "latente_dias": 4,
+      "infeccioso_dias": 7,
+      "suma_pesos_kernel": 16.921,
+      "r_con_fondo_x10_en_beta_calibrado": 0.1162,
+      "velocidad_frente_m_dia_en_beta_calibrado_sin_fondo": 0.442
+    },
+    "roya": {
+      "r_objetivo": 0.12,
+      "beta_calibrado": 0.264,
+      "alcanzable_con_beta_le_1": true,
+      "r_max_en_rango_beta": 0.1655,
+      "latente_dias": 12,
+      "infeccioso_dias": 20,
+      "suma_pesos_kernel": 5.748,
+      "r_con_fondo_x10_en_beta_calibrado": 0.1444,
+      "velocidad_frente_m_dia_en_beta_calibrado_sin_fondo": 0.951
+    },
+    "oidio": {
+      "r_objetivo": 0.15,
+      "beta_calibrado": 0.0485,
+      "alcanzable_con_beta_le_1": true,
+      "r_max_en_rango_beta": 0.2651,
+      "latente_dias": 7,
+      "infeccioso_dias": 14,
+      "suma_pesos_kernel": 17.32,
+      "r_con_fondo_x10_en_beta_calibrado": 0.1741,
+      "velocidad_frente_m_dia_en_beta_calibrado_sin_fondo": 0.547
+    },
+    "alternaria": {
+      "r_objetivo": 0.05,
+      "beta_calibrado": 0.0184,
+      "alcanzable_con_beta_le_1": true,
+      "r_max_en_rango_beta": 0.269,
+      "latente_dias": 5,
+      "infeccioso_dias": 14,
+      "suma_pesos_kernel": 9.454,
+      "r_con_fondo_x10_en_beta_calibrado": 0.0801,
+      "velocidad_frente_m_dia_en_beta_calibrado_sin_fondo": 0.22
+    }
+  }
+}

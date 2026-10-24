@@ -1,0 +1,42 @@
+{
+  "creado": "2026-10-23T18:04:02-05:00",
+  "splits_dir": "/Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/splits",
+  "teselas": 3,
+  "C_elegido": 0.3,
+  "busqueda_C_oof": [
+    {
+      "C": 0.003,
+      "macro_f1_oof": 0.7092016361505286
+    },
+    {
+      "C": 0.01,
+      "macro_f1_oof": 0.7032505056188465
+    },
+    {
+      "C": 0.03,
+      "macro_f1_oof": 0.7004978927766343
+    },
+    {
+      "C": 0.1,
+      "macro_f1_oof": 0.7029173893266966
+    },
+    {
+      "C": 0.3,
+      "macro_f1_oof": 0.7233504423845333
+    },
+    {
+      "C": 1.0,
+      "macro_f1_oof": 0.7173545859434004
+    },
+    {
+      "C": 3.0,
+      "macro_f1_oof": 0.7065363688430699
+    }
+  ],
+  "folds": 5,
+  "semilla": 0,
+  "class_weight": "balanced",
+  "entrenado_en": "train+val (dev)",
+  "n_dev": 342,
+  "n_grupos_dev": 118
+}

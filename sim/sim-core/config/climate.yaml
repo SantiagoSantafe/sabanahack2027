@@ -1,0 +1,41 @@
+# Microclimate inside the macrotunnel, derived from outdoor Open-Meteo hours.
+# Dato empresa: ventilation/fans controlled to lower internal humidity and temperature;
+# high RH at night condenses water on foliage (gutation) and is removed with ventilation
+# the next morning; Botrytis is driven by air humidity and temperature; a forgotten fan
+# or an open side vent (alero) during rain damages the crop.
+
+enabled: true                  # false = open field (outdoor values used directly)
+
+day_hours: [6, 18]             # SUPUESTO — local daylight window
+day_temp_offset_c: 3.0         # SUPUESTO — greenhouse warming under plastic by day
+night_temp_offset_c: 1.0       # SUPUESTO
+night_rh_offset_pct: 6.0       # SUPUESTO — condensation / gutation at night (dato empresa: qualitative)
+
+# Spatial variation: central naves and middle beds ventilate worse
+spatial_rh_gradient_pct: 4.0   # SUPUESTO — central nave vs edge nave
+middle_bed_rh_extra_pct: 1.0   # SUPUESTO
+
+ventilation:
+  mode: auto                   # auto | off  (dato empresa: controllers + automation)
+  hours: [6, 18]               # SUPUESTO
+  rh_setpoint_pct: 85.0        # SUPUESTO — fans start above this RH
+  rh_reduction_pct: 12.0       # SUPUESTO — effect of fans on RH
+  temp_reduction_c: 2.0        # SUPUESTO — effect of fans on temperature
+  forget_prob_per_day: 0.05    # SUPUESTO — dato empresa: "si un ventilador se les olvidó prenderlo se daña el cultivo"
+
+rain:
+  cover_blocks_rain: true      # plastic keeps rain off the foliage
+  alero_open_prob: 0.10        # SUPUESTO — dato empresa: "si llueve y no tienen cerrado el alero"
+
+# Robot onboard temperature/humidity probe (dato empresa: the robot must report
+# temperature and RH at every point where it detects an incidence)
+robot_probe:
+  temp_noise_c: 0.3            # SUPUESTO — typical digital T/RH sensor accuracy
+  rh_noise_pct: 2.0            # SUPUESTO
+  sample_every_m: 5.0          # SUPUESTO — routine sample spacing along the aisle
+
+# Connectivity. Dato empresa: no WiFi in the blocks; dataloggers are read by USB;
+# internet only at the farm office. The robot stores records and syncs at the dock.
+connectivity:
+  mode: store_and_forward      # store_and_forward | live
+  human_report_hour: 14        # dato empresa: scouts work 6 am–2 pm and register by hand

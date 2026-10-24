@@ -1,0 +1,46 @@
+# Reference — Human monitoring only
+# Dato empresa: a farm of 15 blocks takes a scout 4–5 days; they work 6 am–2 pm and
+# register incidences by hand (digitized later).
+code: REF
+name: "Solo monitoreo humano"
+title: "Ref · Monitoreo humano"
+
+sensor:
+  camera_height_m: 1.6    # human eye height
+  sees_full_bush: false   # often misses underside
+  base_sensitivity: 0.7   # SUPUESTO
+
+schedule:
+  every_n_days: 5         # dato empresa: each block is revisited every ~4–5 days
+  only_spray_days: false
+  start_hour: 6.0         # dato empresa: scouts start at 6 am
+
+prioritize_by_risk: false
+
+risk_trigger:
+  enabled: false
+  level: bed
+  action: none
+
+mobility:
+  width_m: 0.50           # SUPUESTO — persona caminando entre hileras
+  height_m: 1.70
+  rigid: false
+  # dato empresa: 15 blocks of ~1 ha in 4.5 days × 8 h → 2.4 h per hectare
+  hours_per_ha: 2.4
+  speed_mps: 0.35         # fallback when hours_per_ha is not set
+  battery_h: 8.0          # work shift 6 am–2 pm
+  fail_prob_per_bed: 0.0
+  mud_slowdown: 1.1
+  stuck_prob: 0.0
+
+fog_sensitivity_penalty: 1.0
+
+human_review:
+  enabled: true
+  sensitivity_small: 0.45      # SUPUESTO — brief: low sensitivity to small symptoms
+  sensitivity_underside: 0.35  # SUPUESTO
+  review_delay_days: 0.0       # scout is the detector
+
+mast: false
+platform: human

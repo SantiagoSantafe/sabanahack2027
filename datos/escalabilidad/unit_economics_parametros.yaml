@@ -1,0 +1,364 @@
+# Parámetros del modelo de negocio (rol: modelo-negocio). Sabana Hack 2026, reto "Berry Good Idea".
+# Cada parámetro tiene "valor" y "fuente". La fuente es:
+#   FUENTE: <URL abierta en esta sesión>    -> cifra leída en la página
+#   CALCULADO: <operación sobre una FUENTE>  -> derivada, la operación es nuestra
+#   CONTEXTO: dato que nos pasó el equipo, NO VERIFICADO por este rol
+#   SUPUESTO: valor nuestro, sin fuente; mover para ver la sensibilidad
+#   NO VERIFICADO: la cifra solo apareció en un resumen de búsqueda, sin abrir la página
+# Formato: YAML de bloques simple (sin listas), para que unit_economics.py lo lea
+# con PyYAML o, si no está instalado, con su lector mínimo incluido.
+
+general:
+  trm_cop_usd:
+    valor: 3185.01
+    fuente: "FUENTE: TRM vigente 2026-10-23, Superfinanciera vía https://www.datos.gov.co/resource/32sa-8pi3.json"
+  smmlv_2026_cop_mes:
+    valor: 1750905
+    fuente: "FUENTE: Decreto 1469 de 2025, https://consultorsalud.com/aumento-del-salario-minimo-en-colombia-2026/"
+  auxilio_transporte_2026_cop_mes:
+    valor: 249095
+    fuente: "FUENTE: Decreto 1470 de 2025, misma URL"
+  factor_prestacional:
+    valor: 1.52
+    fuente: "SUPUESTO: costo empresa / salario base en Colombia (seguridad social, prestaciones, parafiscales)"
+  escalas_ha:
+    valor: "10,50,200,1000"
+    fuente: "Pedido del equipo: ha totales bajo contrato del vendedor"
+
+productor:
+  rendimiento_kg_ha:
+    valor: 12000
+    fuente: "CONTEXTO: 12 t/ha. El promedio nacional EVA 2025 es 9,07 t/ha cosechada (6.031 t / 665 ha), https://www.datos.gov.co/resource/uejq-wxrr.json"
+  precio_usd_kg:
+    valor: 6.0
+    fuente: "CALCULADO: el equipo usó 430 USD/ha / 72 kg/ha = 5,97. Exportación 2024 = 3,3 M USD / 628.235 kg = 5,25 USD/kg (https://agraria.pe/noticias/colombia-exporto-628-235-kilogramos-de-arandano-en-2024-gene-39081). Peña et al. 2023 usan 7,48 USD/kg (Asocolblue 2021)"
+  perdida_evitada_con_robot_frac:
+    valor: 0.02
+    fuente: "SUPUESTO: fracción de la cosecha que se salva al detectar antes y tratar cama por cama. El equilibrio del equipo es 0,6 %"
+  perdida_evitada_solo_red_frac:
+    valor: 0.01
+    fuente: "SUPUESTO: con solo la red de sensores y el scouting por celular se salva la mitad"
+  gasto_fungicidas_usd_ha_ano:
+    valor: 600
+    fuente: "SUPUESTO / NO VERIFICADO: falta un costo colombiano. Peña et al. 2023 reportan solo 130,8 USD/ha/año en agroquímicos para una finca de 1 ha (doi 10.15446/agron.colomb.v41n2.103525)"
+  reduccion_fungicida_con_robot_frac:
+    valor: 0.15
+    fuente: "SUPUESTO: aspersión dirigida a las camas con hallazgo en lugar de bloque completo"
+  reduccion_fungicida_solo_red_frac:
+    valor: 0.08
+    fuente: "SUPUESTO: solo se mejora el momento de aplicación con los modelos de riesgo"
+  salario_monitor_cop_mes:
+    valor: 2000000
+    fuente: "CALCULADO: SMMLV 2026 + auxilio de transporte (1.750.905 + 249.095)"
+  ha_por_monitor:
+    valor: 25
+    fuente: "SUPUESTO: hectáreas que un monitor de plagas cubre en una semana"
+  scouting_reemplazado_con_robot_frac:
+    valor: 0.25
+    fuente: "SUPUESTO: el robot no elimina al monitor; le quita un 25 % del recorrido"
+  minutos_operario_dia_por_robot:
+    valor: 20
+    fuente: "SUPUESTO: tiempo del operario de la finca en cambios de batería y confirmación de alertas"
+  horas_laborales_mes:
+    valor: 192
+    fuente: "SUPUESTO: 48 h/semana"
+  roi_objetivo:
+    valor: 3.0
+    fuente: "SUPUESTO: regla de adopción, el productor quiere al menos 3 USD de beneficio por cada USD que paga"
+
+geometria:
+  distancia_entre_camas_m:
+    valor: 3.0
+    fuente: "SUPUESTO: pasillo de 2,0 m (PROMPT_simulacion_camas.md, rango 1,5-2,5) más cama de ~1 m. OJO (verificación 2026-10-23): es el valor más optimista del proyecto. Peña et al. 2023 (finca de 1 ha en Cundinamarca, bolsas de 25 L, doi 10.15446/agron.colomb.v41n2.103525) usan 2,2 m entre hileras; finanzas usa 2,5 m (ODEPA Maule); operacion.md usa 4.250 m/ha (~2,35 m). Con 2,5 m una finca de 30 ha necesita 2 robots. Ver tablas 5d y 9b"
+
+inspeccion:
+  velocidad_m_s:
+    valor: 0.8
+    fuente: "SUPUESTO: velocidad de captura con cámaras de obturador global. El D1 Ultra alcanza 3,7 m/s según su ficha (https://www.agibot.com/file/ueditor/php/upload/file/20260825/1787637425866968.pdf); Thorvald trabaja por debajo de 5 km/h (https://www.futurefarming.com/tech-in-focus/field-robots/robot-combats-powdery-mildew-in-strawberries-using-uv-c-treatment/)"
+  sobrecosto_giros_frac:
+    valor: 0.25
+    fuente: "SUPUESTO: tiempo extra en giros de cabecera, traslado entre bloques y paradas de acercamiento"
+  fraccion_camas_por_semana:
+    valor: 0.6
+    fuente: "SUPUESTO: la red de sensores manda el robot primero a las camas de riesgo alto (semanal) y deja las de riesgo bajo cada 2-3 semanas"
+
+robot_ultra:
+  precio_usd:
+    valor: 7499
+    fuente: "CONTEXTO: D1 Ultra ~7.499 USD FOB México, NO VERIFICADO. Precio de lista en tienda: 9.600 USD (https://store.agibot.com/products/d1-ultra.json, moneda USD)"
+  precio_lista_usd:
+    valor: 9600
+    fuente: "FUENTE: https://store.agibot.com/products/d1-ultra.json"
+  importacion_frac:
+    valor: 0.12
+    fuente: "SUPUESTO: flete, arancel y agente de aduana, sin IVA. OJO (verificación 2026-10-23): que el IVA de importación se descuente NO ESTÁ VERIFICADO. Si el servicio queda excluido de IVA (ET art. 476 num. 24 lit. s, asistencia técnica agropecuaria, según DIAN Concepto 905867 de 2022; o num. 21, computación en la nube), el vendedor no cobra IVA pero tampoco lo descuenta y el factor sube a ~1,359 como en finanzas/importacion_factores.csv. Si el servicio está gravado, el productor paga 19 % sobre el precio y no lo recupera. Ver tabla 9b"
+  kit_percepcion_usd:
+    valor: 2000
+    fuente: "SUPUESTO: Jetson Orin Nano Super 249 USD (FUENTE https://www.sparkfun.com/nvidia-jetson-orin-nano-developer-kit.html vía búsqueda, NO VERIFICADO), más 2 cámaras, mástil, GNSS RTK, módem, luz e integración"
+  bateria_extra_usd:
+    valor: 450
+    fuente: "SUPUESTO / NO VERIFICADO: falta el precio de la batería de 4,6 Ah y 43,2 V"
+  baterias_extra:
+    valor: 2
+    fuente: "SUPUESTO: dos de repuesto para trabajar toda la ventana diaria"
+  cargador_y_estuche_usd:
+    valor: 300
+    fuente: "SUPUESTO"
+  autonomia_h:
+    valor: 1.25
+    fuente: "SUPUESTO: la ficha dice 1-2 h (https://www.agibot.com/file/ueditor/php/upload/file/20260825/1787637425866968.pdf); bajamos a 1,25 h por el mástil (carga útil máxima 5 kg)"
+  bateria_intercambiable:
+    valor: true
+    fuente: "FUENTE: el manual dice 'Take out the battery and insert it into the robot dog's battery compartment' (https://www.agibot.com/file/ueditor/php/upload/file/20260911/1789114774395970.pdf). El cambio se hace con el robot apagado, no en caliente. Con false, el robot espera la carga"
+  ciclos_vida_bateria:
+    valor: 300
+    fuente: "SUPUESTO: el manual garantiza la celda por '6 months / 200 cycles' (misma URL); suponemos 300 ciclos de vida útil"
+  carga_h:
+    valor: 1.0
+    fuente: "FUENTE: manual del D1 Ultra, 'Charging Duration: about 1 hour (battery level 10%-90%)', https://www.agibot.com/file/ueditor/php/upload/file/20260911/1789114774395970.pdf (verificación de negocio 2026-10-23; antes figuraba como no verificado)"
+  cambio_bateria_h:
+    valor: 0.1
+    fuente: "SUPUESTO"
+  ventana_h_dia:
+    valor: 7
+    fuente: "SUPUESTO: de día, sobre hoja seca, delante del aspersor (aprox. 9:00-16:00)"
+  dias_semana:
+    valor: 6
+    fuente: "SUPUESTO"
+  disponibilidad:
+    valor: 0.80
+    fuente: "SUPUESTO: con IP54 no sale con lluvia fuerte; incluye fallas y mantenimiento"
+  traslado_ruta_h_dia:
+    valor: 1.0
+    fuente: "SUPUESTO: en modo ruta (fincas pequeñas) el técnico lleva el robot de 16 kg en vehículo y se pierde 1 h al día"
+  vida_anos:
+    valor: 3
+    fuente: "SUPUESTO: robot ligero en campo"
+  mantenimiento_frac_ano:
+    valor: 0.08
+    fuente: "SUPUESTO: repuestos de patas y motores, como % del CAPEX. Las baterías se calculan aparte, por ciclos"
+  seguro_frac_ano:
+    valor: 0.03
+    fuente: "SUPUESTO"
+
+robot_maxpro:
+  precio_usd:
+    valor: 67999
+    fuente: "CONTEXTO: ~67.999 USD, NO VERIFICADO. Referencia abierta: 65.999 USD sin accesorios (https://globaldronehq.com/products/agibot-d1-maxpro-quadruped-robot)"
+  importacion_frac:
+    valor: 0.12
+    fuente: "SUPUESTO"
+  kit_percepcion_usd:
+    valor: 3000
+    fuente: "SUPUESTO"
+  bateria_extra_usd:
+    valor: 3000
+    fuente: "SUPUESTO / NO VERIFICADO: la batería es de 2.081 Wh"
+  baterias_extra:
+    valor: 1
+    fuente: "SUPUESTO"
+  cargador_y_estuche_usd:
+    valor: 1500
+    fuente: "SUPUESTO: cargador o base de carga y rampa de vehículo"
+  autonomia_h:
+    valor: 4.5
+    fuente: "SUPUESTO: 5,5 +-0,5 h sin carga y 2 h con 50 kg (https://globaldronehq.com/products/agibot-d1-maxpro-quadruped-robot); el mástil pesa poco"
+  bateria_intercambiable:
+    valor: true
+    fuente: "NO VERIFICADO: una página de AgiBot guardada por el equipo dice 'quick battery swapping'"
+  ciclos_vida_bateria:
+    valor: 800
+    fuente: "SUPUESTO: batería industrial"
+  carga_h:
+    valor: 4.5
+    fuente: "FUENTE: ~4,5 h de 10 a 90 %, https://globaldronehq.com/products/agibot-d1-maxpro-quadruped-robot"
+  cambio_bateria_h:
+    valor: 0.15
+    fuente: "SUPUESTO"
+  ventana_h_dia:
+    valor: 12
+    fuente: "SUPUESTO: con IP67 (misma URL) puede salir con lluvia; dos turnos cortos"
+  dias_semana:
+    valor: 6
+    fuente: "SUPUESTO"
+  disponibilidad:
+    valor: 0.85
+    fuente: "SUPUESTO"
+  traslado_ruta_h_dia:
+    valor: 1.5
+    fuente: "SUPUESTO: servicio compartido entre fincas en camioneta"
+  vida_anos:
+    valor: 5
+    fuente: "SUPUESTO: equipo industrial"
+  mantenimiento_frac_ano:
+    valor: 0.08
+    fuente: "SUPUESTO"
+  seguro_frac_ano:
+    valor: 0.03
+    fuente: "SUPUESTO"
+  robots_por_operador:
+    valor: 2
+    fuente: "SUPUESTO: robot pesado; necesita operador y vehículo"
+  vehiculo_usd_mes:
+    valor: 800
+    fuente: "SUPUESTO"
+
+red_sensores:
+  nodo_humectacion_usd:
+    valor: 129
+    fuente: "FUENTE: Dragino LLMS01 LoRaWAN, 129 USD, https://www.773grp.com/products/llms01-us915-dragino.oembed"
+  nodo_temp_hr_usd:
+    valor: 60
+    fuente: "SUPUESTO"
+  instalacion_nodo_usd:
+    valor: 60
+    fuente: "SUPUESTO: poste, abrazaderas y mano de obra"
+  ha_por_nodo:
+    valor: 2.5
+    fuente: "SUPUESTO: un nodo por bloque de microclima"
+  nodos_min_finca:
+    valor: 2
+    fuente: "SUPUESTO"
+  gateway_usd:
+    valor: 400
+    fuente: "SUPUESTO: RAK7268V2 desde 154 USD (store.rakwireless.com, moneda USD; precio NO VERIFICADO, salió en la búsqueda) más panel solar y LTE"
+  estacion_referencia_usd:
+    valor: 1500
+    fuente: "SUPUESTO: lluvia, radiación y viento. Una iMETOS 3.3 completa cuesta 6.500 AUD en un catálogo australiano (NO VERIFICADO)"
+  fincas_pequenas_por_gateway:
+    valor: 4
+    fuente: "SUPUESTO: en un clúster de fincas pequeñas vecinas se comparten gateway y estación"
+  vida_anos:
+    valor: 4
+    fuente: "SUPUESTO"
+  mantenimiento_frac_ano:
+    valor: 0.10
+    fuente: "SUPUESTO: baterías de los nodos y recalibración"
+  sim_usd_mes_por_gateway:
+    valor: 10
+    fuente: "SUPUESTO"
+
+operacion_vendedor:
+  salario_tecnico_cop_mes:
+    valor: 3000000
+    fuente: "SUPUESTO: ~1,7 SMMLV 2026"
+  vehiculo_tecnico_usd_mes:
+    valor: 500
+    fuente: "SUPUESTO: moto o camioneta, combustible y peajes"
+  robots_por_tecnico_dedicado:
+    valor: 15
+    fuente: "SUPUESTO: el robot se queda en la finca y el operario cambia baterías; el técnico visita cada 1-2 semanas y supervisa a distancia"
+  robots_por_tecnico_ruta:
+    valor: 6
+    fuente: "SUPUESTO: el técnico mueve los robots entre fincas pequeñas"
+  fincas_por_tecnico_red:
+    valor: 60
+    fuente: "SUPUESTO: mantenimiento de sensores con visita trimestral y monitoreo remoto"
+  robots_por_tecnico_venta:
+    valor: 40
+    fuente: "SUPUESTO: soporte postventa cuando el robot es del productor"
+  salario_agronomo_cop_mes:
+    valor: 7000000
+    fuente: "SUPUESTO: agrónomo fitopatólogo que valida alertas a distancia y ajusta modelos por cultivo"
+  ha_por_agronomo:
+    valor: 1500
+    fuente: "SUPUESTO"
+  agronomo_min_fte:
+    valor: 0.25
+    fuente: "SUPUESTO: aun con pocos clientes hace falta un cuarto de tiempo"
+  nube_fija_usd_mes:
+    valor: 300
+    fuente: "SUPUESTO: plataforma, base de datos y entrenamiento de modelos"
+  nube_usd_ha_ano:
+    valor: 4
+    fuente: "SUPUESTO: imágenes guardadas e inferencia remota"
+  instalacion_finca_usd:
+    valor: 300
+    fuente: "SUPUESTO: dos días de técnico más viaje"
+  cac_finca_usd:
+    valor: 500
+    fuente: "SUPUESTO: costo de adquirir un cliente (demo y visita comercial). Se reduce si vende un canal (asociación o exportadora)"
+  cac_canal_finca_usd:
+    valor: 150
+    fuente: "SUPUESTO: CAC cuando vende un canal (asociación de productores, exportadora o casa de insumos) que cobra comisión. Se usa en la tabla de palancas"
+  instalacion_autoinstalable_usd:
+    valor: 100
+    fuente: "SUPUESTO: kit que instala el productor con video y llamada. Se usa en la tabla de palancas"
+  contrato_anos:
+    valor: 3
+    fuente: "SUPUESTO: plazo en que se amortizan la instalación y el CAC"
+  reserva_robots_frac:
+    valor: 0.10
+    fuente: "SUPUESTO: robots de repuesto en la flota"
+  reserva_desde_robots:
+    valor: 5
+    fuente: "SUPUESTO: con menos de 5 robots no hay repuesto"
+  overhead_fijo_usd_mes:
+    valor: 6000
+    fuente: "SUPUESTO: administración y legal (~2.200) más un ingeniero de ML/software (8 M COP x 1,52 / TRM ~ 3.800)"
+  margen_bruto_objetivo:
+    valor: 0.45
+    fuente: "SUPUESTO: margen bruto que pide un negocio de hardware como servicio para financiar la flota"
+
+segmentos:
+  tam_finca_pequena_ha:
+    valor: 5
+    fuente: "SUPUESTO: Peña et al. 2023 estudian una finca de 1 ha y 18 pequeñas en el altiplano; EVA 2025 da 907 ha en 65 municipios (~14 ha por municipio)"
+  tam_finca_mediana_ha:
+    valor: 30
+    fuente: "SUPUESTO"
+  tam_finca_grande_ha:
+    valor: 120
+    fuente: "SUPUESTO: exportadora o finca empresarial con equipo técnico propio"
+  mix_por_escala:
+    valor: "10:1.0/0.0/0.0,50:0.6/0.4/0.0,200:0.4/0.6/0.0,1000:0.3/0.5/0.2"
+    fuente: "SUPUESTO: fracción de las ha en fincas pequeñas/medianas/grandes. Con más escala el vendedor gana clientes más grandes. Entre escalas se usa el último valor definido"
+
+precios:
+  raas_dedicado_usd_ha_ano:
+    valor: 520
+    fuente: "PROPUESTA: red + robot + plataforma + agrónomo remoto, finca de 20 ha o más"
+  raas_ruta_usd_ha_ano:
+    valor: 620
+    fuente: "PROPUESTA: igual, en fincas pequeñas en clúster con robot en ruta"
+  saas_usd_ha_ano:
+    valor: 130
+    fuente: "PROPUESTA: plataforma, modelos de riesgo, alertas, registro y clasificador por celular. Referencias: METOS cobra 96 EUR/año por cultivo (https://shop.metos.at/products/disease-model-license-for-1-year); Davis Pro+ 8,95 USD/mes por equipo (https://www.davisinstruments.com/weatherlink/); Taranis 15-20 USD/acre por temporada en cultivos de alto valor (https://thespoon.tech/taranis-harvests-20m-for-aerial-imaging-tech-that-detects-crop-diseases)"
+  saas_minimo_finca_usd_ano:
+    valor: 450
+    fuente: "PROPUESTA: piso por finca"
+  margen_hardware_frac:
+    valor: 0.35
+    fuente: "SUPUESTO: margen sobre el costo del hardware vendido"
+  licencia_venta_usd_ha_ano:
+    valor: 90
+    fuente: "PROPUESTA: licencia de software cuando el productor compra el robot"
+  soporte_venta_frac_hw_ano:
+    valor: 0.22
+    fuente: "PROPUESTA: contrato de soporte, repuestos y baterías (unas 4 baterías/año por robot), como % del precio del hardware al año"
+  maxpro_compartido_usd_ha_ano:
+    valor: 620
+    fuente: "PROPUESTA: servicio compartido con D1 MaxPro, para comparar"
+
+mercado:
+  ha_arandano_colombia:
+    valor: 907
+    fuente: "FUENTE: EVA 2025, área sembrada, https://www.datos.gov.co/resource/uejq-wxrr.json"
+  ha_fresa_colombia:
+    valor: 3767
+    fuente: "FUENTE: EVA 2025, misma URL"
+  ha_uchuva_colombia:
+    valor: 1810
+    fuente: "FUENTE: EVA 2025, misma URL"
+  ha_mora_colombia:
+    valor: 15952
+    fuente: "FUENTE: EVA 2025, misma URL"
+  ha_aguacate_hass_colombia:
+    valor: 72444
+    fuente: "FUENTE: EVA 2025, misma URL (árbol alto: el mástil del D1 no alcanza la copa; solo red + SaaS)"
+  ha_arandano_peru:
+    valor: 30000
+    fuente: "FUENTE: 'cerca de 30,000' ha en 2025, https://agraria.pe/noticias/superficie-de-arandanos-en-peru-crecio-12-en-2025-paso-de-26-41486"
+  adopcion_frac:
+    valor: 0.05
+    fuente: "SUPUESTO: participación alcanzable en 3-5 años"

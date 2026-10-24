@@ -1,0 +1,174 @@
+# =============================================================================
+# PERFIL DE CULTIVO: ARÁNDANO (cultivo de referencia de la demo)
+# Esquema: perfil_cultivo/v0.1 (descrito en ../cultivos.md, sección 7)
+# Sabana Hack 2026, reto "Berry Good Idea". Rol: generalizacion-cultivos.
+#
+# Convención de "estado" de cada cifra:
+#   VERIFICADO    -> leída en una URL o archivo que se abrió (ver bloque fuentes)
+#   CALCULO       -> aritmética sobre cifras VERIFICADAS
+#   SUPUESTO      -> valor de diseño, a confirmar con el mentor/agrónomo o en piloto
+#   NO_VERIFICADO -> solo apareció en un resumen de búsqueda o en otra fuente secundaria
+# Nada de este perfil es una recomendación de producto fitosanitario: las acciones
+# las decide el agrónomo en el triage.
+# =============================================================================
+
+esquema: perfil_cultivo/v0.1
+id: arandano
+version: 0.1.0
+estado_perfil: borrador_demo        # borrador_demo | piloto | validado
+nombre_comun: Arándano
+especie: "Vaccinium corymbosum L. (alto) e híbridos"
+familia: Ericaceae
+hereda_de: null                     # perfil base; otros cultivos pueden heredar el motor
+cabeza_modelo_vision: arandano_v0   # cabeza del modelo base compartido (ver datos_aprendizaje.md)
+
+fuentes:
+  eva2025: {url: "https://www.datos.gov.co/resource/uejq-wxrr.json", nota: "EVA 2019-2025 MADR/UPRA; consulta SODA 2026-10-23; copia en ../fuentes_cultivos/"}
+  asocolblue_lr: {url: "https://www.agronegocios.co/agricultura/las-exportaciones-de-arandanos-superaron-us-1-millon-durante-el-primer-semestre-3446716", nota: "5.000-5.500 plantas/ha (Asocolblue); copia local raw/paramsim_agronegocios_arandano2"}
+  asocolblue_52sem: {url: "https://www.agronegocios.co/agricultura/el-arandano-crece-pero-lejos-de-su-potencial-exportador-4321623", nota: "producción 52 semanas al año; copia local raw/paramsim_agronegocios_arandano"}
+  inia_camellon: {url: "https://www.portalfruticola.com/?p=173671", nota: "camellones 1 m ancho x 50 cm alto (contexto Chile); copia local raw/paramsim_portalfruticola_inia_arandano"}
+  tesis_sopo: {url: "https://repositorio.ucundinamarca.edu.co/bitstreams/eeb77b9c-0db8-417c-b1ec-7f960ddb72f0/download", nota: "Ramírez 2021, Sopó: 0,7 m entre plantas y 1,2 m entre camas, invernadero"}
+  valbuena2025: {url: "https://revistas.uptc.edu.co/index.php/ciencias_horticolas/article/download/18515/15282/90885", nota: "trópico alto (Cund./Boyacá): roya y muerte descendente de brotes las más importantes; muestreo estratificado el mejor"}
+  royas2012: {url: "https://revistas.unal.edu.co/index.php/refame/article/download/36502/38427", nota: "Salazar y Buriticá 2012: primer registro de Thekopsora minima sobre Vaccinium en Colombia"}
+  pnw_roya: {url: "https://pnwhandbooks.org/plantdisease/host-disease/blueberry-vaccinium-corymbosum-rust", nota: "Thekopsora minima y Naohidemyces vaccinii; periodo latente 10 días a 68 °F"}
+  miles2013: {url: "https://doi.org/10.1111/ppa.12061", nota: "Miles et al. 2013, Plant Pathology 62:1238-1247 (referencia leída en la bibliografía de PMC11333449, copia local raw/paramsim_pmc11333449_fruitrot); coeficientes NO obtenidos: el módulo de riesgo del equipo NO lo implementa (artículo cerrado; ver datos/riesgo/README.md §2.1 d). Corregido por verificación técnica 2026-10-23"}
+  riesgo_equipo: {url: "datos/riesgo/README.md", nota: "§2.1: índice de antracnosis = máx(Wilson, Madden y Ellis 1990, fruto de fresa, C. acutatum; aproximación con Gillett y Schilder 2009 en fruto de arándano). Según ese README, el Blueberry Advisory System de UF/IFAS usa la ecuación de Wilson y Gama et al. 2021 la validaron en arándano en Florida (NO VERIFICADO por este rol)"}
+  flsas_ncsu: {url: "https://ipm.ces.ncsu.edu/development-of-anthacnose-and-botrytis-strawberry-fruit-infection-risk-models", nota: "ecuaciones FLSAS (imágenes leídas) y umbrales"}
+  magarey2005: {url: "https://www.suddenoakdeath.org/wp-content/uploads/pdf/PHYTO-95-0092%20Magarey%20nappfast.pdf", nota: "modelo genérico de infección (GIM), Tabla 2"}
+  drberry: {url: "https://universe.roboflow.com/drberry/drberry-original-data", nota: "CC BY 4.0; 410 imágenes; metadatos locales raw/drberry/_export_meta.json"}
+  plantvillage: {url: "https://github.com/spMohanty/PlantVillage-Dataset", nota: "CC BY-SA 3.0 según README_HF local; Blueberry___healthy 1.502 imágenes (conteo local)"}
+  plantdoc: {url: "https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset", nota: "CC BY 4.0 (LICENSE.txt local); 'Blueberry leaf' 823 cajas en train (conteo local)"}
+  d1_ultra: {url: "https://www.agibot.com/", nota: "datasheet local raw/agibot_docs/D1_Ultra_Datasheet_*.pdf: 630x360x420 mm, 16 kg, IP54, 1-2 h, 30° (máx 40°)"}
+
+mercado_colombia:                   # informativo, para priorizar la venta
+  area_sembrada_ha_2025: {valor: 906.72, estado: VERIFICADO, fuente: eva2025}
+  municipios_con_registro_2025: {valor: 65, estado: VERIFICADO, fuente: eva2025}
+  departamentos_principales: {valor: ["Boyacá 48 %", "Cundinamarca 46 %", "Antioquia 5 %"], estado: CALCULO, fuente: eva2025}
+  perfil_productor: {valor: "empresarial/exportador, invernadero o campo con fertirriego", estado: SUPUESTO}
+
+geometria:
+  sistema: hileras_arbusto_en_camellon   # enum: camas_bajas | hileras_arbusto_en_camellon | espaldera | parral | arboles | mesas_sustrato
+  unidad_de_inspeccion: cama              # la "cama" del reto = camellón con una hilera de arbustos
+  variantes: [campo_abierto, macrotunel, invernadero, maceta_sustrato]
+  ancho_camellon_m: {valor: 1.0, estado: VERIFICADO, fuente: inia_camellon, nota: "referencia Chile"}
+  altura_camellon_m: {valor: 0.5, estado: VERIFICADO, fuente: inia_camellon, nota: "la simulación del equipo usa 0,3 m"}
+  distancia_entre_plantas_m: {valor: 0.7, estado: VERIFICADO, fuente: tesis_sopo}
+  distancia_entre_camas_m: {valor: 1.2, estado: VERIFICADO, fuente: tesis_sopo, nota: "invernadero en Sopó; caso estrecho"}
+  densidad_plantas_ha: {min: 5000, max: 5500, estado: VERIFICADO, fuente: asocolblue_lr}
+  distancia_entre_hileras_implicita_m: {min: 2.6, max: 2.9, estado: CALCULO, nota: "10.000 / (densidad x 0,7 m)"}
+  ancho_pasillo_libre_m: {min: 0.5, max: 2.0, estado: SUPUESTO, nota: "depende del cierre del dosel; la simulación usa 2,0"}
+  altura_dosel_m: {min: 1.0, max: 2.0, estado: SUPUESTO}
+  pendiente_tipica_grados: {max: 10, estado: SUPUESTO}
+  identificacion_cama: "marcador ArUco/QR en cabecera de cada cama"
+
+fenologia:
+  escala: "0-9 adaptada (no hay clave BBCH oficial de arándano en la monografía BBCH 2001; la tesis de Sopó usa una escala 0-9)"
+  modo: continuo_por_lote          # estacional | continuo_por_lote | ciclos_por_poda
+  disparador: fecha_poda           # el reloj fenológico de cada lote arranca con la poda
+  nota_tropico: "Asocolblue reporta producción las 52 semanas del año (fuente asocolblue_52sem): no hay calendario único; cada lote lleva su propio estado."
+  etapas:
+    - {codigo: 0, nombre: "yema / brotación", organos_susceptibles: [brote]}
+    - {codigo: 3, nombre: "crecimiento de brotes", organos_susceptibles: [brote, hoja]}
+    - {codigo: 5, nombre: "emergencia de inflorescencia", organos_susceptibles: [flor]}
+    - {codigo: 6, nombre: "floración", organos_susceptibles: [flor]}
+    - {codigo: 7, nombre: "fruto en desarrollo (verde)", organos_susceptibles: [fruto, hoja]}
+    - {codigo: 8, nombre: "maduración / cosecha", organos_susceptibles: [fruto, hoja]}
+    - {codigo: 9, nombre: "postcosecha / reposo", organos_susceptibles: [hoja]}
+
+sensores_ambientales:
+  requeridos: [temperatura_aire_C, humedad_relativa_pct, humectacion_foliar_min, lluvia_mm]
+  opcionales: [radiacion_W_m2, viento_m_s, humedad_suelo_pct]
+  ubicacion: "dentro del dosel, a altura de flores y frutos (0,5-1,2 m)"
+  intervalo_registro_min: 15
+  evento_humectacion:
+    inicio: "lluvia, rocío o aspersión (sensor de humectación > umbral)"
+    fin_tras_horas_secas: 4          # misma regla que FLSAS / UC IPM
+    sustituto_si_no_hay_sensor: "HR >= 95 % cuenta como hora húmeda (regla UC IPM para Broome); calibrar localmente"
+  respaldo_sin_estacion: "reanálisis/pronóstico (ver escalabilidad/clima_global) solo para riesgo por zona, no por cama"
+
+modelos_riesgo:
+  - id: antracnosis_wilson1990_arandano   # antes 'antracnosis_miles2013': el modelo implementado NO es Miles 2013 (verificación técnica 2026-10-23)
+    enfermedad: antracnosis
+    agente: "Colletotrichum spp. (C. acutatum / C. fioriniae)"
+    motor: referencia_externa        # implementado en datos/riesgo/risk.py (envolvente Wilson 1990 + Gillett y Schilder 2009)
+    referencia: riesgo_equipo
+    estado_coeficientes: "Wilson 1990 PUBLICADO (NCSU); la parte de arándano es APROXIMACION del equipo"
+    estado_local: no_calibrado
+    respaldo_generico:               # si el módulo externo no está disponible
+      motor: gim_magarey2005
+      parametros: {Tmin: 7, Topt: 27.5, Tmax: 35, Wmin: 6, Wmax: 36}
+      fuente: magarey2005
+      nota: "parámetros de C. acutatum en FRUTO DE FRESA (Tabla 2); proxy, NO validado en arándano"
+  - id: botrytis_bulger1987_adaptado
+    enfermedad: moho_gris
+    agente: "Botrytis cinerea"
+    motor: logit_polinomico
+    entradas: {W: horas_humectacion_evento, T: temp_media_humectacion_C}
+    terminos:                        # f = sum(coef * W^w * T^t)
+      - {coef: -4.268, w: 0, t: 0}
+      - {coef: -0.0901, w: 1, t: 0}
+      - {coef: 0.0294, w: 1, t: 1}
+      - {coef: -2.35e-5, w: 1, t: 3}
+    salida: probabilidad_logistica
+    umbrales: {moderado: 0.50, alto: 0.70}
+    fuente: flsas_ncsu
+    origen: {cultivo: "fresa (flores)", region: "Ohio/Florida, EE.UU."}
+    estado_local: no_validado_en_arandano
+    organos_activos: [flor, fruto]
+  - id: roya_regla
+    enfermedad: roya
+    agente: "Thekopsora minima (registrada en Colombia) / Naohidemyces vaccinii"
+    motor: regla_umbral
+    condiciones:                     # TODOS los valores son SUPUESTO hasta calibrar con el agrónomo
+      todas:
+        - {variable: horas_humectacion_dia, operador: ">=", valor: 6}
+        - {variable: temp_media_humectacion_C, operador: entre, valor: [15, 25]}
+    persistencia_dias: 2
+    estado_parametros: SUPUESTO
+    contexto: "periodo latente ~10 días a 20 °C (pnw_roya): la alerta ambiental precede ~10 días a la pústula visible"
+    prioridad_local: alta            # valbuena2025: roya es de las más importantes en trópico alto
+
+clases_visuales:
+  cabeza_modelo: arandano_v0
+  clases:
+    - {id: sana, organo: hoja, etiquetas: {drberry: Sana, plantvillage: Blueberry___healthy, plantdoc: "Blueberry leaf"}}
+    - {id: oidio_hoja, enfermedad: oidio, organo: hoja, etiquetas: {drberry: Oidio}}
+    - {id: alternaria_hoja, enfermedad: alternaria, organo: hoja, etiquetas: {drberry: Alternaria}}
+    - {id: dano_heliothis, enfermedad: plaga_heliothis, organo: [hoja, fruto], etiquetas: {drberry: Heliothis}}
+    - {id: roya_hoja, enfermedad: roya, organo: hoja, etiquetas: {}, nota: "sin dataset público en este perfil; iNaturalist solo para pruebas fuera de distribución"}
+    - {id: moho_gris_flor_fruto, enfermedad: moho_gris, organo: [flor, fruto], etiquetas: {}, nota: "transferir desde fresa (afzaal2021: gray_mold) y validar"}
+    - {id: desconocido, organo: cualquiera, nota: "fuera de distribución o confianza baja -> revisión del agrónomo"}
+  datasets:
+    - {id: drberry, imagenes: 410, anotaciones: {Alternaria: 289, Heliothis: 204, Oidio: 162, Sana: 82}, licencia: "CC BY 4.0", dominio: "campo, Perú, celular, 1 día", estado: VERIFICADO}
+    - {id: plantvillage, imagenes: 1502, clases_utiles: [Blueberry___healthy], licencia: "CC BY-SA 3.0", dominio: laboratorio, estado: VERIFICADO}
+    - {id: plantdoc, cajas: 823, clases_utiles: ["Blueberry leaf"], licencia: "CC BY 4.0", dominio: "internet", estado: VERIFICADO}
+  umbral_confianza_alerta: {valor: 0.6, estado: SUPUESTO}
+  politica_desconocido: "si la confianza < umbral o la clase es 'desconocido', la alerta va al agrónomo como 'revisar', nunca directo al operario"
+
+captura:
+  plataforma: cuadrupedo_d1_ultra
+  idoneidad_cuadrupedo: alta
+  dimensiones_robot_mm: {largo: 630, ancho: 360, alto: 420, estado: VERIFICADO, fuente: d1_ultra}
+  holgura_lateral_min_m: {valor: 0.10, estado: SUPUESTO, nota: "pasillo libre >= 0,56 m"}
+  camaras:
+    - {id: baja_lateral, altura_m: 0.35, orientacion: "lateral, -15°", objetivo: [hoja_baja, fruto_bajo], estado: SUPUESTO}
+    - {id: mastil_lateral, altura_m: 1.2, orientacion: "lateral, 0°", objetivo: [flor, fruto, hoja_media], estado: SUPUESTO}
+    - {id: mastil_envés, altura_m: 0.8, orientacion: "lateral, +30° (hacia arriba)", objetivo: [envés_hoja], nota: "roya y oídio esporulan en el envés", estado: SUPUESTO}
+  lados_por_pasada: 2                # cámaras a ambos lados: una pasada inspecciona dos medias camas
+  velocidad_inspeccion_m_s: {valor: 0.5, estado: SUPUESTO, nota: "valor de la simulación del equipo"}
+  condicion_de_paso: "hoja seca y antes del aspersor"
+  muestreo:
+    tipo: estratificado              # valbuena2025: el estratificado tuvo el menor CV
+    prioridad: "camas con mayor riesgo ambiental primero"
+
+alertas:
+  combinacion:                       # riesgo ambiental x hallazgo visual -> prioridad
+    - {riesgo: alto,  vision: positivo, prioridad: P1, destino: agronomo, plazo_h: 4}
+    - {riesgo: bajo,  vision: positivo, prioridad: P2, destino: agronomo, plazo_h: 24}
+    - {riesgo: alto,  vision: negativo, prioridad: P3, destino: agronomo, accion: "reinspección dirigida en 48 h"}
+    - {riesgo: bajo,  vision: negativo, prioridad: none}
+  estado_parametros: SUPUESTO
+  triage: [agronomo_confirma, operario_ejecuta, registro_cierra]
+
+registro_incidencia:                 # común a todos los cultivos; no cambiar por cultivo
+  campos: [finca, lote, cama, posicion_m, lado, organo, clase, confianza, foto_id, riesgo_modelo, nivel_riesgo, estado_triage, accion, responsable, fecha_hora]

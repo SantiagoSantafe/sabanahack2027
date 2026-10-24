@@ -1,0 +1,6 @@
+modelo,robots_por_tecnico,ha_por_tecnico,usd_tecnico_anio,usd_por_ha_anio
+F robot fijo,16.9,280,20054,72
+F robot fijo,11.9,198,20054,101
+I1 cuadrilla operada por tecnico (2 robots),2,23.7,20054,846
+I1 cuadrilla operada por tecnico (2 robots),2,26.1,20054,768
+"I2 rotacion 3 dias/finca, opera el operario",4.6,73,20054,276

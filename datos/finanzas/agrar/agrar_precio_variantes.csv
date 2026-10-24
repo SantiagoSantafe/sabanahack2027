@@ -1,0 +1,10 @@
+escenario,fob_import_usd,factor_importacion,costo_agrar_cop,precio_cop_sin_iva,precio_cop_con_iva,margen_bruto,cabe_90_110M
+"Base (Ultra 7.499, IVA recuperable, TRM 3.185)",8838.0,1.14,60242136,100403561,119480237,0.4,SÍ
+Ultra a precio tienda 9.600,10939.0,1.124,67693518,112822531,134258812,0.4,NO (sobre 110 M)
+IVA como costo,8838.0,1.14,66756117,111260195,132399632,0.4,NO (sobre 110 M)
+TRM 3.900 (máx. 12 m),8838.0,1.14,67812124,113020207,134494047,0.4,NO (sobre 110 M)
+Horas +25 %,8838.0,1.14,65002136,108336894,128920904,0.4,SÍ
+ADVERSO: 9.600 + IVA costo + TRM 3.900 + horas +25 %,10939.0,1.124,91185719,151976198,180851675,0.4,NO (sobre 110 M)
+D1 EDU (5.999),7338.0,1.156,54922254,91537090,108929137,0.4,SÍ
+"D1 EDU, escenario ADVERSO (6.080)",7419.0,1.155,73129328,121882214,145039835,0.4,NO (sobre 110 M)
+2 robots D1 Ultra (finca exigente),17676.0,1.111,102377727,170629546,203049159,0.4,NO (sobre 110 M)

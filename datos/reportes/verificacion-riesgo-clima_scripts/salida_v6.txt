@@ -1,0 +1,44 @@
+== Dias en alto (antracnosis, botrytis, roya) y botrytis>=0.50; criterio HR o lluvia>=0.5
+90 sotaquira -1 ({'antracnosis': 1, 'botrytis': 13, 'roya': 0}, 19)
+90 sotaquira 0 ({'antracnosis': 3, 'botrytis': 18, 'roya': 4}, 24)
+90 sotaquira 1 ({'antracnosis': 9, 'botrytis': 20, 'roya': 12}, 36)
+90 tausa -1 ({'antracnosis': 0, 'botrytis': 10, 'roya': 0}, 18)
+90 tausa 0 ({'antracnosis': 3, 'botrytis': 17, 'roya': 0}, 23)
+90 tausa 1 ({'antracnosis': 4, 'botrytis': 19, 'roya': 2}, 28)
+90 guasca -1 ({'antracnosis': 3, 'botrytis': 8, 'roya': 3}, 12)
+90 guasca 0 ({'antracnosis': 4, 'botrytis': 10, 'roya': 6}, 15)
+90 guasca 1 ({'antracnosis': 6, 'botrytis': 12, 'roya': 11}, 20)
+90 chia -1 ({'antracnosis': 3, 'botrytis': 14, 'roya': 2}, 19)
+90 chia 0 ({'antracnosis': 6, 'botrytis': 16, 'roya': 6}, 27)
+90 chia 1 ({'antracnosis': 8, 'botrytis': 19, 'roya': 13}, 38)
+85 sotaquira -1 ({'antracnosis': 7, 'botrytis': 36, 'roya': 5}, 47)
+85 sotaquira 0 ({'antracnosis': 14, 'botrytis': 45, 'roya': 14}, 52)
+85 sotaquira 1 ({'antracnosis': 25, 'botrytis': 48, 'roya': 32}, 68)
+85 tausa -1 ({'antracnosis': 5, 'botrytis': 22, 'roya': 0}, 33)
+85 tausa 0 ({'antracnosis': 7, 'botrytis': 31, 'roya': 4}, 46)
+85 tausa 1 ({'antracnosis': 14, 'botrytis': 44, 'roya': 8}, 53)
+85 guasca -1 ({'antracnosis': 7, 'botrytis': 20, 'roya': 3}, 23)
+85 guasca 0 ({'antracnosis': 12, 'botrytis': 22, 'roya': 16}, 27)
+85 guasca 1 ({'antracnosis': 14, 'botrytis': 22, 'roya': 21}, 31)
+85 chia -1 ({'antracnosis': 8, 'botrytis': 29, 'roya': 4}, 39)
+85 chia 0 ({'antracnosis': 12, 'botrytis': 35, 'roya': 14}, 46)
+85 chia 1 ({'antracnosis': 20, 'botrytis': 38, 'roya': 29}, 56)
+== Estacionalidad HR90 (suma 4 puntos, dias-enfermedad en alto por mes)
+-1 [1, 7, 8, 12, 10, 7, 0, 4, 0, 8, 0, 0] 57 feb-may 65% pico [(4, 12)]
+0 [2, 14, 13, 20, 15, 8, 2, 8, 0, 11, 0, 0] 93 feb-may 67% pico [(4, 20)]
+1 [4, 19, 19, 29, 20, 10, 3, 14, 0, 17, 0, 0] 135 feb-may 64% pico [(4, 29)]
+== Regla de roya del equipo (19-25 C con mojadura prolongada) y QC/hora de la Tmin
+sotaquira n 8760 dup 0 h mojadas 5063 T>=15 201 T>=19 31 periodos>=12h 288 max Tmedia 12.5 Tmin moda [6] mediana 5.0
+tausa n 8760 dup 0 h mojadas 4575 T>=15 48 T>=19 0 periodos>=12h 246 max Tmedia 10.7 Tmin moda [6] mediana 5.0
+guasca n 8760 dup 0 h mojadas 3370 T>=15 181 T>=19 35 periodos>=12h 100 max Tmedia 13.7 Tmin moda [6] mediana 5.0
+chia n 8760 dup 0 h mojadas 4539 T>=15 259 T>=19 5 periodos>=12h 200 max Tmedia 13.0 Tmin moda [6] mediana 5.0
+== IDEAM crudo: hora del minimo/maximo del ciclo medio de T (UTC si min ~10-11 h)
+2120500135 UNIVERSIDAD DE LA SABANA hora_min 11 hora_max 18
+2401500040 CUCUNUBA hora_min 11 hora_max 19
+2403500041 DUITAMA hora_min 10 hora_max 18
+0021205700 GUASCA hora_min 11 hora_max 19
+0024035430 TUNGUAVITA hora_min 10 hora_max 18
+0021205518 SALITRE hora_min 5 hora_max 13
+== Puntos de referencia NCSU
+Wilson 26.6C [0.151, 0.499, 0.9] 0C 20.9h 0.061
+Bulger 20.5C [0.503, 0.7, 0.899]

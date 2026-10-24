@@ -1,0 +1,327 @@
+# Generado por pipeline/export_detector_yaml.py. No editar a mano.
+version_formato: 1
+generado: '2026-10-23T18:25:07-05:00'
+descripcion: Detector visual de hojas (clasificador). Matriz = P(decision | verdad), filas suman 1.
+modelo: Sonda lineal CLIP ViT-B-32 (laion2b_s34b_b79k) con teselas 3x3, CV5 agrupada; modo imagen completa
+clases: [alternaria, heliothis, oidio, sana]
+clase_sana: sana
+regla_decision: umbral
+umbral_sospecha: 0.7373
+puntaje: 1 - p(sana)
+objetivo_sensibilidad: 0.9
+matriz_confusion_normalizada:
+  filas_verdad: [alternaria, heliothis, oidio, sana]
+  columnas_decision: [alternaria, heliothis, oidio, sana]
+  valores:
+  - [0.2857, 0.0, 0.0, 0.7143]
+  - [0.0, 0.8889, 0.1111, 0.0]
+  - [0.0, 0.2273, 0.7273, 0.0455]
+  - [0.2857, 0.0, 0.0714, 0.6429]
+matriz_confusion_conteos:
+- [4, 0, 0, 10]
+- [0, 16, 2, 0]
+- [0, 5, 16, 1]
+- [4, 0, 1, 9]
+recall_por_clase:
+  alternaria:
+    valor: 0.2857
+    ic95_bootstrap: [0.0, 1.0]
+    ic95_clopper_pearson: [0.0839, 0.581]
+    n: 14
+  heliothis:
+    valor: 0.8889
+    ic95_bootstrap: [0.6176, 1.0]
+    ic95_clopper_pearson: [0.6529, 0.9862]
+    n: 18
+  oidio:
+    valor: 0.7273
+    ic95_bootstrap: [0.2998, 1.0]
+    ic95_clopper_pearson: [0.4978, 0.8927]
+    n: 22
+  sana:
+    valor: 0.6429
+    ic95_bootstrap: [0.2632, 1.0]
+    ic95_clopper_pearson: [0.3514, 0.8724]
+    n: 14
+binario_enfermo_vs_sano:
+  sensibilidad: 0.7963
+  sensibilidad_ic95_bootstrap: [0.5739, 0.9783]
+  sensibilidad_ic95_clopper_pearson: [0.6647, 0.8937]
+  especificidad: 0.6429
+  tasa_fp: 0.3571
+  tasa_fp_ic95_bootstrap: [0.0, 0.7368]
+  tasa_fp_ic95_clopper_pearson: [0.1276, 0.6486]
+  tasa_falsa_alarma_fdr: 0.1042
+  tp: 43
+  fp: 5
+  fn: 11
+  tn: 9
+exactitud: 0.6618
+macro_f1: 0.6235
+evaluado_en: {conjunto: test, n: 68, n_grupos: 21, predicciones_sha256: 5a473fae86d36ed1a664e494369f73306da9889ba8a7f29aebc1a570879e8c6e,
+  unidad_bootstrap: group, n_boot: 1000}
+origen_datos:
+  dataset: DrBerry drberry-original-data v1 (imagen completa, clase dominante)
+  url: https://universe.roboflow.com/drberry/drberry-original-data/dataset/1
+  licencia: CC BY 4.0
+  notas: Una finca (Fundo San Roberto, Perú), un día (2022-09-19); split agrupado por ráfagas (139 grupos); ver resultados/ficha_drberry.md
+  split_semilla: 20261023
+  items_por_split: {train: 278, val: 64, test: 68}
+  grupos_por_split: {train: 93, val: 25, test: 21}
+  test_congelado_sha256: 3ffbaca8575950abd634def2513831fb495ad0b6c566d49c709fe9d43d768744
+  test_congelado_sha256_contenido: 818562c36ff8eb39bb39aafd3b17e2991e99f70e62093fe7b6acbf95e5cf3cbe
+  fuga_grupos_entre_splits: 0
+advertencias: ['Test con 68 imágenes de 21 grupos (14 sanas de ~5 grupos): IC anchos', Sin medición real pantalla->cámara
+    del D1; estrés sintético en resultados/ml/stress, 'Fuera de DrBerry (hojas sanas de campo iNaturalist) la tasa de falsas
+    alarmas sube mucho: ver fuera_de_dominio', 'Alternaria es el punto débil a imagen completa: ver deteccion_por_enfermedad_test',
+  'Hay un candidato post-hoc (sonda de recortes aplicada a imagen) con mejores cifras: ver candidato_post_hoc_sonda_recortes_en_imagen',
+  'Clase con solo 14 ejemplos en test: usar los IC, no solo el valor puntual']
+umbral_elegido_en: {conjunto: 'OOF validación cruzada agrupada 5 pliegues sobre train+val (342 imágenes, 118 grupos)', n: 342,
+  n_enfermos: 296, n_sanos: 46, sha256: 5307e84e6ca5b1ff28524d401af9821fe894bd2669de87a5d443472884326d44}
+latencia_ms: {p50: 59.23, p95: 62.44, media: 58.55, max: 63.56}
+fuentes_locales: {metrics: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/eval_clip_cv_tiles3_test/metrics.json,
+  metrics_sha256: e74ab81f8e4a8ee6e3d7d2e4cec48d9a98ff8327aa89e530c034f0b0ec51e7e9}
+seleccion_modelo: {unidad: imagen completa (lo que el D1 ve en la pantalla), protocolo: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/protocolo_seleccion.json,
+  familia_elegida_en_val: 'sonda lineal CLIP ViT-B-32 (FPR val 0/10 con teselas) frente a YOLO11n-cls 224/448/640 (FPR val
+    6/10, 2/10, 2/10)', variante_elegida_en_oof: teselas 3x3 (FPR OOF 15/46 = 0.326 con sens OOF 0.902; empata con 2x2 y gana
+    por macro-F1 OOF), umbral_elegido_en: 'predicciones OOF de validación cruzada agrupada 5 pliegues sobre train+val (342
+    imágenes, 118 grupos)', declaracion: el cambio de val a CV se decidió después de ver que el umbral de val no sostuvo la
+    sensibilidad en test}
+deteccion_por_enfermedad_test:
+  alternaria:
+    detectadas_como_sospecha: 4/14
+    valor: 0.2857
+    ic95_clopper_pearson: [0.0839, 0.581]
+    n_grupos: 5
+  heliothis:
+    detectadas_como_sospecha: 18/18
+    valor: 1.0
+    ic95_clopper_pearson: [0.8147, 1.0]
+    n_grupos: 6
+  oidio:
+    detectadas_como_sospecha: 21/22
+    valor: 0.9545
+    ic95_clopper_pearson: [0.7716, 0.9988]
+    n_grupos: 8
+  nota: sospecha = 1 - p(sana) >= umbral, sin importar si el diagnóstico es correcto
+puntos_operacion_test:
+  global_sens90_oof [ELEGIDO]:
+    umbral: 0.7373
+    sensibilidad: 0.7963
+    tp_de: 43/54
+    sensibilidad_ic95_clopper_pearson: [0.6647, 0.8937]
+    sensibilidad_ic95_bootstrap_grupos: [0.5739, 0.9783]
+    tasa_fp: 0.3571
+    fp_de: 5/14
+    tasa_fp_ic95_clopper_pearson: [0.1276, 0.6486]
+    exactitud: 0.6618
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/eval_clip_cv_tiles3_test/metrics.json
+  por_clase_sens90_oof [alta sensibilidad]:
+    umbral: 0.4148
+    sensibilidad: 0.8889
+    tp_de: 48/54
+    sensibilidad_ic95_clopper_pearson: [0.7737, 0.9581]
+    sensibilidad_ic95_bootstrap_grupos: [0.7631, 1.0]
+    tasa_fp: 0.5
+    fp_de: 7/14
+    tasa_fp_ic95_clopper_pearson: [0.2304, 0.7696]
+    exactitud: 0.6471
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/eval_clip_cv_tiles3_porclase_test/metrics.json
+comparaciones_test:
+  cota_superior_recortes_localizacion_perfecta (sonda CLIP en recortes de caja):
+    umbral: 0.8007
+    sensibilidad: 1.0
+    tp_de: 87/87
+    sensibilidad_ic95_clopper_pearson: [0.9585, 1.0]
+    sensibilidad_ic95_bootstrap_grupos: [1.0, 1.0]
+    tasa_fp: 0.0
+    fp_de: 0/14
+    tasa_fp_ic95_clopper_pearson: [0.0, 0.2316]
+    exactitud: 0.9604
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_crops/eval_clip_probe_test/metrics.json
+  yolo11n_cls_224_imagen (alternativa más robusta en el estrés sintético):
+    umbral: 0.8338
+    sensibilidad: 0.9074
+    tp_de: 49/54
+    sensibilidad_ic95_clopper_pearson: [0.797, 0.9692]
+    sensibilidad_ic95_bootstrap_grupos: [0.7755, 1.0]
+    tasa_fp: 0.5714
+    fp_de: 8/14
+    tasa_fp_ic95_clopper_pearson: [0.2886, 0.8234]
+    exactitud: 0.7206
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/eval_yolo224_test/metrics.json
+  split_original_con_fuga_imagen (sonda CLIP, NO usar):
+    umbral: 0.8017
+    sensibilidad: 0.9189
+    tp_de: 34/37
+    sensibilidad_ic95_clopper_pearson: [0.7809, 0.983]
+    sensibilidad_ic95_bootstrap_grupos: [0.8158, 1.0]
+    tasa_fp: 0.1667
+    fp_de: 1/6
+    tasa_fp_ic95_clopper_pearson: [0.0042, 0.6412]
+    exactitud: 0.907
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/eval_clip_probe_split_original_test/metrics.json
+candidato_post_hoc_sonda_recortes_en_imagen:
+  descripcion: 'Sonda CLIP entrenada con RECORTES de caja (train) y aplicada a la imagen completa; umbral fijado en val de
+    imagen. Se evaluó DESPUÉS de elegir el modelo final, así que sus cifras de test no son una estimación sin sesgo: confirmar
+    con datos nuevos.'
+  test:
+    umbral: 0.2918
+    sensibilidad: 0.9074
+    tp_de: 49/54
+    sensibilidad_ic95_clopper_pearson: [0.797, 0.9692]
+    sensibilidad_ic95_bootstrap_grupos: [0.8064, 1.0]
+    tasa_fp: 0.1429
+    fp_de: 2/14
+    tasa_fp_ic95_clopper_pearson: [0.0178, 0.4281]
+    exactitud: 0.7059
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/eval_cruzado_crops_probe_test/metrics.json
+  deteccion_por_enfermedad_test:
+    alternaria:
+      detectadas_como_sospecha: 9/14
+      valor: 0.6429
+      ic95_clopper_pearson: [0.3514, 0.8724]
+      n_grupos: 5
+    heliothis:
+      detectadas_como_sospecha: 18/18
+      valor: 1.0
+      ic95_clopper_pearson: [0.8147, 1.0]
+      n_grupos: 6
+    oidio:
+      detectadas_como_sospecha: 22/22
+      valor: 1.0
+      ic95_clopper_pearson: [0.8456, 1.0]
+      n_grupos: 8
+  fuera_de_dominio:
+    campo_sana:
+      metrica: tasa_falsas_alarmas
+      valor: 0.2167
+      k_de_n: 13/60
+      ic95_clopper_pearson: [0.1207, 0.342]
+      descripcion: Hoja de Vaccinium sana en campo (iNaturalist/Commons; zona templada)
+    pdc_arandano_verde:
+      metrica: tasa_falsas_alarmas
+      valor: 0.4812
+      k_de_n: 217/451
+      ic95_clopper_pearson: [0.4342, 0.5284]
+      descripcion: E2 recortes PlantDoc de hoja de arándano verde sin síntomas (web)
+    pv_arandano_sano:
+      metrica: tasa_falsas_alarmas
+      valor: 0.1851
+      k_de_n: 278/1502
+      ic95_clopper_pearson: [0.1657, 0.2057]
+      descripcion: E1 PlantVillage arándano sano (laboratorio, fondo uniforme; 160 hojas)
+    campo_oidio:
+      metrica: sensibilidad_sospecha
+      valor: 0.8596
+      k_de_n: 49/57
+      ic95_clopper_pearson: [0.7421, 0.9374]
+      descripcion: Oídio (Erysiphe vaccinii) en Vaccinium, campo, grado research
+    campo_roya:
+      metrica: sensibilidad_sospecha
+      valor: 1.0
+      k_de_n: 60/60
+      ic95_clopper_pearson: [0.9404, 1.0]
+      descripcion: 'Roya (Naohidemyces/Thekopsora) en Vaccinium: enfermedad NO entrenada'
+    campo_oruga:
+      metrica: sensibilidad_sospecha
+      valor: 0.9804
+      k_de_n: 50/51
+      ic95_clopper_pearson: [0.8955, 0.9995]
+      descripcion: 'PROXY: orugas (no Heliothinae) sobre Vaccinium'
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/ood/eval/cruzado_crops_probe_umbral_imagen/ood_metrics.json
+  estres_combinado:
+    umbral: 0.2918
+    sensibilidad: 0.7407
+    tp_de: 40/54
+    sensibilidad_ic95_clopper_pearson: [0.6035, 0.8504]
+    sensibilidad_ic95_bootstrap_grupos: [0.5466, 0.9018]
+    tasa_fp: 0.2143
+    fp_de: 3/14
+    tasa_fp_ic95_clopper_pearson: [0.0466, 0.508]
+    exactitud: 0.5882
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/stress/eval/cruzado_crops_probe/combinada/metrics.json
+  pesos: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/modelo_final/alternativa_sonda_recortes_en_imagen
+fuera_de_dominio:
+  campo_sana:
+    metrica: tasa_falsas_alarmas
+    valor: 0.7333
+    k_de_n: 44/60
+    ic95_clopper_pearson: [0.6034, 0.8393]
+    descripcion: Hoja de Vaccinium sana en campo (iNaturalist/Commons; zona templada)
+  pdc_arandano_verde:
+    metrica: tasa_falsas_alarmas
+    valor: 0.4479
+    k_de_n: 202/451
+    ic95_clopper_pearson: [0.4014, 0.4951]
+    descripcion: E2 recortes PlantDoc de hoja de arándano verde sin síntomas (web)
+  pdc_arandano_rojizo:
+    metrica: tasa_falsas_alarmas
+    valor: 0.8438
+    k_de_n: 162/192
+    ic95_clopper_pearson: [0.7845, 0.892]
+    descripcion: E3 recortes PlantDoc de hoja de arándano rojiza/otoñal (no enfermedad)
+  pv_arandano_sano:
+    metrica: tasa_falsas_alarmas
+    valor: 0.0459
+    k_de_n: 69/1502
+    ic95_clopper_pearson: [0.0359, 0.0578]
+    descripcion: E1 PlantVillage arándano sano (laboratorio, fondo uniforme; 160 hojas)
+  campo_oidio:
+    metrica: sensibilidad_sospecha
+    valor: 0.9298
+    k_de_n: 53/57
+    ic95_clopper_pearson: [0.83, 0.9805]
+    descripcion: Oídio (Erysiphe vaccinii) en Vaccinium, campo, grado research
+  campo_roya:
+    metrica: sensibilidad_sospecha
+    valor: 1.0
+    k_de_n: 60/60
+    ic95_clopper_pearson: [0.9404, 1.0]
+    descripcion: 'Roya (Naohidemyces/Thekopsora) en Vaccinium: enfermedad NO entrenada'
+  campo_oruga:
+    metrica: sensibilidad_sospecha
+    valor: 1.0
+    k_de_n: 51/51
+    ic95_clopper_pearson: [0.9302, 1.0]
+    descripcion: 'PROXY: orugas (no Heliothinae) sobre Vaccinium'
+  pd_otra_especie_sana:
+    metrica: tasa_falsas_alarmas
+    valor: 0.6221
+    k_de_n: 451/725
+    ic95_clopper_pearson: [0.5856, 0.6575]
+    descripcion: 'E7 PlantDoc: hoja sana de OTRA especie (no es arándano)'
+  fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/ood/eval/image_clip_cv_tiles3/ood_metrics.json
+estres_pantalla_camara_sintetico:
+  original:
+    umbral: 0.7373
+    sensibilidad: 0.7963
+    tp_de: 43/54
+    sensibilidad_ic95_clopper_pearson: [0.6647, 0.8937]
+    sensibilidad_ic95_bootstrap_grupos: [0.5669, 0.9652]
+    tasa_fp: 0.2143
+    fp_de: 3/14
+    tasa_fp_ic95_clopper_pearson: [0.0466, 0.508]
+    exactitud: 0.6912
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/stress/eval/image_clip_cv_tiles3/original/metrics.json
+  combinada:
+    umbral: 0.7373
+    sensibilidad: 0.6481
+    tp_de: 35/54
+    sensibilidad_ic95_clopper_pearson: [0.5062, 0.7732]
+    sensibilidad_ic95_bootstrap_grupos: [0.4112, 0.8448]
+    tasa_fp: 0.6429
+    fp_de: 9/14
+    tasa_fp_ic95_clopper_pearson: [0.3514, 0.8724]
+    exactitud: 0.4265
+    fuente: /Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/stress/eval/image_clip_cv_tiles3/combinada/metrics.json
+recomendacion_para_simulacion:
+  sensibilidad_clasificador:
+    valor: 0.7963
+    ic95_clopper_pearson: [0.6647, 0.8937]
+    escenario_pesimista_estres_combinado: 0.6481
+    etiqueta: MEDIDO (DrBerry test congelado, imagen completa)
+  por_clase_deteccion: {oidio: 0.9545, alternaria: 0.2857, heliothis: 1.0}
+  especificidad_clasificador: {drberry_test: 0.6429, campo_inaturalist_sanas: 0.2667, etiqueta: MEDIDO; la de campo mide cambio de dominio (fotos de planta entera con fruto y flor de Vaccinium sobre todo silvestre templado; no es la vista del robot) y no es la especificidad esperada en una finca andina; es mucho menor}
+  nota: No hay medición real pantalla->cámara del D1. Las clases del modelo (oídio, alternaria, heliothis) no incluyen antracnosis,
+    Botrytis ni roya.

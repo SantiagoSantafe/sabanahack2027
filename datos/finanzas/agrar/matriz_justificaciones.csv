@@ -1,0 +1,43 @@
+alternativa,criterio,puntaje,justificacion
+A D1 Ultra solo,Anticipa,3,"Visita por calendario; el T/HR a bordo solo mide en el instante de la ronda, sin vigilancia continua entre rondas."
+A D1 Ultra solo,Ubica cama y ve arbusto,5,Cámara a la altura del arbusto y posición nave/cama conocida; ve daño de trips y polvo/mildiu como pidió el mentor.
+A D1 Ultra solo,Costo,3,"El kit cabe en 90-110 M, pero sin el PLC debe recorrer todo (vuelta de ~7 noches) y repite sensores que AGRAR ya tiene."
+A D1 Ultra solo,Encaje con la operación,3,"Compatible con protocolos abiertos de AGRAR, pero ignora los PLC instalados: sin la red no sabe adónde ir primero."
+A D1 Ultra solo,Robustez,3,"Sin ROS, IP54, batería de 1-2 h, línea de vista y reparación en fábrica (7 días hábiles); un solo punto de falla."
+A D1 Ultra solo,Registro,4,Guarda cama + T/HR + foto y reenvía por LoRa o al volver a base; sin serie continua entre rondas.
+A D1 Ultra solo,Escalabilidad,2,"Un robot por finca, sin red para priorizar; logística de baterías y reparación; cuesta más por ha en fincas pequeñas."
+B Red fija (ya existe en AGRAR),Anticipa,5,El modelo predictivo de AGRAR corre en el PLC con T/HR continuos por bloque: anticipa Botrytis y Alternaria de noche.
+B Red fija (ya existe en AGRAR),Ubica cama y ve arbusto,1,"Resuelve por bloque, no por cama, y no ve el arbusto: el mentor dijo que mildiu 'solo se sabe viéndolo'."
+B Red fija (ya existe en AGRAR),Costo,5,Costo incremental ~0: la red ya existe (PLC por bloque); es la línea base del cliente.
+B Red fija (ya existe en AGRAR),Encaje con la operación,5,"Es el producto de AGRAR: mismos PLC, LoRaWAN/Modbus y base de datos; sin cambios operativos."
+B Red fija (ya existe en AGRAR),Robustez,4,Sensores fijos sin partes móviles y ya probados por AGRAR; sufren por calibración y deriva.
+B Red fija (ya existe en AGRAR),Registro,2,"Serie T/HR continua por bloque, pero sin foto ni cama: no sirve de evidencia visual del daño."
+B Red fija (ya existe en AGRAR),Escalabilidad,4,"Sirve a cualquier tamaño y cultivo con costo marginal bajo; AGRAR ya la vende (40-60 ventiladores/mes), pero no genera etiquetas visuales."
+C Kit en aspersora,Anticipa,2,"Solo ve cuando alguien asperja y AGRAR no asperja; llega después de la aplicación, no antes."
+C Kit en aspersora,Ubica cama y ve arbusto,3,"La aspersora pasa por las camas, pero a la hora de aplicación (6-14 h) y en invernaderos de 6,8 m puede ser bomba de espalda (NO VERIFICADO)."
+C Kit en aspersora,Costo,4,"Kit barato (~5.700 USD en finanzas.md), aunque AGRAR tendría que integrarlo a equipos de terceros."
+C Kit en aspersora,Encaje con la operación,2,AGRAR no hace aspersión: el manejo fitosanitario es del agrónomo de cada finca; no es su cliente ni su canal.
+C Kit en aspersora,Robustez,3,"Sin robot que falle, pero depende de que cada finca use el mismo tipo de aspersora (un soporte por modelo)."
+C Kit en aspersora,Registro,3,"Registra cama si hay GPS/marcadores, pero solo en días de aplicación."
+C Kit en aspersora,Escalabilidad,3,"Bajo CAPEX y sin logística de robot, pero depende del equipo de aspersión de cada finca."
+D Humanoide X2 Ultra,Anticipa,2,"Misma función de patrulla que A con menor velocidad (0,4 m/s) y autonomía: cubre menos bloques por noche."
+D Humanoide X2 Ultra,Ubica cama y ve arbusto,4,"A altura de humanoide ve el arbusto, pero con racimos colgando en pasillos estrechos puede dañar el fruto."
+D Humanoide X2 Ultra,Costo,1,"X2 Ultra a 39.999 USD FOB: con la misma estructura de costo el proyecto saldría en ~294 M COP, muy fuera de 90-110 M."
+D Humanoide X2 Ultra,Encaje con la operación,1,Plataforma de propósito general sin historial en invernadero; no encaja con el negocio de automatización de AGRAR.
+D Humanoide X2 Ultra,Robustez,1,"Sin historial en campo húmedo, baterías cortas y precio sin verificar; riesgo alto de caída."
+D Humanoide X2 Ultra,Registro,4,"Puede registrar cama y T/HR, pero sin ROS ni ruta validada para ello."
+D Humanoide X2 Ultra,Escalabilidad,1,"Alto costo por finca, plataforma de propósito general y precio sin verificar: no se puede vender a muchos productores."
+E Ruedas,Anticipa,3,"Patrulla sin red: misma limitación que A, con menor agilidad para cambiar de nave."
+E Ruedas,Ubica cama y ve arbusto,4,Con mástil ve el arbusto; solo si el pasillo admite el ancho de la plataforma (a veces hay que pasar de lado).
+E Ruedas,Costo,2,"Amiga ~22.500 USD FOB: con la misma estructura de costo el proyecto saldría en ~196 M COP, sobre el presupuesto."
+E Ruedas,Encaje con la operación,2,"Pasillos de 6,8 m con 2-3 camas y plantas hacia el pasillo; la plataforma de ~250 kg pisa maceta y fruto."
+E Ruedas,Robustez,2,Terreno firme necesario; pesa ~250 kg con embalaje y es difícil de reparar/mover entre naves.
+E Ruedas,Registro,4,"Registra bien (cámara y T/HR fijos), pero la ruta por naves no está validada."
+E Ruedas,Escalabilidad,2,Plataforma pesada que exige terreno firme y pasillos anchos; costo por ha alto en fincas pequeñas.
+F Híbrido (PLC de AGRAR + D1),Anticipa,5,El PLC de AGRAR marca el riesgo (humedad/temperatura) y el robot patrulla primero los bloques en riesgo.
+F Híbrido (PLC de AGRAR + D1),Ubica cama y ve arbusto,5,"El robot confirma visualmente en la cama exacta, con posición y T/HR en el punto del hallazgo."
+F Híbrido (PLC de AGRAR + D1),Costo,3,"Mismo kit que A (~100 M COP, dentro de 90-110 M) y sin costo extra de red; el payback < 2 años exige evitar ~1 punto (caso central) a ~1,8 (conservador)."
+F Híbrido (PLC de AGRAR + D1),Encaje con la operación,5,"Usa lo que AGRAR ya vende (PLC, LoRaWAN/Modbus), se vende a los mismos grupos y patrulla de noche/amanecer."
+F Híbrido (PLC de AGRAR + D1),Robustez,4,Si el robot falla (reparación de ~7 días hábiles) la red de PLC sigue protegiendo; el robot sigue siendo sin ROS e IP54.
+F Híbrido (PLC de AGRAR + D1),Registro,5,"Cama + T/HR + foto del robot, más la serie continua del PLC: el registro más completo."
+F Híbrido (PLC de AGRAR + D1),Escalabilidad,4,Menú: red en todas las fincas (ya instalada) y robot donde se paga; efecto de red de datos más fuerte. Baja a 2 si se vende como 'un robot por finca'.

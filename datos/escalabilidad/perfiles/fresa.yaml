@@ -1,0 +1,180 @@
+# =============================================================================
+# PERFIL DE CULTIVO: FRESA  (primer cultivo de expansión recomendado)
+# Esquema: perfil_cultivo/v0.1 (ver ../cultivos.md, sección 7)
+# Estados: VERIFICADO | CALCULO | SUPUESTO | NO_VERIFICADO  (mismo significado que arandano.yaml)
+# Lo que cambia frente a arándano: geometría baja (cama a 20-25 cm), cámara mirando hacia abajo,
+# modelos de riesgo CON coeficientes publicados y validados en campo (Strawberry Advisory System),
+# y un dataset público de 7 enfermedades. El motor, el registro y el triage NO cambian.
+# =============================================================================
+
+esquema: perfil_cultivo/v0.1
+id: fresa
+version: 0.1.0
+estado_perfil: borrador_demo
+nombre_comun: Fresa
+especie: "Fragaria × ananassa Duch."
+familia: Rosaceae
+hereda_de: arandano                 # hereda sensores, alertas y registro; sobrescribe lo demás
+cabeza_modelo_vision: fresa_v0
+
+fuentes:
+  eva2025: {url: "https://www.datos.gov.co/resource/uejq-wxrr.json", nota: "EVA 2019-2025; consulta 2026-10-23"}
+  ncsu_camas: {url: "https://strawberries.ces.ncsu.edu/strawberries-plasticulture-considerations-soil", nota: "camas a 5 pies (1,52 m) centro a centro; camas de 8 a 10 pulgadas de alto"}
+  grijalba2015: {url: "https://revistas.unal.edu.co/index.php/agrocol/article/view/52000", nota: "Cajicá 2.562 msnm, Albion y Monterey: macrotúnel reduce pudriciones pero aumenta oídio"}
+  flsas_ncsu: {url: "https://ipm.ces.ncsu.edu/development-of-anthacnose-and-botrytis-strawberry-fruit-infection-risk-models", nota: "ecuaciones FLSAS leídas de las imágenes del sitio; umbrales; regla de fin de humectación (4 h secas)"}
+  sas_uf: {url: "https://ask.ifas.ufl.edu/publication/AE450", nota: "Strawberry Advisory System: fungicidas reducidos a la mitad en algunos años; evaluado 5 temporadas en fincas comerciales"}
+  wilson1990: {url: "https://doi.org/10.1094/Phyto-80-111", nota: "Wilson, Madden y Ellis 1990, Phytopathology 80:111-116 (cita leída en flsas_ncsu; DOI armado a partir de la cita, NO_VERIFICADO)"}
+  bulger1987: {url: "https://www.apsnet.org/publications/phytopathology/backissues/Documents/1987Abstracts/Phyto77_1225.htm", nota: "Bulger, Ellis y Madden 1987, Phytopathology 77:1225-1230 (página 403 al abrirla; cita confirmada en flsas_ncsu)"}
+  metos_fresa: {url: "https://metos.global/en/?p=49800", nota: "modelo de oídio Gubler modificado por Broome: 21-30 °C, 6 h, 3 días, +20/-10, índice 0-100, >60 alto"}
+  magarey2005: {url: "https://www.suddenoakdeath.org/wp-content/uploads/pdf/PHYTO-95-0092%20Magarey%20nappfast.pdf", nota: "GIM, Tabla 2"}
+  bbch2001: {url: "https://www.daera-ni.gov.uk/sites/default/files/2026-07/BBCH-Skala_en.pdf", nota: "Monografía BBCH 2.a ed. 2001 (Meier ed.); fresa según Meier et al. 1994"}
+  afzaal2021: {url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8513076/", nota: "2.500 imágenes, 7 clases, Corea, invernadero y campo; Kaggle usmanafzaal/strawberry-disease-detection-dataset; CC BY 4.0 según LICENSE.md de DatasetNinja (copia local raw/fresa_afzaal2021_datasetninja)"}
+  mendeley_k2pt: {url: "https://data.mendeley.com/datasets/k2ptxmfjhj", nota: "5.610 imágenes, 8 clases con sana, 640x640, extiende Afzaal 2021 (metadatos locales raw/fresa_mendeley_k2ptxmfjhj_test)"}
+  plantvillage: {url: "https://github.com/spMohanty/PlantVillage-Dataset", nota: "Strawberry___Leaf_scorch 1.109 y Strawberry___healthy 456 (conteo local); CC BY-SA 3.0"}
+  plantdoc: {url: "https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset", nota: "'Strawberry leaf' 462 cajas (conteo local); CC BY 4.0"}
+  d1_ultra: {url: "https://www.agibot.com/", nota: "datasheet local: 630x360x420 mm"}
+
+mercado_colombia:
+  area_sembrada_ha_2025: {valor: 3766.68, estado: VERIFICADO, fuente: eva2025}
+  municipios_con_registro_2025: {valor: 127, estado: VERIFICADO, fuente: eva2025}
+  departamentos_principales: {valor: ["Cundinamarca 43 %", "Antioquia 17 %", "Cauca 15 %", "Norte de Santander 10 %"], estado: CALCULO, fuente: eva2025}
+  sinergia_con_demo: "misma región (Sabana de Bogotá), mismos patógenos clave (Botrytis, Colletotrichum) y mismos sensores"
+
+geometria:
+  sistema: camas_bajas
+  unidad_de_inspeccion: cama
+  variantes: [campo_abierto_acolchado, macrotunel, mesas_sustrato]
+  distancia_entre_centros_de_cama_m: {valor: 1.52, estado: VERIFICADO, fuente: ncsu_camas, nota: "5 pies; referencia EE.UU."}
+  altura_cama_m: {min: 0.20, max: 0.25, estado: VERIFICADO, fuente: ncsu_camas, nota: "8-10 pulgadas"}
+  ancho_superior_cama_m: {min: 0.6, max: 0.8, estado: SUPUESTO}
+  hileras_por_cama: {valor: 2, estado: NO_VERIFICADO, nota: "doble hilera en cama elevada (resumen de búsqueda UF/IFAS)"}
+  ancho_pasillo_libre_m: {min: 0.5, max: 0.9, estado: CALCULO, nota: "1,52 m entre centros menos 0,6-0,8 m de cama, menos follaje que cuelga (SUPUESTO)"}
+  altura_dosel_m: {min: 0.35, max: 0.55, estado: SUPUESTO, nota: "medida desde el suelo del pasillo: cama + 15-30 cm de follaje"}
+  mesas_sustrato_altura_m: {min: 0.9, max: 1.3, estado: SUPUESTO}
+  cubierta: {valor: "campo abierto o macrotúnel", estado: VERIFICADO, fuente: grijalba2015}
+  nota_cubierta: "con macrotúnel bajan las pudriciones y sube el oídio (grijalba2015): el perfil cambia el peso de cada modelo según la variante"
+
+fenologia:
+  escala: BBCH
+  fuente: bbch2001
+  modo: continuo_por_lote
+  disparador: fecha_trasplante
+  nota_tropico: "cultivares de día neutro (Albion, Monterey: ver grijalba2015) florecen y fructifican casi todo el año; supuesto de producción continua = SUPUESTO"
+  etapas:
+    - {codigo: "10-19", nombre: "desarrollo de hojas", organos_susceptibles: [hoja]}
+    - {codigo: "55-59", nombre: "emergencia de inflorescencia / botón", organos_susceptibles: [flor]}
+    - {codigo: "60-67", nombre: "floración", organos_susceptibles: [flor]}
+    - {codigo: "71-73", nombre: "desarrollo del fruto", organos_susceptibles: [fruto, hoja]}
+    - {codigo: "81-89", nombre: "maduración y cosechas", organos_susceptibles: [fruto]}
+    - {codigo: "91-97", nombre: "senescencia", organos_susceptibles: [hoja]}
+
+sensores_ambientales:
+  hereda: true
+  ubicacion: "a 10-20 cm sobre la cama, entre el follaje (los frutos están casi a ras de cama)"
+  evento_humectacion:
+    inicio: "lluvia, rocío o riego por aspersión"
+    fin_tras_horas_secas: 4
+    temperatura_usada: "media de las horas húmedas"
+    fuente: flsas_ncsu
+
+modelos_riesgo:
+  - id: antracnosis_wilson1990_flsas
+    enfermedad: antracnosis
+    agente: "Colletotrichum acutatum"
+    motor: logit_polinomico
+    entradas: {W: horas_humectacion_evento, T: temp_media_humectacion_C}
+    terminos:
+      - {coef: -3.7, w: 0, t: 0}
+      - {coef: 0.33, w: 1, t: 0}
+      - {coef: -0.069, w: 1, t: 1}
+      - {coef: 0.005, w: 1, t: 2}
+      - {coef: -9.3e-5, w: 1, t: 3}
+    salida: probabilidad_logistica
+    umbrales: {moderado: 0.15, alto: 0.50}
+    fuente: flsas_ncsu
+    datos_originales: wilson1990
+    origen: {cultivo: "fresa (fruto)", region: "Florida, EE.UU.", validacion: "Strawberry Advisory System (sas_uf)"}
+    estado_local: no_calibrado
+    organos_activos: [fruto, flor]
+  - id: botrytis_bulger1987_flsas
+    enfermedad: moho_gris
+    agente: "Botrytis cinerea"
+    motor: logit_polinomico
+    entradas: {W: horas_humectacion_evento, T: temp_media_humectacion_C}
+    terminos:
+      - {coef: -4.268, w: 0, t: 0}
+      - {coef: -0.0901, w: 1, t: 0}
+      - {coef: 0.0294, w: 1, t: 1}
+      - {coef: -2.35e-5, w: 1, t: 3}
+    salida: probabilidad_logistica
+    umbrales: {moderado: 0.50, alto: 0.70}
+    fuente: flsas_ncsu
+    datos_originales: bulger1987
+    origen: {cultivo: "fresa (flores)", region: "Ohio (datos) / Florida (sistema)"}
+    estado_local: no_calibrado
+    organos_activos: [flor]
+  - id: oidio_gubler_broome_metos
+    enfermedad: oidio
+    agente: "Podosphaera aphanis"
+    motor: indice_gubler_thomas
+    parametros:
+      ventana_C: [21, 30]
+      horas_continuas_min: 6
+      dias_consecutivos_para_iniciar: 3
+      puntos_dia_favorable: 20
+      puntos_dia_desfavorable: -10
+      temp_letal_C: 35
+      indice_min: 0
+      indice_max: 100
+    umbrales: {moderado: 40, alto: 60}
+    reinicio_tras_tratamiento: true
+    fuente: metos_fresa
+    nota: "versión para fresa ofrecida por METOS (Gubler modificado por Broome). El original de Gubler-Thomas es de vid (UC IPM)"
+    estado_local: no_calibrado
+    peso_por_variante: {macrotunel: 1.0, campo_abierto_acolchado: 0.7, mesas_sustrato: 1.0}
+    estado_pesos: SUPUESTO
+  - id: phytophthora_fruto_gim
+    enfermedad: pudricion_cuero
+    agente: "Phytophthora cactorum"
+    motor: gim_magarey2005
+    parametros: {Tmin: 6, Topt: 20.5, Tmax: 35, Wmin: 1, Wmax: 3}
+    fuente: magarey2005
+    nota: "fila 'Phytophthora cactorum / Strawberry fruit' de la Tabla 2"
+    estado_local: no_calibrado
+    organos_activos: [fruto]
+
+clases_visuales:
+  cabeza_modelo: fresa_v0
+  clases:
+    - {id: sana, organo: [hoja, fruto], etiquetas: {mendeley_k2pt: "Healthy Strawberry", plantvillage: Strawberry___healthy, plantdoc: "Strawberry leaf"}}
+    - {id: moho_gris_fruto, enfermedad: moho_gris, organo: fruto, etiquetas: {afzaal2021: gray_mold}}
+    - {id: tizon_flor, enfermedad: moho_gris, organo: flor, etiquetas: {afzaal2021: blossom_blight}, nota: "en Afzaal 'blossom blight' no tiene agente asignado; revisar con agrónomo"}
+    - {id: antracnosis_fruto, enfermedad: antracnosis, organo: fruto, etiquetas: {afzaal2021: anthracnose_fruit_rot}, nota: "solo 97 imágenes; AP 64-71 %"}
+    - {id: oidio_hoja, enfermedad: oidio, organo: hoja, etiquetas: {afzaal2021: powdery_mildew_leaf}}
+    - {id: oidio_fruto, enfermedad: oidio, organo: fruto, etiquetas: {afzaal2021: powdery_mildew_fruit}}
+    - {id: mancha_angular, enfermedad: mancha_angular, organo: hoja, etiquetas: {afzaal2021: angular_leafspot}}
+    - {id: mancha_foliar, enfermedad: mancha_foliar, organo: hoja, etiquetas: {afzaal2021: leaf_spot, plantvillage: Strawberry___Leaf_scorch}, nota: "unir 'leaf spot' y 'leaf scorch' solo si el agrónomo lo aprueba"}
+    - {id: desconocido, organo: cualquiera}
+  datasets:
+    - {id: afzaal2021, imagenes: 2500, clases: 7, licencia: "CC BY 4.0", dominio: "invernadero y campo, Corea; ~20 % de internet", estado: VERIFICADO}
+    - {id: mendeley_k2pt, imagenes: 5610, clases: 8, licencia: "ver página (no leída); declara reutilización académica", dominio: "aumentado a partir de Afzaal + StrawDI", estado: VERIFICADO}
+    - {id: plantvillage, imagenes: 1565, clases: 2, licencia: "CC BY-SA 3.0", dominio: laboratorio, estado: VERIFICADO}
+    - {id: plantdoc, cajas: 462, clases: 1, licencia: "CC BY 4.0", dominio: internet, estado: VERIFICADO}
+  umbral_confianza_alerta: {valor: 0.6, estado: SUPUESTO}
+
+captura:
+  plataforma: cuadrupedo_d1_ultra
+  idoneidad_cuadrupedo: alta           # camas en campo; media en mesas de sustrato
+  camaras:
+    - {id: cenital_cama, altura_m: 0.55, orientacion: "hacia abajo, -50°", objetivo: [flor, fruto, corona], estado: SUPUESTO, nota: "el cuerpo del D1 mide 0,42 m: va sobre el cuerpo, sin mástil alto"}
+    - {id: lateral_envés, altura_m: 0.25, orientacion: "lateral, +20°", objetivo: [envés_hoja], estado: SUPUESTO, nota: "oídio en el envés y hojas enrolladas"}
+  variante_mesas_sustrato: {camara_altura_m: 1.1, orientacion: "lateral 0°", estado: SUPUESTO}
+  lados_por_pasada: 2
+  velocidad_inspeccion_m_s: {valor: 0.4, estado: SUPUESTO}
+  restricciones:
+    - "no pisar el plástico de acolchado ni el borde de la cama"
+    - "frutos bajo las hojas: vista parcial; registrar 'cobertura de vista' por cama"
+  muestreo: {tipo: estratificado, prioridad: "camas con mayor riesgo primero"}
+
+alertas:
+  hereda: true

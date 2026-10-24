@@ -1,0 +1,181 @@
+# =============================================================================
+# PERFIL DE CULTIVO: MORA DE CASTILLA (Rubus glaucus)
+# Esquema: perfil_cultivo/v0.1 (ver ../cultivos.md, sección 7)
+# Estados: VERIFICADO | CALCULO | SUPUESTO | NO_VERIFICADO
+# Es el cultivo de baya con más área en Colombia (~16 mil ha, 305 municipios), pero de
+# pequeños productores con margen bajo. Lo que cambia frente a arándano:
+#  - espaldera en ladera, plantas con espinas y órganos de todas las edades a la vez;
+#  - NO hay modelos de riesgo validados para Rubus glaucus: se usan reglas del ICA y
+#    modelos "prestados" de otros hospederos, todos marcados como no validados;
+#  - NO hay dataset público de imágenes de mora: el robot genera el primero (ventaja de datos);
+#  - modelo de negocio: servicio compartido por asociación, no un robot por finca.
+# =============================================================================
+
+esquema: perfil_cultivo/v0.1
+id: mora
+version: 0.1.0
+estado_perfil: borrador_demo
+nombre_comun: "Mora de Castilla"
+especie: "Rubus glaucus Benth."
+familia: Rosaceae
+hereda_de: arandano
+cabeza_modelo_vision: rubus_v0      # cabeza compartida con frambuesa (mismo género)
+
+fuentes:
+  eva2025: {url: "https://www.datos.gov.co/resource/uejq-wxrr.json", nota: "EVA 2019-2025; consulta 2026-10-23"}
+  ica2011: {url: "https://www.ica.gov.co/getattachment/b7e061eb-ebd3-4f80-9518-c771712405eb/-nbsp3bmanejo-fitosanitario-delcultivo-de-la-mora.aspx", nota: "ICA 2011, Manejo fitosanitario del cultivo de la mora (texto extraído con pdftotext)"}
+  finagro_huila: {url: "https://www.finagro.com.co/sites/default/files/2022-05/mora_castilla_huila.pdf", nota: "MRA FINAGRO, Isnos y La Plata (Huila), act. sep. 2017"}
+  aegerter2003: {url: "https://agris.fao.org/search/en/records/65dedbd26eef00c2cea15648", nota: "Aegerter, Nuñez y Davis 2003, Plant Disease 87:732-738, mildeo velloso (Peronospora sparsa) en ROSA"}
+  flsas_ncsu: {url: "https://ipm.ces.ncsu.edu/development-of-anthacnose-and-botrytis-strawberry-fruit-infection-risk-models", nota: "ecuación de Botrytis (Bulger 1987) en fresa"}
+  magarey2005: {url: "https://www.suddenoakdeath.org/wp-content/uploads/pdf/PHYTO-95-0092%20Magarey%20nappfast.pdf", nota: "GIM, Tabla 2"}
+  afzaal2021: {url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8513076/", nota: "moho gris en fruto de fresa (mismo patógeno)"}
+  plantvillage: {url: "https://github.com/spMohanty/PlantVillage-Dataset", nota: "Raspberry___healthy 371 (conteo local); CC BY-SA 3.0"}
+  plantdoc: {url: "https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset", nota: "'Raspberry leaf' 539 cajas (conteo local); CC BY 4.0"}
+  d1_ultra: {url: "https://www.agibot.com/", nota: "datasheet local: 630x360x420 mm, pendiente 30° estándar y 40° máx., IP54"}
+
+mercado_colombia:
+  area_sembrada_ha_2025: {valor: 15951.86, estado: VERIFICADO, fuente: eva2025}
+  municipios_con_registro_2025: {valor: 305, estado: VERIFICADO, fuente: eva2025}
+  departamentos_principales: {valor: ["Cundinamarca 25 %", "Santander 19 %", "Huila 10 %", "Nariño 9 %"], estado: CALCULO, fuente: eva2025}
+  rendimiento_t_ha: {promedio: 11, rango: [6, 16], tecnificado: 30, estado: VERIFICADO, fuente: ica2011, nota: "ICA citando AGRONET"}
+  perdidas_bioticas: {valor: "alrededor del 40 % de la producción; el moho gris es el de mayor incidencia", estado: VERIFICADO, fuente: ica2011}
+  economia_productor: {precio_finca_cop_kg: 1300, margen_utilidad_pct: 18, anio_referencia: 2017, estado: VERIFICADO, fuente: finagro_huila}
+  implicacion_comercial: "no paga un robot por finca: vender como servicio por asociación/cooperativa o el nivel 'solo sensores + app' (ver cultivos.md, sección 9)"
+
+geometria:
+  sistema: espaldera
+  unidad_de_inspeccion: hilera      # la 'cama' del reto se mapea a la hilera de espaldera
+  variantes: [espaldera_sencilla, espaldera_doble_T]
+  tutorado_recomendado: {valor: "doble T (mejor aireación, menos humedad en el dosel)", estado: VERIFICADO, fuente: ica2011}
+  distancia_siembra_m: {entre_plantas: 2.5, entre_hileras: 2.8, estado: VERIFICADO, fuente: finagro_huila}
+  densidad_plantas_ha: {valor: 1429, estado: VERIFICADO, fuente: finagro_huila}
+  distancia_minima_recomendada_m: {entre_plantas: 3.0, entre_calles: 3.0, estado: VERIFICADO, fuente: ica2011, nota: "para manejo de moho gris y antracnosis"}
+  ancho_pasillo_libre_m: {min: 1.0, max: 2.0, estado: SUPUESTO, nota: "calle de 2,8-3 m menos el ancho de la espaldera con ramas"}
+  altura_dosel_m: {min: 0.5, max: 2.0, estado: SUPUESTO}
+  terreno: {valor: "la mayoría de las áreas productoras están en zonas montañosas", estado: VERIFICADO, fuente: ica2011}
+  pendiente_tipica_grados: {max: 30, estado: SUPUESTO, nota: "límite estándar del D1 Ultra = 30°; por encima, no apto"}
+  altitud_msnm: {min: 1200, max: 3500, optimo: [1800, 2000], estado: VERIFICADO, fuente: ica2011}
+  riesgo_mecanico: "tallos con espinas; mantener holgura y proteger patas/cámaras"
+
+fenologia:
+  escala: "BBCH general 0-9 (no hay clave BBCH específica de Rubus glaucus en la monografía 2001)"
+  modo: continuo_por_planta
+  disparador: fecha_poda_por_planta
+  inicio_produccion_meses: {valor: [7, 12], estado: VERIFICADO, fuente: ica2011}
+  duracion_ciclo_anios: {valor: 10, estado: VERIFICADO, fuente: finagro_huila}
+  nota_clave: "una misma planta tiene botones, flores, frutos verdes y maduros a la vez: la ventana de susceptibilidad nunca se cierra. El robot estima por planta la carga de órganos susceptibles (flores y frutos) y esa carga pondera el riesgo ambiental."
+  etapas:
+    - {codigo: 3, nombre: "brotes y ramas nuevas", organos_susceptibles: [brote, tallo, hoja]}
+    - {codigo: 6, nombre: "floración", organos_susceptibles: [flor]}
+    - {codigo: 7, nombre: "fruto verde", organos_susceptibles: [fruto]}
+    - {codigo: 8, nombre: "fruto maduro / cosecha", organos_susceptibles: [fruto]}
+
+sensores_ambientales:
+  hereda: true
+  adicionales_recomendados: [humedad_suelo_pct]   # marchitez por hongos de suelo: suelos pesados y encharcados
+  ubicacion: "dentro de la espaldera a 1,0-1,5 m; una estación por ladera/cara de la pendiente (microclima)"
+  estado_ubicacion: SUPUESTO
+
+modelos_riesgo:
+  - id: moho_gris_bulger1987_prestado
+    enfermedad: moho_gris
+    agente: "Botrytis cinerea"
+    motor: logit_polinomico
+    entradas: {W: horas_humectacion_evento, T: temp_media_humectacion_C}
+    terminos:
+      - {coef: -4.268, w: 0, t: 0}
+      - {coef: -0.0901, w: 1, t: 0}
+      - {coef: 0.0294, w: 1, t: 1}
+      - {coef: -2.35e-5, w: 1, t: 3}
+    salida: probabilidad_logistica
+    umbrales: {moderado: 0.50, alto: 0.70}
+    fuente: flsas_ncsu
+    origen: {cultivo: "fresa (flores)", region: "EE.UU."}
+    estado_local: no_validado_en_mora
+    contexto_ica: "favorecido por temperaturas bajas, HR alta y agua libre; pétalos y frutos maduros más susceptibles (ica2011)"
+    organos_activos: [flor, fruto]
+  - id: antracnosis_regla_ica
+    enfermedad: antracnosis
+    agente: "Colletotrichum gloeosporioides"
+    motor: regla_umbral
+    condiciones:
+      todas:
+        - {variable: horas_humectacion_evento, operador: ">=", valor: 4, estado: VERIFICADO, fuente: ica2011, nota: "película de agua de al menos 4 h"}
+        - {variable: hr_media_evento_pct, operador: ">", valor: 95, estado: VERIFICADO, fuente: ica2011}
+        - {variable: temp_media_evento_C, operador: entre, valor: [20, 30], estado: SUPUESTO, nota: "el ICA da 25 °C como favorable; la banda es nuestra"}
+    respaldo_generico:
+      motor: gim_magarey2005
+      parametros: {Tmin: 7, Topt: 27.5, Tmax: 35, Wmin: 6, Wmax: 36}
+      fuente: magarey2005
+      nota: "parámetros de C. acutatum en fresa; otra especie y otro hospedero: solo para ordenar riesgo relativo"
+    estado_local: no_validado_en_mora
+    organos_activos: [tallo, rama, fruto]
+  - id: mildeo_velloso_regla_ica
+    enfermedad: mildeo_velloso
+    agente: "Peronospora sparsa"
+    motor: regla_umbral
+    condiciones:
+      todas:
+        - {variable: hr_media_dia_pct, operador: ">", valor: 80, estado: VERIFICADO, fuente: ica2011}
+        - {variable: temp_media_dia_C, operador: entre, valor: [17, 20], estado: VERIFICADO, fuente: ica2011}
+        - {variable: lluvia_dias_consecutivos, operador: ">=", valor: 2, estado: SUPUESTO, nota: "el ICA dice 'lluvias continuas'; el número de días es nuestro"}
+    estado_local: no_validado_en_mora
+    organos_activos: [fruto, tallo, hoja]
+  - id: mildeo_velloso_aegerter2003_prestado
+    enfermedad: mildeo_velloso
+    agente: "Peronospora sparsa"
+    motor: acumulado_ventana
+    parametros:
+      variable: horas_humectacion
+      ventana_dias: 10
+      umbral_promedio_horas_dia: 8.4
+    fuente: aegerter2003
+    origen: {cultivo: "rosa (vivero)", region: "California, EE.UU."}
+    estado_local: no_validado_en_mora
+    nota: "mismo patógeno, otro hospedero; se usa como segunda opinión de la regla del ICA"
+  - id: marchitez_suelo_heuristica
+    enfermedad: marchitez_raices
+    agente: "Verticillium sp., Fusarium sp., Rosellinia sp."
+    motor: regla_umbral
+    condiciones:
+      todas:
+        - {variable: horas_suelo_saturado_7d, operador: ">=", valor: 48, estado: SUPUESTO}
+    contexto: "suelos pesados y mal drenados la favorecen (ica2011); la detección real es visual (amarillamiento y marchitez por focos)"
+    estado_local: SUPUESTO
+
+clases_visuales:
+  cabeza_modelo: rubus_v0
+  dataset_publico_especifico: ninguno_encontrado    # búsqueda 2026-10-23 en Kaggle/Mendeley/Roboflow/Zenodo sin resultados para Rubus glaucus
+  estrategia: "arrancar con transferencia (moho gris de fresa, hojas sanas de Rubus de PlantVillage/PlantDoc) y construir el primer dataset de mora con las fotos del robot y las confirmaciones del triage"
+  clases:
+    - {id: sana, organo: [hoja, fruto], etiquetas: {plantvillage: Raspberry___healthy, plantdoc: "Raspberry leaf"}, nota: "frambuesa, mismo género; validar parecido con hoja de mora"}
+    - {id: moho_gris_fruto_flor, enfermedad: moho_gris, organo: [fruto, flor], etiquetas: {afzaal2021: gray_mold}, sintomas_ica: "capa afelpada café grisácea; flores con pétalos pardos; frutos momificados"}
+    - {id: antracnosis_tallo, enfermedad: antracnosis, organo: [tallo, rama], etiquetas: {}, sintomas_ica: "manchas ovaladas moradas que pasan a negras ('palo negro'); muerte descendente"}
+    - {id: mildeo_velloso_fruto, enfermedad: mildeo_velloso, organo: fruto, etiquetas: {}, sintomas_ica: "enrojecimiento prematuro de frutos inmaduros, maduración desigual, pérdida de brillo"}
+    - {id: mildeo_velloso_tallo, enfermedad: mildeo_velloso, organo: [tallo, peciolo], etiquetas: {}, sintomas_ica: "coloraciones moradas sin bordes definidos; luego ampollas blanquecinas"}
+    - {id: oidio_hoja, enfermedad: mildeo_polvoso, organo: hoja, etiquetas: {}, sintomas_ica: "parches cloróticos, enrollamiento, crecimiento blanquecino polvoso"}
+    - {id: roya_hoja, enfermedad: roya, organo: hoja, etiquetas: {}, sintomas_ica: "pústulas anaranjadas; tumores pequeños en el envés (Gerwasia lagerheimii)"}
+    - {id: marchitez_planta, enfermedad: marchitez_raices, organo: planta_completa, etiquetas: {}, sintomas_ica: "amarillamiento general, hojas marchitas que caen, por focos"}
+    - {id: desconocido, organo: cualquiera}
+  umbral_confianza_alerta: {valor: 0.7, estado: SUPUESTO, nota: "más alto que en arándano porque el modelo arranca sin datos propios"}
+  meta_datos_propios: {imagenes_etiquetadas_para_v1: 2000, estado: SUPUESTO}
+
+captura:
+  plataforma: cuadrupedo_d1_ultra
+  idoneidad_cuadrupedo: media        # buena por la ladera (patas), limitada por espinas, batería y pendiente > 30°
+  modelo_operacion: "servicio itinerante: un robot visita varias fincas de una asociación por semana"
+  camaras:
+    - {id: mastil_baja, altura_m: 0.6, orientacion: "lateral 0°", objetivo: [tallo, corona, fruto_bajo], estado: SUPUESTO}
+    - {id: mastil_alta, altura_m: 1.4, orientacion: "lateral 0°", objetivo: [flor, fruto, hoja], estado: SUPUESTO}
+    - {id: mastil_envés, altura_m: 1.0, orientacion: "lateral, +30°", objetivo: [envés_hoja], nota: "roya", estado: SUPUESTO}
+  lados_por_pasada: 2
+  velocidad_inspeccion_m_s: {valor: 0.3, estado: SUPUESTO, nota: "más lento por ladera y por ramas"}
+  holgura_lateral_min_m: {valor: 0.3, estado: SUPUESTO, nota: "espinas"}
+  muestreo:
+    referencia_actual: {valor: "recorrido semanal o quincenal en zigzag, X o W, revisando el 10 % de las plantas", estado: VERIFICADO, fuente: ica2011}
+    con_robot: "100 % de las hileras de riesgo alto y muestreo estratificado del resto"
+    registro: "el formato del ICA (Anexo 1) se llena solo con el registro de incidencias"
+
+alertas:
+  hereda: true
+  ajuste: "en mora la acción típica es cultural (poda sanitaria, retiro de frutos y residuos, drenaje); el sistema sugiere, el agrónomo decide"

@@ -1,0 +1,566 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:berrygoodidea:schema:incidencia:1.0.0",
+  "title": "Incidencia fitosanitaria (cama por cama)",
+  "description": "Contrato de intercambio de una incidencia entre robot, nodo de borde, app de campo, nube e integraciones. Es el mismo para cualquier cliente, finca y cultivo: lo propio de cada cultivo va en 'extra'. Los nombres coinciden con la tabla bgi.incidencia de modelo_datos.sql. Geometría según GeoJSON (RFC 7946): WGS 84, orden [longitud, latitud].",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "empresa_id",
+    "finca_id",
+    "bloque_id",
+    "cama_id",
+    "estado",
+    "ubicacion",
+    "origen",
+    "deteccion",
+    "tiempos",
+    "sync"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "$ref": "#/$defs/uuid",
+      "description": "Lo genera el dispositivo que crea la incidencia, para poder trabajar sin conexión. Se recomienda UUIDv7 (RFC 9562, §5.7) porque se ordena por tiempo."
+    },
+    "codigo_corto": {
+      "type": "string",
+      "maxLength": 32,
+      "description": "Código legible en campo, p. ej. 'B03-C07-0042'.",
+      "examples": ["B03-C07-0042"]
+    },
+    "empresa_id": { "$ref": "#/$defs/uuid", "description": "Cliente (tenant). Toda consulta se filtra por este campo." },
+    "finca_id": { "$ref": "#/$defs/uuid" },
+    "bloque_id": { "$ref": "#/$defs/uuid", "description": "El bloque se exporta como 'lote' en los registros ICA." },
+    "cama_id": { "$ref": "#/$defs/uuid", "description": "Unidad lineal: cama, hilera, surco o línea de macetas, según el cultivo." },
+    "planta_id": { "$ref": "#/$defs/uuid_o_nulo", "description": "Solo si el cliente etiqueta plantas individuales." },
+    "especie": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Código de especie del catálogo (arandano, fresa, uchuva, ...). Lo rellena el servidor desde el bloque si falta.",
+      "examples": ["arandano"]
+    },
+    "estado": { "$ref": "#/$defs/estado" },
+    "prioridad": {
+      "enum": ["P1", "P2", "P3"],
+      "description": "P1 = revisar hoy. La propone el sistema (confianza x riesgo ambiental) y la ajusta el agrónomo."
+    },
+
+    "ubicacion": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Cama + metro funciona aunque el GPS falle bajo macrotúnel. El punto GNSS es opcional.",
+      "properties": {
+        "posicion_m": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Metros desde la cabecera de la cama (metro 0 = marcador ArUco/QR de la cabecera)."
+        },
+        "lado": {
+          "enum": ["A", "B", "ambos", "desconocido"],
+          "default": "desconocido",
+          "description": "Mirando desde la cabecera hacia el final: A = izquierda, B = derecha."
+        },
+        "altura_dosel": {
+          "enum": ["baja", "media", "alta", "desconocida"],
+          "default": "desconocida",
+          "description": "Altura en el arbusto. La cámara a ras de suelo ve sobre todo la parte baja; el mástil, la alta."
+        },
+        "punto": { "$ref": "#/$defs/geojson_point" },
+        "precision_m": { "type": "number", "minimum": 0 },
+        "metodo": {
+          "enum": ["marcador_odometria", "gnss", "gnss_rtk", "manual", "derivado_cama"]
+        }
+      },
+      "anyOf": [
+        { "required": ["posicion_m"] },
+        { "required": ["punto"] }
+      ]
+    },
+
+    "origen": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tipo"],
+      "properties": {
+        "tipo": {
+          "enum": ["robot", "operario", "sensor_fijo", "modelo_riesgo", "camara_aspersora", "externo"],
+          "description": "La plataforma acepta hallazgos de cualquier fuente; el robot es una de ellas."
+        },
+        "dispositivo_id": { "$ref": "#/$defs/uuid_o_nulo" },
+        "recorrido_id": { "$ref": "#/$defs/uuid_o_nulo" },
+        "reportado_por": { "$ref": "#/$defs/uuid_o_nulo", "description": "Usuario que reportó (obligatorio si tipo = operario)." },
+        "sistema_externo": {
+          "type": "string",
+          "description": "Nombre de la integración si tipo = externo (p. ej. 'farmos')."
+        }
+      }
+    },
+
+    "deteccion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problema"],
+      "properties": {
+        "problema": {
+          "$ref": "#/$defs/codigo_problema",
+          "description": "Sospecha inicial. Código del catálogo problema_sanitario (global o del cliente)."
+        },
+        "problema_confirmado": {
+          "$ref": "#/$defs/codigo_problema",
+          "description": "Diagnóstico tras la verificación en campo o el laboratorio. Alimenta el reentrenamiento."
+        },
+        "eppo_code": {
+          "type": "string",
+          "pattern": "^[0-9A-Z]{5,6}$",
+          "description": "Solo si el agente está confirmado. Ej.: BOTRCI (Botrytis cinerea), THEKMI (roya del arándano), MCRSVA (Erysiphe vaccinii). Fuente: https://gd.eppo.int"
+        },
+        "modelo": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["nombre", "version"],
+          "properties": {
+            "id": { "$ref": "#/$defs/uuid" },
+            "nombre": { "type": "string", "examples": ["clasificador_hoja_arandano"] },
+            "version": { "type": "string", "examples": ["demo-0.1"] },
+            "umbral": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "confianza": { "type": "number", "minimum": 0, "maximum": 1 },
+        "clases_top": {
+          "type": "array",
+          "maxItems": 10,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["clase", "prob"],
+            "properties": {
+              "clase": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+              "prob": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          },
+          "description": "Las clases más probables del clasificador, incluida 'sana'."
+        },
+        "organo": {
+          "enum": ["hoja_haz", "hoja_enves", "flor", "fruto", "tallo", "planta_completa", "desconocido"]
+        },
+        "severidad": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Escala 0-5. SUPUESTO: la escala definitiva la fija el agrónomo de cada cliente."
+        },
+        "plantas_afectadas_est": { "type": "integer", "minimum": 0 },
+        "longitud_afectada_m": { "type": "number", "minimum": 0 },
+        "descripcion": { "type": "string", "maxLength": 2000 }
+      }
+    },
+
+    "contexto_ambiental": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Condiciones al capturar. La hoja mojada sube las falsas alarmas: por eso el robot va delante del aspersor.",
+      "properties": {
+        "temperatura_c": { "type": "number", "minimum": -20, "maximum": 60 },
+        "humedad_relativa_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+        "horas_mojadura_24h": { "type": "number", "minimum": 0, "maximum": 24 },
+        "hoja_mojada_captura": { "type": "boolean" },
+        "fuente": {
+          "enum": ["nodo_sensor", "estacion_cliente", "api_externa", "derivado", "no_disponible"]
+        },
+        "riesgos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["problema", "modelo", "version", "nivel"],
+            "properties": {
+              "problema": { "$ref": "#/$defs/codigo_problema" },
+              "modelo": { "type": "string", "examples": ["botrytis_bulger1987"] },
+              "version": { "type": "string" },
+              "valor": { "type": ["number", "null"] },
+              "nivel": { "enum": ["bajo", "medio", "alto", "muy_alto"] }
+            }
+          }
+        }
+      }
+    },
+
+    "evidencias": {
+      "type": "array",
+      "maxItems": 50,
+      "items": { "$ref": "#/$defs/evidencia" }
+    },
+
+    "triage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "por", "en"],
+      "properties": {
+        "decision": { "enum": ["verificar", "tratar_directo", "vigilar", "descartar"] },
+        "por": { "$ref": "#/$defs/uuid", "description": "Agrónomo o asistente técnico." },
+        "en": { "$ref": "#/$defs/fecha_hora" },
+        "asignado_a": { "$ref": "#/$defs/uuid_o_nulo", "description": "Operario que verifica en campo." },
+        "nota": { "type": "string", "maxLength": 2000 }
+      }
+    },
+
+    "verificacion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resultado", "por", "en"],
+      "properties": {
+        "resultado": { "enum": ["confirmada", "descartada", "no_concluyente"] },
+        "por": { "$ref": "#/$defs/uuid" },
+        "en": { "$ref": "#/$defs/fecha_hora" },
+        "evidencia_ids": { "type": "array", "items": { "$ref": "#/$defs/uuid" } },
+        "nota": { "type": "string", "maxLength": 2000 }
+      }
+    },
+
+    "descarte": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["motivo", "por", "en"],
+      "description": "Por qué fue falsa alarma. Se usa para medir y bajar las falsas alarmas.",
+      "properties": {
+        "motivo": {
+          "enum": ["hoja_mojada", "sombra_o_luz", "dano_mecanico", "otro_problema", "planta_sana", "imagen_borrosa", "duplicado", "otro"]
+        },
+        "por": { "$ref": "#/$defs/uuid" },
+        "en": { "$ref": "#/$defs/fecha_hora" },
+        "nota": { "type": "string", "maxLength": 2000 }
+      }
+    },
+
+    "tratamiento": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Vínculos a la recomendación del agrónomo y a las aplicaciones registradas (los campos regulatorios viven en esas entidades).",
+      "properties": {
+        "recomendacion_ids": { "type": "array", "items": { "$ref": "#/$defs/uuid" } },
+        "aplicacion_ids": { "type": "array", "items": { "$ref": "#/$defs/uuid" } },
+        "reinspeccion_programada_en": { "$ref": "#/$defs/fecha_hora" }
+      }
+    },
+
+    "cierre": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resultado", "por", "en"],
+      "properties": {
+        "resultado": { "enum": ["controlada", "persistente", "planta_eliminada", "falsa_alarma"] },
+        "por": { "$ref": "#/$defs/uuid" },
+        "en": { "$ref": "#/$defs/fecha_hora" },
+        "nota": { "type": "string", "maxLength": 2000 }
+      }
+    },
+
+    "incidencia_origen_id": {
+      "$ref": "#/$defs/uuid_o_nulo",
+      "description": "Si es duplicada o seguimiento de otra incidencia."
+    },
+
+    "tiempos": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["detectada_en", "creada_en"],
+      "properties": {
+        "detectada_en": { "$ref": "#/$defs/fecha_hora", "description": "Momento de la captura." },
+        "creada_en": { "$ref": "#/$defs/fecha_hora", "description": "Reloj del dispositivo que creó el registro." },
+        "recibida_en": { "$ref": "#/$defs/fecha_hora", "description": "Lo pone el servidor; el cliente no lo envía." },
+        "actualizada_en": { "$ref": "#/$defs/fecha_hora" }
+      }
+    },
+
+    "sync": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "origen_registro"],
+      "properties": {
+        "version": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Concurrencia optimista: el servidor rechaza una actualización basada en una versión vieja y la convierte en evento de conflicto."
+        },
+        "origen_registro": {
+          "type": "string",
+          "pattern": "^(nodo_borde|app|robot|nube|integracion):[A-Za-z0-9._-]+$",
+          "examples": ["nodo_borde:DEMO-NB-01", "app:3f9c2a"]
+        },
+        "lote_id": { "$ref": "#/$defs/uuid", "description": "Lote de sincronización (idempotencia: reenviar el mismo lote no duplica)." },
+        "pendiente_subida": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/uuid" },
+          "description": "Evidencias aún no subidas (sin conexión o esperando Wi-Fi)."
+        }
+      }
+    },
+
+    "privacidad": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rostros_difuminados": { "type": "boolean", "default": true },
+        "uso_entrenamiento_autorizado": {
+          "type": "boolean",
+          "default": false,
+          "description": "Solo true si el cliente dio consentimiento (opt-in) para mejorar modelos."
+        }
+      }
+    },
+
+    "trazabilidad": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exportes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["tipo", "exporte_id", "en"],
+            "properties": {
+              "tipo": {
+                "enum": ["ica_monitoreo_plagas", "ica_informe_trimestral", "bpa_aplicaciones", "globalgap_ppp", "geojson_incidencias", "paquete_auditoria"]
+              },
+              "exporte_id": { "$ref": "#/$defs/uuid" },
+              "en": { "$ref": "#/$defs/fecha_hora" }
+            }
+          }
+        }
+      }
+    },
+
+    "extra": {
+      "type": "object",
+      "description": "Campos propios de un cultivo o cliente (p. ej. estado fenológico, trampa asociada). No se validan aquí; se validan con un esquema por cultivo.",
+      "default": {}
+    }
+  },
+
+  "allOf": [
+    {
+      "description": "Un hallazgo del robot o de la cámara de la aspersora debe decir qué equipo, qué misión, qué modelo y con qué confianza, y traer al menos una evidencia.",
+      "if": {
+        "properties": { "origen": { "type": "object", "properties": { "tipo": { "enum": ["robot", "camara_aspersora"] } }, "required": ["tipo"] } },
+        "required": ["origen"]
+      },
+      "then": {
+        "required": ["evidencias"],
+        "properties": {
+          "origen": { "type": "object", "required": ["dispositivo_id", "recorrido_id"], "properties": { "dispositivo_id": { "$ref": "#/$defs/uuid" }, "recorrido_id": { "$ref": "#/$defs/uuid" } } },
+          "deteccion": { "type": "object", "required": ["modelo", "confianza"] },
+          "evidencias": { "type": "array", "minItems": 1 }
+        }
+      }
+    },
+    {
+      "description": "Un reporte manual identifica a la persona.",
+      "if": {
+        "properties": { "origen": { "type": "object", "properties": { "tipo": { "const": "operario" } }, "required": ["tipo"] } },
+        "required": ["origen"]
+      },
+      "then": {
+        "properties": { "origen": { "type": "object", "required": ["reportado_por"], "properties": { "reportado_por": { "$ref": "#/$defs/uuid" } } } }
+      }
+    },
+    {
+      "if": { "properties": { "estado": { "const": "verificacion_asignada" } }, "required": ["estado"] },
+      "then": { "required": ["triage"], "properties": { "triage": { "type": "object", "properties": { "decision": { "const": "verificar" } }, "required": ["asignado_a"] } } }
+    },
+    {
+      "description": "Confirmada = verificada en campo.",
+      "if": { "properties": { "estado": { "enum": ["confirmada"] } }, "required": ["estado"] },
+      "then": { "required": ["verificacion"], "properties": { "verificacion": { "type": "object", "properties": { "resultado": { "const": "confirmada" } } } } }
+    },
+    {
+      "if": { "properties": { "estado": { "const": "descartada" } }, "required": ["estado"] },
+      "then": { "required": ["descarte"] }
+    },
+    {
+      "if": { "properties": { "estado": { "const": "duplicada" } }, "required": ["estado"] },
+      "then": { "required": ["incidencia_origen_id"], "properties": { "incidencia_origen_id": { "$ref": "#/$defs/uuid" } } }
+    },
+    {
+      "if": { "properties": { "estado": { "enum": ["tratamiento_recomendado", "tratada"] } }, "required": ["estado"] },
+      "then": { "required": ["tratamiento"], "properties": { "tratamiento": { "type": "object", "required": ["recomendacion_ids"], "properties": { "recomendacion_ids": { "type": "array", "minItems": 1 } } } } }
+    },
+    {
+      "if": { "properties": { "estado": { "const": "tratada" } }, "required": ["estado"] },
+      "then": { "properties": { "tratamiento": { "type": "object", "required": ["aplicacion_ids"], "properties": { "aplicacion_ids": { "type": "array", "minItems": 1 } } } } }
+    },
+    {
+      "if": { "properties": { "estado": { "const": "cerrada" } }, "required": ["estado"] },
+      "then": { "required": ["cierre"] }
+    }
+  ],
+
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "uuid_o_nulo": {
+      "anyOf": [ { "$ref": "#/$defs/uuid" }, { "type": "null" } ]
+    },
+    "fecha_hora": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$",
+      "description": "RFC 3339 con zona horaria explícita (la finca puede estar en otro huso que el servidor)."
+    },
+    "codigo_problema": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "examples": ["oidio", "alternaria", "heliothis", "antracnosis", "botrytis", "roya", "desconocido"]
+    },
+    "estado": {
+      "enum": [
+        "detectada",
+        "en_triage",
+        "verificacion_asignada",
+        "confirmada",
+        "descartada",
+        "tratamiento_recomendado",
+        "tratada",
+        "en_seguimiento",
+        "cerrada",
+        "duplicada"
+      ],
+      "description": "Las transiciones permitidas están en la tabla bgi.transicion_estado (modelo_datos.sql)."
+    },
+    "geojson_point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "coordinates"],
+      "description": "GeoJSON Point (RFC 7946, §3.1.2): [longitud, latitud] en WGS 84; altura opcional en metros.",
+      "properties": {
+        "type": { "const": "Point" },
+        "coordinates": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 3,
+          "prefixItems": [
+            { "type": "number", "minimum": -180, "maximum": 180 },
+            { "type": "number", "minimum": -90, "maximum": 90 },
+            { "type": "number" }
+          ]
+        }
+      }
+    },
+    "evidencia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "tipo", "uri", "sha256", "capturada_en"],
+      "properties": {
+        "id": { "$ref": "#/$defs/uuid" },
+        "tipo": { "enum": ["imagen_original", "recorte", "miniatura", "video", "nota_voz", "imagen_verificacion"] },
+        "uri": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Ruta en el almacén de objetos, bajo el prefijo de la empresa. Sin conexión puede ser una ruta local del dispositivo ('local://...').",
+          "examples": ["s3://bgi-evidencias/11111111-1111-4111-8111-111111111111/2026/10/24/0192f1a0.jpg", "local://nb01/evid/0192f1a0.jpg"]
+        },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$", "description": "Integridad de la evidencia para auditoría." },
+        "mime": { "type": "string", "examples": ["image/jpeg"] },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "ancho_px": { "type": "integer", "minimum": 1 },
+        "alto_px": { "type": "integer", "minimum": 1 },
+        "camara": { "enum": ["base", "mastil", "telefono", "aspersora"] },
+        "bbox": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y", "w", "h"],
+          "description": "Caja normalizada 0-1 sobre la imagen original.",
+          "properties": {
+            "x": { "type": "number", "minimum": 0, "maximum": 1 },
+            "y": { "type": "number", "minimum": 0, "maximum": 1 },
+            "w": { "type": "number", "minimum": 0, "maximum": 1 },
+            "h": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "capturada_en": { "$ref": "#/$defs/fecha_hora" },
+        "subida_estado": { "enum": ["pendiente", "miniatura", "completa"] }
+      }
+    }
+  },
+
+  "examples": [
+    {
+      "schema_version": "1.0.0",
+      "id": "0192f1a0-7c00-7000-8000-000000000042",
+      "codigo_corto": "B03-C07-0042",
+      "empresa_id": "11111111-1111-4111-8111-111111111111",
+      "finca_id": "f1000000-0000-4000-8000-000000000001",
+      "bloque_id": "b1000000-0000-4000-8000-000000000001",
+      "cama_id": "c1000000-0000-4000-8000-000000000007",
+      "especie": "arandano",
+      "estado": "detectada",
+      "prioridad": "P1",
+      "ubicacion": {
+        "posicion_m": 14.5,
+        "lado": "A",
+        "altura_dosel": "media",
+        "punto": { "type": "Point", "coordinates": [-74.06, 4.86013] },
+        "precision_m": 0.5,
+        "metodo": "marcador_odometria"
+      },
+      "origen": {
+        "tipo": "robot",
+        "dispositivo_id": "d0000000-0000-4000-8000-000000000001",
+        "recorrido_id": "e0000000-0000-4000-8000-000000000001"
+      },
+      "deteccion": {
+        "problema": "oidio",
+        "modelo": { "nombre": "clasificador_hoja_arandano", "version": "demo-0.1", "umbral": 0.5 },
+        "confianza": 0.81,
+        "clases_top": [
+          { "clase": "oidio", "prob": 0.81 },
+          { "clase": "sana", "prob": 0.12 },
+          { "clase": "alternaria", "prob": 0.07 }
+        ],
+        "organo": "hoja_haz"
+      },
+      "contexto_ambiental": {
+        "temperatura_c": 16.2,
+        "humedad_relativa_pct": 78,
+        "horas_mojadura_24h": 9,
+        "hoja_mojada_captura": false,
+        "fuente": "nodo_sensor",
+        "riesgos": [
+          { "problema": "botrytis", "modelo": "botrytis_bulger1987", "version": "demo-0.1", "valor": null, "nivel": "alto" }
+        ]
+      },
+      "evidencias": [
+        {
+          "id": "0192f1a0-7c01-7000-8000-000000000001",
+          "tipo": "recorte",
+          "uri": "local://nb01/evid/0192f1a0-7c01.jpg",
+          "sha256": "1e1cb285c0210304bac942374d16a0ea7faab7c6242065d7f0c28d77de084734",
+          "mime": "image/jpeg",
+          "camara": "mastil",
+          "bbox": { "x": 0.41, "y": 0.22, "w": 0.1, "h": 0.08 },
+          "capturada_en": "2026-10-24T06:21:13-05:00",
+          "subida_estado": "pendiente"
+        }
+      ],
+      "tiempos": {
+        "detectada_en": "2026-10-24T06:21:13-05:00",
+        "creada_en": "2026-10-24T06:21:13-05:00"
+      },
+      "sync": {
+        "version": 1,
+        "origen_registro": "nodo_borde:DEMO-NB-01",
+        "lote_id": "0192f1a1-0000-7000-8000-000000000001",
+        "pendiente_subida": ["0192f1a0-7c01-7000-8000-000000000001"]
+      },
+      "privacidad": { "rostros_difuminados": true, "uso_entrenamiento_autorizado": false },
+      "extra": {}
+    }
+  ]
+}

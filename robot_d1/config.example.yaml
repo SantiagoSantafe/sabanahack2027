@@ -1,0 +1,42 @@
+# Copia este archivo a config.yaml y úsalo con:  --config config.yaml
+# Los argumentos de la línea de comandos ganan sobre este archivo.
+
+robot:
+  ip: 192.168.234.1          # Wi-Fi (AP del D1). Por cable: 192.168.168.168
+  local_ip: null             # null = autodetectar la interfaz con ruta al robot
+  local_port: 43988          # = target_port de /opt/export/config/sdk_config.yaml en el robot
+  sdk_path: ~/agibot_D1_Edu-Ultra   # raíz del repo del SDK (trae lib/zsl-1/x86_64 y aarch64)
+
+sim:
+  mac_ip: null               # IP del Mac con sim-core, p. ej. 192.168.234.23 (o --mac-ip / MAC_IP)
+  port: 8000
+  path: /ws/robot
+
+limits:                      # contrato v1, interiores. El SDK admite hasta 3 m/s; NO subir en la demo.
+  vx_max: 0.4                # m/s
+  vx_fast: 0.8               # m/s con "fast" (Shift en el teclado)
+  vy_max: 0.25               # m/s (el SDK no acepta |vy| < 0.1: debajo se manda 0)
+  wz_max: 0.6                # rad/s
+
+accel:                       # rampa; frenar = decel_factor × acelerar
+  ax: 0.8                    # m/s²
+  ay: 0.6
+  aw: 1.5                    # rad/s²
+  decel_factor: 2.0
+
+control:
+  hz: 20                     # lazo de control (la FAQ 6.7 dice que 20–50 Hz basta)
+  telemetry_hz: 10
+  teleop_ttl_s: 0.3          # un teleop vale 0,3 s
+  stand_settle_s: 2.0        # tras standUp no se manda move durante este tiempo
+  lie_settle_s: 2.0
+  lie_zero_s: 0.4            # antes de lieDown: velocidad aplicada en cero durante este tiempo
+  stall_guard_s: 0.5         # si el lazo se congela, un hilo aparte manda move(0,0,0)
+  detection_hold_default_s: 4.0
+
+keyboard:
+  initial_hold_s: 0.6        # 1ª pulsación (cubre la demora de autorrepetición ~0,5 s)
+  repeat_hold_s: 0.15        # con autorrepetición: al soltar, para en <= 0,15 s
+  release_grace_s: 0.08      # solo pynput
+  speed_levels: [0.4, 0.6, 0.8, 1.0]   # fracción de los límites
+  speed_level: 1             # índice inicial (0.6)

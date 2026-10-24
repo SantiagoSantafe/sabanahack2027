@@ -1,0 +1,1 @@
+Fuente: https://www.datos.gov.co/resource/uejq-wxrr.json (EVA 2019-2025 Base Agricola, MADR/UPRA). Consultado 2026-10-23 via API SODA.

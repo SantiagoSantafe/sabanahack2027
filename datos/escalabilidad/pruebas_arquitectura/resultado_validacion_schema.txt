@@ -1,0 +1,22 @@
+PASA  [esperado valido] valido: ejemplo detectada (robot)
+PASA  [esperado valido] valido: ciclo completo cerrada
+PASA  [esperado invalido] robot sin modelo ni confianza -> /deteccion must have required property 'modelo' | /deteccion must have required property 'confianza'
+PASA  [esperado invalido] robot sin evidencias -> / must have required property 'evidencias' | / must match "then" schema
+PASA  [esperado invalido] robot con dispositivo_id null -> /origen/dispositivo_id must be string | / must match "then" schema
+PASA  [esperado invalido] descartada sin descarte -> / must have required property 'descarte' | / must match "then" schema
+PASA  [esperado invalido] confirmada sin verificacion -> / must have required property 'verificacion' | / must match "then" schema
+PASA  [esperado invalido] confirmada con verificacion descartada -> /verificacion/resultado must be equal to constant | / must match "then" schema
+PASA  [esperado invalido] verificacion_asignada sin asignado -> /triage must have required property 'asignado_a' | / must match "then" schema
+PASA  [esperado invalido] sin posicion_m ni punto -> /ubicacion must have required property 'posicion_m' | /ubicacion must have required property 'punto'
+PASA  [esperado invalido] latitud fuera de rango -> /ubicacion/punto/coordinates/1 must be <= 90
+PASA  [esperado invalido] operario sin reportado_por -> /origen must have required property 'reportado_por' | / must match "then" schema
+PASA  [esperado invalido] fecha sin zona horaria -> /tiempos/detectada_en must match pattern "(Z|[+-][0-9]{2}:[0-9]{2})$" | /tiempos/detectada_en must match format "date-time"
+PASA  [esperado invalido] propiedad desconocida -> / must NOT have additional properties
+PASA  [esperado invalido] estado inventado -> /estado must be equal to one of the allowed values
+PASA  [esperado invalido] tratada sin aplicacion -> /tratamiento must have required property 'aplicacion_ids' | / must match "then" schema
+PASA  [esperado invalido] cerrada sin cierre -> / must have required property 'cierre' | / must match "then" schema
+PASA  [esperado invalido] sha256 invalido -> /evidencias/0/sha256 must match pattern "^[0-9a-f]{64}$"
+PASA  [esperado invalido] confianza > 1 -> /deteccion/confianza must be <= 1
+PASA  [esperado valido] valido: reporte manual de operario (sin robot)
+
+20/20 casos con el resultado esperado

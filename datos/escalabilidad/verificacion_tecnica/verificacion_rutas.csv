@@ -1,0 +1,19 @@
+autonomia,autonomia_h,autonomia_util_h,ha_por_caseta,v_transito_m_s,transito_promedio,transito_peor,ha_dia,ha_semana_6d,ciclos_bateria_dia,ciclos_bateria_anio
+"ficha 1,5 h (base operacion)",1.5,1.2,5,0.5,0.104,0.207,1.77,10.6,4.8,1512
+"ficha 1,5 h (base operacion)",1.5,1.2,5,1.0,0.052,0.104,1.87,11.2,4.8,1512
+"ficha 1,5 h (base operacion)",1.5,1.2,10,0.5,0.146,0.293,1.68,10.1,4.8,1512
+"ficha 1,5 h (base operacion)",1.5,1.2,10,1.0,0.073,0.146,1.83,11.0,4.8,1512
+"ficha 1,5 h (base operacion)",1.5,1.2,20,0.5,0.207,0.414,1.56,9.4,4.8,1512
+"ficha 1,5 h (base operacion)",1.5,1.2,20,1.0,0.104,0.207,1.77,10.6,4.8,1512
+con kit en el mastil -25 %,1.12,0.9,5,0.5,0.138,0.276,1.65,9.9,6.3,1966
+con kit en el mastil -25 %,1.12,0.9,5,1.0,0.069,0.138,1.79,10.7,6.3,1966
+con kit en el mastil -25 %,1.12,0.9,10,0.5,0.195,0.39,1.55,9.3,6.3,1966
+con kit en el mastil -25 %,1.12,0.9,10,1.0,0.098,0.195,1.73,10.4,6.3,1966
+con kit en el mastil -25 %,1.12,0.9,20,0.5,0.276,0.552,1.39,8.3,6.3,1966
+con kit en el mastil -25 %,1.12,0.9,20,1.0,0.138,0.276,1.65,9.9,6.3,1966
+"a carga plena (proporcion MaxPro 2,5/5,5)",0.68,0.55,5,0.5,0.228,0.455,1.39,8.4,9.8,3045
+"a carga plena (proporcion MaxPro 2,5/5,5)",0.68,0.55,5,1.0,0.114,0.228,1.6,9.6,9.8,3045
+"a carga plena (proporcion MaxPro 2,5/5,5)",0.68,0.55,10,0.5,0.322,0.644,1.22,7.3,9.8,3045
+"a carga plena (proporcion MaxPro 2,5/5,5)",0.68,0.55,10,1.0,0.161,0.322,1.51,9.1,9.8,3045
+"a carga plena (proporcion MaxPro 2,5/5,5)",0.68,0.55,20,0.5,0.455,0.911,0.98,5.9,9.8,3045
+"a carga plena (proporcion MaxPro 2,5/5,5)",0.68,0.55,20,1.0,0.228,0.455,1.39,8.4,9.8,3045

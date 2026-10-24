@@ -1,0 +1,26 @@
+{
+  "umbral": 0.9864769876003265,
+  "puntaje": "1 - p(sana)",
+  "regla": "sospecha si puntaje >= umbral; clase = enfermedad más probable",
+  "objetivo_sensibilidad": 0.9,
+  "criterio": "global",
+  "desempate": "sensibilidad",
+  "clase_sana": "sana",
+  "clases": [
+    "alternaria",
+    "heliothis",
+    "oidio",
+    "sana"
+  ],
+  "creado": "2026-10-24T03:05:58-05:00",
+  "preprocesamiento": "panel",
+  "elegido_en": {
+    "descripcion": "64 capturas reales de val (C, peso y umbral); sens>=0,90, minimo de falsas alarmas",
+    "variante": "Mc_tr_t90"
+  },
+  "validacion": {
+    "sens": 0.9259259259259259,
+    "fp": 0.4,
+    "acc": 0.796875
+  }
+}

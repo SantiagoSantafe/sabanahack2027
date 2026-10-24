@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# Node
+node_modules/
+dist/
+# Datos pesados y secretos (no se versionan)
+datos/raw/
+datos/.secrets/
+datos/pipeline/pesos/
+**/cache/
+*.npz
+*.sqlite3
+*.log
+# Respaldos y basura
+*.bak
+*.bak2
+*.orig
+*.antes_*
+*.tgz
+*.zip
+.DS_Store
+presentacion/render/

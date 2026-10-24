@@ -1,0 +1,13 @@
+punto,modelo,T_media,HR_media,h_HR_ge90,lluvia_mm,LWP_media,h_LWP_ge50
+sotaquira,best_match,13.01,81.6,4741,1364.6,40.3,3664
+sotaquira,era5_land,13.28,80.0,3562,,46.5,5033
+sotaquira,era5,14.56,77.9,2627,1379.2,50.7,5603
+tausa,best_match,10.57,83.0,4184,1268.8,35.4,1634
+tausa,era5_land,11.5,84.1,4625,,42.6,3292
+tausa,era5,11.54,82.1,3251,2710.2,46.6,3632
+guasca,best_match,13.48,75.5,3106,1155.2,37.4,3585
+guasca,era5_land,12.93,84.0,4412,,50.4,5496
+guasca,era5,13.71,82.6,3399,1424.3,56.6,6444
+chia,best_match,12.99,81.0,4174,1453.0,42.3,3934
+chia,era5_land,14.07,82.3,3569,,54.5,6043
+chia,era5,14.51,82.6,3411,1424.3,59.7,6581

@@ -1,0 +1,83 @@
+# Detector visual (clasificador de hoja). Valores MEDIDOS por el equipo, no del paper de DrBerry.
+# Fuente: BerryGoodIdea_handoff/datos/resultados/detector.yaml (sección recomendacion_para_simulacion) y
+# datos/REPORTE_DATOS.md §2 y §6 ("CONECTAR A LA SIMULACIÓN").
+# Modelo: sonda lineal CLIP ViT-B-32 (laion2b) con teselas 3x3, imagen completa (lo que ve el robot);
+# decisión "sospecha" si 1 - p(sana) >= 0,7373. Test congelado de DrBerry: 68 imágenes en 21 grupos
+# (una finca de Perú, un día; 14 sanas en ~5 grupos -> IC anchos). Sin medición real pantalla -> cámara del D1.
+# Antes este archivo usaba el recall de YOLOv5s del paper (PROVISIONAL, inflado por fuga entre splits): se reemplazó.
+
+classes: [alternaria, heliothis, oidio, sana]   # clases del clasificador real
+
+classifier:
+  scenario: measured        # measured | pessimistic
+  scenarios:
+    measured:
+      # MEDIDO: 43/54 hojas enfermas con sospecha. IC95 Clopper-Pearson [0,66; 0,89]; bootstrap por grupo [0,57; 0,98].
+      sensitivity: 0.7963
+      # MEDIDO: 5/14 sanas con sospecha (especificidad 0,64). IC95 CP de la tasa [0,13; 0,65].
+      false_positive_rate: 0.3571
+    pessimistic:
+      # MEDIDO con estrés sintético pantalla -> cámara combinado (35/54). Las perturbaciones son SUPUESTAS.
+      sensitivity: 0.6481
+      # 9/14 sanas con sospecha en el mismo estrés (especificidad ~0,36).
+      false_positive_rate: 0.6429
+  # MEDIDO por clase (P(sospecha | hoja de esa clase), sin importar el diagnóstico), escenario "measured".
+  # En "pessimistic" se escalan por 0,6481 / 0,7963 (DERIVADO: no hay estrés por clase).
+  measured_recall:
+    oidio: 0.9545        # 21/22, IC95 CP [0,77; 1,00]
+    heliothis: 1.0       # 18/18, IC95 CP [0,81; 1,00] (Heliothis es un insecto: se ve el daño)
+    alternaria: 0.2857   # 4/14, IC95 CP [0,08; 0,58] — lesiones de ~25 px en 1.024 px
+
+# Mapeo enfermedad simulada -> clase visual.
+# El clasificador real NO tiene clases de Botrytis, antracnosis ni roya: hoy esas tres enfermedades solo
+# las ve la capa ambiental (red fija) o una persona. Decisión del equipo de datos de la simulación:
+#   visual_classes_mode: future  -> cada una es una CLASE FUTURA (aún no entrenada; no hay datasets públicos
+#       de arándano para ellas) que detecta con la sensibilidad global del escenario activo
+#       (0,7963 medido; 0,6481 pesimista). # SUPUESTO: que una clase entrenada con fotos locales llegue a la
+#       sensibilidad global que el modelo logra hoy en sus tres clases. Sin evidencia; la alternaria (0,29)
+#       muestra que una clase de lesiones pequeñas puede quedar muy por debajo.
+#   visual_classes_mode: current -> recall 0 para las tres: el robot no ve ninguna enfermedad simulada y
+#       solo detectan las personas (B, REF). Es el estado real del clasificador hoy.
+# El modo "future" es el de la evidencia (results/summary.csv) porque la simulación compara plataformas;
+# cualquier cifra del robot debe citarse con este supuesto.
+visual_classes_mode: future   # future | current  # SUPUESTO (ver arriba)
+disease_to_visual:
+  botrytis: botrytis
+  anthracnose: antracnosis
+  rust: roya          # además las pústulas están en el envés de la hoja
+future_classes: [botrytis, antracnosis, roya]
+
+# La cámara baja ve menos copa: factor = clamp(1 - max(0, h_planta - h_cámara) / h_planta, min_factor, 1).
+# Multiplica la sensibilidad y la tasa de falsas alarmas. # SUPUESTO
+height_penalty:
+  enabled: true
+  min_factor: 0.35  # SUPUESTO — una cámara baja ve sobre todo la base del arbusto
+  curve: linear     # SUPUESTO
+
+# Hoja mojada (rocío, gutación, condensación nocturna) sube las falsas alarmas: tasa *= multiplicador, con
+# tope en la tasa del escenario pesimista medido. Patrullar de noche o al amanecer (lo que pidió el
+# cliente) cae casi siempre en hoja mojada: este es el costo de esa decisión en la simulación.
+wet_leaf_fpr_multiplier: 1.8   # SUPUESTO — sin medición con hoja mojada
+wet_leaf_fpr_cap: 0.6429       # tope = tasa pesimista medida (estrés sintético); su uso aquí es SUPUESTO
+
+# Umbral de decisión: el medido (umbral_sospecha de datos/resultados/detector.yaml). La sensibilidad de
+# arriba ya corresponde a este umbral, elegido en validación cruzada para apuntar a sensibilidad 0,90
+# (preferir falsas alarmas). Antes había un "empuje" de +0,03 a la sensibilidad sin fuente: se eliminó.
+decision:
+  score_threshold: 0.7373
+
+# Persona que recorre las camas. Falsas alarmas por planta sana revisada:
+# especificidad 0,97 de datos/simulacion/parametros.yaml (deteccion.humano.especificidad, SUPUESTO
+# informado: la especificidad superó a la sensibilidad en 22 de 23 evaluadores, Combes et al. 2025).
+human_false_positive_rate: 0.03  # SUPUESTO (antes 0,01 sin fuente)
+human_wet_fpr_multiplier: 1.5    # SUPUESTO
+
+# Confirmación del agrónomo u operario (simulada)
+operator:
+  delay_days_min: 0.5  # SUPUESTO
+  delay_days_max: 2.0  # SUPUESTO
+  confirm_error_rate: 0.05   # SUPUESTO — descarta por error un caso real
+  discard_error_rate: 0.10   # SUPUESTO — confirma por error una falsa alarma
+
+# Niebla o rocío de la aspersora (solo la alternativa C): sensibilidad *= este factor
+fog_sensitivity_penalty: 0.55  # SUPUESTO

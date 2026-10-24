@@ -1,0 +1,4 @@
+sotaquira HR90 18 10 HR85 45 19 union 45 19 HR90 no en HR85 0
+tausa HR90 17 10 HR85 31 19 union 31 19 HR90 no en HR85 0
+guasca HR90 10 5 HR85 22 11 union 22 11 HR90 no en HR85 0
+chia HR90 16 10 HR85 35 17 union 35 17 HR90 no en HR85 0

@@ -1,0 +1,13 @@
+{
+  "modelo": "clip_probe:clip_probe_tiles3.joblib",
+  "n": 30,
+  "carga_modelo_ms": 2510.7,
+  "latencia_ms": {
+    "p50": 84.935,
+    "p95": 85.9445,
+    "media": 85.076,
+    "max": 87.0
+  },
+  "dispositivo": "cpu",
+  "creado": "2026-10-23T18:22:33-05:00"
+}

@@ -1,0 +1,349 @@
+# Economía unitaria del vendedor (salida de unit_economics.py)
+
+Parámetros: unit_economics_parametros.yaml (leído con lector mínimo incluido). Moneda: USD/año salvo que se indique otra. TRM 3.185,01 COP/USD. Los SUPUESTO están marcados en el YAML.
+
+### 1. Cuántas hectáreas cubre un robot por semana
+
+| Robot y modo | h de robot por ha (1 pasada) | % de la ventana caminando | h útiles/semana | ha/semana, 100 % de camas | ha por robot con 60 % de camas por semana |
+|---|---|---|---|---|---|
+| D1 Ultra dedicado (finca >= 20 ha) | 1,45 | 93 % | 31,1 | 21,5 | 35,8 |
+| D1 Ultra en ruta (fincas pequeñas) | 1,45 | 93 % | 26,7 | 18,4 | 30,7 |
+| D1 MaxPro compartido | 1,45 | 97 % | 51,8 | 35,8 | 59,7 |
+
+Pasillo por ha = 10.000 / 3,0 m = 3.333 m; velocidad 0,8 m/s; +25 % por giros y paradas. Con estos supuestos, los ~60 ha por MaxPro del contexto equivalen a inspeccionar el 60 % de las camas cada semana.
+
+### 2. CAPEX y costo anual de un robot
+
+| Robot | Precio equipo | CAPEX puesto en finca | Vida (años) | Depreciación/año | Baterías repuestas/año | Mant. + seguro + baterías/año | Costo anual | Costo por ha cubierta |
+|---|---|---|---|---|---|---|---|---|
+| D1 Ultra + mástil | 7.499 | 11.599 | 3 | 3.866 | 4,3 | 3.217 | 7.084 | 198 |
+| D1 MaxPro + mástil | 67.999 | 83.659 | 5 | 16.732 | 0,7 | 11.448 | 28.180 | 472 |
+
+CAPEX = precio x (1 + importación) + kit de percepción + baterías extra + cargador/estuche. Baterías por año = horas de uso x 52 / autonomía / ciclos de vida.
+
+### 3. Red de sensores por finca
+
+| Finca | ha | Nodos | CAPEX red | CAPEX por ha | Costo anual por ha |
+|---|---|---|---|---|---|
+| Finca pequeña (gateway y estación compartidos) | 5 | 2 | 973 | 195 | 74 |
+| Finca mediana | 30 | 12 | 4.888 | 163 | 61 |
+
+### 4. Valor por ha para el productor y precio máximo que acepta
+
+| Paquete | Cosecha salvada | Fungicida ahorrado | Scouting ahorrado | Valor total/ha | Precio máx./ha con ROI 3,0x | kg/ha que vale el paquete |
+|---|---|---|---|---|---|---|
+| Con robot (red + robot) | 1.440 | 90 | 115 | 1.645 | 548 | 274 |
+| Solo red + SaaS | 720 | 48 | 0 | 768 | 256 | 128 |
+
+Supuestos: 12.000 kg/ha a 6,00 USD/kg; pérdida evitada 2,0 % (con robot) y 1,0 % (solo red). Precio máx. = valor / ROI objetivo. El punto de equilibrio del productor (ROI 1x) es el valor total.
+
+### 5. Ventana de precio por ha y año en régimen (muchas fincas iguales, sin overhead fijo)
+
+| Segmento y plan | Precio de lista/ha | Ingreso vendedor/ha | Costo vendedor/ha | Margen bruto | Ingreso mínimo/ha para margen 45 % | CAPEX vendedor por finca | Payback por finca (meses) | Costo total productor/ha | ROI productor | Equilibrio productor kg/ha | ¿Margen y ROI 3x? |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| RaaS en ruta, finca de 5 ha | 620 | 620 | 608 | 2 % | 1.105 | 3.745 | 37 | 638 | 2,6x | 106 | parcial |
+| RaaS dedicado, finca de 30 ha | 520 | 520 | 401 | 23 % | 729 | 17.287 | 23 | 537 | 3,1x | 90 | parcial |
+| RaaS dedicado, finca de 120 ha | 520 | 520 | 365 | 30 % | 664 | 61.048 | 19 | 537 | 3,1x | 90 | parcial |
+| SaaS + kit, finca de 5 ha | 130 | 196 | 171 | 12 % | 312 | 800 | 25 | 228 | 3,4x | 38 | parcial |
+| SaaS + kit, finca de 30 ha | 130 | 185 | 87 | 53 % | 158 | 800 | 3 | 211 | 3,6x | 35 | sí |
+| SaaS + kit por canal, autoinstalable, finca de 5 ha | 130 | 196 | 135 | 31 % | 245 | 250 | 8 | 228 | 3,4x | 38 | parcial |
+| Venta + licencia, finca de 5 ha | 90 | 1.946 | 1.654 | 15 % | 3.007 | 800 | 6 | 2.125 | 0,8x | 354 | no |
+| Venta + licencia, finca de 30 ha | 90 | 482 | 347 | 28 % | 631 | 800 | 2 | 515 | 3,2x | 86 | parcial |
+| Venta + licencia, finca de 120 ha | 90 | 452 | 319 | 29 % | 580 | 800 | 1 | 482 | 3,4x | 80 | parcial |
+| MaxPro compartido, finca de 30 ha | 620 | 620 | 820 | -32 % | 1.491 | 48.354 | 145 | 620 | 2,7x | 103 | no |
+
+El ingreso del vendedor en SaaS + kit y en Venta incluye el hardware anualizado (precio de lista + kit vendido / vida útil). El costo del productor suma el tiempo de su operario y, si compra, el hardware anualizado y su mantenimiento. Valor para el productor: 1.645 USD/ha con robot y 768 USD/ha solo con la red.
+
+### 5b. Palancas para la finca pequeña (5 ha), el segmento más caro de atender
+
+| Palanca | Segmento y plan | Precio de lista/ha | Ingreso vendedor/ha | Costo vendedor/ha | Margen bruto | Ingreso mínimo/ha para margen 45 % | CAPEX vendedor por finca | Payback por finca (meses) | Costo total productor/ha | ROI productor | Equilibrio productor kg/ha | ¿Margen y ROI 3x? |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Base | SaaS + kit, finca de 5 ha | 130 | 196 | 171 | 12 % | 312 | 800 | 25 | 228 | 3,4x | 38 | parcial |
+| Base | RaaS en ruta, finca de 5 ha | 620 | 620 | 608 | 2 % | 1.105 | 3.745 | 37 | 638 | 2,6x | 106 | parcial |
+| Canal (asociación/exportadora): CAC 150 | SaaS + kit, finca de 5 ha | 130 | 196 | 148 | 24 % | 269 | 450 | 14 | 228 | 3,4x | 38 | parcial |
+| Canal (asociación/exportadora): CAC 150 | RaaS en ruta, finca de 5 ha | 620 | 620 | 584 | 6 % | 1.062 | 3.395 | 33 | 638 | 2,6x | 106 | parcial |
+| Canal + kit autoinstalable | SaaS + kit, finca de 5 ha | 130 | 196 | 135 | 31 % | 245 | 250 | 8 | 228 | 3,4x | 38 | parcial |
+| Canal + autoinstalable + SaaS a 160 | SaaS + kit, finca de 5 ha | 160 | 226 | 135 | 40 % | 245 | 250 | 6 | 258 | 3,0x | 43 | parcial |
+| Canal + robot en ruta a 680 | RaaS en ruta, finca de 5 ha | 680 | 680 | 584 | 14 % | 1.062 | 3.395 | 27 | 698 | 2,4x | 116 | parcial |
+| Canal + 1 técnico por 10 robots en ruta | RaaS en ruta, finca de 5 ha | 620 | 620 | 532 | 14 % | 967 | 3.395 | 27 | 638 | 2,6x | 106 | parcial |
+
+### 5c. Desglose del costo del vendedor (USD por ha y año, en régimen)
+
+| Rubro | RaaS dedicado 30 ha | RaaS ruta 5 ha | SaaS canal 5 ha | Venta 120 ha | MaxPro 30 ha |
+|---|---|---|---|---|---|
+| Depreciación del robot | 129 | 131 | 0 | 0 | 284 |
+| Mantenimiento y seguro del robot | 107 | 109 | 0 | 0 | 195 |
+| Red de sensores (dep. + mant. + SIM) | 61 | 74 | 0 | 0 | 61 |
+| Hardware vendido (costo anualizado) | 0 | 0 | 49 | 158 | 0 |
+| Repuestos del contrato de soporte | 0 | 0 | 0 | 107 | 0 |
+| Técnicos u operadores | 64 | 209 | 39 | 21 | 241 |
+| Agrónomo remoto | 27 | 27 | 27 | 27 | 27 |
+| Nube variable | 4 | 4 | 4 | 4 | 4 |
+| Instalación + CAC (amortizados) | 9 | 53 | 17 | 2 | 9 |
+| Total | 401 | 608 | 135 | 319 | 820 |
+
+### 5d. Margen del RaaS dedicado a 520 USD/ha según el tamaño de la finca (robots enteros, en régimen)
+
+| Finca (ha) | Robots (camas a 3,0 m) | Costo vendedor/ha | Margen | Robots (camas a 2,5 m) | Margen (camas a 2,5 m) |
+|---|---|---|---|---|---|
+| 15 | 1 | 737 | -42 % | 1 | -42 % |
+| 20 | 1 | 569 | -9 % | 1 | -9 % |
+| 25 | 1 | 468 | 10 % | 1 | 10 % |
+| 30 | 1 | 401 | 23 % | 2 | -32 % |
+| 35 | 1 | 353 | 32 % | 2 | -15 % |
+| 40 | 2 | 533 | -2 % | 2 | -2 % |
+| 50 | 2 | 440 | 15 % | 2 | 15 % |
+| 60 | 2 | 377 | 27 % | 3 | -0 % |
+| 70 | 2 | 333 | 36 % | 3 | 12 % |
+| 100 | 3 | 339 | 35 % | 4 | 18 % |
+| 120 | 4 | 365 | 30 % | 5 | 16 % |
+
+Una finca de 20 ha (la de referencia del equipo) usa ~56 % de un robot y deja margen negativo. Para no perder hay que cobrar un mínimo por robot instalado o compartir el robot entre fincas vecinas. La regla de robots enteros es estricta: con camas a 2,5 m un robot cubre 29,9 ha y la finca de 30 ha pasa a 2 robots; en la práctica bastaría bajar la fracción de camas de 60 % a 59,8 %. Con esa misma regla estricta, el RaaS y el híbrido no llegan a EBIT >= 0 en ninguna escala si las camas están a 2,5 m.
+
+### 6.1. Escala 10 ha bajo contrato: 2 pequeñas (10 ha)
+
+| Modelo | Flota | Nodos | Personal | Ingreso | Costo directo (caja + dep.) | Margen bruto | EBIT tras overhead | CAPEX vendedor | Payback CAPEX (meses) | Costo productor/ha | ROI productor | Equilibrio kg/ha |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Venta de equipo + licencia | 2 Ultra vendidos | 4 | 1 téc. + 0,25 agr. | 19.463 | 51.528 | -165 % | -104.064 | 1.600 | n/a | 2.125 | 0,8x | 354 |
+| RaaS por ha (robot en ruta / dedicado) | 1 Ultra (0 reserva) | 4 | 1 téc. + 0,25 agr. | 6.200 | 45.200 | -629 % | -111.000 | 15.145 | n/a | 672 | 2,4x | 112 |
+| SaaS por ha + kit de sensores | sin robot | 4 | 1 téc. + 0,25 agr. | 1.957 | 37.862 | -1.835 % | -107.905 | 1.600 | n/a | 228 | 3,4x | 38 |
+| Híbrido: pequeñas SaaS+kit por canal, medianas RaaS, grandes compra | sin robot | 4 | 1 téc. + 0,25 agr. | 1.957 | 37.496 | -1.816 % | -107.539 | 500 | n/a | 228 | 3,4x | 38 |
+| RaaS compartido con D1 MaxPro | 1 MaxPro | 4 | 2 téc. + 0,25 agr. | 6.200 | 93.077 | -1.401 % | -158.877 | 87.205 | n/a | 620 | 2,7x | 103 |
+
+Overhead fijo: 72.000 USD/año. El payback divide el CAPEX del vendedor (robots, red, instalación y CAC) por la contribución de caja mensual antes del overhead.
+
+### 6.2. Escala 50 ha bajo contrato: 6 pequeñas (30 ha), 1 medianas (20 ha)
+
+| Modelo | Flota | Nodos | Personal | Ingreso | Costo directo (caja + dep.) | Margen bruto | EBIT tras overhead | CAPEX vendedor | Payback CAPEX (meses) | Costo productor/ha | ROI productor | Equilibrio kg/ha |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Venta de equipo + licencia | 7 Ultra vendidos | 20 | 1 téc. + 0,25 agr. | 71.324 | 89.423 | -25 % | -90.099 | 5.600 | n/a | 1.554 | 1,1x | 259 |
+| RaaS por ha (robot en ruta / dedicado) | 2 Ultra (0 reserva) | 20 | 1 téc. + 0,25 agr. | 29.000 | 56.742 | -96 % | -99.742 | 38.528 | n/a | 601 | 2,7x | 100 |
+| SaaS por ha + kit de sensores | sin robot | 20 | 1 téc. + 0,25 agr. | 9.784 | 41.302 | -322 % | -103.518 | 5.600 | n/a | 228 | 3,4x | 38 |
+| Híbrido: pequeñas SaaS+kit por canal, medianas RaaS, grandes compra | 1 Ultra (0 reserva) | 20 | 1 téc. + 0,25 agr. | 16.270 | 47.794 | -194 % | -103.524 | 17.791 | n/a | 355 | 3,2x | 59 |
+| RaaS compartido con D1 MaxPro | 2 MaxPro | 20 | 2 téc. + 0,25 agr. | 31.000 | 125.715 | -306 % | -166.715 | 182.648 | n/a | 620 | 2,7x | 103 |
+
+Overhead fijo: 72.000 USD/año. El payback divide el CAPEX del vendedor (robots, red, instalación y CAC) por la contribución de caja mensual antes del overhead.
+
+### 6.3. Escala 200 ha bajo contrato: 16 pequeñas (80 ha), 4 medianas (120 ha)
+
+| Modelo | Flota | Nodos | Personal | Ingreso | Costo directo (caja + dep.) | Margen bruto | EBIT tras overhead | CAPEX vendedor | Payback CAPEX (meses) | Costo productor/ha | ROI productor | Equilibrio kg/ha |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Venta de equipo + licencia | 20 Ultra vendidos | 80 | 1 téc. + 0,25 agr. | 213.571 | 189.939 | 11 % | -48.368 | 16.000 | 7 | 1.159 | 1,4x | 193 |
+| RaaS por ha (robot en ruta / dedicado) | 8 Ultra (1 reserva) | 80 | 2 téc. + 0,25 agr. | 112.000 | 134.428 | -20 % | -94.428 | 143.911 | 76 | 578 | 2,8x | 96 |
+| SaaS por ha + kit de sensores | sin robot | 80 | 1 téc. + 0,25 agr. | 37.853 | 51.716 | -37 % | -85.863 | 16.000 | n/a | 218 | 3,5x | 36 |
+| Híbrido: pequeñas SaaS+kit por canal, medianas RaaS, grandes compra | 4 Ultra (0 reserva) | 80 | 1 téc. + 0,25 agr. | 78.054 | 79.552 | -2 % | -73.497 | 73.148 | 41 | 414 | 3,1x | 69 |
+| RaaS compartido con D1 MaxPro | 6 MaxPro | 80 | 4 téc. + 0,25 agr. | 124.000 | 299.885 | -142 % | -247.885 | 553.073 | n/a | 620 | 2,7x | 103 |
+
+Overhead fijo: 72.000 USD/año. El payback divide el CAPEX del vendedor (robots, red, instalación y CAC) por la contribución de caja mensual antes del overhead.
+
+### 6.4. Escala 1.000 ha bajo contrato: 60 pequeñas (300 ha), 17 medianas (500 ha), 2 grandes (200 ha)
+
+| Modelo | Flota | Nodos | Personal | Ingreso | Costo directo (caja + dep.) | Margen bruto | EBIT tras overhead | CAPEX vendedor | Payback CAPEX (meses) | Costo productor/ha | ROI productor | Equilibrio kg/ha |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Venta de equipo + licencia | 83 Ultra vendidos | 404 | 3 téc. + 0,67 agr. | 913.959 | 741.801 | 19 % | 100.158 | 63.200 | 4 | 990 | 1,7x | 165 |
+| RaaS por ha (robot en ruta / dedicado) | 37 Ultra (4 reserva) | 404 | 5 téc. + 0,67 agr. | 550.000 | 488.848 | 11 % | -10.848 | 657.555 | 30 | 567 | 2,9x | 95 |
+| SaaS por ha + kit de sensores | sin robot | 404 | 1 téc. + 0,67 agr. | 185.754 | 119.871 | 35 % | -6.118 | 63.200 | 9 | 212 | 3,6x | 35 |
+| Híbrido: pequeñas SaaS+kit por canal, medianas RaaS, grandes compra | 19 Ultra (2 reserva) + 6 Ultra vendidos | 404 | 3 téc. + 0,67 agr. | 403.740 | 339.736 | 16 % | -7.997 | 333.675 | 24 | 428 | 3,2x | 71 |
+| RaaS compartido con D1 MaxPro | 21 MaxPro | 404 | 12 téc. + 0,67 agr. | 620.000 | 1.011.786 | -63 % | -463.786 | 1.985.232 | 1.085 | 620 | 2,7x | 103 |
+
+Overhead fijo: 72.000 USD/año. El payback divide el CAPEX del vendedor (robots, red, instalación y CAC) por la contribución de caja mensual antes del overhead.
+
+### 7. Escala mínima para cubrir el overhead fijo (EBIT >= 0)
+
+| Modelo | ha bajo contrato | Fincas | % del arándano colombiano (907 ha) | CAPEX acumulado vendedor |
+|---|---|---|---|---|
+| Venta de equipo + licencia | 439 | 45 | 48 % | 36.000 |
+| RaaS por ha (robot en ruta / dedicado) | 1.358 | 108 | 150 % | 903.492 |
+| SaaS por ha + kit de sensores | 1.071 | 85 | 118 % | 68.000 |
+| Híbrido: pequeñas SaaS+kit por canal, medianas RaaS, grandes compra | 1.071 | 85 | 118 % | 352.212 |
+| RaaS compartido con D1 MaxPro | > 100.000 | - | - | - |
+
+Si la escala mínima pasa del 30 % del arándano colombiano, el negocio necesita otros frutales u otros países.
+
+### 8. Sensibilidad: ha por D1 Ultra dedicado y costo del vendedor por ha (RaaS, finca de 30 ha)
+
+| Velocidad | 40 % camas/semana | 60 % camas/semana | 100 % camas/semana |
+|---|---|---|---|
+| 0,4 m/s | 26,9 ha / 435 USD/ha | 17,9 ha / 595 USD/ha | 10,8 ha / 916 USD/ha |
+| 0,5 m/s | 33,6 ha / 370 USD/ha | 22,4 ha / 499 USD/ha | 13,4 ha / 756 USD/ha |
+| 0,6 m/s | 40,3 ha / 328 USD/ha | 26,9 ha / 435 USD/ha | 16,1 ha / 649 USD/ha |
+| 0,8 m/s | 53,8 ha / 274 USD/ha | 35,8 ha / 354 USD/ha | 21,5 ha / 515 USD/ha |
+| 1,0 m/s | 67,2 ha / 242 USD/ha | 44,8 ha / 306 USD/ha | 26,9 ha / 435 USD/ha |
+
+Robots fraccionarios (flota bien usada entre fincas). En una finca real el costo sube a saltos, porque una finca de 30 ha necesita 1, 2 o 3 robots enteros.
+
+### 9. Sensibilidad del costo RaaS dedicado (precio de lista 520 USD/ha, robots fraccionarios)
+
+| Cambio | ha por robot | Costo vendedor/ha | Diferencia vs. base | Margen bruto al precio de lista |
+|---|---|---|---|---|
+| Base | 35,8 | 354 | 0 | 32 % |
+| D1 Ultra a precio de lista (9.600) | 35,8 | 383 | 29 | 26 % |
+| Vida del robot 4 años | 35,8 | 327 | -27 | 37 % |
+| Vida del robot 2 años | 35,8 | 408 | 54 | 21 % |
+| Batería NO intercambiable | 21,5 | 479 | 124 | 8 % |
+| Camas a 2,0 m | 23,9 | 475 | 120 | 9 % |
+| 1 técnico por 8 robots | 35,8 | 392 | 38 | 25 % |
+| Ventana 9 h/día | 46,1 | 313 | -41 | 40 % |
+
+### 9b. Riesgos operativos del RaaS dedicado (finca de 30 ha, precio 520 USD/ha)
+
+| Escenario | ha por robot | Robots en la finca | Costo vendedor/ha | Margen (robots enteros) | Margen (flota repartida) | Costo productor/ha | ROI productor |
+|---|---|---|---|---|---|---|---|
+| Base | 35,8 | 1 | 401 | 23 % | 32 % | 537 | 3,1x |
+| Velocidad 0,4 m/s (base de operacion.md) | 17,9 | 2 | 689 | -32 % | -14 % | 554 | 3,0x |
+| Velocidad 0,6 m/s | 26,9 | 2 | 689 | -32 % | 16 % | 554 | 3,0x |
+| Batería de 200 ciclos (garantía del manual) | 35,8 | 1 | 434 | 17 % | 27 % | 537 | 3,1x |
+| Línea de vista: el monitor acompaña al robot 7 h/día y no se ahorra scouting | 35,8 | 1 | 401 | 23 % | 32 % | 882 | 1,7x |
+| Línea de vista, pero el monitor que acompaña ya estaba en nómina | 35,8 | 1 | 401 | 23 % | 32 % | 537 | 2,8x |
+| 0,6 m/s + batería de 200 ciclos | 26,9 | 2 | 753 | -45 % | 9 % | 554 | 3,0x |
+| Entrecalle 2,5 m (ODEPA, base de finanzas/parametros.yaml) | 29,9 | 2 | 689 | -32 % | 23 % | 554 | 3,0x |
+| Entrecalle 2,2 m (Peña et al. 2023, finca de 1 ha en Cundinamarca) | 26,3 | 2 | 689 | -32 % | 15 % | 554 | 3,0x |
+| IVA de importación como costo (factor 1,359 de finanzas/importacion_factores.csv) | 35,8 | 1 | 428 | 18 % | 28 % | 537 | 3,1x |
+| Operario 40 min/día (5 cambios de batería de 6 min + alertas) | 35,8 | 1 | 401 | 23 % | 32 % | 554 | 3,0x |
+
+El manual del D1 Ultra pide 'Keep the robot within your line of sight'. Si eso aplica a la operación autónoma, una persona acompaña al robot.
+
+### 10. Sensibilidad del productor con robot: valor/ha y precio máximo con ROI 3x
+
+| Pérdida evitada | 4 USD/kg | 6 USD/kg |
+|---|---|---|
+| 0,6 % | 493 / 164 | 637 / 212 |
+| 1,0 % | 685 / 228 | 925 / 308 |
+| 2,0 % | 1.165 / 388 | 1.645 / 548 |
+| 4,0 % | 2.125 / 708 | 3.085 / 1.028 |
+
+Cada celda muestra el valor por ha y luego el precio máximo por ha. Rendimiento 12.000 kg/ha.
+
+### 11. Mercado alcanzable con 5 % de adopción (ingreso anual)
+
+| Cultivo | ha (EVA 2025 / Perú 2025) | Plan supuesto | ha con 5 % | Ingreso anual USD |
+|---|---|---|---|---|
+| Arándano Colombia | 907 | RaaS | 45 | 23.582 |
+| Fresa Colombia | 3.767 | RaaS | 188 | 97.942 |
+| Uchuva Colombia | 1.810 | SaaS + kit | 90 | 11.765 |
+| Mora Colombia | 15.952 | SaaS + kit | 798 | 103.688 |
+| Aguacate Hass Colombia (solo red + SaaS) | 72.444 | SaaS + kit | 3.622 | 470.886 |
+| Arándano Perú | 30.000 | RaaS | 1.500 | 780.000 |
+| Total |  |  |  | 1.487.863 |
+
+Fresa y Perú requieren validar el robot en otros sistemas (mesa alta, desierto costero). Que la uchuva y la mora usen SaaS es un SUPUESTO.
+
+### Anexo. Parámetros y fuentes
+
+| Parámetro | Valor | Fuente |
+|---|---|---|
+| general.trm_cop_usd | 3.185,01 | FUENTE: TRM vigente 2026-10-23, Superfinanciera vía https://www.datos.gov.co/resource/32sa-8pi3.json |
+| general.smmlv_2026_cop_mes | 1750905 | FUENTE: Decreto 1469 de 2025, https://consultorsalud.com/aumento-del-salario-minimo-en-colombia-2026/ |
+| general.auxilio_transporte_2026_cop_mes | 249095 | FUENTE: Decreto 1470 de 2025, misma URL |
+| general.factor_prestacional | 1,52 | SUPUESTO: costo empresa / salario base en Colombia (seguridad social, prestaciones, parafiscales) |
+| general.escalas_ha | 10,50,200,1000 | Pedido del equipo: ha totales bajo contrato del vendedor |
+| productor.rendimiento_kg_ha | 12000 | CONTEXTO: 12 t/ha. El promedio nacional EVA 2025 es 9,07 t/ha cosechada (6.031 t / 665 ha), https://www.datos.gov.co/resource/uejq-wxrr.json |
+| productor.precio_usd_kg | 6,00 | CALCULADO: el equipo usó 430 USD/ha / 72 kg/ha = 5,97. Exportación 2024 = 3,3 M USD / 628.235 kg = 5,25 USD/kg (https://agraria.pe/noticias/colombia-exporto-628-235-kilogramos-de-arandano-en-2024-gene-39081). Peña et al. 2023 usan 7,48 USD/kg (Asocolblue 2021) |
+| productor.perdida_evitada_con_robot_frac | 0,02 | SUPUESTO: fracción de la cosecha que se salva al detectar antes y tratar cama por cama. El equilibrio del equipo es 0,6 % |
+| productor.perdida_evitada_solo_red_frac | 0,01 | SUPUESTO: con solo la red de sensores y el scouting por celular se salva la mitad |
+| productor.gasto_fungicidas_usd_ha_ano | 600 | SUPUESTO / NO VERIFICADO: falta un costo colombiano. Peña et al. 2023 reportan solo 130,8 USD/ha/año en agroquímicos para una finca de 1 ha (doi 10.15446/agron.colomb.v41n2.103525) |
+| productor.reduccion_fungicida_con_robot_frac | 0,15 | SUPUESTO: aspersión dirigida a las camas con hallazgo en lugar de bloque completo |
+| productor.reduccion_fungicida_solo_red_frac | 0,08 | SUPUESTO: solo se mejora el momento de aplicación con los modelos de riesgo |
+| productor.salario_monitor_cop_mes | 2000000 | CALCULADO: SMMLV 2026 + auxilio de transporte (1.750.905 + 249.095) |
+| productor.ha_por_monitor | 25 | SUPUESTO: hectáreas que un monitor de plagas cubre en una semana |
+| productor.scouting_reemplazado_con_robot_frac | 0,25 | SUPUESTO: el robot no elimina al monitor; le quita un 25 % del recorrido |
+| productor.minutos_operario_dia_por_robot | 20 | SUPUESTO: tiempo del operario de la finca en cambios de batería y confirmación de alertas |
+| productor.horas_laborales_mes | 192 | SUPUESTO: 48 h/semana |
+| productor.roi_objetivo | 3,00 | SUPUESTO: regla de adopción, el productor quiere al menos 3 USD de beneficio por cada USD que paga |
+| geometria.distancia_entre_camas_m | 3,00 | SUPUESTO: pasillo de 2,0 m (PROMPT_simulacion_camas.md, rango 1,5-2,5) más cama de ~1 m. OJO (verificación 2026-10-23): es el valor más optimista del proyecto. Peña et al. 2023 (finca de 1 ha en Cundinamarca, bolsas de 25 L, doi 10.15446/agron.colomb.v41n2.103525) usan 2,2 m entre hileras; finanzas usa 2,5 m (ODEPA Maule); operacion.md usa 4.250 m/ha (~2,35 m). Con 2,5 m una finca de 30 ha necesita 2 robots. Ver tablas 5d y 9b |
+| inspeccion.velocidad_m_s | 0,80 | SUPUESTO: velocidad de captura con cámaras de obturador global. El D1 Ultra alcanza 3,7 m/s según su ficha (https://www.agibot.com/file/ueditor/php/upload/file/20260825/1787637425866968.pdf); Thorvald trabaja por debajo de 5 km/h (https://www.futurefarming.com/tech-in-focus/field-robots/robot-combats-powdery-mildew-in-strawberries-using-uv-c-treatment/) |
+| inspeccion.sobrecosto_giros_frac | 0,25 | SUPUESTO: tiempo extra en giros de cabecera, traslado entre bloques y paradas de acercamiento |
+| inspeccion.fraccion_camas_por_semana | 0,60 | SUPUESTO: la red de sensores manda el robot primero a las camas de riesgo alto (semanal) y deja las de riesgo bajo cada 2-3 semanas |
+| robot_ultra.precio_usd | 7499 | CONTEXTO: D1 Ultra ~7.499 USD FOB México, NO VERIFICADO. Precio de lista en tienda: 9.600 USD (https://store.agibot.com/products/d1-ultra.json, moneda USD) |
+| robot_ultra.precio_lista_usd | 9600 | FUENTE: https://store.agibot.com/products/d1-ultra.json |
+| robot_ultra.importacion_frac | 0,12 | SUPUESTO: flete, arancel y agente de aduana, sin IVA. OJO (verificación 2026-10-23): que el IVA de importación se descuente NO ESTÁ VERIFICADO. Si el servicio queda excluido de IVA (ET art. 476 num. 24 lit. s, asistencia técnica agropecuaria, según DIAN Concepto 905867 de 2022; o num. 21, computación en la nube), el vendedor no cobra IVA pero tampoco lo descuenta y el factor sube a ~1,359 como en finanzas/importacion_factores.csv. Si el servicio está gravado, el productor paga 19 % sobre el precio y no lo recupera. Ver tabla 9b |
+| robot_ultra.kit_percepcion_usd | 2000 | SUPUESTO: Jetson Orin Nano Super 249 USD (FUENTE https://www.sparkfun.com/nvidia-jetson-orin-nano-developer-kit.html vía búsqueda, NO VERIFICADO), más 2 cámaras, mástil, GNSS RTK, módem, luz e integración |
+| robot_ultra.bateria_extra_usd | 450 | SUPUESTO / NO VERIFICADO: falta el precio de la batería de 4,6 Ah y 43,2 V |
+| robot_ultra.baterias_extra | 2 | SUPUESTO: dos de repuesto para trabajar toda la ventana diaria |
+| robot_ultra.cargador_y_estuche_usd | 300 | SUPUESTO |
+| robot_ultra.autonomia_h | 1,25 | SUPUESTO: la ficha dice 1-2 h (https://www.agibot.com/file/ueditor/php/upload/file/20260825/1787637425866968.pdf); bajamos a 1,25 h por el mástil (carga útil máxima 5 kg) |
+| robot_ultra.bateria_intercambiable | True | FUENTE: el manual dice 'Take out the battery and insert it into the robot dog's battery compartment' (https://www.agibot.com/file/ueditor/php/upload/file/20260911/1789114774395970.pdf). El cambio se hace con el robot apagado, no en caliente. Con false, el robot espera la carga |
+| robot_ultra.ciclos_vida_bateria | 300 | SUPUESTO: el manual garantiza la celda por '6 months / 200 cycles' (misma URL); suponemos 300 ciclos de vida útil |
+| robot_ultra.carga_h | 1,00 | FUENTE: manual del D1 Ultra, 'Charging Duration: about 1 hour (battery level 10%-90%)', https://www.agibot.com/file/ueditor/php/upload/file/20260911/1789114774395970.pdf (verificación de negocio 2026-10-23; antes figuraba como no verificado) |
+| robot_ultra.cambio_bateria_h | 0,10 | SUPUESTO |
+| robot_ultra.ventana_h_dia | 7 | SUPUESTO: de día, sobre hoja seca, delante del aspersor (aprox. 9:00-16:00) |
+| robot_ultra.dias_semana | 6 | SUPUESTO |
+| robot_ultra.disponibilidad | 0,80 | SUPUESTO: con IP54 no sale con lluvia fuerte; incluye fallas y mantenimiento |
+| robot_ultra.traslado_ruta_h_dia | 1,00 | SUPUESTO: en modo ruta (fincas pequeñas) el técnico lleva el robot de 16 kg en vehículo y se pierde 1 h al día |
+| robot_ultra.vida_anos | 3 | SUPUESTO: robot ligero en campo |
+| robot_ultra.mantenimiento_frac_ano | 0,08 | SUPUESTO: repuestos de patas y motores, como % del CAPEX. Las baterías se calculan aparte, por ciclos |
+| robot_ultra.seguro_frac_ano | 0,03 | SUPUESTO |
+| robot_maxpro.precio_usd | 67999 | CONTEXTO: ~67.999 USD, NO VERIFICADO. Referencia abierta: 65.999 USD sin accesorios (https://globaldronehq.com/products/agibot-d1-maxpro-quadruped-robot) |
+| robot_maxpro.importacion_frac | 0,12 | SUPUESTO |
+| robot_maxpro.kit_percepcion_usd | 3000 | SUPUESTO |
+| robot_maxpro.bateria_extra_usd | 3000 | SUPUESTO / NO VERIFICADO: la batería es de 2.081 Wh |
+| robot_maxpro.baterias_extra | 1 | SUPUESTO |
+| robot_maxpro.cargador_y_estuche_usd | 1500 | SUPUESTO: cargador o base de carga y rampa de vehículo |
+| robot_maxpro.autonomia_h | 4,50 | SUPUESTO: 5,5 +-0,5 h sin carga y 2 h con 50 kg (https://globaldronehq.com/products/agibot-d1-maxpro-quadruped-robot); el mástil pesa poco |
+| robot_maxpro.bateria_intercambiable | True | NO VERIFICADO: una página de AgiBot guardada por el equipo dice 'quick battery swapping' |
+| robot_maxpro.ciclos_vida_bateria | 800 | SUPUESTO: batería industrial |
+| robot_maxpro.carga_h | 4,50 | FUENTE: ~4,5 h de 10 a 90 %, https://globaldronehq.com/products/agibot-d1-maxpro-quadruped-robot |
+| robot_maxpro.cambio_bateria_h | 0,15 | SUPUESTO |
+| robot_maxpro.ventana_h_dia | 12 | SUPUESTO: con IP67 (misma URL) puede salir con lluvia; dos turnos cortos |
+| robot_maxpro.dias_semana | 6 | SUPUESTO |
+| robot_maxpro.disponibilidad | 0,85 | SUPUESTO |
+| robot_maxpro.traslado_ruta_h_dia | 1,50 | SUPUESTO: servicio compartido entre fincas en camioneta |
+| robot_maxpro.vida_anos | 5 | SUPUESTO: equipo industrial |
+| robot_maxpro.mantenimiento_frac_ano | 0,08 | SUPUESTO |
+| robot_maxpro.seguro_frac_ano | 0,03 | SUPUESTO |
+| robot_maxpro.robots_por_operador | 2 | SUPUESTO: robot pesado; necesita operador y vehículo |
+| robot_maxpro.vehiculo_usd_mes | 800 | SUPUESTO |
+| red_sensores.nodo_humectacion_usd | 129 | FUENTE: Dragino LLMS01 LoRaWAN, 129 USD, https://www.773grp.com/products/llms01-us915-dragino.oembed |
+| red_sensores.nodo_temp_hr_usd | 60 | SUPUESTO |
+| red_sensores.instalacion_nodo_usd | 60 | SUPUESTO: poste, abrazaderas y mano de obra |
+| red_sensores.ha_por_nodo | 2,50 | SUPUESTO: un nodo por bloque de microclima |
+| red_sensores.nodos_min_finca | 2 | SUPUESTO |
+| red_sensores.gateway_usd | 400 | SUPUESTO: RAK7268V2 desde 154 USD (store.rakwireless.com, moneda USD; precio NO VERIFICADO, salió en la búsqueda) más panel solar y LTE |
+| red_sensores.estacion_referencia_usd | 1500 | SUPUESTO: lluvia, radiación y viento. Una iMETOS 3.3 completa cuesta 6.500 AUD en un catálogo australiano (NO VERIFICADO) |
+| red_sensores.fincas_pequenas_por_gateway | 4 | SUPUESTO: en un clúster de fincas pequeñas vecinas se comparten gateway y estación |
+| red_sensores.vida_anos | 4 | SUPUESTO |
+| red_sensores.mantenimiento_frac_ano | 0,10 | SUPUESTO: baterías de los nodos y recalibración |
+| red_sensores.sim_usd_mes_por_gateway | 10 | SUPUESTO |
+| operacion_vendedor.salario_tecnico_cop_mes | 3000000 | SUPUESTO: ~1,7 SMMLV 2026 |
+| operacion_vendedor.vehiculo_tecnico_usd_mes | 500 | SUPUESTO: moto o camioneta, combustible y peajes |
+| operacion_vendedor.robots_por_tecnico_dedicado | 15 | SUPUESTO: el robot se queda en la finca y el operario cambia baterías; el técnico visita cada 1-2 semanas y supervisa a distancia |
+| operacion_vendedor.robots_por_tecnico_ruta | 6 | SUPUESTO: el técnico mueve los robots entre fincas pequeñas |
+| operacion_vendedor.fincas_por_tecnico_red | 60 | SUPUESTO: mantenimiento de sensores con visita trimestral y monitoreo remoto |
+| operacion_vendedor.robots_por_tecnico_venta | 40 | SUPUESTO: soporte postventa cuando el robot es del productor |
+| operacion_vendedor.salario_agronomo_cop_mes | 7000000 | SUPUESTO: agrónomo fitopatólogo que valida alertas a distancia y ajusta modelos por cultivo |
+| operacion_vendedor.ha_por_agronomo | 1500 | SUPUESTO |
+| operacion_vendedor.agronomo_min_fte | 0,25 | SUPUESTO: aun con pocos clientes hace falta un cuarto de tiempo |
+| operacion_vendedor.nube_fija_usd_mes | 300 | SUPUESTO: plataforma, base de datos y entrenamiento de modelos |
+| operacion_vendedor.nube_usd_ha_ano | 4 | SUPUESTO: imágenes guardadas e inferencia remota |
+| operacion_vendedor.instalacion_finca_usd | 300 | SUPUESTO: dos días de técnico más viaje |
+| operacion_vendedor.cac_finca_usd | 500 | SUPUESTO: costo de adquirir un cliente (demo y visita comercial). Se reduce si vende un canal (asociación o exportadora) |
+| operacion_vendedor.cac_canal_finca_usd | 150 | SUPUESTO: CAC cuando vende un canal (asociación de productores, exportadora o casa de insumos) que cobra comisión. Se usa en la tabla de palancas |
+| operacion_vendedor.instalacion_autoinstalable_usd | 100 | SUPUESTO: kit que instala el productor con video y llamada. Se usa en la tabla de palancas |
+| operacion_vendedor.contrato_anos | 3 | SUPUESTO: plazo en que se amortizan la instalación y el CAC |
+| operacion_vendedor.reserva_robots_frac | 0,10 | SUPUESTO: robots de repuesto en la flota |
+| operacion_vendedor.reserva_desde_robots | 5 | SUPUESTO: con menos de 5 robots no hay repuesto |
+| operacion_vendedor.overhead_fijo_usd_mes | 6000 | SUPUESTO: administración y legal (~2.200) más un ingeniero de ML/software (8 M COP x 1,52 / TRM ~ 3.800) |
+| operacion_vendedor.margen_bruto_objetivo | 0,45 | SUPUESTO: margen bruto que pide un negocio de hardware como servicio para financiar la flota |
+| segmentos.tam_finca_pequena_ha | 5 | SUPUESTO: Peña et al. 2023 estudian una finca de 1 ha y 18 pequeñas en el altiplano; EVA 2025 da 907 ha en 65 municipios (~14 ha por municipio) |
+| segmentos.tam_finca_mediana_ha | 30 | SUPUESTO |
+| segmentos.tam_finca_grande_ha | 120 | SUPUESTO: exportadora o finca empresarial con equipo técnico propio |
+| segmentos.mix_por_escala | 10:1.0/0.0/0.0,50:0.6/0.4/0.0,200:0.4/0.6/0.0,1000:0.3/0.5/0.2 | SUPUESTO: fracción de las ha en fincas pequeñas/medianas/grandes. Con más escala el vendedor gana clientes más grandes. Entre escalas se usa el último valor definido |
+| precios.raas_dedicado_usd_ha_ano | 520 | PROPUESTA: red + robot + plataforma + agrónomo remoto, finca de 20 ha o más |
+| precios.raas_ruta_usd_ha_ano | 620 | PROPUESTA: igual, en fincas pequeñas en clúster con robot en ruta |
+| precios.saas_usd_ha_ano | 130 | PROPUESTA: plataforma, modelos de riesgo, alertas, registro y clasificador por celular. Referencias: METOS cobra 96 EUR/año por cultivo (https://shop.metos.at/products/disease-model-license-for-1-year); Davis Pro+ 8,95 USD/mes por equipo (https://www.davisinstruments.com/weatherlink/); Taranis 15-20 USD/acre por temporada en cultivos de alto valor (https://thespoon.tech/taranis-harvests-20m-for-aerial-imaging-tech-that-detects-crop-diseases) |
+| precios.saas_minimo_finca_usd_ano | 450 | PROPUESTA: piso por finca |
+| precios.margen_hardware_frac | 0,35 | SUPUESTO: margen sobre el costo del hardware vendido |
+| precios.licencia_venta_usd_ha_ano | 90 | PROPUESTA: licencia de software cuando el productor compra el robot |
+| precios.soporte_venta_frac_hw_ano | 0,22 | PROPUESTA: contrato de soporte, repuestos y baterías (unas 4 baterías/año por robot), como % del precio del hardware al año |
+| precios.maxpro_compartido_usd_ha_ano | 620 | PROPUESTA: servicio compartido con D1 MaxPro, para comparar |
+| mercado.ha_arandano_colombia | 907 | FUENTE: EVA 2025, área sembrada, https://www.datos.gov.co/resource/uejq-wxrr.json |
+| mercado.ha_fresa_colombia | 3767 | FUENTE: EVA 2025, misma URL |
+| mercado.ha_uchuva_colombia | 1810 | FUENTE: EVA 2025, misma URL |
+| mercado.ha_mora_colombia | 15952 | FUENTE: EVA 2025, misma URL |
+| mercado.ha_aguacate_hass_colombia | 72444 | FUENTE: EVA 2025, misma URL (árbol alto: el mástil del D1 no alcanza la copa; solo red + SaaS) |
+| mercado.ha_arandano_peru | 30000 | FUENTE: 'cerca de 30,000' ha en 2025, https://agraria.pe/noticias/superficie-de-arandanos-en-peru-crecio-12-en-2025-paso-de-26-41486 |
+| mercado.adopcion_frac | 0,05 | SUPUESTO: participación alcanzable en 3-5 años |
+
+Parámetros: 111 en total; 93 son SUPUESTO, PROPUESTA o NO VERIFICADO.
+
+JSON escrito en /Users/santiagosantafe/Downloads/SabanaHack/datos/escalabilidad/unit_economics_resultados.json

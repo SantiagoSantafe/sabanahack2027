@@ -1,0 +1,204 @@
+{
+  "dataset": "drberry/drberry-original-data",
+  "version": "1",
+  "names": [
+    "Alternaria",
+    "Heliothis",
+    "Oidio",
+    "Sana"
+  ],
+  "imagenes_por_split": {
+    "train": 327,
+    "valid": 40,
+    "test": 43
+  },
+  "imagenes_sin_etiqueta": {},
+  "imagenes_multiclase": {
+    "train": 12,
+    "valid": 1,
+    "test": 2
+  },
+  "cajas_por_imagen": {
+    "train": {
+      "media": 1.78,
+      "mediana": 1,
+      "max": 18,
+      "min": 1
+    },
+    "valid": {
+      "media": 2.05,
+      "mediana": 1.0,
+      "max": 19,
+      "min": 1
+    },
+    "test": {
+      "media": 1.7,
+      "mediana": 1,
+      "max": 9,
+      "min": 1
+    }
+  },
+  "tamanos_imagen": {
+    "1024x1024": 410
+  },
+  "modos_color": {
+    "RGB": 410
+  },
+  "area_caja_normalizada": {
+    "Sana": {
+      "mediana": 0.3349,
+      "p10": 0.0284,
+      "p90": 0.4947,
+      "min": 0.01345,
+      "max": 0.5691
+    },
+    "Oidio": {
+      "mediana": 0.2465,
+      "p10": 0.0874,
+      "p90": 0.4861,
+      "min": 0.03152,
+      "max": 0.6516
+    },
+    "Alternaria": {
+      "mediana": 0.0006,
+      "p10": 0.0003,
+      "p90": 0.0012,
+      "min": 0.00015,
+      "max": 0.0037
+    },
+    "Heliothis": {
+      "mediana": 0.4041,
+      "p10": 0.1326,
+      "p90": 0.597,
+      "min": 0.02394,
+      "max": 0.7573
+    }
+  },
+  "cajas_diminutas_(<0.1% area)": {
+    "Sana": 0,
+    "Oidio": 0,
+    "Alternaria": 249,
+    "Heliothis": 0
+  },
+  "cajas_grandes_(>50% area)": {
+    "Sana": 7,
+    "Oidio": 11,
+    "Alternaria": 0,
+    "Heliothis": 59
+  },
+  "etiquetas_raras": [],
+  "n_etiquetas_raras": 0,
+  "duplicados_exactos_md5": [],
+  "casi_duplicados_dhash<=4": 45,
+  "casi_duplicados_entre_splits": 16,
+  "ejemplos_casi_duplicados_entre_splits": [
+    [
+      "train/20220919_124652_jpg.rf.67812b8ad693e45ae9c437114989c706.jpg",
+      "test/20220919_124649_jpg.rf.ae5ba17f9c8869e0ea1758ae7896803f.jpg",
+      4
+    ],
+    [
+      "train/20220919_125324_jpg.rf.6dbbb6f23282bcb88875bf9d1041050b.jpg",
+      "valid/20220919_125323_jpg.rf.ce81662319282d88f8700404f1131cdf.jpg",
+      4
+    ],
+    [
+      "train/20220919_125824_jpg.rf.e9ca93e52e2f0e6aa6a85f03b53aad34.jpg",
+      "valid/20220919_125823_jpg.rf.663c94aed2981722fc94ff767d0568ac.jpg",
+      4
+    ],
+    [
+      "train/20220919_130624_jpg.rf.3369a51d63b87bf4ed0e7947fcaa17a0.jpg",
+      "test/20220919_130625_jpg.rf.ec1c39c7a592824e88167d64d3ca9166.jpg",
+      2
+    ],
+    [
+      "train/20220919_130720_jpg.rf.e8d314a4f9d0adda7191070be1dd82b2.jpg",
+      "test/20220919_130719_jpg.rf.46c16fa0dec249b7430ffe1003981cc6.jpg",
+      1
+    ],
+    [
+      "train/20220919_131647_jpg.rf.c553f8a7a05f1c6546f33a18275012de.jpg",
+      "test/20220919_131648_jpg.rf.ea141c25e8d428fcfc046a789550eb4f.jpg",
+      3
+    ],
+    [
+      "train/20220919_133643_jpg.rf.be5c7af090d7f23b02f9db2f85b1bacd.jpg",
+      "valid/20220919_133642_jpg.rf.81cf4b7d61c43029618c9922fe467424.jpg",
+      3
+    ],
+    [
+      "train/20220919_134030_jpg.rf.a20a6d902e7c177a897d34b9cb754a6c.jpg",
+      "test/20220919_134029_jpg.rf.59962922254ccd5da1d791f78f181ccb.jpg",
+      1
+    ],
+    [
+      "train/20220919_134413_jpg.rf.18192b9d8fc9fbfc2b8e79d91af6aca0.jpg",
+      "test/20220919_134412_jpg.rf.0e00d541ada66b20f954f0c55511bb6a.jpg",
+      4
+    ],
+    [
+      "train/20220919_134718_jpg.rf.f93ba097f59c3a6a1a15c0ff0c35ada7.jpg",
+      "valid/20220919_134719_jpg.rf.15bca73ea3ded53811b96edb0f2b5c23.jpg",
+      1
+    ],
+    [
+      "train/20220919_134956_jpg.rf.8ed998dc173d45722ca88b1a31453587.jpg",
+      "valid/20220919_134957_jpg.rf.beb7d62f9c375e0e2defbfb508df0663.jpg",
+      3
+    ],
+    [
+      "train/20220919_135554_jpg.rf.a8e9d2735ed9019ee040b628cb53b17c.jpg",
+      "test/20220919_135553_jpg.rf.9016066f1255d1ccba667f436d3136c8.jpg",
+      3
+    ],
+    [
+      "train/20220919_144111_jpg.rf.ec26563fc2334a32e5216cf6aa25476d.jpg",
+      "valid/20220919_144112_jpg.rf.a86eda442152b1ea33b5c201c4f33359.jpg",
+      2
+    ],
+    [
+      "train/20220919_144213-0-_jpg.rf.b8cff381d5fe9de6233cbdd3302dd93f.jpg",
+      "valid/20220919_144213_jpg.rf.80d9370412c7cd229bfe90c79834d3db.jpg",
+      3
+    ],
+    [
+      "valid/20220919_124301_jpg.rf.f3c7d77cef8178cdcf0e15a3d2a46bf0.jpg",
+      "test/20220919_124259_jpg.rf.64a865085e796e7900413ec39389a81e.jpg",
+      2
+    ]
+  ],
+  "nombre_original_repetido": 0,
+  "nombre_original_en_varios_splits": 0,
+  "ejemplos_nombre_original_en_varios_splits": [],
+  "imagenes_con_timestamp_en_nombre": 374,
+  "fechas_captura_(segun_nombre)": {
+    "2022-09-19": 374
+  },
+  "rango_captura": [
+    "2022-09-19T12:35:11",
+    "2022-09-19T14:44:59"
+  ],
+  "brecha_temporal_a_train_mas_cercana": {
+    "valid": {
+      "n": 38,
+      "mediana_s": 2.0,
+      "pct_<=10s": 94.7,
+      "pct_<=30s": 100.0,
+      "pct_<=60s": 100.0
+    },
+    "test": {
+      "n": 37,
+      "mediana_s": 2.0,
+      "pct_<=10s": 89.2,
+      "pct_<=30s": 97.3,
+      "pct_<=60s": 97.3
+    }
+  },
+  "ejemplos_rutas": {
+    "Sana": "train/images/20220919_123511_jpg.rf.231cd41fe1e0926971df876c24e815c3.jpg",
+    "Oidio": "train/images/20220919_123534_jpg.rf.d1b6863efc061f84bc348bef75537c86.jpg",
+    "Alternaria": "train/images/20220919_124258_jpg.rf.a677b12c0e1294589eb0aa710b564418.jpg",
+    "Heliothis": "train/images/20220919_131530_jpg.rf.554e7fb13d2fea1e2bfb689be548e6fa.jpg"
+  }
+}

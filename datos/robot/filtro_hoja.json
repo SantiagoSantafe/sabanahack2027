@@ -1,0 +1,7 @@
+{
+  "umbral": 0.9,
+  "hojas_pasan": 1.0,
+  "sala_rechazada": 1.0,
+  "n_hojas": 68,
+  "n_sala": 20
+}

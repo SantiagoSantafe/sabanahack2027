@@ -1,0 +1,9 @@
+(a) Sesgo de T, suma de 4 puntos, dias en alto 2025:
+  T-1 C: {'antracnosis': 7, 'botrytis': 45, 'roya': 5}
+  T+0 C: {'antracnosis': 16, 'botrytis': 61, 'roya': 16}
+  T+1 C: {'antracnosis': 27, 'botrytis': 70, 'roya': 38}
+(b) best_match frente a ERA5, dias en alto 2025 por punto:
+  sotaquira  best_match {'antracnosis': 3, 'botrytis': 18, 'roya': 4} | era5 {'antracnosis': 19, 'botrytis': 28, 'roya': 28}
+  tausa      best_match {'antracnosis': 3, 'botrytis': 17, 'roya': 0} | era5 {'antracnosis': 52, 'botrytis': 77, 'roya': 43}
+  guasca     best_match {'antracnosis': 4, 'botrytis': 10, 'roya': 6} | era5 {'antracnosis': 27, 'botrytis': 45, 'roya': 37}
+  chia       best_match {'antracnosis': 6, 'botrytis': 16, 'roya': 6} | era5 {'antracnosis': 34, 'botrytis': 49, 'roya': 45}

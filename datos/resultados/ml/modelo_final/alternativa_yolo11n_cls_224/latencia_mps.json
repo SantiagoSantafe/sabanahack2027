@@ -1,0 +1,13 @@
+{
+  "modelo": "yolo_cls:best.pt",
+  "n": 30,
+  "carga_modelo_ms": 904.6,
+  "latencia_ms": {
+    "p50": 7.615,
+    "p95": 9.100499999999997,
+    "media": 7.244333333333333,
+    "max": 10.53
+  },
+  "dispositivo": "mps",
+  "creado": "2026-10-23T18:22:43-05:00"
+}

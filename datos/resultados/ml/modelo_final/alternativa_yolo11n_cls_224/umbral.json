@@ -1,0 +1,121 @@
+{
+  "creado": "2026-10-23T17:57:20-05:00",
+  "umbral": 0.833844,
+  "puntaje": "1 - p(sana)",
+  "regla": "sospecha si puntaje >= umbral; clase = enfermedad más probable",
+  "objetivo_sensibilidad": 0.9,
+  "criterio": "global",
+  "desempate": "sensibilidad",
+  "clase_sana": "sana",
+  "clases": [
+    "alternaria",
+    "heliothis",
+    "oidio",
+    "sana"
+  ],
+  "elegido_en": {
+    "archivo": "/Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/runs/y11n_224/predicciones_yolo_val.csv",
+    "sha256": "dfb59486f5bb25200100cd5ed1195e89d528561932d61f85f5ca58317fda2ea7",
+    "n": 64,
+    "n_enfermos": 54,
+    "n_sanos": 10
+  },
+  "validacion": {
+    "tp": 49,
+    "fp": 6,
+    "fn": 5,
+    "tn": 4,
+    "sensibilidad": 0.9074074074074074,
+    "especificidad": 0.4,
+    "tasa_fp": 0.6,
+    "tasa_falsa_alarma_fdr": 0.10909090909090909,
+    "vpp": 0.8909090909090909,
+    "vpn": 0.4444444444444444,
+    "falsas_alarmas_por_100": 9.375,
+    "no_detectados_por_100": 7.8125,
+    "ic95_clopper_pearson": {
+      "sensibilidad": [
+        0.79699845281371,
+        0.969247214732477
+      ],
+      "tasa_fp": [
+        0.26237807660694507,
+        0.8784477418801728
+      ],
+      "tasa_falsa_alarma_fdr": [
+        0.041101504822494146,
+        0.22247090834022915
+      ]
+    },
+    "deteccion_por_clase": {
+      "alternaria": {
+        "detectados": 8,
+        "n": 13,
+        "tasa": 0.6153846153846154
+      },
+      "heliothis": {
+        "detectados": 25,
+        "n": 25,
+        "tasa": 1.0
+      },
+      "oidio": {
+        "detectados": 16,
+        "n": 16,
+        "tasa": 1.0
+      }
+    }
+  },
+  "umbral_puntaje_observado": 0.8391299999999999,
+  "avisos": [
+    "Solo 10 sanas en validación: la tasa de FP es muy imprecisa"
+  ],
+  "test_informativo": {
+    "archivo": "/Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/runs/y11n_224/predicciones_yolo_test.csv",
+    "sha256": "8a384f0bf538d9ee8b909f823b461e8efa51a173d315e9dfcf616e0a83f8cdb5",
+    "n": 68,
+    "nota": "Umbral fijado en validación; el test NO se usó para elegirlo",
+    "tp": 49,
+    "fp": 8,
+    "fn": 5,
+    "tn": 6,
+    "sensibilidad": 0.9074074074074074,
+    "especificidad": 0.42857142857142855,
+    "tasa_fp": 0.5714285714285714,
+    "tasa_falsa_alarma_fdr": 0.14035087719298245,
+    "vpp": 0.8596491228070176,
+    "vpn": 0.5454545454545454,
+    "falsas_alarmas_por_100": 11.764705882352942,
+    "no_detectados_por_100": 7.352941176470588,
+    "ic95_clopper_pearson": {
+      "sensibilidad": [
+        0.79699845281371,
+        0.969247214732477
+      ],
+      "tasa_fp": [
+        0.28860940003830743,
+        0.8233889100178821
+      ],
+      "tasa_falsa_alarma_fdr": [
+        0.06259489011728503,
+        0.2579453838681215
+      ]
+    },
+    "deteccion_por_clase": {
+      "alternaria": {
+        "detectados": 10,
+        "n": 14,
+        "tasa": 0.7142857142857143
+      },
+      "heliothis": {
+        "detectados": 17,
+        "n": 18,
+        "tasa": 0.9444444444444444
+      },
+      "oidio": {
+        "detectados": 22,
+        "n": 22,
+        "tasa": 1.0
+      }
+    }
+  }
+}

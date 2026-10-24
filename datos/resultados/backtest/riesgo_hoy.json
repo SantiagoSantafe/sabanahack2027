@@ -1,0 +1,470 @@
+{
+ "fecha": "2026-10-23",
+ "niveles": [
+  "bajo",
+  "medio",
+  "alto"
+ ],
+ "generado": "2026-10-23T18:42:24",
+ "ventana": "72 h: ayer, hoy y manana (maximo diario, como el mapa de NC State IPM)",
+ "criterio_mojadura": "central: HR >= 90 % o lluvia >= 0,5 mm/h; alerta: HR >= 85 % o lluvia >= 0,5 mm/h",
+ "fuente_clima": "Open-Meteo, pronostico horario en clima/cache (incluye 2 dias pasados del modelo, no observados)",
+ "atribucion": "Weather data by Open-Meteo.com (CC BY 4.0)",
+ "enfermedades": [
+  "antracnosis",
+  "botrytis",
+  "roya"
+ ],
+ "nota_oidio": "El oidio lo cubre el clasificador visual; el indice ambiental de vid da 0 dias en 2025.",
+ "advertencia": "Indice de riesgo ambiental, no diagnostico. Modelos de fresa/genericos adaptados; sin validacion con incidencia de campo en Colombia.",
+ "puntos": [
+  {
+   "punto": "sotaquira",
+   "nombre": "Sotaquira (Boyaca)",
+   "ha_eva_2025": 182,
+   "rol": "productor (1.o del pais)",
+   "nivel_alerta": "alto",
+   "nivel_alerta_regla": "max(criterio central HR90, criterio alerta HR85)",
+   "riesgo_global": "alto",
+   "riesgo_global_criterio_alerta_HR85": "alto",
+   "enfermedad_principal": "botrytis",
+   "mensaje": "Botrytis ALTO: 31 h de mojadura a 14.0 C (indice 0.98)",
+   "accion_sugerida": "Priorizar estas camas en el proximo recorrido del robot (24 h) y posponer el aspersor si es posible.",
+   "enfermedades": {
+    "antracnosis": {
+     "clase": "alto",
+     "indice": 0.66,
+     "dia_pico": "2026-10-24",
+     "pico_en_dia_pasado": false,
+     "horas_mojadura_pico": 31,
+     "t_media_mojadura_pico_C": 13.97,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.69,
+     "umbrales_medio_alto": [
+      0.15,
+      0.5
+     ],
+     "modelo": "Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009"
+    },
+    "botrytis": {
+     "clase": "alto",
+     "indice": 0.98,
+     "dia_pico": "2026-10-24",
+     "pico_en_dia_pasado": false,
+     "horas_mojadura_pico": 31,
+     "t_media_mojadura_pico_C": 13.97,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.98,
+     "umbrales_medio_alto": [
+      0.5,
+      0.7
+     ],
+     "modelo": "Bulger et al. 1987 (flor de fresa, proxy)"
+    },
+    "roya": {
+     "clase": "alto",
+     "indice": 0.79,
+     "dia_pico": "2026-10-24",
+     "pico_en_dia_pasado": false,
+     "horas_mojadura_pico": 31,
+     "t_media_mojadura_pico_C": 13.97,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.81,
+     "umbrales_medio_alto": [
+      0.2,
+      0.5
+     ],
+     "modelo": "APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO"
+    }
+   },
+   "proximos_7_dias": [
+    {
+     "fecha": "2026-10-23",
+     "horas_mojadas": 18,
+     "antracnosis": "medio",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-24",
+     "horas_mojadas": 21,
+     "antracnosis": "alto",
+     "botrytis": "alto",
+     "roya": "alto"
+    },
+    {
+     "fecha": "2026-10-25",
+     "horas_mojadas": 20,
+     "antracnosis": "alto",
+     "botrytis": "alto",
+     "roya": "alto"
+    },
+    {
+     "fecha": "2026-10-26",
+     "horas_mojadas": 20,
+     "antracnosis": "medio",
+     "botrytis": "medio",
+     "roya": "medio"
+    },
+    {
+     "fecha": "2026-10-27",
+     "horas_mojadas": 18,
+     "antracnosis": "medio",
+     "botrytis": "medio",
+     "roya": "medio"
+    },
+    {
+     "fecha": "2026-10-28",
+     "horas_mojadas": 17,
+     "antracnosis": "medio",
+     "botrytis": "alto",
+     "roya": "medio"
+    },
+    {
+     "fecha": "2026-10-29",
+     "horas_mojadas": 24,
+     "antracnosis": "medio",
+     "botrytis": "alto",
+     "roya": "medio"
+    }
+   ],
+   "fuente_clima": "clima/cache/pronostico_sotaquira_20261023T220254Z.csv"
+  },
+  {
+   "punto": "tausa",
+   "nombre": "Tausa (Cundinamarca)",
+   "ha_eva_2025": 121,
+   "rol": "productor (1.o de Cundinamarca)",
+   "nivel_alerta": "alto",
+   "nivel_alerta_regla": "max(criterio central HR90, criterio alerta HR85)",
+   "riesgo_global": "bajo",
+   "riesgo_global_criterio_alerta_HR85": "alto",
+   "enfermedad_principal": "botrytis",
+   "mensaje": "Criterio central BAJO; con el criterio de alerta (HR >= 85 %) botrytis ALTO (indice 0.95)",
+   "accion_sugerida": "Priorizar estas camas en el proximo recorrido del robot (24 h) y posponer el aspersor si es posible.",
+   "enfermedades": {
+    "antracnosis": {
+     "clase": "bajo",
+     "indice": 0.14,
+     "dia_pico": "2026-10-23",
+     "pico_en_dia_pasado": false,
+     "horas_mojadura_pico": 20,
+     "t_media_mojadura_pico_C": 10.59,
+     "clase_criterio_alerta_HR85": "medio",
+     "indice_criterio_alerta_HR85": 0.45,
+     "umbrales_medio_alto": [
+      0.15,
+      0.5
+     ],
+     "modelo": "Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009"
+    },
+    "botrytis": {
+     "clase": "bajo",
+     "indice": 0.4,
+     "dia_pico": "2026-10-23",
+     "pico_en_dia_pasado": false,
+     "horas_mojadura_pico": 20,
+     "t_media_mojadura_pico_C": 10.59,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.95,
+     "umbrales_medio_alto": [
+      0.5,
+      0.7
+     ],
+     "modelo": "Bulger et al. 1987 (flor de fresa, proxy)"
+    },
+    "roya": {
+     "clase": "bajo",
+     "indice": 0.07,
+     "dia_pico": "2026-10-23",
+     "pico_en_dia_pasado": false,
+     "horas_mojadura_pico": 20,
+     "t_media_mojadura_pico_C": 10.59,
+     "clase_criterio_alerta_HR85": "medio",
+     "indice_criterio_alerta_HR85": 0.24,
+     "umbrales_medio_alto": [
+      0.2,
+      0.5
+     ],
+     "modelo": "APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO"
+    }
+   },
+   "proximos_7_dias": [
+    {
+     "fecha": "2026-10-23",
+     "horas_mojadas": 14,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-24",
+     "horas_mojadas": 12,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-25",
+     "horas_mojadas": 11,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-26",
+     "horas_mojadas": 11,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-27",
+     "horas_mojadas": 15,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-28",
+     "horas_mojadas": 15,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-29",
+     "horas_mojadas": 23,
+     "antracnosis": "medio",
+     "botrytis": "alto",
+     "roya": "medio"
+    }
+   ],
+   "fuente_clima": "clima/cache/pronostico_tausa_20261023T220301Z.csv"
+  },
+  {
+   "punto": "guasca",
+   "nombre": "Guasca (Cundinamarca)",
+   "ha_eva_2025": 57,
+   "rol": "productor",
+   "nivel_alerta": "alto",
+   "nivel_alerta_regla": "max(criterio central HR90, criterio alerta HR85)",
+   "riesgo_global": "alto",
+   "riesgo_global_criterio_alerta_HR85": "alto",
+   "enfermedad_principal": "botrytis",
+   "mensaje": "Botrytis ALTO: 30 h de mojadura a 13.1 C (indice 0.95)",
+   "accion_sugerida": "Priorizar estas camas en el proximo recorrido del robot (24 h) y posponer el aspersor si es posible.",
+   "enfermedades": {
+    "antracnosis": {
+     "clase": "alto",
+     "indice": 0.55,
+     "dia_pico": "2026-10-22",
+     "pico_en_dia_pasado": true,
+     "horas_mojadura_pico": 30,
+     "t_media_mojadura_pico_C": 13.14,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.58,
+     "umbrales_medio_alto": [
+      0.15,
+      0.5
+     ],
+     "modelo": "Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009"
+    },
+    "botrytis": {
+     "clase": "alto",
+     "indice": 0.95,
+     "dia_pico": "2026-10-22",
+     "pico_en_dia_pasado": true,
+     "horas_mojadura_pico": 30,
+     "t_media_mojadura_pico_C": 13.14,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.96,
+     "umbrales_medio_alto": [
+      0.5,
+      0.7
+     ],
+     "modelo": "Bulger et al. 1987 (flor de fresa, proxy)"
+    },
+    "roya": {
+     "clase": "alto",
+     "indice": 0.67,
+     "dia_pico": "2026-10-22",
+     "pico_en_dia_pasado": true,
+     "horas_mojadura_pico": 30,
+     "t_media_mojadura_pico_C": 13.14,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.7,
+     "umbrales_medio_alto": [
+      0.2,
+      0.5
+     ],
+     "modelo": "APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO"
+    }
+   },
+   "proximos_7_dias": [
+    {
+     "fecha": "2026-10-23",
+     "horas_mojadas": 10,
+     "antracnosis": "medio",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-24",
+     "horas_mojadas": 12,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-25",
+     "horas_mojadas": 17,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-26",
+     "horas_mojadas": 19,
+     "antracnosis": "alto",
+     "botrytis": "alto",
+     "roya": "alto"
+    },
+    {
+     "fecha": "2026-10-27",
+     "horas_mojadas": 16,
+     "antracnosis": "alto",
+     "botrytis": "alto",
+     "roya": "alto"
+    },
+    {
+     "fecha": "2026-10-28",
+     "horas_mojadas": 21,
+     "antracnosis": "alto",
+     "botrytis": "alto",
+     "roya": "alto"
+    },
+    {
+     "fecha": "2026-10-29",
+     "horas_mojadas": 24,
+     "antracnosis": "alto",
+     "botrytis": "alto",
+     "roya": "alto"
+    }
+   ],
+   "fuente_clima": "clima/cache/pronostico_guasca_20261023T220307Z.csv"
+  },
+  {
+   "punto": "chia",
+   "nombre": "Chia (Cundinamarca)",
+   "ha_eva_2025": 0,
+   "rol": "sitio de la demo (sin area en EVA)",
+   "nivel_alerta": "alto",
+   "nivel_alerta_regla": "max(criterio central HR90, criterio alerta HR85)",
+   "riesgo_global": "alto",
+   "riesgo_global_criterio_alerta_HR85": "alto",
+   "enfermedad_principal": "botrytis",
+   "mensaje": "Botrytis ALTO: 30 h de mojadura a 12.4 C (indice 0.93)",
+   "accion_sugerida": "Priorizar estas camas en el proximo recorrido del robot (24 h) y posponer el aspersor si es posible.",
+   "enfermedades": {
+    "antracnosis": {
+     "clase": "medio",
+     "indice": 0.47,
+     "dia_pico": "2026-10-22",
+     "pico_en_dia_pasado": true,
+     "horas_mojadura_pico": 30,
+     "t_media_mojadura_pico_C": 12.36,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.51,
+     "umbrales_medio_alto": [
+      0.15,
+      0.5
+     ],
+     "modelo": "Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009"
+    },
+    "botrytis": {
+     "clase": "alto",
+     "indice": 0.93,
+     "dia_pico": "2026-10-22",
+     "pico_en_dia_pasado": true,
+     "horas_mojadura_pico": 30,
+     "t_media_mojadura_pico_C": 12.36,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.95,
+     "umbrales_medio_alto": [
+      0.5,
+      0.7
+     ],
+     "modelo": "Bulger et al. 1987 (flor de fresa, proxy)"
+    },
+    "roya": {
+     "clase": "alto",
+     "indice": 0.54,
+     "dia_pico": "2026-10-22",
+     "pico_en_dia_pasado": true,
+     "horas_mojadura_pico": 30,
+     "t_media_mojadura_pico_C": 12.36,
+     "clase_criterio_alerta_HR85": "alto",
+     "indice_criterio_alerta_HR85": 0.59,
+     "umbrales_medio_alto": [
+      0.2,
+      0.5
+     ],
+     "modelo": "APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO"
+    }
+   },
+   "proximos_7_dias": [
+    {
+     "fecha": "2026-10-23",
+     "horas_mojadas": 14,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-24",
+     "horas_mojadas": 17,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-25",
+     "horas_mojadas": 17,
+     "antracnosis": "medio",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-26",
+     "horas_mojadas": 20,
+     "antracnosis": "medio",
+     "botrytis": "bajo",
+     "roya": "medio"
+    },
+    {
+     "fecha": "2026-10-27",
+     "horas_mojadas": 15,
+     "antracnosis": "medio",
+     "botrytis": "medio",
+     "roya": "medio"
+    },
+    {
+     "fecha": "2026-10-28",
+     "horas_mojadas": 18,
+     "antracnosis": "bajo",
+     "botrytis": "bajo",
+     "roya": "bajo"
+    },
+    {
+     "fecha": "2026-10-29",
+     "horas_mojadas": 24,
+     "antracnosis": "alto",
+     "botrytis": "alto",
+     "roya": "alto"
+    }
+   ],
+   "fuente_clima": "clima/cache/pronostico_chia_20261023T220313Z.csv"
+  }
+ ]
+}

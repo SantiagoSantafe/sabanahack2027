@@ -1,0 +1,46 @@
+# Open-Meteo weather configuration
+# Attribution: Open-Meteo.com (CC BY 4.0). Free for non-commercial use.
+# Docs: https://open-meteo.com/en/docs/historical-weather-api
+
+latitude: 4.86   # Chía / Sabana de Bogotá
+longitude: -74.06
+timezone: America/Bogota
+
+# Hourly variables requested
+hourly:
+  - temperature_2m
+  - relative_humidity_2m
+  - dew_point_2m
+  - precipitation
+
+forecast_url: https://api.open-meteo.com/v1/forecast
+archive_url: https://archive-api.open-meteo.com/v1/archive
+
+# Default historical year for batch / offline demo
+default_year: 2025
+
+# Cache directory (relative to sim-core/)
+cache_dir: data/weather_cache
+
+# Hora mojada (proxy): HR >= umbral o lluvia >= 0,5 mm/h. Es el "escenario central" del equipo de clima
+# (datos/riesgo/README.md §1): Open-Meteo marca 1,7-4,5 veces más horas con lluvia que el pluviómetro, y con
+# "lluvia > 0" la llovizna espuria encadena periodos de cientos de horas. 90 % es el proxy simple más usado
+# (SUPUESTO); Sentelhas et al. 2008 concluyen que el umbral debe calibrarse por sitio (NO VERIFICADO).
+# Escenario de alerta del equipo: HR >= 85 %.
+rh_wetness_threshold_pct: 90  # SUPUESTO — escenario central del equipo; calibración local pendiente
+# weather.summarize_day compara con ">", y Open-Meteo da décimas de mm: 0,49 equivale a ">= 0,5 mm/h".
+# Solo afecta la serie de afuera (gráfica risk_days_by_month). Dentro del túnel el plástico tapa la lluvia y
+# el motor solo moja el follaje cuando llueve con el alero abierto (con cualquier lluvia > 0).
+precip_wetness_threshold_mm: 0.49
+
+# Niveles sobre el índice combinado por cama (máximo de antracnosis, Botrytis y roya; ver risk.yaml).
+# Se usan los umbrales PUBLICADOS de Botrytis (NCSU FLSAS; MacKenzie y Peres 2012b: acción si INF >= 0,50),
+# porque es la enfermedad principal (cliente) y domina el máximo el 99 % de los días dentro del túnel
+# (clima 2025). Los umbrales propios de antracnosis (0,15/0,50) y roya (0,20/0,50, SUPUESTO) son más bajos:
+# el día en que una de ellas domina, este par la muestra un nivel por debajo. La interfaz admite un solo par.
+# Con el clima 2025 dentro del túnel: índice por cama p50 0,12 y p90 0,20; días con alguna cama >= 0,50: 15;
+# >= 0,70: 6.
+risk_levels:
+  medium: 0.50   # PUBLICADO (Botrytis, "medio")
+  high: 0.70     # PUBLICADO (Botrytis, "alto") — also marks plants "en riesgo" and counts high-risk days
+high_risk_threshold: 0.70  # kept for batch compatibility; same as risk_levels.high

@@ -1,0 +1,6 @@
+robots,robots_fuera_promedio,reservas_necesarias,prob_faltar,reservas_pct
+5,0.12,1,0.006,20.0
+10,0.23,2,0.002,20.0
+20,0.46,2,0.012,10.0
+50,1.15,4,0.007,8.0
+100,2.31,6,0.01,6.0

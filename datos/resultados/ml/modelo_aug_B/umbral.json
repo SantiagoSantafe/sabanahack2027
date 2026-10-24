@@ -1,0 +1,28 @@
+{
+  "creado": "2026-10-24T00:34:35-05:00",
+  "umbral": 0.6710227578878403,
+  "puntaje": "1 - p(sana)",
+  "regla": "sospecha si puntaje >= umbral; clase = enfermedad más probable",
+  "objetivo_sensibilidad": 0.9,
+  "criterio": "global",
+  "desempate": "sensibilidad",
+  "clase_sana": "sana",
+  "clases": [
+    "alternaria",
+    "heliothis",
+    "oidio",
+    "sana"
+  ],
+  "elegido_en": {
+    "descripcion": "OOF dev limpio (como el final)",
+    "variante": "train+val+aumentadas(K=5), C y umbral por CV agrupada OOF limpio (protocolo del final)"
+  },
+  "validacion": {
+    "tp": 271,
+    "fp": 9,
+    "fn": 25,
+    "tn": 37,
+    "sensibilidad": 0.9155405405405406,
+    "tasa_fp": 0.1956521739130435
+  }
+}

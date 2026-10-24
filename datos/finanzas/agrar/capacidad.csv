@@ -1,0 +1,4 @@
+escenario,velocidad_m_s,autonomia_h,modo_carga,m_pasillo_bloque,m_recorridos_bloque,min_por_bloque,min_utiles_sesion,min_transito_sesion,bloques_por_sesion,sesiones_noche,bloques_por_noche,noches_vuelta_40_bloques,ha_por_semana,horas_caminando_vuelta
+"Pesimista (0,4 m/s; 1,0 h; carga 1 h)",0.4,1.0,A,1080,1404,58.5,48.0,8.3,0.68,5,3.39,11.8,11.9,39.0
+"Base (0,5 m/s; 1,5 h; carga 1 h)",0.5,1.5,A,1080,1404,46.8,72.0,8.3,1.36,4,5.44,7.4,19.0,31.2
+"Optimista (0,8 m/s; 2,0 h; batería de repuesto)",0.8,2.0,B,1080,1404,29.2,96.0,8.3,3.0,4,11.99,3.3,42.0,19.5

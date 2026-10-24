@@ -1,0 +1,21 @@
+parametro,valor_pesimista,valor_optimista,neto_ha_pesimista,neto_ha_optimista,neto_ha_base,rango
+Pérdida base L,0.05,0.2,52.3,1942.3,682.3,1890.0
+Fracción evitada f,0.1,0.4,-73.7,1438.3,682.3,1512.0
+Rendimiento Y (kg/ha),8000,20000,262.3,1522.3,682.3,1260.0
+Precio P (USD/kg),4.0,9.0,262.3,1312.3,682.3,1050.0
+Vida útil (años),2,5,492.0,834.6,682.3,342.6
+Velocidad inspección (m/s),0.3,0.8,357.7,682.3,682.3,324.6
+Entrecalle (m),2.0,3.0,357.7,682.3,682.3,324.6
+Falsas alarmas/ha/año,12,2,472.3,772.3,682.3,300.0
+Aplicaciones evitadas n,2,12,568.3,853.3,682.3,285.0
+Jornales ahorrados J,0,8,610.8,801.4,682.3,190.6
+Costo por aplicación (USD/ha),60,130,619.3,745.3,682.3,126.0
+Costo por falsa alarma (USD),40,20,632.3,732.3,682.3,100.0
+Mantenimiento robot (USD/año),3250,2300,634.8,729.8,682.3,95.0
+Precio robot (USD),9600,7499,593.9,682.3,682.3,88.4
+IVA recuperable (no / sí),False,True,682.3,734.2,682.3,51.9
+Accesorios mástil/cámara (USD),2000,1000,665.6,699.0,682.3,33.3
+Factor prestacional jornal,0.0,0.52,665.8,694.4,682.3,28.6
+TRM (COP/USD),3900.82,3048.12,669.2,685.5,682.3,16.3
+Arancel (5 % / 0 %),0.05,0.0,682.3,697.8,682.3,15.5
+Flete (USD/kg),8.0,3.0,678.6,684.8,682.3,6.2

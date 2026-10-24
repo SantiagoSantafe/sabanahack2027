@@ -1,0 +1,499 @@
+{
+  "escenario": "SINTÉTICOS (humedo y seco), 10 días; solo prueban el motor",
+  "puntos_de_control": {
+    "wilson_W12_T25_logit": {
+      "calculado": -0.3775,
+      "esperado": -0.3775,
+      "ok": true
+    },
+    "bulger_W16_T20_logit": {
+      "calculado": 0.6904,
+      "esperado": 0.6904,
+      "ok": true
+    },
+    "broome_W12_T20_indice": {
+      "calculado": 0.3845,
+      "esperado": 0.384,
+      "ok": true
+    },
+    "gim_f(Topt)=1": {
+      "calculado": 1.0,
+      "esperado": 1.0,
+      "ok": true
+    },
+    "gim_f(Tmin)=0": {
+      "calculado": 0.0,
+      "esperado": 0.0,
+      "ok": true
+    }
+  },
+  "perfiles": {
+    "arandano": {
+      "validacion": {
+        "errores": [],
+        "avisos": [
+          "pasillo mínimo 0.5 m < 0.56 m necesarios: en lotes con dosel cerrado el robot no pasa; marcar camas no aptas"
+        ],
+        "conteo_estados": {
+          "CALCULO": 2,
+          "SUPUESTO": 10,
+          "VERIFICADO": 11,
+          "NO_VERIFICADO": 0
+        },
+        "n_modelos": 3,
+        "n_clases": 7
+      },
+      "riesgo_escenario_sintetico": {
+        "antracnosis_wilson1990_arandano": {
+          "humedo": {
+            "max": {
+              "valor": 0.53,
+              "W_h": 19,
+              "W_requerida_h": 36,
+              "T_C": 12.2,
+              "dia": 3
+            },
+            "nivel": "moderado",
+            "n_eventos": 11,
+            "nota": "respaldo genérico (modelo externo no disponible)"
+          },
+          "seco": {
+            "max": null,
+            "nivel": "bajo",
+            "n_eventos": 0,
+            "nota": "respaldo genérico (modelo externo no disponible)"
+          }
+        },
+        "botrytis_bulger1987_adaptado": {
+          "humedo": {
+            "max": {
+              "valor": 0.561,
+              "W_h": 19,
+              "T_C": 12.8,
+              "dia": 5
+            },
+            "nivel": "moderado",
+            "n_eventos": 11
+          },
+          "seco": {
+            "max": null,
+            "nivel": "bajo",
+            "n_eventos": 0
+          }
+        },
+        "roya_regla": {
+          "humedo": {
+            "dias_que_cumplen": [],
+            "nivel": "bajo",
+            "datos_faltantes": []
+          },
+          "seco": {
+            "dias_que_cumplen": [],
+            "nivel": "bajo",
+            "datos_faltantes": [
+              "temp_media_humectacion_C"
+            ]
+          }
+        }
+      }
+    },
+    "fresa": {
+      "validacion": {
+        "errores": [],
+        "avisos": [
+          "pasillo mínimo 0.5 m < 0.56 m necesarios: en lotes con dosel cerrado el robot no pasa; marcar camas no aptas"
+        ],
+        "conteo_estados": {
+          "CALCULO": 2,
+          "SUPUESTO": 9,
+          "VERIFICADO": 10,
+          "NO_VERIFICADO": 1
+        },
+        "n_modelos": 4,
+        "n_clases": 9
+      },
+      "riesgo_escenario_sintetico": {
+        "antracnosis_wilson1990_flsas": {
+          "humedo": {
+            "max": {
+              "valor": 0.088,
+              "W_h": 19,
+              "T_C": 12.8,
+              "dia": 5
+            },
+            "nivel": "bajo",
+            "n_eventos": 11
+          },
+          "seco": {
+            "max": null,
+            "nivel": "bajo",
+            "n_eventos": 0
+          }
+        },
+        "botrytis_bulger1987_flsas": {
+          "humedo": {
+            "max": {
+              "valor": 0.561,
+              "W_h": 19,
+              "T_C": 12.8,
+              "dia": 5
+            },
+            "nivel": "moderado",
+            "n_eventos": 11
+          },
+          "seco": {
+            "max": null,
+            "nivel": "bajo",
+            "n_eventos": 0
+          }
+        },
+        "oidio_gubler_broome_metos": {
+          "humedo": {
+            "max": {
+              "valor": 0
+            },
+            "final": 0,
+            "serie": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "nivel": "bajo"
+          },
+          "seco": {
+            "max": {
+              "valor": 0
+            },
+            "final": 0,
+            "serie": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "nivel": "bajo"
+          }
+        },
+        "phytophthora_fruto_gim": {
+          "humedo": {
+            "max": {
+              "valor": 13.69,
+              "W_h": 19,
+              "W_requerida_h": 1.4,
+              "T_C": 12.8,
+              "dia": 5
+            },
+            "nivel": "alto",
+            "n_eventos": 11
+          },
+          "seco": {
+            "max": null,
+            "nivel": "bajo",
+            "n_eventos": 0
+          }
+        }
+      }
+    },
+    "mora": {
+      "validacion": {
+        "errores": [],
+        "avisos": [],
+        "conteo_estados": {
+          "CALCULO": 1,
+          "SUPUESTO": 13,
+          "VERIFICADO": 19,
+          "NO_VERIFICADO": 0
+        },
+        "n_modelos": 5,
+        "n_clases": 9
+      },
+      "riesgo_escenario_sintetico": {
+        "moho_gris_bulger1987_prestado": {
+          "humedo": {
+            "max": {
+              "valor": 0.561,
+              "W_h": 19,
+              "T_C": 12.8,
+              "dia": 5
+            },
+            "nivel": "moderado",
+            "n_eventos": 11
+          },
+          "seco": {
+            "max": null,
+            "nivel": "bajo",
+            "n_eventos": 0
+          }
+        },
+        "antracnosis_regla_ica": {
+          "humedo": {
+            "dias_que_cumplen": [],
+            "nivel": "bajo",
+            "datos_faltantes": []
+          },
+          "seco": {
+            "dias_que_cumplen": [],
+            "nivel": "bajo",
+            "datos_faltantes": []
+          }
+        },
+        "mildeo_velloso_regla_ica": {
+          "humedo": {
+            "dias_que_cumplen": [],
+            "nivel": "bajo",
+            "datos_faltantes": []
+          },
+          "seco": {
+            "dias_que_cumplen": [],
+            "nivel": "bajo",
+            "datos_faltantes": []
+          }
+        },
+        "mildeo_velloso_aegerter2003_prestado": {
+          "humedo": {
+            "max": {
+              "valor": 14.8
+            },
+            "nivel": "alto"
+          },
+          "seco": {
+            "max": {
+              "valor": 0.0
+            },
+            "nivel": "bajo"
+          }
+        },
+        "marchitez_suelo_heuristica": {
+          "humedo": {
+            "dias_que_cumplen": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "nivel": "alto",
+            "datos_faltantes": []
+          },
+          "seco": {
+            "dias_que_cumplen": [],
+            "nivel": "bajo",
+            "datos_faltantes": []
+          }
+        }
+      }
+    }
+  },
+  "catalogo_otros_cultivos": {
+    "uva_mesa.botrytis_broome1995": {
+      "humedo": {
+        "max": {
+          "valor": 0.521,
+          "W_h": 19,
+          "T_C": 12.8,
+          "dia": 5
+        },
+        "nivel": "moderado",
+        "n_eventos": 11
+      },
+      "seco": {
+        "max": null,
+        "nivel": "bajo",
+        "n_eventos": 0
+      }
+    },
+    "uva_mesa.oidio_gubler_thomas": {
+      "humedo": {
+        "max": {
+          "valor": 0
+        },
+        "final": 0,
+        "serie": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nivel": "bajo"
+      },
+      "seco": {
+        "max": {
+          "valor": 0
+        },
+        "final": 0,
+        "serie": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nivel": "bajo"
+      }
+    },
+    "uva_mesa.mildiu_regla_3_10": {
+      "humedo": {
+        "dias_que_cumplen": [],
+        "nivel": "bajo",
+        "datos_faltantes": [
+          "longitud_brote_cm"
+        ]
+      },
+      "seco": {
+        "dias_que_cumplen": [],
+        "nivel": "bajo",
+        "datos_faltantes": [
+          "longitud_brote_cm"
+        ]
+      }
+    },
+    "uva_mesa.mildiu_gim": {
+      "humedo": {
+        "max": {
+          "valor": 6.63,
+          "W_h": 19,
+          "W_requerida_h": 2.9,
+          "T_C": 12.8,
+          "dia": 8
+        },
+        "nivel": "alto",
+        "n_eventos": 11
+      },
+      "seco": {
+        "max": null,
+        "nivel": "bajo",
+        "n_eventos": 0
+      }
+    },
+    "uva_mesa.pudricion_negra_gim": {
+      "humedo": {
+        "max": {
+          "valor": 0.79,
+          "W_h": 19,
+          "W_requerida_h": 24,
+          "T_C": 12.8,
+          "dia": 8
+        },
+        "nivel": "moderado",
+        "n_eventos": 11
+      },
+      "seco": {
+        "max": null,
+        "nivel": "bajo",
+        "n_eventos": 0
+      }
+    },
+    "frambuesa.botrytis_bulger1987_prestado": {
+      "humedo": {
+        "max": {
+          "valor": 0.561,
+          "W_h": 19,
+          "T_C": 12.8,
+          "dia": 5
+        },
+        "nivel": "moderado",
+        "n_eventos": 11
+      },
+      "seco": {
+        "max": null,
+        "nivel": "bajo",
+        "n_eventos": 0
+      }
+    },
+    "frambuesa.botrytis_gim_uva": {
+      "humedo": {
+        "max": {
+          "valor": 3.03,
+          "W_h": 19,
+          "W_requerida_h": 6.3,
+          "T_C": 12.8,
+          "dia": 5
+        },
+        "nivel": "alto",
+        "n_eventos": 11
+      },
+      "seco": {
+        "max": null,
+        "nivel": "bajo",
+        "n_eventos": 0
+      }
+    },
+    "aguacate_hass.antracnosis_gim_proxy": {
+      "humedo": {
+        "max": {
+          "valor": 0.53,
+          "W_h": 19,
+          "W_requerida_h": 36,
+          "T_C": 12.2,
+          "dia": 3
+        },
+        "nivel": "moderado",
+        "n_eventos": 11
+      },
+      "seco": {
+        "max": null,
+        "nivel": "bajo",
+        "n_eventos": 0
+      }
+    },
+    "aguacate_hass.phytophthora_raiz_suelo": {
+      "humedo": {
+        "dias_que_cumplen": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "nivel": "alto",
+        "datos_faltantes": []
+      },
+      "seco": {
+        "dias_que_cumplen": [],
+        "nivel": "bajo",
+        "datos_faltantes": []
+      }
+    },
+    "gulupa.roña_mancha_aceitosa_regla": {
+      "humedo": {
+        "dias_que_cumplen": [
+          4,
+          5
+        ],
+        "nivel": "alto",
+        "datos_faltantes": []
+      },
+      "seco": {
+        "dias_que_cumplen": [],
+        "nivel": "bajo",
+        "datos_faltantes": []
+      }
+    }
+  }
+}

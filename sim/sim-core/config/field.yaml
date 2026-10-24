@@ -1,0 +1,50 @@
+# Block geometry — blueberry in pots (maceta) under macrotunnel.
+# "Dato empresa" = interview with the company representative (Oct 2026).
+
+blocks: 2                      # Bloque 1 = naves 1–2 (oeste) · Bloque 2 = naves 3–4 (este)
+central_path_width_m: 5.0      # camino central entre los dos bloques, a lo largo de las camas (dato empresa: camino de 5 m)
+
+# Cultivation: pots under macrotunnel, block managed like a flower greenhouse block (dato empresa)
+cultivation_mode: macrotunnel
+container: pot
+
+# Naves (tunnel bays). Dato empresa: each nave ~6.8 m wide, 2–3 beds of blueberry per nave.
+naves: 4                       # SUPUESTO — section shown; a 0.5–1 ha block has more naves
+nave_width_m: 6.8              # dato empresa
+beds_per_nave: 3               # dato empresa: 2 to 3 beds per nave
+naves_per_macrotunnel: 2       # SUPUESTO — dato empresa: macrotunnel ~12.5–13.1 m ≈ 2 naves
+
+# Bed length. Dato empresa: naves are ~80 m long.
+plants_per_bed: 107            # 80 m / 0.75 m spacing ≈ 107 plants
+plant_spacing_m: 0.75          # SUPUESTO — brief default; Colombia sources 0.8–1.0 m
+
+# Main access path at the head of the block. Dato empresa: "camino amplio de 5 metros".
+main_path_width_m: 5.0         # dato empresa
+north_headland_m: 1.5          # SUPUESTO — turning space at the far end of each nave
+
+# Pot row (ground cover strip under the pots)
+bed_width_m: 0.6               # SUPUESTO — pot ~0.4 m plus ground cover margin
+bed_height_m: 0.35             # SUPUESTO — pot height (container replaces raised bed)
+pot_diameter_m: 0.42           # SUPUESTO
+
+# Bush height (desde el suelo, con maceta). Dato empresa: el arbusto llega "a la cadera o la costilla"; dijo
+# "unos 50" sin aclarar si son cm sobre la maceta. Interpretación del equipo (RESPUESTAS_MENTOR.md §3,
+# [interpretación], por confirmar): ~0,9-1,3 m. Antes 1,3-1,7 m ("a ras de la costilla, ~1,5 m"), que
+# sobrestimaba la altura. Efecto: la cámara baja del D1 (0,3 m) sigue en el factor mínimo de altura;
+# las personas ven un poco mejor el envés.
+bush_height_min_m: 0.9         # SUPUESTO — interpretación del dato empresa
+bush_height_max_m: 1.3         # SUPUESTO — interpretación del dato empresa
+
+# Foliage spread. Dato empresa: "usualmente hay plantas que se desbordan por los lados,
+# el robot tiene que pasar con cuidado".
+foliage:
+  half_width_mean_m: 0.45      # SUPUESTO — canopy half-width from the row center
+  half_width_sd_m: 0.06        # SUPUESTO
+  overflow_prob: 0.22          # SUPUESTO — share of plants spilling into the aisle
+  overflow_extra_m: [0.25, 0.6]  # SUPUESTO — extra spill toward one or both aisles
+  both_sides_prob: 0.3         # SUPUESTO — overflowing plants that spill on both sides
+
+# Plastic cover (visual)
+macrotunnel:
+  arch_height_m: 4.2           # SUPUESTO
+  opacity: 0.16                # visual only

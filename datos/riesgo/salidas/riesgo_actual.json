@@ -1,0 +1,236 @@
+{
+ "generado": "2026-10-23T17:35:32",
+ "etapa": null,
+ "criterio_mojadura": {
+  "umbral_hr": 90.0,
+  "umbral_lluvia_mm": 0.5,
+  "usar_hr": true,
+  "usar_lwp": false,
+  "umbral_lwp": 50.0,
+  "max_interrupcion_h": 3,
+  "min_horas_mojadas": 1
+ },
+ "puntos": {
+  "chia": {
+   "fecha": "2026-10-23",
+   "dias_usados": [
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24"
+   ],
+   "enfermedades": {
+    "antracnosis": {
+     "indice": 0.4696,
+     "clase": "medio",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.15,
+      0.5
+     ],
+     "modelo": "Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009"
+    },
+    "botrytis": {
+     "indice": 0.9308,
+     "clase": "alto",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.5,
+      0.7
+     ],
+     "modelo": "Bulger et al. 1987 (flor de fresa, proxy)"
+    },
+    "roya": {
+     "indice": 0.5423,
+     "clase": "alto",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.2,
+      0.5
+     ],
+     "modelo": "APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO"
+    },
+    "oidio": {
+     "indice": 0.0,
+     "clase": "bajo",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.4,
+      0.6
+     ],
+     "modelo": "Gubler-Thomas (vid, UC IPM) - NO VALIDADO en arandano"
+    }
+   },
+   "riesgo_global": "alto",
+   "motivos": [
+    "antracnosis MEDIO: 30 h de mojadura a 12.4 C (indice 0.47; umbrales 0.15/0.50; Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009) | botrytis ALTO: 30 h de mojadura a 12.4 C (indice 0.93; umbrales 0.50/0.70; Bulger et al. 1987 (flor de fresa, proxy)) | roya ALTO: 30 h de mojadura a 12.4 C (indice 0.54; umbrales 0.20/0.50; APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO)"
+   ],
+   "fuente_clima": "clima/cache/pronostico_chia_20261023T220313Z.csv"
+  },
+  "guasca": {
+   "fecha": "2026-10-23",
+   "dias_usados": [
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24"
+   ],
+   "enfermedades": {
+    "antracnosis": {
+     "indice": 0.5464,
+     "clase": "alto",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.15,
+      0.5
+     ],
+     "modelo": "Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009"
+    },
+    "botrytis": {
+     "indice": 0.9533,
+     "clase": "alto",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.5,
+      0.7
+     ],
+     "modelo": "Bulger et al. 1987 (flor de fresa, proxy)"
+    },
+    "roya": {
+     "indice": 0.6709,
+     "clase": "alto",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.2,
+      0.5
+     ],
+     "modelo": "APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO"
+    },
+    "oidio": {
+     "indice": 0.0,
+     "clase": "bajo",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.4,
+      0.6
+     ],
+     "modelo": "Gubler-Thomas (vid, UC IPM) - NO VALIDADO en arandano"
+    }
+   },
+   "riesgo_global": "alto",
+   "motivos": [
+    "antracnosis ALTO: 30 h de mojadura a 13.1 C (indice 0.55; umbrales 0.15/0.50; Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009) | botrytis ALTO: 30 h de mojadura a 13.1 C (indice 0.95; umbrales 0.50/0.70; Bulger et al. 1987 (flor de fresa, proxy)) | roya ALTO: 30 h de mojadura a 13.1 C (indice 0.67; umbrales 0.20/0.50; APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO)",
+    "antracnosis MEDIO: 16 h de mojadura a 12.8 C (indice 0.15; umbrales 0.15/0.50; Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009)"
+   ],
+   "fuente_clima": "clima/cache/pronostico_guasca_20261023T220307Z.csv"
+  },
+  "sotaquira": {
+   "fecha": "2026-10-23",
+   "dias_usados": [
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24"
+   ],
+   "enfermedades": {
+    "antracnosis": {
+     "indice": 0.6587,
+     "clase": "alto",
+     "dia_pico": "2026-10-24",
+     "umbrales_medio_alto": [
+      0.15,
+      0.5
+     ],
+     "modelo": "Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009"
+    },
+    "botrytis": {
+     "indice": 0.9755,
+     "clase": "alto",
+     "dia_pico": "2026-10-24",
+     "umbrales_medio_alto": [
+      0.5,
+      0.7
+     ],
+     "modelo": "Bulger et al. 1987 (flor de fresa, proxy)"
+    },
+    "roya": {
+     "indice": 0.7931,
+     "clase": "alto",
+     "dia_pico": "2026-10-24",
+     "umbrales_medio_alto": [
+      0.2,
+      0.5
+     ],
+     "modelo": "APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO"
+    },
+    "oidio": {
+     "indice": 0.0,
+     "clase": "bajo",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.4,
+      0.6
+     ],
+     "modelo": "Gubler-Thomas (vid, UC IPM) - NO VALIDADO en arandano"
+    }
+   },
+   "riesgo_global": "alto",
+   "motivos": [
+    "antracnosis MEDIO: 27 h de mojadura a 12.8 C (indice 0.42; umbrales 0.15/0.50; Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009) | botrytis ALTO: 27 h de mojadura a 12.8 C (indice 0.89; umbrales 0.50/0.70; Bulger et al. 1987 (flor de fresa, proxy)) | roya ALTO: 27 h de mojadura a 12.8 C (indice 0.53; umbrales 0.20/0.50; APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO)",
+    "antracnosis MEDIO: 18 h de mojadura a 11.9 C (indice 0.16; umbrales 0.15/0.50; Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009)",
+    "antracnosis ALTO: 31 h de mojadura a 14.0 C (indice 0.66; umbrales 0.15/0.50; Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009) | botrytis ALTO: 31 h de mojadura a 14.0 C (indice 0.98; umbrales 0.50/0.70; Bulger et al. 1987 (flor de fresa, proxy)) | roya ALTO: 31 h de mojadura a 14.0 C (indice 0.79; umbrales 0.20/0.50; APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO)"
+   ],
+   "fuente_clima": "clima/cache/pronostico_sotaquira_20261023T220254Z.csv"
+  },
+  "tausa": {
+   "fecha": "2026-10-23",
+   "dias_usados": [
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24"
+   ],
+   "enfermedades": {
+    "antracnosis": {
+     "indice": 0.144,
+     "clase": "bajo",
+     "dia_pico": "2026-10-23",
+     "umbrales_medio_alto": [
+      0.15,
+      0.5
+     ],
+     "modelo": "Wilson et al. 1990 (SAS/BAS) + aprox. arandano Gillett & Schilder 2009"
+    },
+    "botrytis": {
+     "indice": 0.401,
+     "clase": "bajo",
+     "dia_pico": "2026-10-23",
+     "umbrales_medio_alto": [
+      0.5,
+      0.7
+     ],
+     "modelo": "Bulger et al. 1987 (flor de fresa, proxy)"
+    },
+    "roya": {
+     "indice": 0.0685,
+     "clase": "bajo",
+     "dia_pico": "2026-10-23",
+     "umbrales_medio_alto": [
+      0.2,
+      0.5
+     ],
+     "modelo": "APROXIMACION GIM (Magarey 2005) con Pfister 2004 / EPPO"
+    },
+    "oidio": {
+     "indice": 0.0,
+     "clase": "bajo",
+     "dia_pico": "2026-10-22",
+     "umbrales_medio_alto": [
+      0.4,
+      0.6
+     ],
+     "modelo": "Gubler-Thomas (vid, UC IPM) - NO VALIDADO en arandano"
+    }
+   },
+   "riesgo_global": "bajo",
+   "motivos": [],
+   "fuente_clima": "clima/cache/pronostico_tausa_20261023T220301Z.csv"
+  }
+ }
+}

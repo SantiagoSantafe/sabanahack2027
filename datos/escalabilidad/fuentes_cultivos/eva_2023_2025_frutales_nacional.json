@@ -1,0 +1,21 @@
+[{"cultivo":"Aguacate","desagregaci_n_cultivo":"Aguacate Hass","a_o":"2023","sembrada":"69369.03","cosechada":"52082.77","prod":"609480.19","n_registros_municipio":"246"}
+,{"cultivo":"Aguacate","desagregaci_n_cultivo":"Aguacate Hass","a_o":"2024","sembrada":"71553.99","cosechada":"61964.86","prod":"719631.23","n_registros_municipio":"259"}
+,{"cultivo":"Aguacate","desagregaci_n_cultivo":"Aguacate Hass","a_o":"2025","sembrada":"72443.58","cosechada":"62740.67","prod":"737803.66","n_registros_municipio":"261"}
+,{"cultivo":"Arándano","desagregaci_n_cultivo":"Arándano","a_o":"2023","sembrada":"639.67","cosechada":"466.42","prod":"3342.82","n_registros_municipio":"45"}
+,{"cultivo":"Arándano","desagregaci_n_cultivo":"Arándano","a_o":"2024","sembrada":"716.71","cosechada":"573.67","prod":"5045.38","n_registros_municipio":"54"}
+,{"cultivo":"Arándano","desagregaci_n_cultivo":"Arándano","a_o":"2025","sembrada":"906.72","cosechada":"664.72","prod":"6030.66","n_registros_municipio":"65"}
+,{"cultivo":"Frambuesa","desagregaci_n_cultivo":"Frambuesa","a_o":"2023","sembrada":"8.90","cosechada":"7.65","prod":"45.25","n_registros_municipio":"5"}
+,{"cultivo":"Frambuesa","desagregaci_n_cultivo":"Frambuesa","a_o":"2024","sembrada":"10.50","cosechada":"8.40","prod":"46.28","n_registros_municipio":"5"}
+,{"cultivo":"Frambuesa","desagregaci_n_cultivo":"Frambuesa","a_o":"2025","sembrada":"11.00","cosechada":"10.30","prod":"60.35","n_registros_municipio":"5"}
+,{"cultivo":"Fresa","desagregaci_n_cultivo":"Fresa","a_o":"2023","sembrada":"3591.04","cosechada":"3243.03","prod":"114895.20","n_registros_municipio":"115"}
+,{"cultivo":"Fresa","desagregaci_n_cultivo":"Fresa","a_o":"2024","sembrada":"3657.65","cosechada":"3306.52","prod":"108114.37","n_registros_municipio":"126"}
+,{"cultivo":"Fresa","desagregaci_n_cultivo":"Fresa","a_o":"2025","sembrada":"3766.68","cosechada":"3446.78","prod":"103669.43","n_registros_municipio":"127"}
+,{"cultivo":"Gulupa o cholupa","desagregaci_n_cultivo":"Gulupa o cholupa","a_o":"2023","sembrada":"2383.29","cosechada":"2132.07","prod":"33322.72","n_registros_municipio":"112"}
+,{"cultivo":"Gulupa o cholupa","desagregaci_n_cultivo":"Gulupa o cholupa","a_o":"2024","sembrada":"2222.96","cosechada":"2039.86","prod":"33391.30","n_registros_municipio":"119"}
+,{"cultivo":"Gulupa o cholupa","desagregaci_n_cultivo":"Gulupa o cholupa","a_o":"2025","sembrada":"2289.69","cosechada":"2051.96","prod":"33957.84","n_registros_municipio":"122"}
+,{"cultivo":"Mora","desagregaci_n_cultivo":"Mora","a_o":"2023","sembrada":"17511.16","cosechada":"16965.81","prod":"170069.36","n_registros_municipio":"305"}
+,{"cultivo":"Mora","desagregaci_n_cultivo":"Mora","a_o":"2024","sembrada":"16539.76","cosechada":"15717.58","prod":"156019.03","n_registros_municipio":"308"}
+,{"cultivo":"Mora","desagregaci_n_cultivo":"Mora","a_o":"2025","sembrada":"15951.86","cosechada":"15436.63","prod":"153987.98","n_registros_municipio":"305"}
+,{"cultivo":"Uva","desagregaci_n_cultivo":"Uva","a_o":"2023","sembrada":"3156.92","cosechada":"2984.32","prod":"33993.00","n_registros_municipio":"56"}
+,{"cultivo":"Uva","desagregaci_n_cultivo":"Uva","a_o":"2024","sembrada":"3070.02","cosechada":"3002.92","prod":"34519.90","n_registros_municipio":"57"}
+,{"cultivo":"Uva","desagregaci_n_cultivo":"Uva","a_o":"2025","sembrada":"3015.02","cosechada":"2924.27","prod":"34476.63","n_registros_municipio":"57"}]

@@ -1,0 +1,42 @@
+# Alternative A — D1 Ultra with mast
+# Traverses every N days, plant-level detection, no environmental risk prioritization
+code: A
+name: "D1 Ultra con mástil"
+title: "A · D1 Ultra + mástil"
+
+sensor:
+  camera_height_m: 1.35   # mast
+  sees_full_bush: true
+  base_sensitivity: 1.0
+
+schedule:
+  every_n_days: 3         # SUPUESTO
+  only_spray_days: false
+  start_hour: 5.0         # SUPUESTO — misma hora que F (amanecer); el robot no va ligado al aspersor
+
+prioritize_by_risk: false
+
+risk_trigger:
+  enabled: false
+  level: bed              # bed | block
+  action: none            # none | human_review
+
+mobility:
+  width_m: 0.36            # AgiBot D1 Ultra 630x360x420 mm (oficial); con mástil la altura efectiva es la del mástil
+  height_m: 0.42
+  rigid: false            # rígida: no puede apartar ramas
+  speed_mps: 0.5
+  battery_h: 1.5
+  fail_prob_per_bed: 0.0
+  mud_slowdown: 1.0
+  stuck_prob: 0.0
+
+fog_sensitivity_penalty: 1.0
+
+human_review:
+  enabled: false
+  sensitivity_small: 0.0
+  sensitivity_underside: 0.0
+
+mast: true
+platform: quadruped

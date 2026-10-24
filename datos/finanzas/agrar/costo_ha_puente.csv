@@ -1,0 +1,7 @@
+paso,usd_ha_anio,cop_millones_ha_anio
+F del modelo de finanzas (20 ha: 1 D1 + 20 nodos + gateway + mástil),722.2,2.3
+(-) Quitar la red nueva: en AGRAR el PLC por bloque ya existe,486.6,1.55
+"(+) Pagar el precio de AGRAR (integración, software, base de carga y margen 40 %) en vez del equipo puesto en finca",826.1,2.631
+(+/-) Cambiar nube + mantenimiento del modelo por suscripción + consumibles y operario,956.7,3.047
+"(-) Diluir en 22,5 ha en vez de 20 ha (resultado final con falsas alarmas)",867.1,2.762
+Mismo resultado sin falsas alarmas,717.1,2.284

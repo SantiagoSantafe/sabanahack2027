@@ -1,0 +1,497 @@
+[{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Sotaquirá","sembrada":"182.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Tausa","sembrada":"121.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Cómbita","sembrada":"85.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Ventaquemada","sembrada":"59.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Guasca","sembrada":"57.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Sopó","sembrada":"31.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Chocontá","sembrada":"25.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Guatavita","sembrada":"21.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Tenjo","sembrada":"19.00"}
+,{"cultivo":"Arándano","departamento":"Antioquia","municipio":"Entrerríos","sembrada":"19.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Suesca","sembrada":"18.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Cogua","sembrada":"18.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Sesquilé","sembrada":"17.60"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Nemocón","sembrada":"13.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Tuta","sembrada":"12.75"}
+,{"cultivo":"Arándano","departamento":"Antioquia","municipio":"Santa Rosa de Osos","sembrada":"12.74"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Duitama","sembrada":"11.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Zipaquirá","sembrada":"10.30"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Facatativá","sembrada":"10.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Subachoque","sembrada":"10.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Paipa","sembrada":"9.20"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Arcabuco","sembrada":"9.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Guachetá","sembrada":"9.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Sutamarchán","sembrada":"9.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"La Calera","sembrada":"9.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Santa Rosa de Viterbo","sembrada":"8.50"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Mosquera","sembrada":"7.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Santa Sofía","sembrada":"6.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Sutatausa","sembrada":"6.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Úmbita","sembrada":"5.00"}
+,{"cultivo":"Arándano","departamento":"Antioquia","municipio":"San Pedro de Los Milagros","sembrada":"5.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Susacón","sembrada":"4.95"}
+,{"cultivo":"Arándano","departamento":"Antioquia","municipio":"Donmatías","sembrada":"4.60"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Villa de San Diego de Ubaté","sembrada":"4.60"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Cucaita","sembrada":"4.50"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Gama","sembrada":"4.50"}
+,{"cultivo":"Arándano","departamento":"Nariño","municipio":"Túquerres","sembrada":"4.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Garagoa","sembrada":"4.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Villa de Leyva","sembrada":"3.50"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Oicatá","sembrada":"3.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Sibaté","sembrada":"3.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Samacá","sembrada":"3.00"}
+,{"cultivo":"Arándano","departamento":"Caldas","municipio":"Aranzazu","sembrada":"3.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Pasca","sembrada":"2.50"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Chiquinquirá","sembrada":"2.40"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"Machetá","sembrada":"2.18"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Maripí","sembrada":"2.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Tibasosa","sembrada":"2.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Corrales","sembrada":"2.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Firavitoba","sembrada":"1.50"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Tunja","sembrada":"1.50"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Cerinza","sembrada":"1.00"}
+,{"cultivo":"Arándano","departamento":"Cundinamarca","municipio":"San Bernardo","sembrada":"1.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Soatá","sembrada":"1.00"}
+,{"cultivo":"Arándano","departamento":"Norte de Santander","municipio":"Pamplona","sembrada":"1.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Zetaquira","sembrada":"1.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Viracachá","sembrada":"1.00"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Floresta","sembrada":"0.97"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Tasco","sembrada":"0.80"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Socha","sembrada":"0.50"}
+,{"cultivo":"Arándano","departamento":"Nariño","municipio":"Gualmatán","sembrada":"0.25"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"La Uvita","sembrada":"0.24"}
+,{"cultivo":"Arándano","departamento":"Antioquia","municipio":"Envigado","sembrada":"0.10"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Busbanzá","sembrada":"0.02"}
+,{"cultivo":"Arándano","departamento":"Boyacá","municipio":"Mongua","sembrada":"0.02"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Facatativá","sembrada":"420.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Sibaté","sembrada":"385.00"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"La Unión","sembrada":"323.10"}
+,{"cultivo":"Fresa","departamento":"Cauca","municipio":"Sotará Paispamba","sembrada":"300.00"}
+,{"cultivo":"Fresa","departamento":"Norte de Santander","municipio":"Silos","sembrada":"187.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Soacha","sembrada":"174.00"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"El Carmen de Viboral","sembrada":"160.00"}
+,{"cultivo":"Fresa","departamento":"Cauca","municipio":"Silvia","sembrada":"139.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Chocontá","sembrada":"127.00"}
+,{"cultivo":"Fresa","departamento":"Cauca","municipio":"Puracé","sembrada":"87.80"}
+,{"cultivo":"Fresa","departamento":"Norte de Santander","municipio":"Chitagá","sembrada":"68.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"El Rosal","sembrada":"60.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Villapinzón","sembrada":"59.70"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Tuta","sembrada":"51.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Subachoque","sembrada":"51.00"}
+,{"cultivo":"Fresa","departamento":"Norte de Santander","municipio":"Pamplona","sembrada":"51.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Zipacón","sembrada":"50.50"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Túquerres","sembrada":"48.80"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Guasca","sembrada":"47.00"}
+,{"cultivo":"Fresa","departamento":"Norte de Santander","municipio":"Mutiscua","sembrada":"46.15"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Funza","sembrada":"43.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Toca","sembrada":"43.00"}
+,{"cultivo":"Fresa","departamento":"Cauca","municipio":"Totoró","sembrada":"32.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Pasto","sembrada":"30.00"}
+,{"cultivo":"Fresa","departamento":"Santander","municipio":"Cerrito","sembrada":"26.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Oicatá","sembrada":"26.00"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Medellín","sembrada":"24.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Sutamarchán","sembrada":"23.40"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Cómbita","sembrada":"23.00"}
+,{"cultivo":"Fresa","departamento":"Norte de Santander","municipio":"Cácota","sembrada":"21.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Albán","sembrada":"21.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Chiquinquirá","sembrada":"20.90"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Tota","sembrada":"20.50"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Santa Rosa de Osos","sembrada":"20.50"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"San Vicente Ferrer","sembrada":"19.00"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Guarne","sembrada":"18.00"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Rionegro","sembrada":"16.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Bojacá","sembrada":"15.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Nemocón","sembrada":"15.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Madrid","sembrada":"14.56"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Cumbal","sembrada":"14.37"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Suesca","sembrada":"14.00"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Belmira","sembrada":"14.00"}
+,{"cultivo":"Fresa","departamento":"Cauca","municipio":"Bolívar","sembrada":"14.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Mosquera","sembrada":"13.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Zipaquirá","sembrada":"13.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Córdoba","sembrada":"13.00"}
+,{"cultivo":"Fresa","departamento":"Caldas","municipio":"Villamaría","sembrada":"13.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Granada","sembrada":"13.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Arcabuco","sembrada":"12.50"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Buesaco","sembrada":"12.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Villa de San Diego de Ubaté","sembrada":"11.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Cuítiva","sembrada":"11.00"}
+,{"cultivo":"Fresa","departamento":"Caldas","municipio":"Aguadas","sembrada":"10.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Tutazá","sembrada":"9.40"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Susa","sembrada":"9.00"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Sonsón","sembrada":"9.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Tinjacá","sembrada":"9.00"}
+,{"cultivo":"Fresa","departamento":"Valle del Cauca","municipio":"Tuluá","sembrada":"9.00"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Envigado","sembrada":"8.70"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Tunja","sembrada":"8.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Cogua","sembrada":"8.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Lenguazaque","sembrada":"8.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Viracachá","sembrada":"7.70"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Samacá","sembrada":"7.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Caldas","sembrada":"7.00"}
+,{"cultivo":"Fresa","departamento":"Putumayo","municipio":"Santiago","sembrada":"6.44"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Tabio","sembrada":"6.25"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"La Cruz","sembrada":"6.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Sapuyes","sembrada":"6.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Gámeza","sembrada":"6.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Gachancipá","sembrada":"5.80"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Cuaspud Carlosama","sembrada":"5.50"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Ipiales","sembrada":"5.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Sopó","sembrada":"5.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Aquitania","sembrada":"5.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Guaitarilla","sembrada":"5.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"San Bernardo","sembrada":"5.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Paz de Río","sembrada":"4.90"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Puerres","sembrada":"4.80"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Yarumal","sembrada":"4.70"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Sotaquirá","sembrada":"4.50"}
+,{"cultivo":"Fresa","departamento":"Caquetá","municipio":"San Vicente del Caguán","sembrada":"4.00"}
+,{"cultivo":"Fresa","departamento":"Valle del Cauca","municipio":"El Cerrito","sembrada":"4.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Sogamoso","sembrada":"4.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Motavita","sembrada":"4.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Yacuanquer","sembrada":"4.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Monguí","sembrada":"4.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Iles","sembrada":"4.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Tenjo","sembrada":"3.80"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Urrao","sembrada":"3.50"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Pasca","sembrada":"3.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Pupiales","sembrada":"3.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Ospina","sembrada":"3.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Guachetá","sembrada":"3.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Siachoque","sembrada":"3.00"}
+,{"cultivo":"Fresa","departamento":"Valle del Cauca","municipio":"Guadalajara de Buga","sembrada":"3.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Cucaita","sembrada":"3.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Fúquene","sembrada":"3.00"}
+,{"cultivo":"Fresa","departamento":"Norte de Santander","municipio":"Herrán","sembrada":"3.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"San Pablo","sembrada":"2.50"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Simijaca","sembrada":"2.50"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Contadero","sembrada":"2.50"}
+,{"cultivo":"Fresa","departamento":"Valle del Cauca","municipio":"Sevilla","sembrada":"2.40"}
+,{"cultivo":"Fresa","departamento":"Cauca","municipio":"Santa Rosa","sembrada":"2.02"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Retiro","sembrada":"2.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Soatá","sembrada":"2.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Gualmatán","sembrada":"2.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Duitama","sembrada":"2.00"}
+,{"cultivo":"Fresa","departamento":"Cauca","municipio":"La Vega","sembrada":"2.00"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"San Pedro de Los Milagros","sembrada":"1.50"}
+,{"cultivo":"Fresa","departamento":"Valle del Cauca","municipio":"Florida","sembrada":"1.25"}
+,{"cultivo":"Fresa","departamento":"Antioquia","municipio":"Entrerríos","sembrada":"1.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"El Tablón de Gómez","sembrada":"1.00"}
+,{"cultivo":"Fresa","departamento":"Cundinamarca","municipio":"Gutiérrez","sembrada":"1.00"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Nariño","sembrada":"1.00"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Sativasur","sembrada":"0.68"}
+,{"cultivo":"Fresa","departamento":"Risaralda","municipio":"Pereira","sembrada":"0.60"}
+,{"cultivo":"Fresa","departamento":"Cauca","municipio":"Balboa","sembrada":"0.50"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Susacón","sembrada":"0.50"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"Ciénega","sembrada":"0.50"}
+,{"cultivo":"Fresa","departamento":"Valle del Cauca","municipio":"El Águila","sembrada":"0.50"}
+,{"cultivo":"Fresa","departamento":"Valle del Cauca","municipio":"Roldanillo","sembrada":"0.30"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Aldana","sembrada":"0.25"}
+,{"cultivo":"Fresa","departamento":"Boyacá","municipio":"San Miguel de Sema","sembrada":"0.16"}
+,{"cultivo":"Fresa","departamento":"Caldas","municipio":"Salamina","sembrada":"0.15"}
+,{"cultivo":"Fresa","departamento":"Nariño","municipio":"Guachucal","sembrada":"0.10"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"San Bernardo","sembrada":"2235.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Piedecuesta","sembrada":"1169.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Bolívar","sembrada":"588.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Córdoba","sembrada":"515.00"}
+,{"cultivo":"Mora","departamento":"Caldas","municipio":"Aguadas","sembrada":"500.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"La Plata","sembrada":"500.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"San Pedro de Cartago","sembrada":"439.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Silvania","sembrada":"399.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Ragonvalia","sembrada":"320.29"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Saboyá","sembrada":"294.10"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Arbeláez","sembrada":"287.10"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Pasca","sembrada":"272.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Fusagasugá","sembrada":"246.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Charta","sembrada":"240.00"}
+,{"cultivo":"Mora","departamento":"Putumayo","municipio":"Santiago","sembrada":"221.69"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Peñol","sembrada":"213.50"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Ibagué","sembrada":"199.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Ipiales","sembrada":"196.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"San Agustín","sembrada":"189.50"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Isnos","sembrada":"183.00"}
+,{"cultivo":"Mora","departamento":"Cesar","municipio":"La Paz","sembrada":"181.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"El Peñón","sembrada":"169.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Algeciras","sembrada":"161.50"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Pamplona","sembrada":"157.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Guaca","sembrada":"151.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Cómbita","sembrada":"148.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"El Playón","sembrada":"135.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Matanza","sembrada":"125.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Gachantivá","sembrada":"120.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Venecia","sembrada":"116.00"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Roncesvalles","sembrada":"111.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Cumbal","sembrada":"109.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Garzón","sembrada":"102.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Páez","sembrada":"98.60"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Quipile","sembrada":"98.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Suratá","sembrada":"96.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Florida","sembrada":"93.12"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Arcabuco","sembrada":"87.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Paipa","sembrada":"86.32"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Florián","sembrada":"83.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Medellín","sembrada":"80.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"La Belleza","sembrada":"80.00"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Cajamarca","sembrada":"79.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Moniquirá","sembrada":"74.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Tuluá","sembrada":"73.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Ramiriquí","sembrada":"72.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Pitalito","sembrada":"71.13"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"La Ceja","sembrada":"70.30"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Icononzo","sembrada":"70.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Trujillo","sembrada":"68.25"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Suaza","sembrada":"65.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Ciénega","sembrada":"65.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"San Vicente Ferrer","sembrada":"63.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Pamplonita","sembrada":"62.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Sotará Paispamba","sembrada":"60.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Hobo","sembrada":"58.50"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Corinto","sembrada":"55.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Versalles","sembrada":"54.60"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Chiquinquirá","sembrada":"54.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"El Colegio","sembrada":"53.60"}
+,{"cultivo":"Mora","departamento":"Putumayo","municipio":"Colón","sembrada":"49.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Jambaló","sembrada":"48.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Guacarí","sembrada":"47.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Puracé","sembrada":"45.80"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Bolívar","sembrada":"45.00"}
+,{"cultivo":"Mora","departamento":"Caldas","municipio":"Riosucio","sembrada":"45.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Briceño","sembrada":"44.50"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Quetame","sembrada":"42.10"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"La Unión","sembrada":"41.40"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"San Pedro de Los Milagros","sembrada":"41.10"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Sotaquirá","sembrada":"41.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Campoalegre","sembrada":"40.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"La Argentina","sembrada":"40.00"}
+,{"cultivo":"Mora","departamento":"Cesar","municipio":"Agustín Codazzi","sembrada":"40.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Cabrera","sembrada":"39.00"}
+,{"cultivo":"Mora","departamento":"Cesar","municipio":"Manaure Balcón del Cesar","sembrada":"39.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Granada","sembrada":"39.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Cáchira","sembrada":"38.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Silvia","sembrada":"38.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Arboleda","sembrada":"37.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Palestina","sembrada":"35.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Jenesano","sembrada":"35.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Santa Bárbara","sembrada":"32.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Tarqui","sembrada":"31.30"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Barbosa","sembrada":"31.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"San Bernardo","sembrada":"30.90"}
+,{"cultivo":"Mora","departamento":"Quindío","municipio":"Córdoba","sembrada":"30.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Villapinzón","sembrada":"30.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Villa Caro","sembrada":"29.50"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Neiva","sembrada":"29.50"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Miranda","sembrada":"29.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Gachetá","sembrada":"28.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Gámbita","sembrada":"28.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Labateca","sembrada":"27.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Ginebra","sembrada":"27.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Villa de Leyva","sembrada":"26.60"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Puente Nacional","sembrada":"26.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Toribío","sembrada":"25.44"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Sucre","sembrada":"25.00"}
+,{"cultivo":"Mora","departamento":"Risaralda","municipio":"Guática","sembrada":"24.30"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Guarne","sembrada":"24.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Betulia","sembrada":"23.50"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"San Pedro","sembrada":"23.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Marinilla","sembrada":"23.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Acevedo","sembrada":"23.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Pital","sembrada":"22.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Sevilla","sembrada":"22.00"}
+,{"cultivo":"Mora","departamento":"Quindío","municipio":"Salento","sembrada":"22.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Cucutilla","sembrada":"22.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Contadero","sembrada":"21.50"}
+,{"cultivo":"Mora","departamento":"Meta","municipio":"Uribe","sembrada":"21.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Tona","sembrada":"21.00"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Murillo","sembrada":"21.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Sucre","sembrada":"20.50"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Cunday","sembrada":"20.00"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Planadas","sembrada":"20.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Guadalajara de Buga","sembrada":"20.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Urrao","sembrada":"19.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Ventaquemada","sembrada":"19.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Herrán","sembrada":"19.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Cácota","sembrada":"18.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Úmbita","sembrada":"18.10"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Viracachá","sembrada":"18.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Gigante","sembrada":"17.50"}
+,{"cultivo":"Mora","departamento":"Risaralda","municipio":"Dosquebradas","sembrada":"17.20"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Vélez","sembrada":"17.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"San Pablo","sembrada":"17.00"}
+,{"cultivo":"Mora","departamento":"Risaralda","municipio":"Pereira","sembrada":"16.60"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Buenavista","sembrada":"16.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Mutiscua","sembrada":"15.50"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Calima","sembrada":"15.37"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Pasto","sembrada":"15.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Rondón","sembrada":"15.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Guadalupe","sembrada":"15.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Sibaté","sembrada":"15.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Pachavita","sembrada":"15.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Boyacá","sembrada":"15.00"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Dolores","sembrada":"15.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"La Capilla","sembrada":"14.98"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Zapatoca","sembrada":"14.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Potosí","sembrada":"13.50"}
+,{"cultivo":"Mora","departamento":"Risaralda","municipio":"Santa Rosa de Cabal","sembrada":"13.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"La Calera","sembrada":"13.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Retiro","sembrada":"12.70"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Sandoná","sembrada":"12.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Garagoa","sembrada":"12.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Girardota","sembrada":"12.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Túquerres","sembrada":"12.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Rivera","sembrada":"11.50"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"California","sembrada":"11.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Jesús María","sembrada":"11.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Chinácota","sembrada":"11.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"San Jerónimo","sembrada":"11.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Palermo","sembrada":"11.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Envigado","sembrada":"11.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Ráquira","sembrada":"11.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Bolívar","sembrada":"11.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Totoró","sembrada":"10.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Yarumal","sembrada":"10.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Zetaquira","sembrada":"10.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"San Miguel","sembrada":"10.00"}
+,{"cultivo":"Mora","departamento":"Caldas","municipio":"Villamaría","sembrada":"10.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Granada","sembrada":"10.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Caldono","sembrada":"10.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"San Andrés","sembrada":"10.00"}
+,{"cultivo":"Mora","departamento":"Putumayo","municipio":"San Francisco","sembrada":"10.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Chita","sembrada":"9.50"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Rionegro","sembrada":"9.00"}
+,{"cultivo":"Mora","departamento":"Meta","municipio":"El Calvario","sembrada":"9.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Caloto","sembrada":"9.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Mallama","sembrada":"9.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Zipacón","sembrada":"9.00"}
+,{"cultivo":"Mora","departamento":"Risaralda","municipio":"Belén de Umbría","sembrada":"8.20"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Funes","sembrada":"8.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"El Santuario","sembrada":"8.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Santa María","sembrada":"8.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Floridablanca","sembrada":"8.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Íquira","sembrada":"7.80"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Santa Rosa de Osos","sembrada":"7.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Soatá","sembrada":"7.30"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Arboledas","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Santiago de Cali","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Caldas","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"La Sierra","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"San Lorenzo","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Onzaga","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Une","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Colombia","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Baraya","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Abejorral","sembrada":"7.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"La Uvita","sembrada":"6.90"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Gramalote","sembrada":"6.90"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Monguí","sembrada":"6.50"}
+,{"cultivo":"Mora","departamento":"Putumayo","municipio":"Sibundoy","sembrada":"6.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Tibirita","sembrada":"6.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Inzá","sembrada":"6.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Timaná","sembrada":"6.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Suesca","sembrada":"6.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Belén","sembrada":"6.00"}
+,{"cultivo":"Mora","departamento":"Casanare","municipio":"Sácama","sembrada":"6.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Salazar","sembrada":"5.80"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Roldanillo","sembrada":"5.76"}
+,{"cultivo":"Mora","departamento":"Risaralda","municipio":"Apía","sembrada":"5.60"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Facatativá","sembrada":"5.20"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Turmequé","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Pradera","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Santa Isabel","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Manta","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Norte de Santander","municipio":"Toledo","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"La Florida","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Altamira","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Oporapa","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Tuta","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Riofrío","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Tinjacá","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"Herveo","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Chiscas","sembrada":"5.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Duitama","sembrada":"4.80"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Agrado","sembrada":"4.65"}
+,{"cultivo":"Mora","departamento":"Magdalena","municipio":"Santa Marta","sembrada":"4.50"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"El Águila","sembrada":"4.50"}
+,{"cultivo":"Mora","departamento":"Tolima","municipio":"San Antonio","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Pajarito","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Viotá","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Cuaspud Carlosama","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Molagavita","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Campohermoso","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Risaralda","municipio":"Santuario","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"La Cruz","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Risaralda","municipio":"Mistrató","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Chocó","municipio":"El Carmen de Atrato","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Choachí","sembrada":"4.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Popayán","sembrada":"3.90"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Donmatías","sembrada":"3.70"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Nátaga","sembrada":"3.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Guayatá","sembrada":"3.50"}
+,{"cultivo":"Mora","departamento":"Caldas","municipio":"Pensilvania","sembrada":"3.20"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Sutatenza","sembrada":"3.20"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Nariño","sembrada":"3.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"La Vega","sembrada":"3.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Betéitiva","sembrada":"3.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Fúquene","sembrada":"3.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"El Tablón de Gómez","sembrada":"3.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Guachetá","sembrada":"3.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Cogua","sembrada":"3.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Tocancipá","sembrada":"2.80"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Paz de Río","sembrada":"2.80"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Miraflores","sembrada":"2.75"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Jamundí","sembrada":"2.50"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Fosca","sembrada":"2.50"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Chía","sembrada":"2.50"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Soacha","sembrada":"2.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Macanal","sembrada":"2.50"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Puerres","sembrada":"2.50"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"San Antonio del Tequendama","sembrada":"2.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Chinavita","sembrada":"2.49"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Tangua","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Meta","municipio":"El Castillo","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Villa de San Diego de Ubaté","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Entrerríos","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Quindío","municipio":"Génova","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"El Cerrito","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Chachagüí","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Teruel","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Saladoblanco","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Tello","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Ansermanuevo","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Pandi","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Pupiales","sembrada":"2.00"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Giraldo","sembrada":"1.60"}
+,{"cultivo":"Mora","departamento":"Meta","municipio":"San Juanito","sembrada":"1.50"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Aratoca","sembrada":"1.50"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Gutiérrez","sembrada":"1.50"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Belén","sembrada":"1.50"}
+,{"cultivo":"Mora","departamento":"Casanare","municipio":"La Salina","sembrada":"1.50"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"El Peñol","sembrada":"1.50"}
+,{"cultivo":"Mora","departamento":"Quindío","municipio":"Calarcá","sembrada":"1.50"}
+,{"cultivo":"Mora","departamento":"Quindío","municipio":"Pijao","sembrada":"1.30"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"San Eduardo","sembrada":"1.30"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Gachancipá","sembrada":"1.14"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Panqueba","sembrada":"1.12"}
+,{"cultivo":"Mora","departamento":"Quindío","municipio":"Filandia","sembrada":"1.01"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Sativasur","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Toro","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Sativanorte","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Gualmatán","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Medina","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Tasco","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"Santa Rosa","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Restrepo","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Huila","municipio":"Elías","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Galán","sembrada":"1.00"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"El Cairo","sembrada":"0.80"}
+,{"cultivo":"Mora","departamento":"Santander","municipio":"Vetas","sembrada":"0.60"}
+,{"cultivo":"Mora","departamento":"Cundinamarca","municipio":"Ubalá","sembrada":"0.50"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"San José de La Montaña","sembrada":"0.50"}
+,{"cultivo":"Mora","departamento":"Antioquia","municipio":"Belmira","sembrada":"0.50"}
+,{"cultivo":"Mora","departamento":"Nariño","municipio":"Aldana","sembrada":"0.50"}
+,{"cultivo":"Mora","departamento":"Caldas","municipio":"Manzanares","sembrada":"0.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Mongua","sembrada":"0.50"}
+,{"cultivo":"Mora","departamento":"Cauca","municipio":"San Sebastián","sembrada":"0.50"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"San Pablo de Borbur","sembrada":"0.50"}
+,{"cultivo":"Mora","departamento":"Valle del Cauca","municipio":"Yumbo","sembrada":"0.30"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"San Miguel de Sema","sembrada":"0.25"}
+,{"cultivo":"Mora","departamento":"Boyacá","municipio":"Sogamoso","sembrada":"0.20"}]

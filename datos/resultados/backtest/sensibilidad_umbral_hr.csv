@@ -1,0 +1,13 @@
+punto,enfermedad,dias_alto_HR85,dias_medio_o_alto_HR85,episodios_alto_HR85,horas_mojadas_HR85,dias_alto_HR90,dias_medio_o_alto_HR90,episodios_alto_HR90,horas_mojadas_HR90,dias_alto_HR95,dias_medio_o_alto_HR95,episodios_alto_HR95,horas_mojadas_HR95,cambio_alto_HR85_vs_HR90_dias,cambio_alto_HR85_vs_HR90_pct,cambio_alto_HR95_vs_HR90_dias,cambio_alto_HR95_vs_HR90_pct
+sotaquira,antracnosis,14,70,11,5422,3,41,3,5063,0,22,0,4474,11,367.0,-3,-100.0
+sotaquira,botrytis,45,52,19,5422,18,24,10,5063,7,11,5,4474,27,150.0,-11,-61.0
+sotaquira,roya,14,47,8,5422,4,21,3,5063,1,9,1,4474,10,250.0,-3,-75.0
+tausa,antracnosis,7,44,2,5360,3,23,2,4575,0,9,0,3094,4,133.0,-3,-100.0
+tausa,botrytis,31,46,19,5360,17,23,10,4575,6,9,4,3094,14,82.0,-11,-65.0
+tausa,roya,4,9,1,5360,0,2,0,4575,0,2,0,3094,4,,0,
+guasca,antracnosis,12,37,10,4358,4,21,3,3370,0,8,0,1741,8,200.0,-4,-100.0
+guasca,botrytis,22,27,11,4358,10,15,5,3370,1,5,1,1741,12,120.0,-9,-90.0
+guasca,roya,16,30,10,4358,6,19,4,3370,0,7,0,1741,10,167.0,-6,-100.0
+chia,antracnosis,12,61,10,5121,6,42,5,4539,3,18,2,3237,6,100.0,-3,-50.0
+chia,botrytis,35,46,17,5121,16,27,10,4539,5,7,3,3237,19,119.0,-11,-69.0
+chia,roya,14,49,9,5121,6,26,5,4539,3,8,2,3237,8,133.0,-3,-50.0

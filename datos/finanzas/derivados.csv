@@ -1,0 +1,18 @@
+variable,valor,nota
+smmlv_diario_cop,58363.5,Decreto 1469/2025 / 30
+jornal_cop,75873.0,"SMMLV diario x 1,30 (PL 504/2025)"
+jornal_usd,23.82,a TRM 2026-10-23
+ingreso_bruto_ha_anio_usd,72000.0,Y x P base
+costo_no_detectado_como_pct_ingreso_semanal,3.0,2.160 USD/ha/semana como % del ingreso anual
+umbral_bayes_prob_enfermedad,0.0137,alertar si P(enf) > C_FA/(C_FA+C_FN)
+incremental_F_vs_B_costo_ha,474.6,"USD/ha/año, 20 ha"
+incremental_F_vs_B_beneficio_ha,1151.5,"USD/ha/año, 20 ha"
+roi_incremental_F_vs_B,1.426,"20 ha, base"
+capacidad_ha_por_robot_A,12.5,"revisita semanal, base"
+capacidad_ha_por_robot_B,,"revisita semanal, base"
+capacidad_ha_por_robot_C,20.0,"revisita semanal, base"
+capacidad_ha_por_robot_D,8.3,"revisita semanal, base"
+capacidad_ha_por_robot_E1,19.9,"revisita semanal, base"
+capacidad_ha_por_robot_E2,12.5,"revisita semanal, base"
+capacidad_ha_por_robot_F,24.9,"revisita semanal, base"
+capacidad_ha_por_robot_G,53.2,"revisita semanal, base"

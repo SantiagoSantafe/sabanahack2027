@@ -1,0 +1,795 @@
+{
+ "focos": [
+  {
+   "id": "demo-f1",
+   "nave": 2,
+   "cama": 3,
+   "ubicacion": "N2 C3 P84–P94",
+   "deteccion": "Heliothis",
+   "clase": "heliothis",
+   "familia": "plaga",
+   "plantas": 9,
+   "detecciones": 11,
+   "incidencias": [],
+   "fuentes": [
+    "simulacion"
+   ],
+   "frame": null,
+   "riesgo_cama": 0.62,
+   "puntaje": 78.4,
+   "nivel": "alta",
+   "horas_sin_atender": 31.0,
+   "semaforo": "rojo",
+   "tendencia": "crece",
+   "serie": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "por_que": [
+    "9 plantas afectadas",
+    "enfermedad/plaga de alta gravedad",
+    "el clima favorece que avance en esa cama",
+    "lleva 31 h sin atender",
+    "sigue creciendo"
+   ],
+   "estado": "nuevo",
+   "resultado": null,
+   "responsable": null,
+   "tratamiento": null,
+   "abierto": true,
+   "aviso": "Aviso: Heliothis en N2 C3 P84–P94, 9 plantas. Prioridad alta (78/100), 31 h sin atender. Estado: nuevo. Verificar en campo."
+  },
+  {
+   "id": "demo-f2",
+   "nave": 1,
+   "cama": 2,
+   "ubicacion": "N1 C2 P50–P58",
+   "deteccion": "Oídio (+1)",
+   "clase": "oidio",
+   "familia": "hongo",
+   "plantas": 6,
+   "detecciones": 8,
+   "incidencias": [],
+   "fuentes": [
+    "simulacion"
+   ],
+   "frame": null,
+   "riesgo_cama": 0.41,
+   "puntaje": 52.0,
+   "nivel": "media",
+   "horas_sin_atender": 15.0,
+   "semaforo": "ambar",
+   "tendencia": "estable",
+   "serie": [
+    3,
+    4,
+    5,
+    5,
+    6,
+    6,
+    6,
+    6
+   ],
+   "por_que": [
+    "6 plantas afectadas",
+    "lleva 15 h sin atender"
+   ],
+   "estado": "asignado",
+   "resultado": null,
+   "responsable": "Ana (agrónoma)",
+   "tratamiento": null,
+   "abierto": true,
+   "aviso": "Aviso: Oídio (+1) en N1 C2 P50–P58, 6 plantas. Prioridad media (52/100), 15 h sin atender. Estado: asignado. Verificar en campo."
+  },
+  {
+   "id": "demo-f3",
+   "nave": 3,
+   "cama": 1,
+   "ubicacion": "N3 C1 P12",
+   "deteccion": "Alternaria",
+   "clase": "alternaria",
+   "familia": "hongo",
+   "plantas": 1,
+   "detecciones": 1,
+   "incidencias": [],
+   "fuentes": [
+    "camara_d1"
+   ],
+   "frame": null,
+   "riesgo_cama": 0.2,
+   "puntaje": 24.5,
+   "nivel": "baja",
+   "horas_sin_atender": 3.0,
+   "semaforo": "verde",
+   "tendencia": "estable",
+   "serie": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "por_que": [
+    "foco pequeño y reciente"
+   ],
+   "estado": "nuevo",
+   "resultado": null,
+   "responsable": null,
+   "tratamiento": null,
+   "abierto": true,
+   "aviso": "Aviso: Alternaria en N3 C1 P12, 1 plantas. Prioridad baja (24/100), 3 h sin atender. Estado: nuevo. Verificar en campo."
+  },
+  {
+   "id": "demo-f4",
+   "nave": 1,
+   "cama": 1,
+   "ubicacion": "N1 C1 P30–P33",
+   "deteccion": "Oídio",
+   "clase": "oidio",
+   "familia": "hongo",
+   "plantas": 4,
+   "detecciones": 4,
+   "incidencias": [],
+   "fuentes": [
+    "simulacion"
+   ],
+   "frame": null,
+   "riesgo_cama": 0.3,
+   "puntaje": 40.0,
+   "nivel": "media",
+   "horas_sin_atender": 6.0,
+   "semaforo": "verde",
+   "tendencia": "baja",
+   "serie": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "por_que": [
+    "foco pequeño y reciente"
+   ],
+   "estado": "tratado",
+   "resultado": "confirmado",
+   "responsable": "Luis",
+   "tratamiento": "Poda de hojas afectadas y fungicida",
+   "abierto": true,
+   "aviso": "Aviso: Oídio en N1 C1 P30–P33, 4 plantas. Prioridad media (40/100), 6 h sin atender. Estado: tratado. Verificar en campo."
+  }
+ ],
+ "kpis": {
+  "focos_abiertos": 4,
+  "detecciones": 24,
+  "sin_atender_rojo": 1,
+  "por_estado": {
+   "nuevo": 2,
+   "asignado": 1,
+   "verificado": 0,
+   "tratado": 1,
+   "cerrado": 0
+  },
+  "etiquetas": {
+   "total": 3,
+   "confirmadas": 2,
+   "falsas_alarma": 1,
+   "pct_falsas": 33.3
+  }
+ },
+ "riesgo": {
+  "estimado": true,
+  "nota": "Ejemplo",
+  "camas": [
+   {
+    "nave": 1,
+    "cama": 1,
+    "nivel": "bajo",
+    "max_riesgo": 0.2,
+    "ahora": {
+     "riesgo": 0.16000000000000003,
+     "nivel": "bajo"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.2,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.16,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.12,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 1,
+    "cama": 2,
+    "nivel": "alto",
+    "max_riesgo": 0.75,
+    "ahora": {
+     "riesgo": 0.6000000000000001,
+     "nivel": "medio"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.75,
+      "nivel": "alto",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.6,
+      "nivel": "medio",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.45,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 1,
+    "cama": 3,
+    "nivel": "alto",
+    "max_riesgo": 0.75,
+    "ahora": {
+     "riesgo": 0.6000000000000001,
+     "nivel": "medio"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.75,
+      "nivel": "alto",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.6,
+      "nivel": "medio",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.45,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 2,
+    "cama": 1,
+    "nivel": "bajo",
+    "max_riesgo": 0.2,
+    "ahora": {
+     "riesgo": 0.16000000000000003,
+     "nivel": "bajo"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.2,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.16,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.12,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 2,
+    "cama": 2,
+    "nivel": "bajo",
+    "max_riesgo": 0.35,
+    "ahora": {
+     "riesgo": 0.27999999999999997,
+     "nivel": "bajo"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.35,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.28,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.21,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 2,
+    "cama": 3,
+    "nivel": "alto",
+    "max_riesgo": 0.75,
+    "ahora": {
+     "riesgo": 0.6000000000000001,
+     "nivel": "medio"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.75,
+      "nivel": "alto",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.6,
+      "nivel": "medio",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.45,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 3,
+    "cama": 1,
+    "nivel": "medio",
+    "max_riesgo": 0.55,
+    "ahora": {
+     "riesgo": 0.44000000000000006,
+     "nivel": "medio"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.55,
+      "nivel": "medio",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.44,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.33,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 3,
+    "cama": 2,
+    "nivel": "alto",
+    "max_riesgo": 0.75,
+    "ahora": {
+     "riesgo": 0.6000000000000001,
+     "nivel": "medio"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.75,
+      "nivel": "alto",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.6,
+      "nivel": "medio",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.45,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 3,
+    "cama": 3,
+    "nivel": "bajo",
+    "max_riesgo": 0.1,
+    "ahora": {
+     "riesgo": 0.08000000000000002,
+     "nivel": "bajo"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.1,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.08,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.06,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 4,
+    "cama": 1,
+    "nivel": "alto",
+    "max_riesgo": 0.75,
+    "ahora": {
+     "riesgo": 0.6000000000000001,
+     "nivel": "medio"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.75,
+      "nivel": "alto",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.6,
+      "nivel": "medio",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.45,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 4,
+    "cama": 2,
+    "nivel": "bajo",
+    "max_riesgo": 0.1,
+    "ahora": {
+     "riesgo": 0.08000000000000002,
+     "nivel": "bajo"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.1,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.08,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.06,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   },
+   {
+    "nave": 4,
+    "cama": 3,
+    "nivel": "medio",
+    "max_riesgo": 0.55,
+    "ahora": {
+     "riesgo": 0.44000000000000006,
+     "nivel": "medio"
+    },
+    "ventanas": [
+     {
+      "horas": "0-24 h",
+      "riesgo": 0.55,
+      "nivel": "medio",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 10,
+      "horas_hr_alta": 11,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "24-48 h",
+      "riesgo": 0.44,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 8,
+      "horas_hr_alta": 8,
+      "temp_mojada_c": 10.5
+     },
+     {
+      "horas": "48-72 h",
+      "riesgo": 0.33,
+      "nivel": "bajo",
+      "enfermedad_nombre": "Botrytis",
+      "horas_mojadas": 6,
+      "horas_hr_alta": 6,
+      "temp_mojada_c": 10.5
+     }
+    ]
+   }
+  ],
+  "avisos": [
+   {
+    "id": "a1",
+    "nivel": "alto",
+    "ventana": "0-24 h",
+    "texto": "Riesgo alto de Botrytis en N2 (camas C1, C3) esta noche: ventilar y mantener los aleros cerrados si llueve, revisar flores y fruta antes de las 6 a. m., retirar tejido enfermo.",
+    "nota": "Recomendación orientativa por regla; validar con el agrónomo."
+   },
+   {
+    "id": "a2",
+    "nivel": "medio",
+    "ventana": "24-48 h",
+    "texto": "Riesgo medio de antracnosis en N4 (camas C2) en las próximas 48 h: evitar mojar el follaje, retirar fruta madura o dañada, revisar frutos antes de la próxima mojadura.",
+    "nota": "Recomendación orientativa por regla; validar con el agrónomo."
+   }
+  ],
+  "clima": {
+   "horas_mojadas_hoy": 10
+  }
+ },
+ "cobertura": {
+  "ciego_h": 48,
+  "camas": [
+   {
+    "nave": 1,
+    "cama": 1,
+    "ultima_dia": 1,
+    "ultima_hora": "08:10",
+    "horas_sin_revisar": 7.0,
+    "ciego": false
+   },
+   {
+    "nave": 1,
+    "cama": 2,
+    "ultima_dia": 1,
+    "ultima_hora": "09:10",
+    "horas_sin_revisar": 14.0,
+    "ciego": false
+   },
+   {
+    "nave": 1,
+    "cama": 3,
+    "ultima_dia": 1,
+    "ultima_hora": "10:10",
+    "horas_sin_revisar": 21.0,
+    "ciego": false
+   },
+   {
+    "nave": 2,
+    "cama": 1,
+    "ultima_dia": 1,
+    "ultima_hora": "09:10",
+    "horas_sin_revisar": 14.0,
+    "ciego": false
+   },
+   {
+    "nave": 2,
+    "cama": 2,
+    "ultima_dia": 1,
+    "ultima_hora": "10:10",
+    "horas_sin_revisar": 28.0,
+    "ciego": false
+   },
+   {
+    "nave": 2,
+    "cama": 3,
+    "ultima_dia": 1,
+    "ultima_hora": "06:10",
+    "horas_sin_revisar": 42.0,
+    "ciego": false
+   },
+   {
+    "nave": 3,
+    "cama": 1,
+    "ultima_dia": 1,
+    "ultima_hora": "10:10",
+    "horas_sin_revisar": 21.0,
+    "ciego": false
+   },
+   {
+    "nave": 3,
+    "cama": 2,
+    "ultima_dia": 1,
+    "ultima_hora": "06:10",
+    "horas_sin_revisar": 42.0,
+    "ciego": false
+   },
+   {
+    "nave": 3,
+    "cama": 3,
+    "ultima_dia": 1,
+    "ultima_hora": "07:10",
+    "horas_sin_revisar": 3.0,
+    "ciego": false
+   },
+   {
+    "nave": 4,
+    "cama": 1,
+    "ultima_dia": 1,
+    "ultima_hora": "06:10",
+    "horas_sin_revisar": 28.0,
+    "ciego": false
+   },
+   {
+    "nave": 4,
+    "cama": 2,
+    "ultima_dia": 1,
+    "ultima_hora": "07:10",
+    "horas_sin_revisar": 56.0,
+    "ciego": true
+   },
+   {
+    "nave": 4,
+    "cama": 3,
+    "ultima_dia": 1,
+    "ultima_hora": "08:10",
+    "horas_sin_revisar": 24.0,
+    "ciego": false
+   }
+  ],
+  "puntos_ciegos": [
+   {
+    "nave": 4,
+    "cama": 2,
+    "ultima_dia": 1,
+    "ultima_hora": "07:10",
+    "horas_sin_revisar": 56.0,
+    "ciego": true
+   }
+  ]
+ }
+}

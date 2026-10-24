@@ -1,0 +1,5 @@
+Figuras generadas por el agente adquisicion-drberry (2026-10-23) a partir de:
+DrBerry-Original-Data v1 y drberry-gen-3-20 v1 (Roboflow Universe, workspace "drberry"), licencia CC BY 4.0.
+Atribucion: Morales, C., Cavero, E., Ugarte, W. (2023). DrBerry: Detection of Diseases in Blueberry Bush Leaves. KDIR 2023, pp. 355-364. DOI 10.5220/0012207100003598.
+Cajas: verde=Sana, cian=Oidio, rojo=Alternaria, amarillo=Heliothis (en muestra_4_clases_con_cajas.jpg).
+gen3-20_aumentada_vs_original.jpg: en cada par, izquierda = imagen "aug_*" de drberry-gen-3-20, derecha = foto original emparejada por dHash (distancia 6-7 bits sobre 64).

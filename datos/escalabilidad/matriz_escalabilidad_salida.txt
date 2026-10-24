@@ -1,0 +1,12 @@
+| Alternativa | Escalabilidad (1-5) | Total sin escalabilidad | Escalab. 10 % | Escalab. 15 % | Escalab. 20 % | Escalab. 15 %, B = 5 | Escalab. 15 %, F = 2 (robot en cada finca) |
+|---|---|---|---|---|---|---|---|
+| A D1 Ultra + mástil | 2 | 73 | 69.7 | 68.0 | 66.4 | 68.0 | 68.0 |
+| B Red fija | 4 | 75 | 75.5 | 75.8 | 76.0 | 78.8 | 75.8 |
+| C Kit aspersora | 3 | 68 | 67.2 | 66.8 | 66.4 | 66.8 | 66.8 |
+| D Humanoide | 1 | 42 | 39.8 | 38.7 | 37.6 | 38.7 | 38.7 |
+| E Ruedas | 2 | 69 | 66.1 | 64.7 | 63.2 | 64.7 | 64.7 |
+| F Híbrido | 4 | 83 | 82.7 | 82.5 | 82.4 | 82.5 | 76.5 |
+
+6 criterios (sin escalabilidad): 11628 combinaciones; F primero en 8615 (74 %); B por encima de F en 2929 (25 %)
+7 criterios (con escalabilidad, puntajes propuestos): 27132 combinaciones; F primero en 20618 (76 %); B por encima de F en 6454 (24 %)
+7 criterios, si B = 5 en escalabilidad: 27132 combinaciones; F primero en 17744 (65 %); B por encima de F en 9343 (34 %)

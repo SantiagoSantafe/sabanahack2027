@@ -1,0 +1,118 @@
+indice_hoja_contacto,ruta,revision_visual,nota
+0,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/P1200665+Vaccinium+alaskaense+vs+ovalifolium+leaf+and++twig+cr.jpg,verde_sin_sintomas_visibles,
+1,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/P1200701+Vaccinium+ovalifolium+Oval-leaf+Blueberry+leaf+margin+Heather+Meadows+cr.jpg,sintomas_o_desorden_visible,puntos dispersos
+2,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg,sintomas_o_desorden_visible,clorosis por deficiencia de hierro (nombre de archivo); duplicado de 74
+3,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/blueberrysilverleaf16-1372b.jpg,sintomas_o_desorden_visible,archivo dice silverleaf; mancha rojiza
+4,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/leaf-blueberry-15281271.jpg,verde_sin_sintomas_visibles,
+5,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/northern-highbush-blueberry-blue-huckleberry-vaccinium-corymbosum-EHNXRR.jpg,coloracion_rojiza_otono_o_brotes,
+6,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/stock-photo-blueberry-leaf-closeup-isolated-on-white-306486470.jpg,verde_sin_sintomas_visibles,
+7,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/stock-photo-green-blueberry-leaf-isolated-with-clipping-path-550344304.jpg,verde_sin_sintomas_visibles,
+8,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/stock-photo-two-sides-of-blueberry-leaf-isolated-on-white-15582232.jpg,verde_sin_sintomas_visibles,
+9,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/vaccinium-angustifolium-low-bush-blueberry_0830_124221.jpg,verde_sin_sintomas_visibles,
+10,raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/vaccinium_angustifolium_leaf2.JPG.jpg,verde_sin_sintomas_visibles,
+11,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/10-Pcs-font-b-Blueberry-b-font-Leaves-Natural-font-b-Dried-b-font-Leaf-shaped.jpg,no_apta,hojas secas comerciales
+12,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/15rnn8k.jpg,coloracion_rojiza_otono_o_brotes,
+13,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/179288748.jpg,verde_sin_sintomas_visibles,
+14,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/20171005_Lowbush_blueberry_leaves.jpg,coloracion_rojiza_otono_o_brotes,
+15,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/2198823523_4b8fdb3f03_b_d.jpg,coloracion_rojiza_otono_o_brotes,
+16,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/4715f288527ab7feae1683179ae3073b--red-leaves-autumn-leaves.jpg,coloracion_rojiza_otono_o_brotes,
+17,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/4851522550_02e3b9f3b4.jpg,verde_sin_sintomas_visibles,
+18,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/5920105029_2c657564ba_b.jpg,verde_sin_sintomas_visibles,
+19,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/6348380125_ae2d097496_z.jpg,coloracion_rojiza_otono_o_brotes,
+20,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/7-blueberry-leaves.jpg,coloracion_rojiza_otono_o_brotes,
+21,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/9-Folia-Myrtilli-Blueberry-Leaves-Gjethe-Boronice-1.jpg,verde_sin_sintomas_visibles,
+22,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/9167d851305baf06649c57aea130c8fb.jpg,sintomas_o_desorden_visible,clorosis internerval
+23,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/A+A+Blueberry+Leaf+Disease+002.jpg,sintomas_o_desorden_visible,nombre de archivo: Disease
+24,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/A+A+Blueberry+Leaf+Disease+003.jpg,sintomas_o_desorden_visible,nombre de archivo: Disease
+25,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/BLUEBERRY-BLUE-CROP-LEAF-500x500.jpg,verde_sin_sintomas_visibles,
+26,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/BLUEBERRY-SPARTAN-LEAF-500x500.jpg,coloracion_rojiza_otono_o_brotes,
+27,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Blueberries+autumn+leaves7.jpg,coloracion_rojiza_otono_o_brotes,
+28,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Blueberry07.jpg,verde_sin_sintomas_visibles,
+29,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Blueberry165.JPG.jpg,coloracion_rojiza_otono_o_brotes,
+30,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Blueberry169.JPG.jpg,coloracion_rojiza_otono_o_brotes,
+31,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Blueberry_Damage_1_original.JPG?1472642168.jpg,sintomas_o_desorden_visible,nombre de archivo: Damage
+32,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Blueberry_Damage_2_original.JPG?1431126657.jpg,sintomas_o_desorden_visible,nombre de archivo: Damage
+33,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Chlorotic-Blueberry-Leaf.jpg,sintomas_o_desorden_visible,nombre de archivo: Chlorotic
+34,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Copy+of+Vaccinium---.JPG.jpg,verde_sin_sintomas_visibles,
+35,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Fruit-Blueberry-Northblue.jpg,verde_sin_sintomas_visibles,
+36,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Highbush_Blueberry_Vaccinium_corymbosum_Leaves_3008px.jpg,verde_sin_sintomas_visibles,
+37,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_0002_original.JPG?1500100269.jpg,coloracion_rojiza_otono_o_brotes,
+38,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_0017_original.JPG?1500100270.jpg,coloracion_rojiza_otono_o_brotes,
+39,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_2003.JPG.jpg,verde_sin_sintomas_visibles,
+40,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_5310.JPG.jpg,verde_sin_sintomas_visibles,
+41,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_7119.jpg,coloracion_rojiza_otono_o_brotes,
+42,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_8502.JPG.jpg,sintomas_o_desorden_visible,manchas pequeñas
+43,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_8680.JPG.jpg,verde_sin_sintomas_visibles,
+44,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_8695.JPG.jpg,sintomas_o_desorden_visible,manchas pequeñas
+45,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_8698.JPG.jpg,sintomas_o_desorden_visible,manchas pequeñas
+46,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/IMG_9275.JPG.jpg,verde_sin_sintomas_visibles,
+47,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/P1200644+Vaccinium+alaskaense+Alaska+Blueberry+cr.jpg,verde_sin_sintomas_visibles,
+48,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/P1200652+Vaccinium+ovalifolium+Ovalleaf+Blueberry+leaf+top+cr.jpg,verde_sin_sintomas_visibles,
+49,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/P1200699+Vaccinium+alaskaense+Alaska+Blueberry+hairy+leaf+margin+Heather+Meadows.JPG.jpg,verde_sin_sintomas_visibles,
+50,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/P1200701+Vaccinium+ovalifolium+Oval-leaf+Blueberry+fruit++Heather+Meadows+cr.jpg,sintomas_o_desorden_visible,manchas pequeñas
+51,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/Red-Blueberry-Leaves.jpg,coloracion_rojiza_otono_o_brotes,
+52,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/SmzpflTl.jpg,verde_sin_sintomas_visibles,
+53,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/acid_0033.jpg,sintomas_o_desorden_visible,amarillamiento
+54,"raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/autumn,+blueberry+leaves.jpg",coloracion_rojiza_otono_o_brotes,
+55,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/bilberry-blueberry-vaccinium-myrtillus-leaf-herboristerie.jpg,verde_sin_sintomas_visibles,
+56,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberries-and-leaves.jpg,verde_sin_sintomas_visibles,
+57,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry+leaf.jpg,coloracion_rojiza_otono_o_brotes,
+58,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry+leaves+in+fall.jpg,coloracion_rojiza_otono_o_brotes,
+59,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-bushes-clipart-16.jpg,no_apta,"clipart, no foto"
+60,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-chlorotic-leaves_2.jpg,sintomas_o_desorden_visible,nombre de archivo: chlorotic
+61,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-fruit-blooming-flower-with-leaf-g3wa0t.jpg,verde_sin_sintomas_visibles,
+62,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-fruit-leaf-closeup-isolated-white-58260795.jpg,verde_sin_sintomas_visibles,
+63,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-goanp-nps.jpg,verde_sin_sintomas_visibles,
+64,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-group-leaves-on-white-background-db8p44.jpg,verde_sin_sintomas_visibles,
+65,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaf-isolated-white-background-blueberry-leaf-isolated-99227523.jpg,dudosa,hojas amarillo-verdosas sobre fondo blanco
+66,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaf-isolated-white-background-clipping-path-82775455.jpg,verde_sin_sintomas_visibles,
+67,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaf-isolated-white-background-clipping-path-84283705.jpg,verde_sin_sintomas_visibles,
+68,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaf-isolated-white-background-clipping-path-87355538.jpg,verde_sin_sintomas_visibles,
+69,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaf-set-collection-isolated-white-58283965.jpg,verde_sin_sintomas_visibles,
+70,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaves-16311688.jpg,verde_sin_sintomas_visibles,
+71,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaves-5931369.jpg,verde_sin_sintomas_visibles,
+72,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaves-in-October.jpg,coloracion_rojiza_otono_o_brotes,
+73,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaves-isolated-shadow-95294017.jpg,verde_sin_sintomas_visibles,
+74,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg,sintomas_o_desorden_visible,deficiencia de hierro; duplicado de 2
+75,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaves-safe.jpeg.jpg,no_apta,rama seca/prensada
+76,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaves-white-collection-isolated-35579573.jpg,verde_sin_sintomas_visibles,
+77,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-plant-berries-and-leaves-blueberries-vaccinium-corybosum-BNDMY8.jpg,verde_sin_sintomas_visibles,
+78,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-plant-unripe-berries-and-leaves-blueberries-vaccinium-corybosum-BNDN04.jpg,verde_sin_sintomas_visibles,
+79,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry_leaves_berries_fresh_wood_1280x960_hd-wallpaper-1763513.jpg,verde_sin_sintomas_visibles,
+80,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberryleaves.jpg,coloracion_rojiza_otono_o_brotes,
+81,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/close-up-of-a-blueberry-leaf-beginning-to-change-color-for-autumn-f6b5yd.jpg,coloracion_rojiza_otono_o_brotes,
+82,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/dscf9033.jpg,verde_sin_sintomas_visibles,
+83,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/dscf9038.jpg,sintomas_o_desorden_visible,amarillamiento
+84,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/highbush_blueberry1337725765530.jpg,verde_sin_sintomas_visibles,
+85,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/image_1500x1500%253E.jpeg?1472756546.jpg,sintomas_o_desorden_visible,lesiones necróticas grandes
+86,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/image_1500x1500%253E.jpeg?1472756548.jpg,sintomas_o_desorden_visible,lesiones necróticas grandes
+87,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/img_8042.jpg,verde_sin_sintomas_visibles,
+88,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/immatureleaffootbug.jpg,dudosa,chinche (leaffoot bug) visible; plaga fuera de foco
+89,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/lb_blueberry1.jpg,verde_sin_sintomas_visibles,
+90,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/leaf-blueberry-plant-vaccinium-corymbosum-north-america-usa-bush-103375785.jpg,verde_sin_sintomas_visibles,
+91,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/leaf_arangement.jpg,verde_sin_sintomas_visibles,
+92,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/ovalifolium1.jpg,verde_sin_sintomas_visibles,
+93,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/plant-fruit-berry-leaf-flower-food-herb-produce-blueberry-botany-flora-plants-wildflower-shrub-macro-photography-wipes-flowering-plant-bilberry-huckleberry-dayflower-land-plant-dayflower-family-1090218.jpg,verde_sin_sintomas_visibles,
+94,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/red+blueberry+leaves.jpg,coloracion_rojiza_otono_o_brotes,
+95,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/stock-photo-blueberry-heap-with-green-leaves-close-up-macro-isolated-on-white-background-83867578.jpg,verde_sin_sintomas_visibles,
+96,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/stock-photo-blueberry-leaves-branch-isolated-on-white-background-490111684.jpg,verde_sin_sintomas_visibles,
+97,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/stock-photo-blueberry-leaves-isolated-on-white-background-collection-569223157.jpg,verde_sin_sintomas_visibles,
+98,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/stock-photo-blueberry-with-leaves-of-mint-70797082.jpg,verde_sin_sintomas_visibles,
+99,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/stock-photo-fresh-ripe-blueberries-with-leaves-on-white-background-125173964.jpg,verde_sin_sintomas_visibles,
+100,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/stock-photo-leaf-blueberry-57690040.jpg,verde_sin_sintomas_visibles,
+101,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/three-blueberries-with-leaves-picture-id83566780.jpg,coloracion_rojiza_otono_o_brotes,
+102,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/vaccinium-angustifolium-634789-1.jpg,coloracion_rojiza_otono_o_brotes,
+103,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/vaccinium-angustifolium-le-ahaines.jpg,verde_sin_sintomas_visibles,
+104,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/vaccinium-corymbosum-le-mlovit.jpg,verde_sin_sintomas_visibles,
+105,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/vaccinium-myrtilloides-13-1.jpg,verde_sin_sintomas_visibles,
+106,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/vaccinium-myrtilloides-437.jpg,verde_sin_sintomas_visibles,
+107,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/vaccinium-myrtilloides-le-dcameron-b.jpg,verde_sin_sintomas_visibles,
+108,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/vaccinium-myrtilloides-le-mlovit.jpg,coloracion_rojiza_otono_o_brotes,
+109,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/vaccspp_leaf1.jpg,verde_sin_sintomas_visibles,
+110,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/vaov_006_lhp.jpg,verde_sin_sintomas_visibles,
+111,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/wild-blueberries-576x1024.jpg,verde_sin_sintomas_visibles,
+112,raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/wild-blueberries.jpg,verde_sin_sintomas_visibles,
+113,raw/plantdoc/PlantDoc-Dataset_colisiones/train/Blueberry leaf/v_31ffabb/Blueberry-leaves.jpg,dudosa,brotes rojizos y texto superpuesto
+114,raw/plantdoc/PlantDoc-Dataset_colisiones/train/Blueberry leaf/v_5bdf4a3/blueberry-leaf.jpg,coloracion_rojiza_otono_o_brotes,
+115,raw/plantdoc/PlantDoc-Dataset_colisiones/train/Blueberry leaf/v_81fe236/Blueberry-Leaf.jpg,verde_sin_sintomas_visibles,
+116,raw/plantdoc/PlantDoc-Dataset_colisiones/train/Blueberry leaf/v_c42ab02/blueberry-leaves.jpg,coloracion_rojiza_otono_o_brotes,

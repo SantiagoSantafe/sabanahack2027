@@ -1,0 +1,45 @@
+dataset,version,split,clase,n_cajas,pct_cajas_split,n_imagenes_con_clase,n_imagenes_clase_dominante,n_imagenes_split
+drberry/drberry-gen-3-20,1,train,Alternaria,329,44.5,106,99,408
+drberry/drberry-gen-3-20,1,train,Heliothis,143,19.4,106,104,408
+drberry/drberry-gen-3-20,1,train,Oidio,137,18.5,107,105,408
+drberry/drberry-gen-3-20,1,train,Sana,130,17.6,101,99,408
+drberry/drberry-gen-3-20,1,valid,Alternaria,87,40.5,27,27,116
+drberry/drberry-gen-3-20,1,valid,Heliothis,47,21.9,35,31,116
+drberry/drberry-gen-3-20,1,valid,Oidio,43,20.0,34,30,116
+drberry/drberry-gen-3-20,1,valid,Sana,38,17.7,28,28,116
+drberry/drberry-gen-3-20,1,test,Alternaria,48,43.2,15,15,61
+drberry/drberry-gen-3-20,1,test,Heliothis,20,18.0,16,15,61
+drberry/drberry-gen-3-20,1,test,Oidio,19,17.1,16,16,61
+drberry/drberry-gen-3-20,1,test,Sana,24,21.6,15,15,61
+drberry/drberry-gen-3-20,1,total,Alternaria,464,43.6,148,141,585
+drberry/drberry-gen-3-20,1,total,Heliothis,210,19.7,157,150,585
+drberry/drberry-gen-3-20,1,total,Oidio,199,18.7,157,151,585
+drberry/drberry-gen-3-20,1,total,Sana,192,18.0,144,142,585
+drberry/drberry-leaf-detection-2,2,train,Dano por Alternaria,1577,44.2,501,306,844
+drberry/drberry-leaf-detection-2,2,train,Dano por Heliothis,645,18.1,308,196,844
+drberry/drberry-leaf-detection-2,2,train,Dano por Oidio,575,16.1,390,167,844
+drberry/drberry-leaf-detection-2,2,train,Hoja de arandano,768,21.5,508,175,844
+drberry/drberry-leaf-detection-2,2,valid,Dano por Alternaria,106,24.6,41,17,93
+drberry/drberry-leaf-detection-2,2,valid,Dano por Heliothis,150,34.8,62,42,93
+drberry/drberry-leaf-detection-2,2,valid,Dano por Oidio,80,18.6,39,19,93
+drberry/drberry-leaf-detection-2,2,valid,Hoja de arandano,95,22.0,57,15,93
+drberry/drberry-leaf-detection-2,2,test,Dano por Alternaria,113,31.7,32,14,63
+drberry/drberry-leaf-detection-2,2,test,Dano por Heliothis,105,29.4,39,24,63
+drberry/drberry-leaf-detection-2,2,test,Dano por Oidio,53,14.8,26,9,63
+drberry/drberry-leaf-detection-2,2,test,Hoja de arandano,86,24.1,44,16,63
+drberry/drberry-leaf-detection-2,2,total,Dano por Alternaria,1796,41.3,574,337,1000
+drberry/drberry-leaf-detection-2,2,total,Dano por Heliothis,900,20.7,409,262,1000
+drberry/drberry-leaf-detection-2,2,total,Dano por Oidio,708,16.3,455,195,1000
+drberry/drberry-leaf-detection-2,2,total,Hoja de arandano,949,21.8,609,206,1000
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,train,Exobasidium leaf spot,494,37.1,165,74,210
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,train,anthracnose,402,30.2,141,67,210
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,train,septoria leaf spot,435,32.7,166,69,210
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,valid,Exobasidium leaf spot,18,41.9,7,5,20
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,valid,anthracnose,7,16.3,6,4,20
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,valid,septoria leaf spot,18,41.9,11,11,20
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,test,Exobasidium leaf spot,37,46.8,7,6,19
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,test,anthracnose,26,32.9,6,6,19
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,test,septoria leaf spot,16,20.3,7,7,19
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,total,Exobasidium leaf spot,549,37.8,179,85,249
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,total,anthracnose,435,29.9,153,77,249
+dynamite-duelers-2/plant-diagnosis-ai-13--blueberry,1,total,septoria leaf spot,469,32.3,184,87,249

@@ -1,0 +1,37 @@
+# Configuración del dashboard de incidencias (solo lectura sobre la simulación; no afecta al motor).
+# Todas las horas son HORAS DEL ESCENARIO (reloj de la simulación); con el robot real serían horas reales.
+
+focos:
+  # Dos detecciones forman parte del mismo foco si están en la misma nave+cama, son de la misma familia
+  # y sus plantas distan <= max_gap_plantas; y si entre detecciones consecutivas pasan <= ventana_h.
+  max_gap_plantas: 5
+  ventana_h: 72
+  familias:                 # clase -> familia (clases de una familia se agrupan juntas)
+    oidio: hongo
+    alternaria: hongo
+    heliothis: plaga
+    desconocida: otro
+  # Prioridad = gravedad x plantas^p_plantas x riesgo_cama x antiguedad_factor
+  #   gravedad        : clase más grave del foco (tabla de abajo)
+  #   plantas         : nº de plantas distintas afectadas (elevado a p_plantas; 1 = lineal)
+  #   riesgo_cama     : piso + (1 - piso) * riesgo combinado actual de la cama (0-1, del motor de riesgo)
+  #   antiguedad      : 1 + min(horas_sin_atender, antig_tope_h) / antig_escala_h
+  # puntaje (0-100) = 100 * prioridad / (prioridad + puntaje_ref): satura suavemente.
+  gravedad: { heliothis: 1.0, alternaria: 0.9, oidio: 0.8, desconocida: 0.5 }
+  pesos: { p_plantas: 1.0, riesgo_piso: 0.25, antig_escala_h: 24, antig_tope_h: 96, puntaje_ref: 3.0 }
+  nivel_puntaje: { alto: 55, medio: 30 }   # umbrales del puntaje para etiquetar la prioridad
+  tendencia: { ventana_h: 24, puntos: 8 }  # "crece" si hay >= nuevas_para_crecer plantas nuevas en la ventana
+  nuevas_para_crecer: 2
+
+atencion:
+  # Reloj de atención: horas desde la primera detección hasta que un humano la verifica en campo.
+  rojo_h: 24
+  ambar_h: 12
+
+cobertura:
+  ciego_h: 48               # una cama sin inspección del robot en más de estas horas es un "punto ciego"
+
+riesgo:
+  ventanas_h: [24, 48, 72]
+  hr_alta_pct: 85           # para contar "horas de HR alta" (además de las horas de hoja mojada del motor)
+  max_avisos: 12

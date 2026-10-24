@@ -1,0 +1,62 @@
+# AgiBot D1 robot parameters
+# Specs: AgiBot D1 Edu / Ultra product pages (verified)
+# URDF: https://www.agibot.com.cn/filepage/329.html (no declared license)
+
+model: d1_ultra
+
+# Standing size L×W×H (m) — Edu: 0.635×0.360×0.420; Ultra: 0.630×0.360×0.420
+length_m: 0.630
+width_m: 0.360
+height_m: 0.420
+mass_kg: 16.0  # Ultra with battery; Edu is 15.5 kg
+
+# Speeds
+max_speed_mps: 3.7          # Ultra official
+inspection_speed_mps: 0.5   # SUPUESTO — challenge brief configurable inspection speed
+
+# Battery
+battery_hours: 1.5          # official range 1–2 h
+battery_return_threshold: 0.20  # SUPUESTO — return to base below 20%
+charge_hours: 1.0           # ~1 h 10%→90% official
+
+# Camera (stock, low)
+camera_height_m: 0.30       # SUPUESTO — estimated from photos; no camera link in URDF
+camera_fov_h_deg: 111       # official Ultra/Edu
+camera_fov_v_deg: 70        # official
+camera_range_m: 1.2         # SUPUESTO — useful detection range to bush
+
+# Production mast (toggle)
+mast:
+  height_m: 1.35            # SUPUESTO — challenge brief 1.2–1.5 m
+  camera_height_m: 1.35     # SUPUESTO
+  enabled_default: false
+
+# Leg geometry from official URDF (for procedural fallback)
+legs:
+  hip_x_m: 0.17449
+  hip_y_m: 0.062
+  abad_offset_m: 0.0974
+  thigh_m: 0.200
+  calf_m: 0.21366
+
+# Pathing — the robot walks the aisles between pot rows and the headlands only
+path:
+  stop_inspect_seconds: 4.0   # SUPUESTO — stop in front of a suspicious plant
+  camera_lookahead_m: 1.2     # SUPUESTO — front camera frames the plants ~1.2 m ahead
+  bed_end_pad_m: 0.3          # SUPUESTO — row extends this far beyond first/last pot
+  main_path_walk_m: 1.3       # SUPUESTO — walking line inside the 5 m main path
+  base_offset_m: 3.6          # dock inside the main path, next to the first nave
+  collision_margin_m: 0.12    # clearance added to the platform half-width
+  rescue_after_s: 7200        # SUPUESTO — operator recovers a fallen robot after 2 h
+
+# Passing overflowing foliage (dato empresa: "tiene que pasar con cuidado")
+foliage:
+  careful_clearance_m: 0.25   # SUPUESTO — lateral clearance below which it slows down
+  careful_speed_factor: 0.5   # SUPUESTO
+  contact_speed_factor: 0.3   # SUPUESTO — brushing through leaves
+  canopy_low_m: 0.5           # SUPUESTO — spilled branches start ~0.5 m above ground
+  rigid_block_clearance_m: -0.1  # SUPUESTO — rigid platforms cannot push past this
+
+# ArUco virtual markers at bed heads
+aruco:
+  enabled: true

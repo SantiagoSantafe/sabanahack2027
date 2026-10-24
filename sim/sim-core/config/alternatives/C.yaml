@@ -1,0 +1,44 @@
+# Alternative C — Camera kit on the sprayer
+# Detects only on spray days every N days; fog/mist lowers sensitivity
+code: C
+name: "Kit de cámara en la aspersora"
+title: "C · Cámara en aspersora"
+
+sensor:
+  camera_height_m: 1.0    # SUPUESTO — boom / sprayer height
+  sees_full_bush: true
+  base_sensitivity: 0.85  # SUPUESTO
+
+schedule:
+  every_n_days: 10        # SUPUESTO — matches spray_interval_days
+  only_spray_days: true
+  # Se conserva igual que antes (alternativa comparada). AGRAR no asperja: la aspersión la decide el
+  # agrónomo de cada finca, así que esta alternativa depende de un tercero.
+  start_hour: 9.0         # SUPUESTO — hora de aspersión
+
+prioritize_by_risk: false
+
+risk_trigger:
+  enabled: false
+  level: bed
+  action: none
+
+mobility:
+  width_m: 0.60            # SUPUESTO — carro de aspersión con kit de cámara
+  height_m: 1.20
+  rigid: true            # rígida: no puede apartar ramas
+  speed_mps: 1.5          # SUPUESTO — sprayer travel speed along bed
+  battery_h: 8.0          # tractor/sprayer — not battery limited like D1
+  fail_prob_per_bed: 0.0
+  mud_slowdown: 1.2       # SUPUESTO
+  stuck_prob: 0.0
+
+fog_sensitivity_penalty: 0.55  # spray mist — from detector.yaml default
+
+human_review:
+  enabled: false
+  sensitivity_small: 0.0
+  sensitivity_underside: 0.0
+
+mast: false
+platform: sprayer

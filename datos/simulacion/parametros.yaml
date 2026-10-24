@@ -1,0 +1,805 @@
+# =============================================================================
+# parametros.yaml  -  Simulación de brote en arándano (Sabana Hack, "Berry Good Idea")
+# Agente: parametros-simulacion  |  Fecha: 2026-10-23  |  Versión: 1
+#
+# Modelo al que sirve: grilla bloque x camas x plantas, paso diario,
+#   S -> E (latente) -> I (infeccioso; visible desde 'incubacion') -> R
+#   p_inf_j(t) = 1 - PROD_i [ 1 - beta_max * riesgo_d(t) * w(i->j) * (1 - prot_j(t)) ]
+#   riesgo_d(t) en [0,1] lo entrega el módulo riesgo/ (Wilson 1990 + Gillett y Schilder 2009 para antracnosis, Bulger 1987 para Botrytis, regla roya, etc.; NO Miles 2013).
+#   w(i->j) = peso relativo del kernel; w = 1 para la vecina inmediata en la MISMA cama.
+#
+# Etiquetas por parámetro (campo 'etiqueta' + comentario):
+#   FUENTE        valor tomado de una fuente que abrí (ids en la sección 'fuentes' al final)
+#   DERIVADO      cálculo propio a partir de fuentes citadas (se explica la cuenta)
+#   SUPUESTO      valor de diseño sin fuente directa (se explica la razón). Calibrar / sensibilizar.
+#   NO_VERIFICADO apareció en buscador pero no pude abrir la fuente primaria (bloqueo/timeout)
+# Calidad de evidencia ('calidad'):
+#   A = medido en arándano          B = medido en hospedante o patógeno análogo (fresa, cítricos...)
+#   C = guía de extensión, industria o dato de gremio      D = supuesto de diseño
+#
+# Los números 'beta_max' se calibraron con simulacion/calibracion_parametros/calibrar_beta.py
+# (ver reportes/parametros-simulacion.md). Si cambias kernel, latente o grilla, recalibra.
+#
+# REVISIÓN DEL VERIFICADOR ciencia-simulacion (2026-10-23): solo se cambiaron comentarios, etiquetas,
+# un rango (distancia_entre_hileras_m) y la licencia de valbuena2025. NINGÚN 'valor' cambió, así que la
+# calibración de beta_max sigue válida (re-ejecutada: resultados idénticos). Las líneas añadidas empiezan con
+# "VERIFICADOR:". Detalle y razones en reportes/verificacion-ciencia-simulacion.md.
+# =============================================================================
+
+version: 1
+unidades: {tiempo: dia, distancia: m, probabilidad: "0-1", tasa: "1/dia"}
+
+# -----------------------------------------------------------------------------
+# 1. GEOMETRÍA DE LA GRILLA (default = 1 bloque de 1 ha)
+# -----------------------------------------------------------------------------
+grilla:
+  distancia_entre_plantas_m:
+    # FUENTE: Perú 2.50 x 0.80 m (Best Berries, gob.pe); Chile 0.8-1.0 m sobre hilera (INIA vía Portalfrutícola);
+    #         EE.UU. 4 ft = 1.22 m (UGA C946). Chao (La Libertad) 0.84 m = NO_VERIFICADO (UNITRU no resolvió DNS).
+    valor: 0.8
+    rango: [0.6, 1.22]
+    etiqueta: FUENTE
+    calidad: C
+    fuentes: [gobpe_bestberries, inia_portalfruticola, uga_c946]
+  distancia_entre_hileras_m:
+    # FUENTE: Perú 2.50 m (Best Berries); EE.UU. 10 ft = 3.05 m (UGA C946).
+    # VERIFICADOR: el único dato de finca colombiana a campo abierto es 2.2 m entre centros de cama (Guasca,
+    # Cortés-Rojas et al. 2016); el rango anterior [2.5, 3.05] lo excluía. Rango ampliado a 2.2. El valor 2.5 no
+    # se cambió (cambiaría camas_por_bloque y obligaría a recalibrar). Bajo invernadero (Sopó) hay 1.2 m entre camas.
+    valor: 2.5
+    rango: [2.2, 3.05]
+    etiqueta: FUENTE
+    calidad: C
+    fuentes: [gobpe_bestberries, uga_c946, cortesrojas2016]
+  densidad_plantas_ha:
+    # FUENTE: Colombia 5.000-5.500 pl/ha (Asocolblue vía Agronegocios); Perú 4.760 (Jayanca, La Molina 2023),
+    #         5.000 (Best Berries), 5.236 (Agraria.pe 2015), 5.700 (Ica, en maceta, La Molina 2025).
+    valor: 5000
+    rango: [4760, 5700]
+    etiqueta: FUENTE
+    calidad: C
+    fuentes: [agronegocios_densidad, lamolina_jayanca, gobpe_bestberries, agraria_2015, lamolina_ica]
+  ancho_camellon_m:
+    # FUENTE: INIA Chile: camellones de 1 m de ancho y 50 cm de alto en suelos con mala aireación.
+    valor: 1.0
+    rango: [0.8, 1.2]
+    etiqueta: FUENTE
+    calidad: C
+    fuentes: [inia_portalfruticola]
+  ancho_pasillo_libre_m:
+    # DERIVADO: distancia_entre_hileras - ancho_camellon = 2.5 - 1.0 = 1.5 m.
+    # SUPUESTO para el rango bajo: la copa adulta puede sobresalir del camellón (dejaría ~1.0 m). Medir en campo
+    # antes de afirmar que el D1 cabe; dato clave para el agente de robot.
+    valor: 1.5
+    rango: [1.0, 2.05]
+    etiqueta: DERIVADO
+    calidad: D
+  largo_cama_m:
+    # SUPUESTO: bloque cuadrado de 100 m x 100 m = 1 ha.
+    valor: 100
+    etiqueta: SUPUESTO
+    calidad: D
+  plantas_por_cama:
+    # DERIVADO: 100 m / 0.8 m = 125.
+    valor: 125
+    etiqueta: DERIVADO
+  camas_por_bloque:
+    # DERIVADO: 100 m / 2.5 m = 40. 40 x 125 = 5.000 plantas/ha, coherente con densidad_plantas_ha.
+    valor: 40
+    etiqueta: DERIVADO
+  bloques:
+    # SUPUESTO: 4 bloques (4 ha) para la demo; cambia sin recalibrar beta.
+    valor: 4
+    etiqueta: SUPUESTO
+    calidad: D
+  contexto_colombia:
+    # FUENTE: Altiplano Cundiboyacense: 2.000-3.000 m s.n.m., 12-18 °C, HR > 70 %; varias fincas bajo
+    # macrotúnel/invernadero/malla antigranizo; Biloxi presente en todas (Valbuena-Gaona et al. 2025).
+    altitud_m: [2000, 3000]
+    temperatura_C: [12, 18]
+    hr_pct_min: 70
+    cubiertas: "macrotúnel, invernadero, malla antigranizo o plástico por hilera en parte de las fincas"
+    etiqueta: FUENTE
+    calidad: A
+    fuentes: [valbuena2025]
+
+# -----------------------------------------------------------------------------
+# 2. ACOPLE RIESGO CLIMÁTICO -> CONTAGIO
+# -----------------------------------------------------------------------------
+riesgo_a_contagio:
+  forma: "beta_efectivo(t) = beta_max * riesgo_d(t)"
+  # SUPUESTO: relación lineal. El módulo riesgo/ entrega riesgo_d(t) en [0,1] por enfermedad.
+  # beta_max está calibrado para que con riesgo=1 sostenido la tasa temprana r iguale r_objetivo.
+  # Las r de campo son promedios de temporada (riesgo < 1), así que beta_max puede estar SUBestimado;
+  # sensibilizar con beta_max / 0.6 (SUPUESTO riesgo medio 0.6 en epidemia).
+  etiqueta: SUPUESTO
+  calidad: D
+  riego_aspersion_cuenta_como_lluvia_para_salpicadura:
+    # FUENTE: las conidias de Colletotrichum se dispersan por salpicadura de lluvia O RIEGO POR ASPERSIÓN (MSU E-3039; PNW).
+    # Implicación: el aspersor del proyecto es un evento de dispersión para antracnosis; el robot va delante.
+    valor: true
+    etiqueta: FUENTE
+    calidad: A
+    fuentes: [msu_e3039, pnw_antracnosis]
+  contagio_lejano_por_planta_dia:
+    # SUPUESTO: infección "de fondo" (operarios, cosecha, insectos, ráfagas) por planta sana y día con riesgo=1.
+    # Motivo: la antracnosis también se mueve en equipos de cosecha (MSU E-3039) y la caída de flor de cítricos por
+    # Colletotrichum mostró patrón inicial aleatorio, no solo de salpicadura (Silva-Junior et al. 2014).
+    valor: 1.0e-5
+    rango: [0.0, 1.0e-4]
+    etiqueta: SUPUESTO
+    calidad: D
+    fuentes: [msu_e3039, silvajunior2014]
+
+# -----------------------------------------------------------------------------
+# 3. ENFERMEDADES / PLAGA
+#    kernel.tipo: vecindad (pesos por clase de vecino), exponencial (w = exp(-(d - d0)/lambda)),
+#                 potencia (w = ((r0^2 + d0^2)/(r0^2 + d^2))^(b/2)); d0 = distancia_entre_plantas.
+#    f_cruce_hilera: multiplicador por cada pasillo cruzado (la copa de la cama intercepta esporas/gotas).
+# -----------------------------------------------------------------------------
+enfermedades:
+
+  antracnosis:  # Colletotrichum fioriniae / C. acutatum s.l. - SOLO AMBIENTAL (no está en el clasificador)
+    detectable_por_robot: false   # FUENTE: no es clase de DrBerry (Alternaria, Heliothis, Oidio, Sana)
+    organo_principal: fruto (latente hasta maduración)
+    dispersion: salpicadura de lluvia o riego por aspersión; contacto fruto-fruto dentro del arbusto
+    # FUENTE: MSU E-3039 (arándano): infecciones secundarias por contacto fruto-fruto o salpicadura dentro del arbusto.
+    kernel:
+      tipo: vecindad
+      w_misma_cama_d1: 1.0
+      # SUPUESTO informado: w(±2 plantas, ~1.6 m). En simulador de lluvia las colonias quedaron casi todas en un radio
+      # de 27 cm y la densidad cae como exp(-d^2) (Ntahimpera et al. 1997); con viento de 2.3 m/s la incidencia a
+      # 60 cm a sotavento fue ~60 % vs ~18 % a barlovento (Yang et al. 1990).
+      # VERIFICADOR: Yang 1990 NO es de campo: es un simulador de lluvia con un túnel de viento simple (corregido "en campo").
+      # Con copas continuas en la hilera el
+      # salto efectivo a la planta d2 es raro pero no nulo.
+      w_misma_cama_d2:
+        valor: 0.1
+        rango: [0.01, 0.3]
+        etiqueta: SUPUESTO
+        calidad: B
+        fuentes: [ntahimpera1997, yang1990]
+      # SUPUESTO informado: cruzar el pasillo (~1.5 m libre) por salpicadura. 1.5 m > radio de 72 cm del área sobre la que
+      # Ntahimpera 1997 sumó colonias (VERIFICADOR: no es un "radio de captura"; las colonias quedaron casi todas a <= 27 cm). En campo, la categoría "separada por una hilera de plantas" fue la de menor
+      # incidencia (Madden et al. 1993) y el lado de la hilera opuesto a la fuente tuvo menos enfermedad (Madden y Boudreau 1997).
+      # Con inóculo DENTRO de la hilera la deposición fue menor que con inóculo entre hileras (Boudreau y Madden 1995).
+      w_cama_vecina:
+        valor: 0.01
+        rango: [0.0, 0.05]
+        etiqueta: SUPUESTO
+        calidad: B
+        fuentes: [ntahimpera1997, madden1993, madden_boudreau1997, boudreau_madden1995]
+      radio_max_m: 2.0
+      # DERIVADO (kernel de arriba, grilla 0.8 x 2.5 m): peso de la planta de enfrente en la cama vecina y fracción
+      # de la presión de infección total que queda en la MISMA cama (calculado con calibrar_beta.kernel).
+      w_cama_vecina_enfrente: 0.010
+      razon_misma_cama_vs_cama_vecina: "100:1"
+      fraccion_presion_misma_cama: 0.97
+    latente_dias:
+      # FUENTE: fruto maduro: ~7 d de infección a primeros síntomas (MSU E-3039). En fresa, la incidencia se registró
+      # diariamente por 8 d tras inocular (Wilson et al. 1990). Fruto verde: latente hasta que madura (MSU; PNW).
+      valor: 7
+      rango: [5, 10]
+      etiqueta: FUENTE
+      calidad: A
+      fuentes: [msu_e3039, wilson1990, pnw_antracnosis]
+    latente_fruto_verde_dias:
+      # SUPUESTO: depende de la fenología (días de fruto verde a maduro). Usar solo si se modela fenología.
+      valor: 30
+      rango: [20, 60]
+      etiqueta: SUPUESTO
+      calidad: D
+    incubacion_dias: {valor: 7, etiqueta: FUENTE, nota: "síntoma visible ~ cuando esporula (masas anaranjadas)", fuentes: [msu_e3039]}
+    infeccioso_dias:
+      # SUPUESTO: acérvulos esporulan en cada evento húmedo hasta que el fruto cae o se cosecha.
+      valor: 10
+      rango: [7, 21]
+      etiqueta: SUPUESTO
+      calidad: D
+    r_objetivo_por_dia:
+      # FUENTE (análogo B): caída de flor de cítricos por Colletotrichum, dispersión por lluvia: tasas Gompertz
+      # 0.04-0.11 /d en árboles y 0.02-0.07 /d en flores (Agostini et al. 1993, Florida); logística 0.53 /d en
+      # brotes rápidos (Silva-Junior et al. 2014, Brasil). Valor central = 0.07.
+      valor: 0.07
+      rango: [0.02, 0.11]
+      rango_extremo: [0.02, 0.53]
+      etiqueta: FUENTE
+      calidad: B
+      fuentes: [agostini1993, silvajunior2014]
+      nota: "Agostini 1993 reporta tasas Gompertz (gompits/d), no logísticas; se usan como orden de magnitud."
+    beta_max:
+      # DERIVADO (calibracion_parametros/): con este kernel de salpicadura, desde UN foco, r no pasa de 0.053 /d
+      # ni con beta = 1 (frente ~0.13 m/d). Para r = 0.07 hace falta inóculo disperso: con beta = 0.3 se necesita
+      # p_fondo = 1.1e-4 por planta y día (con beta = 0.5, 5.7e-5). Biología: el hongo inverna en ramillas, dardos
+      # y escamas de yemas florales de cada arbusto (MSU E-3039; PNW), así que la epidemia es sobre todo inóculo
+      # primario repartido + salpicadura local, no contagio desde un foco. beta = 0.3 en sí es SUPUESTO.
+      valor: 0.3
+      rango: [0.1, 0.5]
+      etiqueta: DERIVADO
+      calidad: D
+      fuentes: [msu_e3039, pnw_antracnosis]
+    contagio_lejano_por_planta_dia:
+      # DERIVADO: reemplaza al valor general para antracnosis (inóculo primario disperso). Ver beta_max.
+      valor: 1.1e-4
+      rango: [5.7e-5, 1.5e-4]
+      etiqueta: DERIVADO
+      calidad: D
+    condiciones_infeccion:   # para el módulo riesgo/ (referencia principal del equipo: Miles et al. 2013)
+      # FUENTE: >= 8 h de mojadura continua a 25 °C; óptimo ~25 °C; >= 24 h -> infección severa (MSU E-3039).
+      # FUENTE: 10 h de mojadura a 11 °C bastaron para infectar fruto en campo (Verma et al. 2007, Columbia Británica).
+      # FUENTE: otro estudio necesitó 18-24 h a 11-16 °C; interrupciones secas inhiben (PNW).
+      # FUENTE (fresa): óptimo 25-30 °C, > 80 % de incidencia tras 13 h de mojadura (Wilson et al. 1990).
+      mojadura_min_h_a_25C: 8
+      mojadura_min_h_a_11C: 10
+      temperatura_optima_C: 25
+      fuentes: [msu_e3039, verma2007, pnw_antracnosis, wilson1990]
+    evidencia_campo_validacion:
+      # FUENTE: 7 d tras una lluvia, con fuente puntual, incidencia en fruto a <= 61 cm: 0.19 (plástico), 0.07 (suelo),
+      # 0 (paja) (Madden et al. 1993, fresa). Útil para comprobar el kernel: 1 lluvia -> 7-19 % en la vecindad inmediata.
+      incidencia_vecindad_61cm_tras_1_lluvia: [0.07, 0.19]
+      fuentes: [madden1993]
+
+  botrytis:  # Botrytis cinerea - SOLO AMBIENTAL (no está en el clasificador)
+    detectable_por_robot: false
+    organo_principal: flor (tizón) y fruto (latente)
+    dispersion:
+      # FUENTE: esporas sobre todo por viento y también por salpicadura; susceptibilidad máxima en floración y cerca de cosecha (PNW).
+      texto: principalmente viento, también salpicadura
+      etiqueta: FUENTE
+      calidad: A
+      fuentes: [pnw_botrytis]
+    kernel:
+      tipo: exponencial
+      # DERIVADO (análogo B): en frijol, incidencia en flores 70 % a 0.9 m y < 25 % a > 4 m de la fuente; esporas
+      # limitadas a ~3 m en floración (Johnson y Powelson 1983). lambda <= 3.1 m / ln(70/25) = 3.0 m.
+      # VERIFICADOR: la desigualdad original (">=") estaba invertida: "< 25 % a > 4 m" da una COTA SUPERIOR (lambda <= 3.0 m),
+      # y como 70 % ya está cerca de saturar, el gradiente de inóculo es aún más empinado. El mismo paper da pudrición de
+      # vaina 7.2 % a 0.9 m y 1.3 % a 4.5 m -> lambda = 3.6 / ln(7.2/1.3) = 2.1 m. El extremo 4.0 del rango queda SUPUESTO
+      # (fuera de la cota). Valor 3.0 no cambiado (cambiarlo exige recalibrar beta_max).
+      # FUENTE (componente salpicadura, fresa): > 50 % y ~80 % de las conidias salpicadas quedaron a 10 y 16 cm (Wang et al. 2023).
+      lambda_m:
+        valor: 3.0
+        rango: [1.5, 4.0]
+        etiqueta: DERIVADO
+        calidad: B
+        fuentes: [johnson_powelson1983, wang2023]
+      f_cruce_hilera: {valor: 0.5, rango: [0.2, 0.8], etiqueta: SUPUESTO, calidad: D}
+      radio_max_m: 12.0
+      # DERIVADO (kernel de arriba, grilla 0.8 x 2.5 m): peso de la planta de enfrente en la cama vecina y fracción
+      # de la presión de infección total que queda en la MISMA cama (calculado con calibrar_beta.kernel).
+      w_cama_vecina_enfrente: 0.284
+      razon_misma_cama_vs_cama_vecina: "3.5:1"
+      fraccion_presion_misma_cama: 0.49
+      # VERIFICADOR (recalculado de forma independiente): 0.49 depende sobre todo de f_cruce_hilera (SUPUESTO). Con f = 0.2
+      # la fracción sube a 0.75, con f = 0.8 baja a 0.33; con lambda = 2.1 m da 0.56, y con 2.2 m entre camas (Guasca), 0.47.
+      # "La alerta debe cubrir camas vecinas" es consecuencia de supuestos, no un dato medido.
+    latente_dias:
+      # FUENTE: en flor, masas grises de conidias visibles 3-4 d después de la infección con humedad alta
+      # (Neugebauer et al. 2024, revisión en arándano, citando a Bristow et al. 2017). En fruto: latente hasta maduración.
+      valor: 4
+      rango: [3, 7]
+      etiqueta: FUENTE
+      calidad: A
+      fuentes: [neugebauer2024]
+    incubacion_dias: {valor: 4, etiqueta: FUENTE, fuentes: [neugebauer2024]}
+    infeccioso_dias: {valor: 7, rango: [5, 14], etiqueta: SUPUESTO, calidad: D}
+    r_objetivo_por_dia:
+      # SUPUESTO: no encontré r de campo para Botrytis en arándano o fresa. Ciclo corto (3-4 d) pero epidemia muy
+      # ligada a la floración (inóculo primario). Calibrar con datos locales si existen.
+      valor: 0.08
+      rango: [0.05, 0.15]
+      etiqueta: SUPUESTO
+      calidad: D
+    beta_max:
+      # DERIVADO (calibracion_parametros/beta_calibrado.json): r = 0.08 /d con riesgo = 1; frente ~0.44 m/d.
+      valor: 0.020
+      etiqueta: DERIVADO
+      calidad: D
+    condiciones_infeccion: "Usar Bulger, Ellis y Madden 1987 (fresa, proxy) - decisión del equipo; no reabierto aquí"
+    # VERIFICADOR: existe una regla de ARÁNDANO (Rivera, Zoffoli y Latorre 2013, Plant Dis 97:1069, Chile): > 6 h de
+    # mojadura entre 14 y 25 °C; r = 0.96 con moho gris en fruta almacenada; sin validar en campo (resumen Europe PMC
+    # abierto). Ver reportes/ciencia-enfermedades.md. Ojo en la Sabana: Guasca reporta media 12.85 °C y mínima 10.6 °C,
+    # así que una ventana que empieza en 14 °C puede no activarse en noches mojadas frías; Nueva Escocia reporta
+    # infección alta con 24 h a 12 °C (arándano silvestre). Riesgo de casos no detectados por la regla.
+    presencia_colombia:
+      # FUENTE: tizón por Botrytis en 8 de 9 fincas muestreadas (todas menos Mosquera) en Cundinamarca y Boyacá.
+      valor: "8/9 fincas"
+      etiqueta: FUENTE
+      calidad: A
+      fuentes: [valbuena2025]
+
+  roya:  # Thekopsora minima (= Pucciniastrum minimum) - SOLO AMBIENTAL en el plan actual
+    detectable_por_robot: false   # no hay clase "roya" en DrBerry; además las pústulas están en el ENVÉS
+    alerta: "En Colombia la roya fue una de las enfermedades más importantes (Valbuena-Gaona 2025) y el clasificador no la ve."
+    organo_principal: hoja (uredinios en el envés), defoliación
+    dispersion: viento (urediniosporas); ciclos secundarios repetidos (PNW; Barry et al. 2025)
+    kernel:
+      tipo: potencia
+      # FUENTE (análogo B): roya estriada del trigo, gradientes ajustados con ley de potencia modificada,
+      # b = 3.04 (Hermiston 2002) y 2.23 (Madras 2002) (Mikaberidze et al., arXiv:1410.0587). Cola gruesa.
+      b:
+        valor: 2.6
+        rango: [2.23, 3.04]
+        etiqueta: FUENTE
+        calidad: B
+        fuentes: [mikaberidze2014]
+      r0_m: {valor: 1.0, rango: [0.5, 2.0], etiqueta: SUPUESTO, calidad: D}
+      # VERIFICADOR: en Mikaberidze et al. (ec. A.15-A.16) b y r0 se ajustaron JUNTOS: b = 3.04 con r0 = 2.23 m (Hermiston)
+      # y b = 2.23 con r0 = 0.45 m (Madras). Combinar b = 2.6 con r0 = 1.0 no corresponde a ningún ajuste. Con los pares del
+      # paper la fracción de presión en la misma cama sería 0.49 y 0.64 (vs 0.62 con el par actual).
+      f_cruce_hilera: {valor: 0.7, rango: [0.5, 0.9], etiqueta: SUPUESTO, calidad: D}
+      radio_max_m: 30.0
+      # DERIVADO (kernel de arriba, grilla 0.8 x 2.5 m): peso de la planta de enfrente en la cama vecina y fracción
+      # de la presión de infección total que queda en la MISMA cama (calculado con calibrar_beta.kernel).
+      w_cama_vecina_enfrente: 0.101
+      razon_misma_cama_vs_cama_vecina: "9.9:1"
+      fraccion_presion_misma_cama: 0.62
+    latente_dias:
+      # FUENTE: incubación media 10.7 d a 20 °C y 10.0 d a 25 °C (óptimo 23 °C); ~4 d más a 15 °C y ~3 d más a 30 °C;
+      # germinación muy reducida < 15 °C (Pfister et al. 2004, en rododendro, B).
+      # FUENTE: "latente en solo 10 días a 68 °F" (PNW, arándano). Pústulas a los 10 d a 20 °C (Dal Bello y Perelló 1998, Argentina).
+      # Valor 12 d porque el Altiplano está a 12-18 °C. NSW DPI "10-21 d" = NO_VERIFICADO (bloqueo Cloudflare).
+      # VERIFICADOR: en arándano 'Biloxi' (cultivar dominante en Colombia) los postulados de Koch dieron pústulas a los
+      # 15-21 d con 21-24 °C en invernadero (Huarhua et al. 2020, Perú); en 'Sharpblue', 10 d a 20-22 °C (Keith et al. 2008).
+      # El valor 12 es una extrapolación (rododendro + ajuste por frío), por eso la etiqueta pasa de FUENTE/A a DERIVADO/B.
+      # Escenario de sensibilidad recomendado: 18 d (Biloxi + frío). Valor no cambiado (exige recalibrar).
+      valor: 12
+      rango: [10, 21]
+      etiqueta: DERIVADO
+      calidad: B
+      fuentes: [pfister2004, pnw_roya, dalbello1998, valbuena2025, huarhua2020, keith2008]
+    incubacion_dias: {valor: 12, etiqueta: FUENTE, nota: "pústula visible ~ inicio de esporulación", fuentes: [pfister2004]}
+    infeccioso_dias:
+      # DERIVADO (análogo B): r = mu * ln(R0) con r ~0.21 /d y R0 ~65 (roya estriada) -> mu = 0.05 /d -> 20 d (Mikaberidze et al.).
+      # VERIFICADOR: en el paper, r = 0.21 se CALCULÓ a partir de R0 con un mu ya supuesto (0.21/ln 65 = 0.050; 0.18/ln 38 = 0.049),
+      # así que despejar mu devuelve el supuesto del paper, no un dato medido. Además es infeccioso por LESIÓN de trigo,
+      # no por planta de arándano. Tratar como SUPUESTO de orden de magnitud.
+      valor: 20
+      rango: [14, 28]
+      etiqueta: DERIVADO
+      calidad: B
+      fuentes: [mikaberidze2014]
+    r_objetivo_por_dia:
+      # FUENTE (análogo B): roya estriada del trigo r ~0.18-0.25 /d (Mikaberidze et al., citando a Cowger et al. 2005).
+      # SUPUESTO: bajado a 0.12 por clima frío del Altiplano (12-18 °C, Pfister: desarrollo más lento < 15 °C).
+      # FUENTE (A, anecdótico): en Hawái, la roya pasó de 1 arbusto en una esquina de una parcela de 36.6 x 9.1 m a
+      # toda la parcela en ~1 mes (Keith et al. 2008).
+      valor: 0.12
+      rango: [0.05, 0.25]
+      etiqueta: SUPUESTO
+      calidad: B
+      fuentes: [mikaberidze2014, pfister2004, keith2008]
+    beta_max:
+      # DERIVADO (calibracion_parametros/): r = 0.12 /d con riesgo = 1; r máximo con beta = 1 es 0.166 /d.
+      # Frente ~0.95 m/d, del mismo orden que la observación de Hawái (~37 m en ~30 d, ~1.2 m/d; Keith et al. 2008).
+      valor: 0.264
+      etiqueta: DERIVADO
+      calidad: C
+      fuentes: [keith2008]
+    condiciones_infeccion: "Regla empírica del equipo (~19-25 °C con mojadura prolongada); óptimo de germinación 21.5 °C (Pfister 2004)"
+    # VERIFICADOR: Pfister 2004 (resumen) dice que el número de uredinios fue SIMILAR a 15, 20 y 25 °C (solo cayó 6 veces a
+    # 30 °C) y que la germinación cae mucho por debajo de 15 °C. Una ventana que empieza en 19 °C casi nunca se activaría con
+    # las medias de 12-18 °C del Altiplano, aunque la roya está en 6 de 9 fincas. Sugerido: 15-25 °C + mojadura (gotas,
+    # no solo HR: Griffin y Anderson 2026). Además UF/IFAS PP385: el riego por aspersión favorece la roya.
+    presencia_colombia:
+      # FUENTE: roya en 6 de 9 fincas (ausente en Mosquera, Paipa y Sutatausa); mayores incidencias en Tuta y Ubaté.
+      valor: "6/9 fincas"
+      etiqueta: FUENTE
+      calidad: A
+      fuentes: [valbuena2025]
+    reporte_peru: {etiqueta: FUENTE, nota: "Primer reporte en Perú 2018-2020, 9 campos cv. Biloxi, Chavimochic", fuentes: [huarhua2020]}
+
+  oidio:  # Erysiphe vaccinii u otro oídio - VISUAL (clase "Oidio" de DrBerry)
+    detectable_por_robot: true
+    organo_principal: hoja (micelio blanco en haz)
+    # VERIFICADOR: en arándano el micelio blanco a menudo NO aparece. Lo típico son manchas cloróticas con borde rojizo en el
+    # haz (parecidas al virus red ringspot) y áreas acuosas en el envés (Cornell Fast Facts; Penn State Extension). Esto afecta
+    # a p_lesion_visible_desde_pasillo y a la confusión del clasificador con virosis o antocianescencia.
+    dispersion: viento (conidias)
+    kernel:
+      tipo: exponencial
+      # SUPUESTO: lambda 3 m. Validar con FUENTE (B): en fresa bajo macrotúnel, la enfermedad desde una fuente puntual
+      # siguió decaimiento exponencial con la distancia y avanzó 1.65 m/día; el viento fue el factor principal
+      # (Aldrighetti et al. 2025).
+      # DERIVADO (calibracion_complementaria.json): recalibrando beta a r = 0.15, el frente en la grilla es 0.69,
+      # 0.78 y 1.01 m/d con lambda = 3, 5 y 8 m. El dato de fresa (1.65 m/d) es más rápido: en macrotúnel la fresa está
+      # mucho más densa que el arándano. Usar lambda = 8 m como escenario de sensibilidad "oídio rápido".
+      lambda_m:
+        valor: 3.0
+        rango: [1.0, 8.0]
+        etiqueta: SUPUESTO
+        calidad: B
+        fuentes: [aldrighetti2025]
+      f_cruce_hilera: {valor: 0.5, rango: [0.2, 0.8], etiqueta: SUPUESTO, calidad: D}
+      radio_max_m: 15.0
+      # DERIVADO (kernel de arriba, grilla 0.8 x 2.5 m): peso de la planta de enfrente en la cama vecina y fracción
+      # de la presión de infección total que queda en la MISMA cama (calculado con calibrar_beta.kernel).
+      w_cama_vecina_enfrente: 0.284
+      razon_misma_cama_vs_cama_vecina: "3.5:1"
+      fraccion_presion_misma_cama: 0.49
+      velocidad_frente_validacion_m_dia: {valor: 1.65, etiqueta: FUENTE, calidad: B, fuentes: [aldrighetti2025]}
+    latente_dias:
+      # FUENTE (análogos B): Podosphaera pannosa (rosa) 4-10 d entre 10 y 28 °C, óptimo ~22 °C (Xu 1999);
+      # P. clandestina (espino) latente 5-16 d, incubación 5-14 d, óptimo ~23 °C (Xu y Robinson 2000);
+      # P. aphanis (fresa) esporula tras 144 h acumuladas de condiciones favorables (Dodgson et al. 2021).
+      # Valor 7 d por el Altiplano frío (12-18 °C).
+      # VERIFICADOR: la única cifra de ARÁNDANO es Cornell Fast Facts: infección en ~23 h y esporas nuevas maduras a los
+      # ~5 d (clima de verano de EE. UU.). Y con la regla de fresa (144 h acumuladas con T > 15.5 °C y HR > 60 %), en la
+      # Sabana pocas horas al día pasan de 15.5 °C, así que el ciclo podría tardar bastante más de 7 d. Valor no cambiado;
+      # sensibilizar con 5 y 14 d.
+      valor: 7
+      rango: [4, 16]
+      etiqueta: FUENTE
+      calidad: B
+      fuentes: [xu1999, xu_robinson2000, dodgson2021]
+    incubacion_dias:
+      # FUENTE (B): entre síntoma visible y esporulación pasa < 1 d en promedio (Xu y Robinson 2000).
+      # Implicación: la cámara NO puede adelantarse al periodo infeccioso del oídio; solo acorta el tiempo hasta hallarlo.
+      valor: 7
+      etiqueta: FUENTE
+      calidad: B
+      fuentes: [xu_robinson2000]
+    infeccioso_dias: {valor: 14, rango: [7, 21], etiqueta: SUPUESTO, calidad: D}
+    r_objetivo_por_dia:
+      # SUPUESTO: no encontré r de campo para oídio de arándano. Latente corto y dispersión aérea, como la roya
+      # estriada (0.18-0.25 /d, B); bajado por clima frío.
+      valor: 0.15
+      rango: [0.08, 0.25]
+      etiqueta: SUPUESTO
+      calidad: D
+    beta_max:
+      # DERIVADO (calibracion_parametros/): r = 0.15 /d con riesgo = 1 y lambda = 3 m (frente ~0.55-0.69 m/d).
+      # Con lambda = 5 m -> 0.0227; con lambda = 8 m -> 0.0117 (calibracion_complementaria.json).
+      valor: 0.0485
+      etiqueta: DERIVADO
+      calidad: D
+    condiciones_infeccion:
+      # FUENTE (fresa, B): sistema de predicción UK: germinación 15.5-30 °C, crecimiento/liberación 18-30 °C, HR mínima 60 %;
+      # 144 h favorables hasta nuevas conidias; aplicar fungicida entre 125 y 144 h acumuladas (Dodgson et al. 2021, CC BY 4.0).
+      germinacion_C: [15.5, 30]
+      crecimiento_C: [18, 30]
+      hr_min_pct: 60
+      horas_favorables_a_esporulacion: 144
+      fuentes: [dodgson2021]
+
+  alternaria:  # Alternaria spp. - VISUAL (clase "Alternaria" de DrBerry; cajas = lesiones pequeñas)
+    detectable_por_robot: true
+    organo_principal: hoja (manchas necróticas con halo) y fruto (latente)
+    dispersion: conidias aéreas y salpicadura (SUPUESTO por biología general del género)
+    kernel:
+      tipo: exponencial
+      lambda_m: {valor: 2.0, rango: [1.0, 4.0], etiqueta: SUPUESTO, calidad: D}
+      f_cruce_hilera: {valor: 0.4, rango: [0.2, 0.8], etiqueta: SUPUESTO, calidad: D}
+      radio_max_m: 10.0
+      # DERIVADO (kernel de arriba, grilla 0.8 x 2.5 m): peso de la planta de enfrente en la cama vecina y fracción
+      # de la presión de infección total que queda en la MISMA cama (calculado con calibrar_beta.kernel).
+      w_cama_vecina_enfrente: 0.171
+      razon_misma_cama_vs_cama_vecina: "5.8:1"
+      fraccion_presion_misma_cama: 0.64
+    incubacion_dias:
+      # FUENTE (análogo B, A. brassicae en colza): incubación de 1 a 11 d según temperatura, mojadura e inóculo;
+      # 2.5-3.5 d en hoja a 17-25 °C (Hong y Fitt 1995, 1996).
+      valor: 4
+      rango: [2, 11]
+      etiqueta: FUENTE
+      calidad: B
+      fuentes: [hong_fitt1995, hong_fitt1996]
+    latente_dias: {valor: 5, rango: [3, 12], etiqueta: SUPUESTO, calidad: D, nota: "incubación + 1 d"}
+    infeccioso_dias: {valor: 14, rango: [7, 28], etiqueta: SUPUESTO, calidad: D}
+    r_objetivo_por_dia: {valor: 0.05, rango: [0.03, 0.10], etiqueta: SUPUESTO, calidad: D}
+    beta_max:
+      # DERIVADO (calibracion_parametros/): r = 0.05 /d con riesgo = 1 (frente ~0.22 m/d).
+      valor: 0.0184
+      etiqueta: DERIVADO
+      calidad: D
+    condiciones_infeccion:
+      # FUENTE (B): mínimo 4 h de mojadura para infectar hoja a 18 °C; la severidad sube hasta 12 h (Hong y Fitt 1995).
+      mojadura_min_h_a_18C: 4
+      fuentes: [hong_fitt1995]
+    fruto: {etiqueta: FUENTE, nota: "infecciones desde fin de floración, latentes hasta maduración; a menudo aparece en poscosecha", fuentes: [pnw_alternaria]}
+    presencia_colombia: {etiqueta: FUENTE, calidad: A, nota: "entre los problemas principales; alta incidencia en Tibasosa y Jenesano", fuentes: [valbuena2025]}
+
+  heliothis:  # Heliothis virescens (= Chloridea virescens) - VISUAL (clase "Heliothis" de DrBerry). NO es contagio.
+    detectable_por_robot: true
+    modelo: "llegada de oviposturas (Poisson por planta y día) + desarrollo larval; sin kernel de esporas"
+    tasa_oviposicion_por_planta_dia:
+      # SUPUESTO: presión de polillas; sin dato de campo abierto. Calibrar con trampas de feromona si las hay.
+      valor: 5.0e-4
+      rango: [1.0e-4, 5.0e-3]
+      etiqueta: SUPUESTO
+      calidad: D
+    agregacion_borde: {valor: 2.0, etiqueta: SUPUESTO, calidad: D, nota: "multiplicador de llegada en camas de borde"}
+    huevo_dias:
+      # FUENTE (B, cultivos hortícolas): huevos individuales en la hoja, eclosionan a los 3-4 d (UGA, gusano del tabaco).
+      valor: 3.5
+      rango: [3, 4]
+      etiqueta: FUENTE
+      calidad: B
+      fuentes: [uga_tbw]
+    larva_dias:
+      # FUENTE (B): 5-7 estadios en 17-18 d a 25 °C; pupa en el suelo ~13 d en verano (UGA).
+      # NO_VERIFICADO (A): en arándano de Huaral el ciclo total fue 77.78 ± 9.14 d (INIA Perú; servidor no respondió).
+      valor: 17.5
+      rango: [17, 30]
+      etiqueta: FUENTE
+      calidad: B
+      fuentes: [uga_tbw]
+    dano_visible_desde_oviposicion_dias:
+      # DERIVADO + SUPUESTO: huevo 3.5 d (FUENTE) + 1-3 d de alimentación hasta daño visible (SUPUESTO).
+      valor: 5
+      rango: [4, 7]
+      etiqueta: DERIVADO
+      calidad: D
+    movimiento_larva_a_vecina_por_dia: {valor: 0.02, rango: [0.0, 0.05], etiqueta: SUPUESTO, calidad: D}
+    capacidad_dano: {etiqueta: NO_VERIFICADO, nota: "larva III ~10.5 hojas y 11.3 frutos; larva VI ~18.6 hojas y 16.4 frutos (INIA Huaral; no abierto)"}
+
+# -----------------------------------------------------------------------------
+# 4. DETECCIÓN
+# -----------------------------------------------------------------------------
+deteccion:
+  curva_visibilidad:
+    # SUPUESTO: p_det(t) = Se_max * p_visible * (1 - exp(-t_sintoma / tau)); t_sintoma = días desde la incubación.
+    # Respaldo cualitativo (B): la sensibilidad visual crece con el número de síntomas en el hospedante y es baja para
+    # síntomas pequeños (Combes et al. 2025, 23 evaluadores, 175 robles).
+    tau_dias: {valor: 3, rango: [1, 7], etiqueta: SUPUESTO, calidad: D}
+    fuentes: [combes2025]
+
+  humano:  # monitoreo (scouting) tradicional
+    frecuencia_dias:
+      # FUENTE (C): programa IPM semanal de Rutgers ("A Weekly Update"; 89 campos de arándano revisados en una semana).
+      valor: 7
+      rango: [7, 14]
+      etiqueta: FUENTE
+      calidad: C
+      fuentes: [rutgers_bb2026]
+    plantas_por_bloque_por_visita:
+      # FUENTE (A, Colombia): tamaño de muestra óptimo 66-68 plantas por lote (90 % confianza, 10 % de error;
+      # Mosquera 51) en 9 fincas del Altiplano; el muestreo estratificado tuvo el menor CV (Valbuena-Gaona et al. 2025).
+      # VERIFICADOR: 66-68 NO es el esfuerzo real de monitoreo de las fincas: es la fórmula de Cochran para estimar una
+      # proporción (Z = 1.65, p = 0.5, e = 0.10 -> n0 = 68.06, con corrección por población finita; con N = 195 da 51, igual
+      # que Mosquera). Da ~68 para cualquier lote grande, sea de 1 ha o de 15.000 plantas. Etiqueta cambiada de FUENTE/A a
+      # DERIVADO/C. Su uso como "plantas por visita del monitoreo humano" es un SUPUESTO, y la regla de Parnell
+      # humano-vs-robot depende de él: pedir el protocolo real a un agrónomo o a Asocolblue.
+      valor: 66
+      rango: [51, 68]
+      etiqueta: DERIVADO
+      calidad: C
+      fuentes: [valbuena2025]
+    minutos_por_ha_semana:
+      # FUENTE (C, empresa de control biológico): ~20 min por semana por acre en exterior por muestreo de área = 49 min/ha.
+      valor: 49
+      rango: [30, 120]
+      etiqueta: FUENTE
+      calidad: C
+      fuentes: [greenmethods]
+    segundos_por_planta:
+      # DERIVADO: 49 min / 66 plantas = ~45 s por planta (rango SUPUESTO).
+      valor: 45
+      rango: [20, 120]
+      etiqueta: DERIVADO
+      calidad: C
+    sensibilidad_sintoma_claro:
+      # FUENTE (B): sensibilidad de la inspección visual 0.65 (588 diagnósticos correctos de 900 muestras positivas;
+      # 10 mejores de 16 inspectores profesionales, Phytophthora ramorum en rododendro; Mastin et al. 2019).
+      valor: 0.65
+      rango: [0.5, 0.8]
+      etiqueta: FUENTE
+      calidad: B
+      fuentes: [mastin2019]
+    sensibilidad_sintoma_inicial:
+      # SUPUESTO informado: más baja que la de síntoma claro; sensibilidad baja para síntomas pequeños (Combes 2025).
+      valor: 0.35
+      rango: [0.2, 0.5]
+      etiqueta: SUPUESTO
+      calidad: B
+      fuentes: [combes2025]
+    especificidad:
+      # SUPUESTO informado: la especificidad superó a la sensibilidad en 22 de 23 evaluadores (Combes et al. 2025).
+      valor: 0.97
+      rango: [0.90, 0.99]
+      etiqueta: SUPUESTO
+      calidad: B
+      fuentes: [combes2025]
+    retraso_reporte_dias: {valor: 1, rango: [0, 3], etiqueta: SUPUESTO, calidad: D}
+    nota: "Mastin et al. 2019 usan un retraso de detección visual de 14 d desde la infección (P. ramorum); aquí lo da incubacion_dias."
+
+  robot:  # AgiBot D1 delante del aspersor, cámara + clasificador
+    frecuencia_dias:
+      # SUPUESTO: el D1 pasa en cada turno de riego por aspersión; depende del calendario de riego de la finca.
+      # VERIFICADOR: las dos fincas colombianas con dato de riego usan fertirriego (Guasca: cinta de goteo por cama, Cortés-Rojas
+      # 2016; Sopó: fertirriego, tesis 2023). No encontré evidencia de aspersión en arándano colombiano (NO_VERIFICADO), y MSU,
+      # CT CAES y UF/IFAS desaconsejan el riego por aspersión porque favorece antracnosis, Botrytis y roya. La frecuencia no
+      # debería atarse al aspersor.
+      valor: 2
+      rango: [1, 3]
+      etiqueta: SUPUESTO
+      calidad: D
+    cobertura_plantas:
+      # SUPUESTO: fracción de plantas del bloque que el robot recorre por pasada.
+      valor: 1.0
+      rango: [0.5, 1.0]
+      etiqueta: SUPUESTO
+      calidad: D
+    p_lesion_visible_desde_pasillo:
+      # SUPUESTO: la cámara ve una cara de la copa desde un pasillo (las dos si recorre ambos lados). El envés (roya) casi no se ve.
+      valor: 0.5
+      rango: [0.3, 0.8]
+      etiqueta: SUPUESTO
+      calidad: D
+    sensibilidad_clasificador:
+      # FUENTE (A, vía reportes/adquisicion-drberry.md): línea base DrBerry YOLOv5s: recall 44.5 % sin aumentación y
+      # 92.6 % en la mejor configuración (probablemente inflado por fuga entre splits). REEMPLAZAR por la
+      # sensibilidad por clase medida en pipeline/ con split por ráfaga, y medir aparte pantalla -> cámara del D1.
+      # ACTUALIZADO 24-oct: MEDIDO con la cámara del D1 (modelo_camara, Mc_tr): 42/54 = 0.78, IC por grupo 0.61-0.92
+      # (reportes/reentreno-camara.md). Valor anterior 0.80 SUPUESTO (modelo_final, imagen limpia, sin cámara).
+      valor: 0.78
+      rango: [0.61, 0.92]
+      etiqueta: MEDIDO
+      n: 54
+      calidad: B
+      fuentes: [drberry_ficha_equipo]
+      por_clase: {oidio: null, alternaria: null, heliothis: null}   # llenar desde pipeline/resultados
+    especificidad_clasificador: {valor: 0.71, rango: [0.29, 1.00], etiqueta: MEDIDO, n: 14, calidad: C, nota: "MEDIDA con la cámara del D1 (modelo_camara): 10/14 sanas sin alerta = 0.71 (falsas alarmas 4/14 = 0.29, IC 0.00-0.71). n=14: muy incierta. Reemplaza el 0.95 SUPUESTO anterior. Fuente: reportes/reentreno-camara.md"}
+    umbral_objetivo_sensibilidad: {valor: 0.90, etiqueta: SUPUESTO, nota: "decisión del equipo: preferir falsas alarmas"}
+    retraso_alerta_dias: {valor: 0, rango: [0, 1], etiqueta: SUPUESTO, calidad: D}
+    confirmacion_operario_dias: {valor: 1, rango: [0, 2], etiqueta: SUPUESTO, calidad: D}
+
+  red_fija:  # sensores ambientales: NO detectan enfermedad, entregan riesgo_d(t)
+    nodos_por_ha: {valor: 1, rango: [0.25, 4], etiqueta: SUPUESTO, calidad: D}
+    error_temperatura_C:
+      # FUENTE (A para el sensor): SHT31 ±0.2 °C típico (0-90 °C); SHT35 ±0.1 °C (Sensirion, datasheet SHT3x v7).
+      valor: 0.2
+      etiqueta: FUENTE
+      calidad: A
+      fuentes: [sensirion_sht3x]
+    error_hr_pct:
+      # FUENTE: SHT30/SHT31 ±2 %HR típico; SHT35 ±1.5 %HR (Sensirion).
+      valor: 2.0
+      etiqueta: FUENTE
+      calidad: A
+      fuentes: [sensirion_sht3x]
+    variabilidad_microclima_entre_bloques_C: {valor: 1.0, rango: [0.3, 2.0], etiqueta: SUPUESTO, calidad: D}
+    accion: "si riesgo_d > umbral -> inspección dirigida del robot/operario en ese bloque y/o aplicación preventiva"
+    nota_demo: "En la demo el clima es Open-Meteo (no hay sensores físicos): el error real de la red fija no se mide."
+
+# -----------------------------------------------------------------------------
+# 5. TRATAMIENTO FUNGICIDA
+# -----------------------------------------------------------------------------
+tratamiento:
+  eficacia_protectante:
+    # Reducción relativa de la probabilidad de infección en plantas tratadas.
+    # FUENTE (B, fresa, NC 2004, presión alta de antracnosis): testigo 15.0 %; mejor programa 6.3 % (58 % de reducción);
+    #   Captevate 8.0 % (47 %); algunos programas 0 % (Elevate 18.8 %) (Louws y Driver 2005).
+    #   VERIFICADOR: Elevate quedó PEOR que el testigo (18.8 vs 15.0 %, -25 %, no significativo). Con LSD = 7.0, solo el
+    #   mejor programa (6.3 %, letra a) difiere del testigo (bc); el 47 % de Captevate no es significativo.
+    # FUENTE (B, fresa, Florida): Thiram y estándar redujeron la incidencia de Botrytis ~10 % frente al testigo (Cordova et al. 2019;
+    #   el resumen dice "approximately 10%", sin aclarar si son puntos o porcentaje relativo).
+    # FUENTE (A, arándano, orgánicos): Intervene redujo el AUDPC de roya ~20-25 % (Barry et al. 2025).
+    #   VERIFICADOR: ese 20-25 % es frente a los PEORES tratamientos, no frente a un testigo sin tratar, y los autores dicen que
+    #   ningún producto controló la roya.
+    # FUENTE (C): calificaciones cualitativas (Switch "Excelente", Captan "Bueno", Ziram "Regular" para pudrición madura, UGA).
+    # NO_VERIFICADO (A): ensayo MSU 2022 en arándano, 83-100 % de control (página bloqueada por anti-bot).
+    valor: 0.6
+    rango: [0.0, 0.95]
+    etiqueta: FUENTE
+    calidad: B
+    fuentes: [louws_driver2005, cordova2019, barry2025, uga_blueberry_2020]
+  duracion_proteccion_dias:
+    # FUENTE (A/C): programas cada 7-10 d desde botón rosado o inicio de floración hasta precosecha (Neugebauer et al. 2024).
+    valor: 7
+    rango: [7, 10]
+    etiqueta: FUENTE
+    calidad: A
+    fuentes: [neugebauer2024]
+  penalizacion_inicio_tras_sintomas:
+    # FUENTE (B, fresa, Florida): si las aplicaciones empiezan después de aparecer síntomas, el control fue 40 % menos
+    # efectivo (MacKenzie y Peres 2012). Usar: eficacia_efectiva = eficacia * (1 - 0.4) si se trata tras el primer síntoma visible del bloque.
+    valor: 0.4
+    etiqueta: FUENTE
+    calidad: B
+    fuentes: [mackenzie_peres2012]
+  reduccion_infectividad_en_infectados: {valor: 0.5, rango: [0.2, 0.8], etiqueta: SUPUESTO, calidad: D}
+  alcance: {valor: "cama del hallazgo +/- 1 cama", etiqueta: SUPUESTO, calidad: D}
+  retraso_alerta_a_aplicacion_dias: {valor: 1, rango: [1, 3], etiqueta: SUPUESTO, calidad: D}
+  intervalo_calendario_dias: {valor: 7, etiqueta: FUENTE, fuentes: [neugebauer2024], nota: "escenario de control 'por calendario'"}
+  aplicaciones_ahorradas_por_pronostico:
+    # FUENTE (B): con el sistema StAS (fresa, 39 ensayos, metaanálisis) se ahorró una mediana de 7 aplicaciones por
+    # temporada (50 %) sin diferencia significativa en incidencia de antracnosis ni Botrytis (Cordova et al. 2017);
+    # con el modelo de mojadura y temperatura, 47 % menos aplicaciones (MacKenzie y Peres 2012).
+    reduccion_aplicaciones: [0.47, 0.50]
+    etiqueta: FUENTE
+    calidad: B
+    fuentes: [cordova2017, mackenzie_peres2012]
+
+# -----------------------------------------------------------------------------
+# 6. CHEQUEOS DE VALIDACIÓN (para la rúbrica "Evidencia y validación")
+# -----------------------------------------------------------------------------
+validacion:
+  regla_parnell:
+    # FUENTE: incidencia esperada al primer hallazgo E[q*] = r / (N / Delta) = r * Delta / N
+    # (Parnell et al. 2015, Proc R Soc B; probada con modelos espacio-temporales y epidemias reales).
+    # DERIVADO: con detección imperfecta usar N_ef = N * Se. Sin retraso de incubación:
+    #   humano  (r=0.1, Delta=7, N=66, Se=0.65):        q* = 0.1*7/(66*0.65)          = 1.6 % del bloque
+    #   robot   (r=0.1, Delta=2, N=5000*0.5*0.8=2000):  q* = 0.1*2/2000               = 0.01 % (~0.5 plantas)
+    # La regla no incluye la incubación: con el robot el límite real lo pone incubacion_dias (planta infectada
+    # pero sin síntoma). El simulador debe reproducir estos órdenes de magnitud; si no, revisar.
+    # DERIVADO por enfermedad (bloque de 5.000 plantas; infectados = sintomáticos * exp(r * incubación)):
+    #   oídio      r 0.15: humano 2.45 % sintomáticos (~350 infectadas) | robot 0.015 % (~2 infectadas)
+    #   alternaria r 0.05: humano 0.82 % (~50 infectadas)                 | robot 0.005 % (<1)
+    #   roya       r 0.12: humano 1.96 % (~413 infectadas)                | robot NO la ve (sin clase, envés)
+    # Cuando r*Delta/N_ef * 5000 < 1, el robot detecta en las primeras plantas sintomáticas: lo limita la incubación.
+    # VERIFICADOR: en esta grilla la epidemia desde un foco es SUBexponencial. Re-implementación independiente (sin FFT),
+    # con los beta_max calibrados: r medida en la ventana de 10-50 plantas, 50-250 y 250-1000 infectadas = 0.157 / 0.136 /
+    # 0.082 en oídio, 0.104 / 0.072 / 0.046 en Botrytis, 0.113 / 0.107 / 0.079 en roya y 0.062 / 0.044 / 0.029 en Alternaria.
+    # El hallazgo humano cae en la ventana 250-1000, donde r es ~1/2 del r_objetivo, así que el simulador dará un q* humano
+    # ~2 veces menor que estas cuentas. Comparar con la r MEDIDA en el simulador en esa fase, no con r_objetivo.
+    formula: "E[q*] = r * Delta / (N * Se)"
+    infectados_al_hallazgo: "q* * exp(r * incubacion_dias)"
+    etiqueta: FUENTE
+    calidad: B
+    fuentes: [parnell2015, mastin2019]
+  frente_oidio_m_dia: {valor: 1.65, fuentes: [aldrighetti2025]}
+  antracnosis_1_lluvia_vecindad: {valor: [0.07, 0.19], fuentes: [madden1993]}
+  roya_hawai: {valor: "1 arbusto -> toda la parcela 36.6 x 9.1 m en ~1 mes", fuentes: [keith2008]}
+  # VERIFICADOR: "en un mes" (within a month) es una cota: velocidad >= ~1.2 m/d si todo vino del arbusto inicial. El frente
+  # simulado (0.95 m/d) queda por DEBAJO de esa cota. Además había roya en un vivero de Waimea desde mayo de 2007 (otra
+  # posible fuente), y 'Sharpblue' es muy susceptible mientras 'Biloxi' mostró cierta tolerancia (Keith 2008). Es un chequeo
+  # de orden de magnitud, no una "buena concordancia".
+
+# -----------------------------------------------------------------------------
+# 7. FUENTES (todas abiertas por mí el 2026-10-23; "resumen" = abstract leído vía la API de Europe PMC)
+#    API Europe PMC: https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:%22<doi>%22&format=json&resultType=core
+#    Copias locales en raw/paramsim_*/ (no redistribuir).
+# -----------------------------------------------------------------------------
+fuentes:
+  msu_e3039: {cita: "Schilder A. et al. MSU Extension Bulletin E-3039 (2008) Anthracnose fruit rot (ripe rot) of blueberry", url: "https://archive.lib.msu.edu/DMC/extension_publications/e3039/E3039.pdf", tipo: extension, calidad: A}
+  pnw_antracnosis: {cita: "PNW Plant Disease Management Handbook - Blueberry Ripe Rot (Anthracnose)", url: "https://pnwhandbooks.org/plantdisease/host-disease/blueberry-vaccinium-corymbosum-ripe-rot-anthracnose", tipo: extension}
+  pnw_roya: {cita: "PNW Handbook - Blueberry Rust", url: "https://pnwhandbooks.org/plantdisease/host-disease/blueberry-vaccinium-corymbosum-rust", tipo: extension}
+  pnw_botrytis: {cita: "PNW Handbook - Blueberry Botrytis Blight", url: "https://pnwhandbooks.org/plantdisease/host-disease/blueberry-vaccinium-corymbosum-botrytis-blight", tipo: extension}
+  pnw_alternaria: {cita: "PNW Handbook - Blueberry Alternaria Fruit Rot", url: "https://pnwhandbooks.org/plantdisease/host-disease/blueberry-vaccinium-corymbosum-alternaria-fruit-rot", tipo: extension}
+  ntahimpera1997: {cita: "Ntahimpera N, Madden LV, Wilson LL (1997) Phytopathology 87:649-655", doi: "10.1094/phyto.1997.87.6.649", acceso: resumen}
+  yang1990: {cita: "Yang X, Wilson LL, Madden LV, Ellis MA (1990) Phytopathology 80:590-595", doi: "10.1094/phyto-80-590", acceso: resumen}
+  madden1993: {cita: "Madden LV, Wilson LL, Ellis MA (1993) Plant Disease 77:861-866", acceso: resumen}
+  madden_boudreau1997: {cita: "Madden LV, Boudreau MA (1997) Phytopathology 87:828-838", doi: "10.1094/phyto.1997.87.8.828", acceso: resumen}
+  boudreau_madden1995: {cita: "Boudreau MA, Madden LV (1995) Phytopathology 85:934-941", doi: "10.1094/phyto-85-934", acceso: resumen}
+  wilson1990: {cita: "Wilson LL, Madden LV, Ellis MA (1990) Phytopathology 80:111-116", doi: "10.1094/phyto-80-111", acceso: resumen}
+  verma2007: {cita: "Verma N, MacDonald L, Punja ZK (2007) Plant Pathology 56:107-113", doi: "10.1111/j.1365-3059.2006.01450.x", acceso: resumen}
+  agostini1993: {cita: "Agostini JP, Gottwald TR, Timmer LW (1993) Phytopathology 83:485-490", doi: "10.1094/phyto-83-485", acceso: resumen}
+  silvajunior2014: {cita: "Silva-Junior GJ et al. (2014) Plant Pathology 63:519-529", doi: "10.1111/ppa.12138", acceso: resumen}
+  johnson_powelson1983: {cita: "Johnson KB, Powelson ML (1983) Phytopathology 73:741-746", doi: "10.1094/phyto-73-741", acceso: resumen}
+  wang2023: {cita: "Wang X et al. (2023) PLoS ONE 18:e0285094", doi: "10.1371/journal.pone.0285094", acceso: resumen, licencia: "CC BY 4.0 (PLoS)"}
+  neugebauer2024: {cita: "Neugebauer KA et al. (2024) Managing fruit rot diseases of Vaccinium corymbosum. Front Plant Sci 15:1428769", doi: "10.3389/fpls.2024.1428769", url: "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11333449/fullTextXML", acceso: texto_completo, licencia: "CC BY"}
+  pfister2004: {cita: "Pfister SE, Halik S, Bergdahl DR (2004) Plant Disease 88:359-362", doi: "10.1094/pdis.2004.88.4.359", acceso: resumen}
+  dalbello1998: {cita: "Dal Bello G, Perelló A (1998) Plant Disease 82:1062", doi: "10.1094/pdis.1998.82.9.1062a", acceso: resumen}
+  keith2008: {cita: "Keith L et al. (2008) Plant Disease 92:1590", doi: "10.1094/pdis-92-11-1590a", acceso: resumen}
+  huarhua2020: {cita: "Huarhua M et al. (2020) Plant Disease 104:3077", doi: "10.1094/pdis-03-20-0585-pdn", acceso: resumen}
+  barry2025: {cita: "Barry KM et al. (2025) Evaluation of organic products to control blueberry rust. Crop Protection 197", acceso: resumen}
+  mikaberidze2014: {cita: "Mikaberidze A, Mundt CC, Bonhoeffer S. The effect of spatial scales on the reproductive fitness of plant pathogens. arXiv:1410.0587", url: "https://arxiv.org/pdf/1410.0587", acceso: texto_completo}
+  aldrighetti2025: {cita: "Aldrighetti A et al. (2025) Aerobiologia 41:609-626", acceso: resumen}
+  xu1999: {cita: "Xu XM (1999) Plant Pathology 48:662-667", doi: "10.1046/j.1365-3059.1999.00385.x", acceso: resumen}
+  xu_robinson2000: {cita: "Xu XM, Robinson JD (2000) Plant Pathology 49:791-797", doi: "10.1046/j.1365-3059.2000.00520.x", acceso: resumen}
+  dodgson2021: {cita: "Dodgson JLA et al. (2021) bioRxiv 2021.08.04.455115", doi: "10.1101/2021.08.04.455115", url: "https://www.biorxiv.org/content/biorxiv/early/2021/08/04/2021.08.04.455115.full.pdf", acceso: texto_completo, licencia: "CC BY 4.0"}
+  hong_fitt1995: {cita: "Hong CX, Fitt BDL (1995) Annals of Applied Biology 127:283-295", doi: "10.1111/j.1744-7348.1995.tb06673.x", acceso: resumen}
+  hong_fitt1996: {cita: "Hong CX, Fitt BDL (1996) European J Plant Pathology 102:545-553", doi: "10.1007/bf01877021", acceso: resumen}
+  uga_tbw: {cita: "UGA Extension IPM - Tobacco budworm (fact sheet)", url: "https://extension.uga.edu/content/dam/extension/programs-and-services/integrated-pest-management/documents/insect-pdfs/tbw.pdf", tipo: extension}
+  combes2025: {cita: "Combes M et al. (2025) PLoS Comput Biol 21:e1012957", doi: "10.1371/journal.pcbi.1012957", url: "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12671890/fullTextXML", acceso: texto_completo, licencia: "CC BY 4.0 (PLoS)"}
+  mastin2019: {cita: "Mastin AJ, van den Bosch F, van den Berg F, Parnell SR (2019) Phil Trans R Soc B 374:20180261", doi: "10.1098/rstb.2018.0261", url: "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6558562/fullTextXML", acceso: texto_completo}
+  parnell2015: {cita: "Parnell S et al. (2015) Proc R Soc B 282:20151478", doi: "10.1098/rspb.2015.1478", acceso: resumen}
+  valbuena2025: {cita: "Valbuena-Gaona LA, Rodríguez-Arteaga JS, Balaguera-López HE, Ramírez-Gil JG (2025) Rev Colomb Cienc Hortíc 19(1):1-19", doi: "10.19053/uptc.24223719.18515", url: "https://revistas.uptc.edu.co/index.php/ciencias_horticolas/article/download/18515/15282/90885", acceso: texto_completo, licencia: "CC BY-NC-SA 4.0 (metadatos Crossref de doi:10.19053/uptc.24223719.18515; VERIFICADOR)", calidad: A}
+  cortesrojas2016: {licencia: "CC BY-NC-SA 4.0 (Crossref)", cita: "Cortés-Rojas MH, Mesa-Torres PA, Grijalba-Rativa CM, Pérez-Trujillo MM (2016) Agronomía Colombiana 34(1):33-41 (Guasca, 2.700 m; 0.8 x 2.2 m y 1.0 x 2.2 m entre centros de cama; riego por goteo)", doi: "10.15446/agron.colomb.v34n1.54897", url: "https://revistas.unal.edu.co/index.php/agrocol/article/download/54897/60637?inline=1", acceso: texto_completo, calidad: A, nota: "añadida por el VERIFICADOR; copia en raw/verifcs_cortesrojas2016/"}
+  rutgers_bb2026: {cita: "Rutgers Cooperative Extension, The Blueberry Bulletin Vol 42 #5 (14 abr 2026)", url: "https://extension.rutgers.edu/sites/default/files/2026-04/bb-v42n05.pdf", tipo: extension}
+  greenmethods: {cita: "Green Methods - Scouting information (página comercial)", url: "https://greenmethods.com/pages/scouting-info", tipo: industria, calidad: C}
+  sensirion_sht3x: {cita: "Sensirion SHT3x-DIS datasheet v7 (2022)", url: "https://sensirion.com/media/documents/213E6A3B/63A5A569/Datasheet_SHT3x_DIS.pdf", tipo: fabricante}
+  louws_driver2005: {cita: "Louws FJ, Driver JG (2005) F&N Tests 60:SMF040", url: "https://plantmanagementnetwork.org/pub/trial/fntests/reports/2005/SMF040.pdf", acceso: texto_completo}
+  cordova2019: {cita: "Cordova LG, Dalla Lana F, Paul PA, Peres NA (2019) Plant Disease 103:2505-2511", doi: "10.1094/pdis-03-19-0453-re", acceso: resumen}
+  mackenzie_peres2012: {cita: "MacKenzie SJ, Peres NA (2012) Plant Disease 96:522-528", doi: "10.1094/pdis-03-11-0181", acceso: resumen}
+  cordova2017: {cita: "Cordova LG, Madden LV, Amiri A, Schnabel G, Peres NA (2017) Plant Disease 101:1910-1917", doi: "10.1094/pdis-04-17-0477-re", acceso: resumen}
+  uga_blueberry_2020: {cita: "Oliver J (UGA) Blueberry ripe rot fungicide trials 2020 (blog)", url: "https://site.caes.uga.edu/blueberry/?p=930", tipo: extension}
+  gobpe_bestberries: {cita: "Marcuzzo A, Best Berries - Arándano (presentación, gob.pe)", url: "https://cdn.www.gob.pe/uploads/document/file/1916215/Adriano%20Marcuzzo-Best%20Berries-Arandano_0.pdf", tipo: industria}
+  inia_portalfruticola: {cita: "INIA Chile vía Portalfrutícola - guía técnica de arándano", url: "https://www.portalfruticola.com/?p=173671", tipo: extension}
+  uga_c946: {cita: "UGA Extension Circular 946 - Home Garden Blueberries", url: "https://fieldreport.caes.uga.edu/wp-content/uploads/2025/08/C-946_4.pdf", tipo: extension}
+  agronegocios_densidad: {cita: "Agronegocios (Colombia) - exportaciones de arándanos; cifras de Asocolblue", url: "https://www.agronegocios.co/agricultura/las-exportaciones-de-arandanos-superaron-us-1-millon-durante-el-primer-semestre-3446716", tipo: prensa}
+  agraria_2015: {cita: "Agraria.pe (2015) Al Perú han ingresado más de 30 variedades", url: "https://agraria.pe/noticias/al-peru-han-ingresado-mas-de-30-variedades-9724", tipo: prensa}
+  lamolina_jayanca: {cita: "Yovera Yllatopa SD (2023) Manejo productivo del arándano 'Ventura', Jayanca. UNALM", url: "https://repositorio.lamolina.edu.pe/server/api/core/items/3af55fc9-63af-4b05-99d6-dcfc573ceaec", tipo: tesis}
+  lamolina_ica: {cita: "Serna Cisneros PG (2025) Manejo del cultivo de arándano en Ica. UNALM", url: "https://repositorio.lamolina.edu.pe/server/api/core/items/f7529d2e-59e3-4434-a126-1c2571014703", tipo: tesis}
+  drberry_ficha_equipo: {cita: "reportes/adquisicion-drberry.md y resultados/ficha_drberry.md (agente del equipo), sobre el paper DrBerry SciTePress 2023", url: "https://www.scitepress.org/Papers/2023/122071/122071.pdf", tipo: interno}

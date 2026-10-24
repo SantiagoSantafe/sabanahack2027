@@ -1,0 +1,17 @@
+{
+  "n_capturas_usadas": 40,
+  "descartadas_por_no_coincidir": 64,
+  "B_en_capturas": {
+    "sensibilidad": "34/34",
+    "falsas_alarmas": "5/6",
+    "clase_exacta": "30/40",
+    "acierto_sana_enferma": "35/40"
+  },
+  "B_mas_capturas_CV": {
+    "sensibilidad": "30/34",
+    "falsas_alarmas": "2/6",
+    "clase_exacta": "32/40",
+    "acierto_sana_enferma": "34/40"
+  },
+  "umbral": 0.6710227578878403
+}

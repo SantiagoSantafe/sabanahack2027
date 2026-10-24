@@ -1,0 +1,7 @@
+# Puente y teleop del D1 EDU. Python 3.10 en la VM (el SDK es cp310); 3.11 sirve para probar con --mock.
+websockets>=13,<18
+pyyaml>=6
+# Opcional: modo de teclado que sabe cuándo se suelta la tecla (necesita X11):
+#   pip install pynput
+# Solo para correr las pruebas:
+#   pip install pytest pytest-asyncio

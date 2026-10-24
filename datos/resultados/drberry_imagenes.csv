@@ -1,0 +1,411 @@
+split,ruta_relativa,nombre_original,camara_inferida,timestamp_nombre,n_cajas,n_Alternaria,n_Heliothis,n_Oidio,n_Sana,clase_dominante,multiclase,grupo_rafaga,grupo_en_varios_splits,tam_grupo,split_grupal_sugerido
+train,train/images/DSC00435_JPG.rf.d7bd7acd7c0fa00e3e7f5c5eca5c60d0.jpg,DSC00435_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,1,0,Oidio,0,g001,0,2,train
+train,train/images/DSC00436_JPG.rf.361721e69fb54b3f6156d63d470cd3d1.jpg,DSC00436_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,1,0,Oidio,0,g001,0,2,train
+train,train/images/DSC00439_JPG.rf.c9171ffc6e79a8467af9b55743a35424.jpg,DSC00439_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,1,0,Oidio,0,g002,0,1,valid
+valid,valid/images/DSC00442_JPG.rf.56401351b075e04a35b721693a168aa5.jpg,DSC00442_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,1,0,Oidio,0,g003,1,2,train
+test,test/images/DSC00443_JPG.rf.7f091e0562daa8be3fd81141f682276d.jpg,DSC00443_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,0,1,Sana,0,g003,1,2,train
+train,train/images/DSC00447_JPG.rf.c504e25728e5552d2f75896c695d48aa.jpg,DSC00447_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g004,1,4,train
+test,test/images/DSC00448_JPG.rf.a89b4e4bc5264b362a34880f8185c479.jpg,DSC00448_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g004,1,4,train
+train,train/images/DSC00449_JPG.rf.e8dffe7ab40e321bee7c15da6dbcea99.jpg,DSC00449_JPG,DSC (Sony DSC-W630? inferido),,2,1,1,0,0,Heliothis,1,g004,1,4,train
+train,train/images/DSC00450_JPG.rf.363e2065adca73a72e1306bcfb942921.jpg,DSC00450_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,0,1,Sana,0,g004,1,4,train
+test,test/images/DSC00455_JPG.rf.0cb6caeb4d066e2d55e3480cc1fafa24.jpg,DSC00455_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,0,1,Sana,0,g005,0,1,train
+train,train/images/DSC00458_JPG.rf.e1250b849f029038be667fbd82956c90.jpg,DSC00458_JPG,DSC (Sony DSC-W630? inferido),,2,0,2,0,0,Heliothis,0,g006,1,5,valid
+train,train/images/DSC00459_JPG.rf.645ab6cf9bcb665f10a101122f2a5f93.jpg,DSC00459_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g006,1,5,valid
+valid,valid/images/DSC00460_JPG.rf.83a8b28b8c310a9fb0c349fdc0d6c426.jpg,DSC00460_JPG,DSC (Sony DSC-W630? inferido),,3,0,0,3,0,Oidio,0,g006,1,5,valid
+train,train/images/DSC00461_JPG.rf.166b778d449d6906b060bad2097f746c.jpg,DSC00461_JPG,DSC (Sony DSC-W630? inferido),,3,0,0,3,0,Oidio,0,g006,1,5,valid
+train,train/images/DSC00462_JPG.rf.3574f6754f7dc98f836d7699178e9803.jpg,DSC00462_JPG,DSC (Sony DSC-W630? inferido),,3,0,0,3,0,Oidio,0,g006,1,5,valid
+train,train/images/DSC00467_JPG.rf.598337be4130573f6d6917bc6dcbf171.jpg,DSC00467_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g007,1,8,train
+train,train/images/DSC00468_JPG.rf.0df029e9f6188cc9867a756bd51d4d3b.jpg,DSC00468_JPG,DSC (Sony DSC-W630? inferido),,2,1,0,0,1,Sana,1,g007,1,8,train
+train,train/images/DSC00469_JPG.rf.5abec5097bcacdf281f752201b6ecbb4.jpg,DSC00469_JPG,DSC (Sony DSC-W630? inferido),,2,0,0,2,0,Oidio,0,g007,1,8,train
+test,test/images/DSC00470_JPG.rf.526439a3ae14880d3caca9de81c7dc67.jpg,DSC00470_JPG,DSC (Sony DSC-W630? inferido),,4,0,0,4,0,Oidio,0,g007,1,8,train
+train,train/images/DSC00471_JPG.rf.c85e6a855ceb18fd4e6deeabb9a8cd21.jpg,DSC00471_JPG,DSC (Sony DSC-W630? inferido),,2,0,0,2,0,Oidio,0,g007,1,8,train
+train,train/images/DSC00472_JPG.rf.bf3352ae4aaa63be24112884f9368443.jpg,DSC00472_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g007,1,8,train
+train,train/images/DSC00473_JPG.rf.42de4e4e036bad18c5f28ed0bfb13823.jpg,DSC00473_JPG,DSC (Sony DSC-W630? inferido),,3,0,2,1,0,Heliothis,1,g007,1,8,train
+train,train/images/DSC00474_JPG.rf.51286984085f6e341e68ba623e353c63.jpg,DSC00474_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g007,1,8,train
+train,train/images/DSC00482_JPG.rf.5a8603d3650e9c394aef1eba3adc011c.jpg,DSC00482_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,0,1,Sana,0,g008,1,8,train
+train,train/images/DSC00483_JPG.rf.d8d0363ef98d4fa274b5da240df2086f.jpg,DSC00483_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,0,1,Sana,0,g008,1,8,train
+test,test/images/DSC00484_JPG.rf.007559d90851530e557275710edf8578.jpg,DSC00484_JPG,DSC (Sony DSC-W630? inferido),,1,0,0,1,0,Oidio,0,g008,1,8,train
+train,train/images/DSC00485_JPG.rf.4eb785ddb0275b7620a5b6d542facc87.jpg,DSC00485_JPG,DSC (Sony DSC-W630? inferido),,3,0,1,2,0,Oidio,1,g008,1,8,train
+train,train/images/DSC00486_JPG.rf.ffa839e1649008a4002fd0d1ecb208d7.jpg,DSC00486_JPG,DSC (Sony DSC-W630? inferido),,3,3,0,0,0,Alternaria,0,g008,1,8,train
+train,train/images/DSC00487_JPG.rf.38fb047d620905c47a74a17b5522d7ef.jpg,DSC00487_JPG,DSC (Sony DSC-W630? inferido),,2,2,0,0,0,Alternaria,0,g008,1,8,train
+train,train/images/DSC00488_JPG.rf.3939cdbbabf80219d644b0b3364be82d.jpg,DSC00488_JPG,DSC (Sony DSC-W630? inferido),,2,0,0,2,0,Oidio,0,g008,1,8,train
+train,train/images/DSC00489_JPG.rf.7100fed7e9e97178bd97958c4de5b6f1.jpg,DSC00489_JPG,DSC (Sony DSC-W630? inferido),,2,0,0,2,0,Oidio,0,g008,1,8,train
+train,train/images/DSC00491_JPG.rf.7eb1a1559b734878fcd89adbe335c73d.jpg,DSC00491_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g009,1,2,train
+test,test/images/DSC00492_JPG.rf.c90241484fdfa84bd09f9a1e3969112f.jpg,DSC00492_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g009,1,2,train
+train,train/images/DSC00494_JPG.rf.d19259db2ba5b644652ce483b1179f8a.jpg,DSC00494_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g010,0,1,train
+train,train/images/DSC00496_JPG.rf.0fc308979f3b9a9c6abef93fddac7570.jpg,DSC00496_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g011,0,2,train
+train,train/images/DSC00497_JPG.rf.5b4536717dbf3e6e7da263e74f23020b.jpg,DSC00497_JPG,DSC (Sony DSC-W630? inferido),,1,0,1,0,0,Heliothis,0,g011,0,2,train
+train,train/images/IMG_20220919_132850_1_jpg.rf.38243777da88ad13cff344262f9f63d0.jpg,IMG_20220919_132850_1_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:28:50,1,0,1,0,0,Heliothis,0,g012,0,3,test
+train,train/images/IMG_20220919_132850_jpg.rf.901374b6b11151306876fd9d410c52e0.jpg,IMG_20220919_132850_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:28:50,1,0,1,0,0,Heliothis,0,g012,0,3,test
+train,train/images/IMG_20220919_132851_jpg.rf.e570b15e8618546622bdcea5a84c1254.jpg,IMG_20220919_132851_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:28:51,1,0,1,0,0,Heliothis,0,g012,0,3,test
+test,test/images/IMG_20220919_132957_jpg.rf.7bdb268ecf6595ff68eb33c8e5dd474a.jpg,IMG_20220919_132957_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:29:57,1,0,1,0,0,Heliothis,0,g013,0,1,train
+train,train/images/IMG_20220919_133010_jpg.rf.24e5a8ee5e2c083470f048510cdc4e4b.jpg,IMG_20220919_133010_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:30:10,1,0,1,0,0,Heliothis,0,g014,0,2,train
+train,train/images/IMG_20220919_133011_jpg.rf.352e17dad6b8f4940dbfac9b62210d2b.jpg,IMG_20220919_133011_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:30:11,1,0,1,0,0,Heliothis,0,g014,0,2,train
+train,train/images/IMG_20220919_133023_jpg.rf.9b1ca33e27edb3eb0e327c97d78a0986.jpg,IMG_20220919_133023_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:30:23,5,5,0,0,0,Alternaria,0,g015,0,2,train
+train,train/images/IMG_20220919_133025_jpg.rf.3adf4f73edccdfae4bca8cd5f52c4d98.jpg,IMG_20220919_133025_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:30:25,6,6,0,0,0,Alternaria,0,g015,0,2,train
+train,train/images/IMG_20220919_133057_jpg.rf.e48b78b8968df0ac039e413537f66e54.jpg,IMG_20220919_133057_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:30:57,5,5,0,0,0,Alternaria,0,g016,0,1,train
+train,train/images/IMG_20220919_133310_jpg.rf.07c8e02b7246c5cf47b39dbb92ca3350.jpg,IMG_20220919_133310_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:33:10,3,0,0,0,3,Sana,0,g017,0,2,valid
+train,train/images/IMG_20220919_133312_jpg.rf.7dcfb5e096a780cce662d6b8f8f170c5.jpg,IMG_20220919_133312_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:33:12,3,0,0,0,3,Sana,0,g017,0,2,valid
+train,train/images/IMG_20220919_133345_jpg.rf.4dc086d8448963025858625638977fc9.jpg,IMG_20220919_133345_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:33:45,3,0,0,0,3,Sana,0,g018,0,1,train
+train,train/images/IMG_20220919_133356_jpg.rf.dce3d17fb34076c7a5e62becb209aa31.jpg,IMG_20220919_133356_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:33:56,3,0,0,0,3,Sana,0,g019,0,2,train
+train,train/images/IMG_20220919_133400_jpg.rf.d829f782cbb744e658ddfc06dd81de1e.jpg,IMG_20220919_133400_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:34:00,1,0,0,0,1,Sana,0,g019,0,2,train
+train,train/images/IMG_20220919_133458_jpg.rf.13352cd436c963a488ce1931866c240f.jpg,IMG_20220919_133458_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:34:58,3,0,3,0,0,Heliothis,0,g020,0,2,train
+train,train/images/IMG_20220919_133504_jpg.rf.57c4b9c645d9d55257bfb903750b57fa.jpg,IMG_20220919_133504_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:35:04,3,0,3,0,0,Heliothis,0,g020,0,2,train
+train,train/images/IMG_20220919_133517_jpg.rf.9d78cfbc8e9d4f48f930279a4a80327b.jpg,IMG_20220919_133517_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:35:17,2,0,2,0,0,Heliothis,0,g021,1,4,train
+train,train/images/IMG_20220919_133524_jpg.rf.11374127c2c4f3cdd91e4a416888698b.jpg,IMG_20220919_133524_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:35:24,2,0,2,0,0,Heliothis,0,g021,1,4,train
+valid,valid/images/IMG_20220919_133526_jpg.rf.3c5689094e367ca315c8fa23db8f2d87.jpg,IMG_20220919_133526_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:35:26,3,0,3,0,0,Heliothis,0,g021,1,4,train
+train,train/images/IMG_20220919_133535_jpg.rf.f11c76a1ccd3b9e70924892bdfba293c.jpg,IMG_20220919_133535_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:35:35,2,0,2,0,0,Heliothis,0,g021,1,4,train
+train,train/images/IMG_20220919_133730_jpg.rf.8383e7198122fee8fbae6347289a71c5.jpg,IMG_20220919_133730_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:37:30,1,0,0,1,0,Oidio,0,g022,1,2,train
+valid,valid/images/IMG_20220919_133732_jpg.rf.3148daf8a8bb1efa50d3e160b60a81b9.jpg,IMG_20220919_133732_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:37:32,1,0,0,1,0,Oidio,0,g022,1,2,train
+train,train/images/IMG_20220919_133807_jpg.rf.8f61013649d13c3742cfafc530ab9e9f.jpg,IMG_20220919_133807_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:38:07,1,0,1,0,0,Heliothis,0,g023,0,3,valid
+train,train/images/IMG_20220919_133811_jpg.rf.ee878f8163e50daf1f20a970be6a9908.jpg,IMG_20220919_133811_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:38:11,1,0,1,0,0,Heliothis,0,g023,0,3,valid
+train,train/images/IMG_20220919_133812_jpg.rf.e90f43bde80fc76cae1a41220a2ebc5c.jpg,IMG_20220919_133812_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:38:12,1,0,1,0,0,Heliothis,0,g023,0,3,valid
+valid,valid/images/IMG_20220919_133826_jpg.rf.eab1ce505f9b54c2eee523e5492d2113.jpg,IMG_20220919_133826_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:38:26,1,0,1,0,0,Heliothis,0,g024,1,3,train
+train,train/images/IMG_20220919_133828_jpg.rf.11711eb0a3660a8f8916efc053009ef2.jpg,IMG_20220919_133828_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:38:28,1,0,1,0,0,Heliothis,0,g024,1,3,train
+train,train/images/IMG_20220919_133832_jpg.rf.5f1cbc8eb7be3eb0f5212b64c60ff5fb.jpg,IMG_20220919_133832_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:38:32,1,0,1,0,0,Heliothis,0,g024,1,3,train
+train,train/images/IMG_20220919_133851_jpg.rf.876a237020f5baf61f178f2e1b404436.jpg,IMG_20220919_133851_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:38:51,1,0,0,1,0,Oidio,0,g025,0,2,train
+train,train/images/IMG_20220919_133854_jpg.rf.2d3e0a5eaa1cf97dd29ab2a8e7f40cf0.jpg,IMG_20220919_133854_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:38:54,1,0,0,1,0,Oidio,0,g025,0,2,train
+train,train/images/IMG_20220919_133919_jpg.rf.8c88c282c6f11847f282c37439bac66d.jpg,IMG_20220919_133919_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:39:19,1,0,1,0,0,Heliothis,0,g026,0,2,test
+train,train/images/IMG_20220919_133924_jpg.rf.45d5c78b3a416861a61e6e5fc3891b14.jpg,IMG_20220919_133924_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:39:24,1,0,1,0,0,Heliothis,0,g026,0,2,test
+valid,valid/images/IMG_20220919_134043_jpg.rf.9f772fdb24e60677011482dee104a7e9.jpg,IMG_20220919_134043_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:40:43,1,0,1,0,0,Heliothis,0,g027,0,1,test
+train,train/images/IMG_20220919_134109_jpg.rf.c0d4727551bf13758cb5a581fc43fd79.jpg,IMG_20220919_134109_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:41:09,1,0,1,0,0,Heliothis,0,g028,0,1,train
+train,train/images/IMG_20220919_134201_jpg.rf.3a7198c48eac499d2862d80712d33dab.jpg,IMG_20220919_134201_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:42:01,1,0,1,0,0,Heliothis,0,g029,0,2,train
+train,train/images/IMG_20220919_134203_jpg.rf.a6583ca7e3c46d77d93100b6374a97bc.jpg,IMG_20220919_134203_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:42:03,1,0,1,0,0,Heliothis,0,g029,0,2,train
+train,train/images/IMG_20220919_134222_jpg.rf.daa5a8346501b7f1b2715961d61d0a45.jpg,IMG_20220919_134222_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:42:22,1,0,1,0,0,Heliothis,0,g030,0,1,train
+valid,valid/images/IMG_20220919_134635_jpg.rf.2dc7d3902a5009862dcc6ab2b4077027.jpg,IMG_20220919_134635_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:46:35,5,0,4,1,0,Heliothis,1,g031,0,1,train
+train,train/images/IMG_20220919_134658_jpg.rf.f3e142af129218e73a82a4bf91ba22da.jpg,IMG_20220919_134658_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:46:58,2,0,2,0,0,Heliothis,0,g032,0,1,train
+test,test/images/IMG_20220919_134717_jpg.rf.24eb4a72cdb11cf3b093d6a5716fa135.jpg,IMG_20220919_134717_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:47:17,1,0,0,1,0,Oidio,0,g033,0,1,valid
+train,train/images/IMG_20220919_134729_jpg.rf.94336e129ffed99d82167ebef09fb98c.jpg,IMG_20220919_134729_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:47:29,1,0,0,1,0,Oidio,0,g034,0,2,train
+train,train/images/IMG_20220919_134733_jpg.rf.57a37f2e6b6cec322855fb6f7b2cd8f9.jpg,IMG_20220919_134733_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:47:33,1,0,0,1,0,Oidio,0,g034,0,2,train
+valid,valid/images/IMG_20220919_134832_jpg.rf.ee545042bc545788b4e29d13ec7a76a8.jpg,IMG_20220919_134832_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:48:32,1,0,0,0,1,Sana,0,g035,0,2,valid
+valid,valid/images/IMG_20220919_134839_jpg.rf.de37c24778dff85cf09182e9c7247206.jpg,IMG_20220919_134839_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:48:39,1,0,0,0,1,Sana,0,g035,0,2,valid
+test,test/images/IMG_20220919_134857_jpg.rf.3f4f17250ff6804e9d9dcc2d546d8826.jpg,IMG_20220919_134857_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:48:57,1,0,1,0,0,Heliothis,0,g036,1,3,test
+train,train/images/IMG_20220919_134902_jpg.rf.8a8ed72cfd5c482ab557c57da15a06f0.jpg,IMG_20220919_134902_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:49:02,1,0,1,0,0,Heliothis,0,g036,1,3,test
+train,train/images/IMG_20220919_134906_jpg.rf.6bcd4f60cdc152b60f4f23b521f45f8b.jpg,IMG_20220919_134906_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:49:06,1,0,1,0,0,Heliothis,0,g036,1,3,test
+train,train/images/IMG_20220919_134947_jpg.rf.1a34c00125fd61a43ae5556b21267c87.jpg,IMG_20220919_134947_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:49:47,1,0,1,0,0,Heliothis,0,g037,0,1,train
+train,train/images/IMG_20220919_135049_jpg.rf.39ed5101fcc0e71e7a304262e33ad777.jpg,IMG_20220919_135049_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:50:49,1,0,1,0,0,Heliothis,0,g038,1,3,train
+test,test/images/IMG_20220919_135052_jpg.rf.d62c021d9c0a6b61ee3a7c96e9e4afbb.jpg,IMG_20220919_135052_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:50:52,2,0,2,0,0,Heliothis,0,g038,1,3,train
+train,train/images/IMG_20220919_135055_jpg.rf.74cbadfb642e97ebfacda898cbf404e2.jpg,IMG_20220919_135055_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:50:55,1,0,1,0,0,Heliothis,0,g038,1,3,train
+valid,valid/images/IMG_20220919_135109_jpg.rf.0c67a6868ed64cd279981a0d5f782b34.jpg,IMG_20220919_135109_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:51:09,1,0,1,0,0,Heliothis,0,g039,1,2,train
+train,train/images/IMG_20220919_135115_jpg.rf.bd57715fe19d46b1fff68e08af25eb5a.jpg,IMG_20220919_135115_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:51:15,1,0,1,0,0,Heliothis,0,g039,1,2,train
+train,train/images/IMG_20220919_135326_jpg.rf.52c0bb895c6efada9eec591306535c5b.jpg,IMG_20220919_135326_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:53:26,1,0,1,0,0,Heliothis,0,g040,0,3,train
+train,train/images/IMG_20220919_135331_jpg.rf.14a914c1c61e7c93c2184638f400ce67.jpg,IMG_20220919_135331_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:53:31,2,0,2,0,0,Heliothis,0,g040,0,3,train
+train,train/images/IMG_20220919_135337_jpg.rf.e82f17f48695ce37e7324353438a68db.jpg,IMG_20220919_135337_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:53:37,1,0,1,0,0,Heliothis,0,g040,0,3,train
+valid,valid/images/IMG_20220919_135416_jpg.rf.d8472d7d2df315468d4e82c4a1c0b7c7.jpg,IMG_20220919_135416_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:54:16,1,0,1,0,0,Heliothis,0,g041,1,7,train
+test,test/images/IMG_20220919_135420_jpg.rf.319984c6305510df5ba86189449dca8b.jpg,IMG_20220919_135420_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:54:20,1,0,1,0,0,Heliothis,0,g041,1,7,train
+train,train/images/IMG_20220919_135425_jpg.rf.6b3720c847d3a0e161d46fe3a917145c.jpg,IMG_20220919_135425_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:54:25,1,0,1,0,0,Heliothis,0,g041,1,7,train
+train,train/images/IMG_20220919_135431_jpg.rf.ef969c1d71621e9cf820db7d35fb6e62.jpg,IMG_20220919_135431_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:54:31,1,0,1,0,0,Heliothis,0,g041,1,7,train
+train,train/images/IMG_20220919_135433_jpg.rf.a191c7d326ca95c2e4e40684c415127f.jpg,IMG_20220919_135433_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:54:33,1,0,1,0,0,Heliothis,0,g041,1,7,train
+train,train/images/IMG_20220919_135437_jpg.rf.31ddaa509a98072a561c214bb8d25b27.jpg,IMG_20220919_135437_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:54:37,1,0,1,0,0,Heliothis,0,g041,1,7,train
+train,train/images/IMG_20220919_135439_jpg.rf.6557e827cb17df37841b5ea3ac3702ef.jpg,IMG_20220919_135439_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:54:39,1,0,1,0,0,Heliothis,0,g041,1,7,train
+test,test/images/IMG_20220919_135537_jpg.rf.2f3eeb7c10bfe626041d2ac851f77c22.jpg,IMG_20220919_135537_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:55:37,1,0,0,1,0,Oidio,0,g042,1,2,valid
+train,train/images/IMG_20220919_135546_jpg.rf.e6e3f52916a0bc22e70a0696c14be417.jpg,IMG_20220919_135546_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:55:46,1,0,0,1,0,Oidio,0,g042,1,2,valid
+train,train/images/IMG_20220919_135609_jpg.rf.44d6abac87026df61a5577b1dc6787e2.jpg,IMG_20220919_135609_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:56:09,1,0,0,1,0,Oidio,0,g043,0,1,train
+train,train/images/IMG_20220919_135635_jpg.rf.244ddf7cf34a31487e98c3c41ac7c99e.jpg,IMG_20220919_135635_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:56:35,1,0,1,0,0,Heliothis,0,g044,0,1,train
+train,train/images/IMG_20220919_135706_jpg.rf.508e1fc1c38a1795ce27f9c1e4a33ca2.jpg,IMG_20220919_135706_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:57:06,1,0,0,1,0,Oidio,0,g045,0,1,test
+train,train/images/IMG_20220919_135736_jpg.rf.4e72747fa242f3682334e956d38e8568.jpg,IMG_20220919_135736_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:57:36,1,0,0,1,0,Oidio,0,g046,0,1,test
+train,train/images/IMG_20220919_135748_jpg.rf.d4607713c0d2ff5185b8eb9d9c78af37.jpg,IMG_20220919_135748_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:57:48,1,0,0,1,0,Oidio,0,g047,0,3,train
+train,train/images/IMG_20220919_135753_jpg.rf.76f04d2dff2b9e65592b3505292817b4.jpg,IMG_20220919_135753_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:57:53,1,0,0,1,0,Oidio,0,g047,0,3,train
+train,train/images/IMG_20220919_135756_jpg.rf.c72b12f9b7febef9f507611ece6d3009.jpg,IMG_20220919_135756_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:57:56,1,0,0,1,0,Oidio,0,g047,0,3,train
+test,test/images/IMG_20220919_135859_jpg.rf.6814949168a7275b8f5e010d1a39ac0f.jpg,IMG_20220919_135859_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:58:59,1,0,1,0,0,Heliothis,0,g048,0,1,train
+train,train/images/IMG_20220919_135926_jpg.rf.44e0df6a95bc1e1d58ef81f821a00282.jpg,IMG_20220919_135926_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T13:59:26,1,0,1,0,0,Heliothis,0,g049,0,1,valid
+train,train/images/IMG_20220919_140631_jpg.rf.e7307fb06e6f02983008e32c02252664.jpg,IMG_20220919_140631_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:06:31,1,0,1,0,0,Heliothis,0,g050,0,1,train
+train,train/images/IMG_20220919_140652_jpg.rf.eb887fab1a7432a87e3c301c88ad311a.jpg,IMG_20220919_140652_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:06:52,1,0,1,0,0,Heliothis,0,g051,0,1,train
+train,train/images/IMG_20220919_140710_jpg.rf.b91008a0fd75c0a61d2f801c60630973.jpg,IMG_20220919_140710_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:07:10,1,0,1,0,0,Heliothis,0,g052,1,3,valid
+train,train/images/IMG_20220919_140716_jpg.rf.4847794e16583f48ebdb496869ae9ff6.jpg,IMG_20220919_140716_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:07:16,1,0,1,0,0,Heliothis,0,g052,1,3,valid
+valid,valid/images/IMG_20220919_140720_jpg.rf.f196014e5ca89caf0c7246ee402c683b.jpg,IMG_20220919_140720_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:07:20,1,0,1,0,0,Heliothis,0,g052,1,3,valid
+train,train/images/IMG_20220919_141018_jpg.rf.418555c455bc78f0f4f8a261ba8247da.jpg,IMG_20220919_141018_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:10:18,1,0,1,0,0,Heliothis,0,g053,0,1,test
+test,test/images/IMG_20220919_141150_jpg.rf.c93d7d32b2f7b8e2e62c764d0701dccb.jpg,IMG_20220919_141150_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:11:50,1,0,1,0,0,Heliothis,0,g054,1,2,train
+train,train/images/IMG_20220919_141158_jpg.rf.b589c1f5f9d83520f3b6a59e98ab9a32.jpg,IMG_20220919_141158_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:11:58,1,0,1,0,0,Heliothis,0,g054,1,2,train
+train,train/images/IMG_20220919_141234_jpg.rf.5b253f6e0ea67589fc08f3057d9da345.jpg,IMG_20220919_141234_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:12:34,1,0,1,0,0,Heliothis,0,g055,0,1,train
+train,train/images/IMG_20220919_144017_jpg.rf.3dd01c3cacf27ae32d6397494d81d2d8.jpg,IMG_20220919_144017_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:40:17,1,0,1,0,0,Heliothis,0,g056,1,4,test
+train,train/images/IMG_20220919_144022_jpg.rf.3e2fac33a0ef8340276a2b4e74528d65.jpg,IMG_20220919_144022_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:40:22,1,0,1,0,0,Heliothis,0,g056,1,4,test
+valid,valid/images/IMG_20220919_144025_jpg.rf.6468a11698eec7de8e8011f47d49ef05.jpg,IMG_20220919_144025_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:40:25,1,0,1,0,0,Heliothis,0,g056,1,4,test
+train,train/images/IMG_20220919_144031_jpg.rf.3adc3765d3f20b6e85e2b3e24603aa5f.jpg,IMG_20220919_144031_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:40:31,1,0,1,0,0,Heliothis,0,g056,1,4,test
+train,train/images/IMG_20220919_144046_jpg.rf.f78c63cecfc69cf1234a30846d6a2a1e.jpg,IMG_20220919_144046_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:40:46,1,0,0,0,1,Sana,0,g057,0,3,train
+train,train/images/IMG_20220919_144050_jpg.rf.c8ad1b6c85ca4e776280c740e48bb956.jpg,IMG_20220919_144050_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:40:50,1,0,0,0,1,Sana,0,g057,0,3,train
+train,train/images/IMG_20220919_144056_jpg.rf.f72eac8166fcccd35bea7e95e067ee21.jpg,IMG_20220919_144056_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:40:56,1,0,0,0,1,Sana,0,g057,0,3,train
+train,train/images/IMG_20220919_144337_jpg.rf.95c15bd8076d45332407101da4c74f1a.jpg,IMG_20220919_144337_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:43:37,1,0,0,0,1,Sana,0,g058,1,2,train
+valid,valid/images/IMG_20220919_144344_jpg.rf.a17dc4a81849ec2efafb8315dd7c65e6.jpg,IMG_20220919_144344_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:43:44,1,0,0,0,1,Sana,0,g058,1,2,train
+train,train/images/IMG_20220919_144356_jpg.rf.2d53f9137a7861a6e0a6560fdb4d42bf.jpg,IMG_20220919_144356_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:43:56,1,0,0,0,1,Sana,0,g059,0,3,train
+train,train/images/IMG_20220919_144400_jpg.rf.81b783799ee1df5bb14c45ed5b3bcf68.jpg,IMG_20220919_144400_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:44:00,3,0,0,0,3,Sana,0,g059,0,3,train
+train,train/images/IMG_20220919_144404_jpg.rf.662ee306137ead0799ba236e48ddec75.jpg,IMG_20220919_144404_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:44:04,1,0,0,0,1,Sana,0,g059,0,3,train
+train,train/images/IMG_20220919_144444_jpg.rf.859de00b100b687096130d7e35aac2b8.jpg,IMG_20220919_144444_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:44:44,2,0,0,2,0,Oidio,0,g060,0,2,train
+train,train/images/IMG_20220919_144446_jpg.rf.f2a3ef5ff4e4bb5a4a1e6dc0d8f04e94.jpg,IMG_20220919_144446_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:44:46,2,0,0,2,0,Oidio,0,g060,0,2,train
+train,train/images/IMG_20220919_144459_jpg.rf.c4e8feded34a16f17bb49d7414e988de.jpg,IMG_20220919_144459_jpg,IMG_ (Huawei Y7 2019? inferido),2022-09-19T14:44:59,1,0,1,0,0,Heliothis,0,g061,0,1,test
+train,train/images/20220919_123511_jpg.rf.231cd41fe1e0926971df876c24e815c3.jpg,20220919_123511_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:35:11,1,0,0,0,1,Sana,0,g062,0,3,train
+train,train/images/20220919_123515_jpg.rf.9821bd8641357948890bf79d56abd065.jpg,20220919_123515_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:35:15,1,0,0,0,1,Sana,0,g062,0,3,train
+train,train/images/20220919_123521_jpg.rf.d561b1af89d0afc3a2db71c9192b0ba7.jpg,20220919_123521_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:35:21,1,0,0,0,1,Sana,0,g062,0,3,train
+train,train/images/20220919_123534_jpg.rf.d1b6863efc061f84bc348bef75537c86.jpg,20220919_123534_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:35:34,1,0,0,1,0,Oidio,0,g063,1,4,test
+valid,valid/images/20220919_123544_jpg.rf.ba698b0398bfde417e29b7ec3547548b.jpg,20220919_123544_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:35:44,1,0,0,1,0,Oidio,0,g063,1,4,test
+train,train/images/20220919_123547_jpg.rf.711378694f669cde5d885219ba89a291.jpg,20220919_123547_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:35:47,1,0,0,1,0,Oidio,0,g063,1,4,test
+train,train/images/20220919_123549_jpg.rf.8e979c8447fe713b53153897e92050d1.jpg,20220919_123549_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:35:49,1,0,0,1,0,Oidio,0,g063,1,4,test
+train,train/images/20220919_123612_jpg.rf.b06817d776ad57d2cdebdcf8a361ecfc.jpg,20220919_123612_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:36:12,1,0,0,1,0,Oidio,0,g064,1,2,train
+test,test/images/20220919_123617_jpg.rf.d0431c50ce5d476f48358961459b17a2.jpg,20220919_123617_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:36:17,1,0,0,1,0,Oidio,0,g064,1,2,train
+train,train/images/20220919_124023_jpg.rf.01edd0a7e29da2b88bf614fdaef99b62.jpg,20220919_124023_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:40:23,1,0,0,0,1,Sana,0,g065,0,2,train
+train,train/images/20220919_124027_jpg.rf.d4b5cf79d43cfb3bb94213e4d81d3af4.jpg,20220919_124027_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:40:27,1,0,0,0,1,Sana,0,g065,0,2,train
+train,train/images/20220919_124052_jpg.rf.8d2809a76f9ccff981e7925beeebc11f.jpg,20220919_124052_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:40:52,1,0,0,1,0,Oidio,0,g066,0,2,train
+train,train/images/20220919_124053_jpg.rf.e2c72f53eae4d8b7fcb947cad9a0485a.jpg,20220919_124053_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:40:53,1,0,0,1,0,Oidio,0,g066,0,2,train
+train,train/images/20220919_124228_jpg.rf.952dd473c47db4a4153e13f94d93065a.jpg,20220919_124228_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:42:28,1,0,0,1,0,Oidio,0,g067,1,6,train
+train,train/images/20220919_124231_jpg.rf.1fcba5f7aef55634ca1915fd3f5d0d05.jpg,20220919_124231_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:42:31,1,0,0,1,0,Oidio,0,g067,1,6,train
+train,train/images/20220919_124233_jpg.rf.6f3609e706ce336ba1617c8309f2c859.jpg,20220919_124233_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:42:33,1,0,0,1,0,Oidio,0,g067,1,6,train
+valid,valid/images/20220919_124241_jpg.rf.0ef77dc8186337c92abb12e3be89551c.jpg,20220919_124241_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:42:41,1,0,0,1,0,Oidio,0,g067,1,6,train
+train,train/images/20220919_124244_jpg.rf.218e78d375beedeeb46bee314244b031.jpg,20220919_124244_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:42:44,1,0,0,1,0,Oidio,0,g067,1,6,train
+valid,valid/images/20220919_124247_jpg.rf.951b99f4cbcdddd99036b3b09461a287.jpg,20220919_124247_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:42:47,1,0,0,1,0,Oidio,0,g067,1,6,train
+train,train/images/20220919_124258_jpg.rf.a677b12c0e1294589eb0aa710b564418.jpg,20220919_124258_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:42:58,1,1,0,0,0,Alternaria,0,g068,1,3,train
+test,test/images/20220919_124259_jpg.rf.64a865085e796e7900413ec39389a81e.jpg,20220919_124259_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:42:59,1,1,0,0,0,Alternaria,0,g068,1,3,train
+valid,valid/images/20220919_124301_jpg.rf.f3c7d77cef8178cdcf0e15a3d2a46bf0.jpg,20220919_124301_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:43:01,1,1,0,0,0,Alternaria,0,g068,1,3,train
+test,test/images/20220919_124649_jpg.rf.ae5ba17f9c8869e0ea1758ae7896803f.jpg,20220919_124649_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:46:49,1,0,0,0,1,Sana,0,g069,1,3,train
+train,train/images/20220919_124651_jpg.rf.1ec944c6710610ad3c3422d96bd57c52.jpg,20220919_124651_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:46:51,1,0,0,0,1,Sana,0,g069,1,3,train
+train,train/images/20220919_124652_jpg.rf.67812b8ad693e45ae9c437114989c706.jpg,20220919_124652_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:46:52,1,0,0,0,1,Sana,0,g069,1,3,train
+train,train/images/20220919_124719_jpg.rf.65b94c2d6d5ead7e39d57dc8f23c9c08.jpg,20220919_124719_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:47:19,1,0,0,0,1,Sana,0,g070,0,2,train
+train,train/images/20220919_124721_jpg.rf.c49021fb1042706f550d9000a2c851fc.jpg,20220919_124721_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:47:21,1,0,0,0,1,Sana,0,g070,0,2,train
+train,train/images/20220919_125213_jpg.rf.c544677b9b6b2d44eebe256ff9af2a20.jpg,20220919_125213_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:52:13,1,0,0,1,0,Oidio,0,g071,0,2,valid
+train,train/images/20220919_125215_jpg.rf.edddbeab6e955a26513c10d1f965b9fa.jpg,20220919_125215_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:52:15,1,0,0,1,0,Oidio,0,g071,0,2,valid
+test,test/images/20220919_125231_jpg.rf.cc7a99a084afd2207dbd2571dd8d317d.jpg,20220919_125231_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:52:31,1,0,0,1,0,Oidio,0,g072,0,1,train
+train,train/images/20220919_125256_jpg.rf.1dc869f0a3812edbb6fc72e9895dd1c7.jpg,20220919_125256_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:52:56,1,0,0,1,0,Oidio,0,g073,0,1,valid
+train,train/images/20220919_125315_jpg.rf.5acbb3c2e608463689e4f73e43e9cbcb.jpg,20220919_125315_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:53:15,1,0,0,1,0,Oidio,0,g074,1,8,train
+train,train/images/20220919_125318_jpg.rf.ddcc4e62a53f2419bd9b5bba869e5784.jpg,20220919_125318_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:53:18,1,0,0,1,0,Oidio,0,g074,1,8,train
+valid,valid/images/20220919_125323_jpg.rf.ce81662319282d88f8700404f1131cdf.jpg,20220919_125323_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:53:23,1,0,0,1,0,Oidio,0,g074,1,8,train
+train,train/images/20220919_125324_jpg.rf.6dbbb6f23282bcb88875bf9d1041050b.jpg,20220919_125324_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:53:24,1,0,0,1,0,Oidio,0,g074,1,8,train
+train,train/images/20220919_125330_jpg.rf.4be89985aab9b0638fa1b97c00996d15.jpg,20220919_125330_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:53:30,1,0,0,0,1,Sana,0,g074,1,8,train
+train,train/images/20220919_125331_jpg.rf.4ab17927e363625c15476cf82e09a513.jpg,20220919_125331_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:53:31,1,0,0,0,1,Sana,0,g074,1,8,train
+test,test/images/20220919_125337_jpg.rf.507e078daaeada5a80b5e9e2d8ae099e.jpg,20220919_125337_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:53:37,1,0,0,0,1,Sana,0,g074,1,8,train
+valid,valid/images/20220919_125338_jpg.rf.37b235759c228bc850acf629e07600b8.jpg,20220919_125338_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:53:38,1,0,0,0,1,Sana,0,g074,1,8,train
+train,train/images/20220919_125525_jpg.rf.5d2670e16f801e8c8a124365faf9d02b.jpg,20220919_125525_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:55:25,5,5,0,0,0,Alternaria,0,g075,0,3,train
+train,train/images/20220919_125527_jpg.rf.295e8af4e49bc8ba6d49e93a102f0a89.jpg,20220919_125527_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:55:27,3,3,0,0,0,Alternaria,0,g075,0,3,train
+train,train/images/20220919_125530_jpg.rf.8823ee64dd0f819609319f033fbead6b.jpg,20220919_125530_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:55:30,4,4,0,0,0,Alternaria,0,g075,0,3,train
+train,train/images/20220919_125552_jpg.rf.995a8ae5e6f07a0f42e304f088b66701.jpg,20220919_125552_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:55:52,3,0,0,3,0,Oidio,0,g076,0,8,train
+train,train/images/20220919_125555_jpg.rf.ec47a22932f4f6b6395c242bf7981625.jpg,20220919_125555_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:55:55,2,0,0,2,0,Oidio,0,g076,0,8,train
+train,train/images/20220919_125559_jpg.rf.69177cd1e75c1e55ca131c07986b6b54.jpg,20220919_125559_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:55:59,2,0,0,2,0,Oidio,0,g076,0,8,train
+train,train/images/20220919_125601_jpg.rf.a3f4682ddb6f962189c19924b7d433f5.jpg,20220919_125601_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:56:01,2,0,0,2,0,Oidio,0,g076,0,8,train
+train,train/images/20220919_125610_jpg.rf.73041adfb498c2c6c4ee5df76a58d652.jpg,20220919_125610_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:56:10,1,0,0,1,0,Oidio,0,g076,0,8,train
+train,train/images/20220919_125611_jpg.rf.4c8fac652631af6d0e3439248397fd45.jpg,20220919_125611_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:56:11,1,0,0,1,0,Oidio,0,g076,0,8,train
+train,train/images/20220919_125613_jpg.rf.0c85f9a05abde9f6a874045dd58fed0e.jpg,20220919_125613_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:56:13,1,0,0,1,0,Oidio,0,g076,0,8,train
+train,train/images/20220919_125615_jpg.rf.b3c8268c97dc116a86c64a9c98567555.jpg,20220919_125615_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:56:15,1,0,0,1,0,Oidio,0,g076,0,8,train
+train,train/images/20220919_125633_jpg.rf.96bd80dd236c05a9228af62439ca809d.jpg,20220919_125633_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:56:33,1,0,0,0,1,Sana,0,g077,1,3,valid
+test,test/images/20220919_125634_jpg.rf.32c87e1c8b46803cd83096dccf5c7076.jpg,20220919_125634_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:56:34,1,0,0,0,1,Sana,0,g077,1,3,valid
+train,train/images/20220919_125637_jpg.rf.2161048c3efe1e448290175c0fff882e.jpg,20220919_125637_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:56:37,1,0,0,0,1,Sana,0,g077,1,3,valid
+valid,valid/images/20220919_125823_jpg.rf.663c94aed2981722fc94ff767d0568ac.jpg,20220919_125823_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:58:23,1,0,0,1,0,Oidio,0,g078,1,3,train
+train,train/images/20220919_125824_jpg.rf.e9ca93e52e2f0e6aa6a85f03b53aad34.jpg,20220919_125824_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:58:24,1,0,0,1,0,Oidio,0,g078,1,3,train
+train,train/images/20220919_125826_jpg.rf.a8f4a691f6720da456d04a8c73647bbf.jpg,20220919_125826_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T12:58:26,1,0,0,1,0,Oidio,0,g078,1,3,train
+train,train/images/20220919_130010_jpg.rf.905723085865877f8d4c5276973965c9.jpg,20220919_130010_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:00:10,1,0,0,0,1,Sana,0,g079,1,5,test
+train,train/images/20220919_130012_jpg.rf.d31f53499e2d9e7b5be5ca6df04f1919.jpg,20220919_130012_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:00:12,1,0,0,0,1,Sana,0,g079,1,5,test
+train,train/images/20220919_130014_jpg.rf.8513c477fa6ec56199d2911e7babfe69.jpg,20220919_130014_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:00:14,1,0,0,0,1,Sana,0,g079,1,5,test
+valid,valid/images/20220919_130019_jpg.rf.3023cf95ed98a748680e3e39f8e3c16d.jpg,20220919_130019_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:00:19,1,0,0,1,0,Oidio,0,g079,1,5,test
+train,train/images/20220919_130021_jpg.rf.62ba7f5d37fddc873c881680a3037771.jpg,20220919_130021_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:00:21,1,0,0,1,0,Oidio,0,g079,1,5,test
+train,train/images/20220919_130219_jpg.rf.53436ee60d9e0db97c049d505a107bb4.jpg,20220919_130219_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:19,3,3,0,0,0,Alternaria,0,g080,1,10,valid
+train,train/images/20220919_130220_jpg.rf.bcc1c7c8f101626db59bea4edeaaf2a5.jpg,20220919_130220_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:20,3,3,0,0,0,Alternaria,0,g080,1,10,valid
+train,train/images/20220919_130222_jpg.rf.c30fcaff4ac968ff07f881821c9fc402.jpg,20220919_130222_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:22,3,3,0,0,0,Alternaria,0,g080,1,10,valid
+train,train/images/20220919_130230_jpg.rf.82bcb973e28fa3fb2a5e1436dc31a116.jpg,20220919_130230_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:30,2,2,0,0,0,Alternaria,0,g080,1,10,valid
+train,train/images/20220919_130232_jpg.rf.488b60393d37dbf126d8517e1ca4074e.jpg,20220919_130232_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:32,3,3,0,0,0,Alternaria,0,g080,1,10,valid
+train,train/images/20220919_130233_jpg.rf.52f7997df3d02d56910010f9df6a704e.jpg,20220919_130233_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:33,2,2,0,0,0,Alternaria,0,g080,1,10,valid
+valid,valid/images/20220919_130236_jpg.rf.7cc8e43ba209c867fb4292d0af834b8c.jpg,20220919_130236_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:36,2,2,0,0,0,Alternaria,0,g080,1,10,valid
+test,test/images/20220919_130244_jpg.rf.5452c46d2d7e914ed4450db6ed9124ed.jpg,20220919_130244_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:44,2,2,0,0,0,Alternaria,0,g080,1,10,valid
+train,train/images/20220919_130246_jpg.rf.0199c908a776a94f64bd824774e7d868.jpg,20220919_130246_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:46,2,2,0,0,0,Alternaria,0,g080,1,10,valid
+train,train/images/20220919_130248_jpg.rf.74bb70bacb675bfcf4e4cc089a9a5198.jpg,20220919_130248_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:02:48,2,2,0,0,0,Alternaria,0,g080,1,10,valid
+train,train/images/20220919_130407_jpg.rf.1d2b2d0b6edd2eec989e6e3cfb35c99f.jpg,20220919_130407_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:04:07,2,2,0,0,0,Alternaria,0,g081,0,3,train
+train,train/images/20220919_130408_jpg.rf.23ecba61139ea3cb53f278f73daf34a9.jpg,20220919_130408_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:04:08,4,4,0,0,0,Alternaria,0,g081,0,3,train
+train,train/images/20220919_130418_jpg.rf.e3cc8d87d89a99c726b4e6733d283c69.jpg,20220919_130418_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:04:18,4,4,0,0,0,Alternaria,0,g081,0,3,train
+valid,valid/images/20220919_130446_jpg.rf.f7ddc23aa0ff1ee5e5b3f80282b03e62.jpg,20220919_130446_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:04:46,6,6,0,0,0,Alternaria,0,g082,1,3,train
+train,train/images/20220919_130448_jpg.rf.ac84b935f84dd18236668056a5bd4405.jpg,20220919_130448_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:04:48,5,5,0,0,0,Alternaria,0,g082,1,3,train
+train,train/images/20220919_130450_jpg.rf.9f8fccc41b1dfab6af45a2abbef03e60.jpg,20220919_130450_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:04:50,5,5,0,0,0,Alternaria,0,g082,1,3,train
+train,train/images/20220919_130507_jpg.rf.3303ce6f28ffc63af125d459e0b3ca56.jpg,20220919_130507_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:07,4,4,0,0,0,Alternaria,0,g083,1,8,test
+train,train/images/20220919_130509_jpg.rf.0162b40be8e66aa47a2650856bc81843.jpg,20220919_130509_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:09,4,4,0,0,0,Alternaria,0,g083,1,8,test
+train,train/images/20220919_130512_jpg.rf.b0ff9d46389f8911f35e7b811c61a155.jpg,20220919_130512_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:12,4,4,0,0,0,Alternaria,0,g083,1,8,test
+train,train/images/20220919_130513_jpg.rf.d77ac8d93e411fd2e9e463ebb27f8353.jpg,20220919_130513_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:13,4,4,0,0,0,Alternaria,0,g083,1,8,test
+train,train/images/20220919_130514_jpg.rf.858c918c939bbeeff15d0a9464cb4ec7.jpg,20220919_130514_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:14,4,4,0,0,0,Alternaria,0,g083,1,8,test
+train,train/images/20220919_130523_jpg.rf.b96b1df030e0cc82039ecf97d87b0c53.jpg,20220919_130523_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:23,5,5,0,0,0,Alternaria,0,g083,1,8,test
+valid,valid/images/20220919_130525_jpg.rf.05d2d5cb440661e7e694a49167c700c7.jpg,20220919_130525_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:25,4,4,0,0,0,Alternaria,0,g083,1,8,test
+train,train/images/20220919_130526_jpg.rf.0aaab202562ff682d91fa382d229b787.jpg,20220919_130526_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:26,7,7,0,0,0,Alternaria,0,g083,1,8,test
+test,test/images/20220919_130548_jpg.rf.7dd500e50816f405dd2fd0b8d7b849c1.jpg,20220919_130548_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:48,6,6,0,0,0,Alternaria,0,g084,1,3,train
+train,train/images/20220919_130552_jpg.rf.6952405b8dae9f86f4bdf7d39aba66a9.jpg,20220919_130552_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:52,6,6,0,0,0,Alternaria,0,g084,1,3,train
+train,train/images/20220919_130554_jpg.rf.40c7824b9916509f796e8e5c35757857.jpg,20220919_130554_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:05:54,6,6,0,0,0,Alternaria,0,g084,1,3,train
+train,train/images/20220919_130624_jpg.rf.3369a51d63b87bf4ed0e7947fcaa17a0.jpg,20220919_130624_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:06:24,4,4,0,0,0,Alternaria,0,g085,1,3,train
+test,test/images/20220919_130625_jpg.rf.ec1c39c7a592824e88167d64d3ca9166.jpg,20220919_130625_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:06:25,5,5,0,0,0,Alternaria,0,g085,1,3,train
+train,train/images/20220919_130626_jpg.rf.465390a745dcc4af405c1d1b8e4e9d6a.jpg,20220919_130626_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:06:26,4,4,0,0,0,Alternaria,0,g085,1,3,train
+train,train/images/20220919_130703_jpg.rf.a6766988e01425dd421179d848688332.jpg,20220919_130703_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:07:03,1,0,0,1,0,Oidio,0,g086,1,9,train
+train,train/images/20220919_130705_jpg.rf.c56bfa04e72f0858c39272aec0c7e4a8.jpg,20220919_130705_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:07:05,1,0,0,1,0,Oidio,0,g086,1,9,train
+train,train/images/20220919_130707_jpg.rf.a31cbaa31835519b9b07bae7e4b13286.jpg,20220919_130707_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:07:07,1,0,0,1,0,Oidio,0,g086,1,9,train
+train,train/images/20220919_130708_jpg.rf.5fc3a6c37bac45eb17d2ac3f0b61d2e4.jpg,20220919_130708_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:07:08,1,0,0,1,0,Oidio,0,g086,1,9,train
+train,train/images/20220919_130710_jpg.rf.38c5e2236a9e0fd993c4a1cb54f12c2e.jpg,20220919_130710_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:07:10,1,0,0,1,0,Oidio,0,g086,1,9,train
+train,train/images/20220919_130717_jpg.rf.a1d9cc76b23b261fa2dfbd3ed438d823.jpg,20220919_130717_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:07:17,1,0,0,1,0,Oidio,0,g086,1,9,train
+test,test/images/20220919_130719_jpg.rf.46c16fa0dec249b7430ffe1003981cc6.jpg,20220919_130719_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:07:19,1,0,0,1,0,Oidio,0,g086,1,9,train
+train,train/images/20220919_130720_jpg.rf.e8d314a4f9d0adda7191070be1dd82b2.jpg,20220919_130720_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:07:20,1,0,0,1,0,Oidio,0,g086,1,9,train
+test,test/images/20220919_130722_jpg.rf.5729d125d64d867163f2fd0d8102587f.jpg,20220919_130722_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:07:22,1,0,0,1,0,Oidio,0,g086,1,9,train
+train,train/images/20220919_130828_jpg.rf.1ce96507a3d49bee7451724e37f5dcae.jpg,20220919_130828_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:08:28,1,0,0,1,0,Oidio,0,g087,0,7,test
+train,train/images/20220919_130830_jpg.rf.8c8fc8433b763d06a24257776bac3735.jpg,20220919_130830_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:08:30,1,0,0,1,0,Oidio,0,g087,0,7,test
+train,train/images/20220919_130831_jpg.rf.b6a462fac8a4334593e5e12c9074d68d.jpg,20220919_130831_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:08:31,1,0,0,1,0,Oidio,0,g087,0,7,test
+train,train/images/20220919_130832_jpg.rf.f99314a3aee9ae404de1844df5871b50.jpg,20220919_130832_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:08:32,1,0,0,1,0,Oidio,0,g087,0,7,test
+train,train/images/20220919_130834_jpg.rf.f60757e8c529b2849a48dc071cab165f.jpg,20220919_130834_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:08:34,1,0,0,1,0,Oidio,0,g087,0,7,test
+train,train/images/20220919_130836_jpg.rf.88dabf88596596b92a3b484650e94bcb.jpg,20220919_130836_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:08:36,2,0,0,1,1,Oidio,1,g087,0,7,test
+train,train/images/20220919_130837_jpg.rf.ba83b67b36f2d784e485c96f78f2c59f.jpg,20220919_130837_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:08:37,2,0,0,1,1,Oidio,1,g087,0,7,test
+train,train/images/20220919_131022_jpg.rf.1f9a91641afea3828966f4d341f8378c.jpg,20220919_131022_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:10:22,6,6,0,0,0,Alternaria,0,g088,0,1,train
+test,test/images/20220919_131528_jpg.rf.51db1e420909a95a0ecd3cb529379a51.jpg,20220919_131528_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:15:28,1,0,1,0,0,Heliothis,0,g089,1,6,train
+train,train/images/20220919_131530_jpg.rf.554e7fb13d2fea1e2bfb689be548e6fa.jpg,20220919_131530_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:15:30,1,0,1,0,0,Heliothis,0,g089,1,6,train
+train,train/images/20220919_131532_jpg.rf.6086b918c5dc0a1d25820bd83f3b1bea.jpg,20220919_131532_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:15:32,1,0,1,0,0,Heliothis,0,g089,1,6,train
+valid,valid/images/20220919_131533_jpg.rf.368d6eed80fed74ce5fd11799a65dd30.jpg,20220919_131533_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:15:33,1,0,1,0,0,Heliothis,0,g089,1,6,train
+train,train/images/20220919_131541_jpg.rf.aadf0eda73fcbab96c7e9c77a9aed155.jpg,20220919_131541_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:15:41,1,0,1,0,0,Heliothis,0,g089,1,6,train
+train,train/images/20220919_131543_jpg.rf.40adab9cd7ec2de58a03222aa1edf961.jpg,20220919_131543_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:15:43,1,0,1,0,0,Heliothis,0,g089,1,6,train
+train,train/images/20220919_131604_jpg.rf.a81785bbe2176692b5e591413cad3db9.jpg,20220919_131604_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:04,1,0,1,0,0,Heliothis,0,g090,0,3,valid
+train,train/images/20220919_131606_jpg.rf.acb407ee5e6e907b5dfac39e1fb9e81f.jpg,20220919_131606_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:06,1,0,1,0,0,Heliothis,0,g090,0,3,valid
+train,train/images/20220919_131608_jpg.rf.6b70a279d9582ee67de9a1610285059c.jpg,20220919_131608_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:08,1,0,1,0,0,Heliothis,0,g090,0,3,valid
+train,train/images/20220919_131619_jpg.rf.08da15a084e7a7dbcad6b41b72b80c1c.jpg,20220919_131619_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:19,2,0,2,0,0,Heliothis,0,g091,0,2,train
+train,train/images/20220919_131620_jpg.rf.2ea448108110f5403b08bbc56a1667d0.jpg,20220919_131620_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:20,2,0,2,0,0,Heliothis,0,g091,0,2,train
+train,train/images/20220919_131645_jpg.rf.46330b7866bc7d92e4da55929c005ae9.jpg,20220919_131645_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:45,2,1,0,0,1,Sana,1,g092,1,10,train
+train,train/images/20220919_131646_jpg.rf.f277cf12d5974af4f575c9a003e4d1fc.jpg,20220919_131646_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:46,2,1,0,0,1,Sana,1,g092,1,10,train
+train,train/images/20220919_131647_jpg.rf.c553f8a7a05f1c6546f33a18275012de.jpg,20220919_131647_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:47,2,1,0,0,1,Sana,1,g092,1,10,train
+test,test/images/20220919_131648_jpg.rf.ea141c25e8d428fcfc046a789550eb4f.jpg,20220919_131648_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:48,2,1,0,0,1,Sana,1,g092,1,10,train
+train,train/images/20220919_131654_jpg.rf.dc67d7c741a9f1204aa9404babb8ec62.jpg,20220919_131654_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:54,1,0,0,1,0,Oidio,0,g092,1,10,train
+train,train/images/20220919_131655_jpg.rf.cfd2a79aa4d884036de94d50c7d6ec1f.jpg,20220919_131655_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:55,1,0,0,1,0,Oidio,0,g092,1,10,train
+train,train/images/20220919_131657_jpg.rf.5fe7a8e61203cc510c7b10a2a0408c91.jpg,20220919_131657_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:16:57,1,0,0,1,0,Oidio,0,g092,1,10,train
+valid,valid/images/20220919_131700_jpg.rf.3b093774228dbd7e9afa986aea4646f0.jpg,20220919_131700_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:17:00,1,0,0,1,0,Oidio,0,g092,1,10,train
+train,train/images/20220919_131703_jpg.rf.c6c6b9eae15fb133c50ba94d5db79b21.jpg,20220919_131703_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:17:03,1,0,0,1,0,Oidio,0,g092,1,10,train
+train,train/images/20220919_131704_jpg.rf.e1e9174eaf057a7af010f8241b08e348.jpg,20220919_131704_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:17:04,1,0,0,1,0,Oidio,0,g092,1,10,train
+train,train/images/20220919_131725_jpg.rf.e12558f0d7dc0cd0615730642fd9404c.jpg,20220919_131725_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:17:25,2,1,1,0,0,Heliothis,1,g093,0,3,valid
+train,train/images/20220919_131726_jpg.rf.ed30460cc179c32fcc36fc5bf701464c.jpg,20220919_131726_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:17:26,2,1,1,0,0,Heliothis,1,g093,0,3,valid
+train,train/images/20220919_131728_jpg.rf.19aff7a78124cb123eecbb737784c085.jpg,20220919_131728_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:17:28,2,1,1,0,0,Heliothis,1,g093,0,3,valid
+train,train/images/20220919_131746_jpg.rf.7b2e980f8ddac4520a41b32168bf2587.jpg,20220919_131746_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:17:46,1,0,1,0,0,Heliothis,0,g094,0,3,train
+train,train/images/20220919_131747_jpg.rf.74a99c9d3fa9145181d4d122ce7fb780.jpg,20220919_131747_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:17:47,1,0,1,0,0,Heliothis,0,g094,0,3,train
+train,train/images/20220919_131748_jpg.rf.4a2f80a0ccc8949268a9b8e6014519f9.jpg,20220919_131748_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:17:48,1,0,1,0,0,Heliothis,0,g094,0,3,train
+train,train/images/20220919_131841_jpg.rf.36c1defa6e880813556f54503e3ba7fe.jpg,20220919_131841_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:18:41,8,8,0,0,0,Alternaria,0,g095,1,2,train
+test,test/images/20220919_131843_jpg.rf.013c9d5078a56bae6426ca7e95404429.jpg,20220919_131843_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:18:43,9,9,0,0,0,Alternaria,0,g095,1,2,train
+train,train/images/20220919_131921_jpg.rf.c463a4339cf6be71d72fb3a25b58ac07.jpg,20220919_131921_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:19:21,6,6,0,0,0,Alternaria,0,g096,1,2,valid
+valid,valid/images/20220919_131923_jpg.rf.e6b50e837d187bba21af8a06d2196a11.jpg,20220919_131923_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:19:23,6,6,0,0,0,Alternaria,0,g096,1,2,valid
+train,train/images/20220919_133311_jpg.rf.bfba3a54b07cb47424e530501463325d.jpg,20220919_133311_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:33:11,3,0,0,3,0,Oidio,0,g097,0,2,train
+train,train/images/20220919_133312_jpg.rf.e5e39d7bdda203d0cf7503da08b490cd.jpg,20220919_133312_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:33:12,3,0,0,3,0,Oidio,0,g097,0,2,train
+train,train/images/20220919_133337_jpg.rf.786219eaf985e71161ee4f2da6be367c.jpg,20220919_133337_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:33:37,2,0,0,2,0,Oidio,0,g098,0,3,test
+train,train/images/20220919_133338_jpg.rf.3ad98c082d17564e56ccf568e4c94f16.jpg,20220919_133338_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:33:38,2,0,0,2,0,Oidio,0,g098,0,3,test
+train,train/images/20220919_133339_jpg.rf.cccc7051f76b9f1e0124ebd6dd162438.jpg,20220919_133339_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:33:39,2,0,0,2,0,Oidio,0,g098,0,3,test
+train,train/images/20220919_133350_jpg.rf.080564be205fb62a65656c76f0b627b1.jpg,20220919_133350_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:33:50,2,0,0,2,0,Oidio,0,g099,0,5,test
+train,train/images/20220919_133351_jpg.rf.1ebcd60128f15e31fa92a0bda035a311.jpg,20220919_133351_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:33:51,2,0,0,2,0,Oidio,0,g099,0,5,test
+train,train/images/20220919_133353_jpg.rf.9ee24e7e698cb6cd97a833bcc19c14da.jpg,20220919_133353_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:33:53,2,0,0,2,0,Oidio,0,g099,0,5,test
+train,train/images/20220919_133358_jpg.rf.08362446cc169d2307c79f2cde6e079f.jpg,20220919_133358_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:33:58,2,0,0,2,0,Oidio,0,g099,0,5,test
+train,train/images/20220919_133400_jpg.rf.429a36d01fa07cb75221e1463f318534.jpg,20220919_133400_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:34:00,2,0,0,2,0,Oidio,0,g099,0,5,test
+train,train/images/20220919_133412_jpg.rf.f159e9459ba9b99d1ac8518b1eb37408.jpg,20220919_133412_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:34:12,2,0,2,0,0,Heliothis,0,g100,1,8,test
+train,train/images/20220919_133413_jpg.rf.cff312573f1741b30f5ae93420365897.jpg,20220919_133413_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:34:13,2,0,2,0,0,Heliothis,0,g100,1,8,test
+train,train/images/20220919_133420_jpg.rf.43e5c76568880c5801d8eca24bb5b2fc.jpg,20220919_133420_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:34:20,1,0,1,0,0,Heliothis,0,g100,1,8,test
+test,test/images/20220919_133421_jpg.rf.959eb8583a421d6f5f7ea760b26cb887.jpg,20220919_133421_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:34:21,1,0,1,0,0,Heliothis,0,g100,1,8,test
+train,train/images/20220919_133423_jpg.rf.bc2a649af504b3b68317c1c9f38866c4.jpg,20220919_133423_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:34:23,1,0,1,0,0,Heliothis,0,g100,1,8,test
+train,train/images/20220919_133430_jpg.rf.15758513ba247e830b3f0b616ad937ea.jpg,20220919_133430_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:34:30,2,0,2,0,0,Heliothis,0,g100,1,8,test
+train,train/images/20220919_133431_jpg.rf.8f768c9e2cec291c3e5660bbd4276e5f.jpg,20220919_133431_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:34:31,2,0,2,0,0,Heliothis,0,g100,1,8,test
+train,train/images/20220919_133432_jpg.rf.37df067b5678e2894b7df37faed75901.jpg,20220919_133432_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:34:32,2,0,2,0,0,Heliothis,0,g100,1,8,test
+train,train/images/20220919_133500_jpg.rf.b0cc664542dffbaedef5c3530181dcbb.jpg,20220919_133500_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:35:00,1,0,1,0,0,Heliothis,0,g101,0,2,valid
+train,train/images/20220919_133502_jpg.rf.d9fad4d9abdc89ee6a4113ec5130ce52.jpg,20220919_133502_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:35:02,1,0,1,0,0,Heliothis,0,g101,0,2,valid
+train,train/images/20220919_133514_jpg.rf.e68338672704a8722aeed51351bf1111.jpg,20220919_133514_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:35:14,3,0,3,0,0,Heliothis,0,g102,1,6,valid
+train,train/images/20220919_133515_jpg.rf.1b3a8cc2ca29ece598a2bbb395bb3d1c.jpg,20220919_133515_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:35:15,3,0,3,0,0,Heliothis,0,g102,1,6,valid
+valid,valid/images/20220919_133521_jpg.rf.99eaba3024587f35e32112f4a429c6dd.jpg,20220919_133521_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:35:21,2,0,2,0,0,Heliothis,0,g102,1,6,valid
+train,train/images/20220919_133522_jpg.rf.3435829ebed033a5be0ed7a0968edf90.jpg,20220919_133522_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:35:22,2,0,2,0,0,Heliothis,0,g102,1,6,valid
+train,train/images/20220919_133527_jpg.rf.b1cf41c5d62c57a0864d45c1231e5fc2.jpg,20220919_133527_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:35:27,1,0,1,0,0,Heliothis,0,g102,1,6,valid
+valid,valid/images/20220919_133528_jpg.rf.e3b5dd248a646a2c180066d539ceed10.jpg,20220919_133528_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:35:28,1,0,1,0,0,Heliothis,0,g102,1,6,valid
+valid,valid/images/20220919_133642_jpg.rf.81cf4b7d61c43029618c9922fe467424.jpg,20220919_133642_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:36:42,19,19,0,0,0,Alternaria,0,g103,1,3,test
+train,train/images/20220919_133643_jpg.rf.be5c7af090d7f23b02f9db2f85b1bacd.jpg,20220919_133643_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:36:43,18,18,0,0,0,Alternaria,0,g103,1,3,test
+train,train/images/20220919_133644_jpg.rf.3f9b246ef806cce98017e93ca8df4d85.jpg,20220919_133644_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:36:44,18,18,0,0,0,Alternaria,0,g103,1,3,test
+train,train/images/20220919_133817_jpg.rf.eda6b309d6c4223de2d79c027bfef800.jpg,20220919_133817_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:38:17,1,0,1,0,0,Heliothis,0,g104,0,6,train
+train,train/images/20220919_133818_jpg.rf.9070810bd7b8bf8c652398e48882d618.jpg,20220919_133818_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:38:18,1,0,1,0,0,Heliothis,0,g104,0,6,train
+train,train/images/20220919_133822_jpg.rf.05a768659ad83ef78a7ec6ca027535b9.jpg,20220919_133822_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:38:22,1,0,1,0,0,Heliothis,0,g104,0,6,train
+train,train/images/20220919_133828_jpg.rf.f1d1262c0a14a136405c8172913faa59.jpg,20220919_133828_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:38:28,1,0,1,0,0,Heliothis,0,g104,0,6,train
+train,train/images/20220919_133830_jpg.rf.669fbf6b93965866129d0df9dda0959b.jpg,20220919_133830_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:38:30,1,0,1,0,0,Heliothis,0,g104,0,6,train
+train,train/images/20220919_133831_jpg.rf.ceba69d4f38b0f3d108c2d59adb0eea2.jpg,20220919_133831_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:38:31,1,0,1,0,0,Heliothis,0,g104,0,6,train
+train,train/images/20220919_133909_jpg.rf.022bb0ab7ea870630d8a26fdd415e715.jpg,20220919_133909_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:39:09,2,0,2,0,0,Heliothis,0,g105,0,2,valid
+train,train/images/20220919_133911_jpg.rf.cac454f36151c504aed2baa2325a9f52.jpg,20220919_133911_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:39:11,2,0,2,0,0,Heliothis,0,g105,0,2,valid
+train,train/images/20220919_133932_jpg.rf.170c031281cf14c9f72261d4ae0fc900.jpg,20220919_133932_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:39:32,1,0,1,0,0,Heliothis,0,g106,0,3,train
+train,train/images/20220919_133933_jpg.rf.90fb691219a4f0fc4a53b536b37abade.jpg,20220919_133933_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:39:33,1,0,1,0,0,Heliothis,0,g106,0,3,train
+train,train/images/20220919_133934_jpg.rf.17de97c96212e6958cc1bcc12766dc09.jpg,20220919_133934_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:39:34,1,0,1,0,0,Heliothis,0,g106,0,3,train
+train,train/images/20220919_134017_jpg.rf.3e0ad1ec8aaef661a65b314ffde4348b.jpg,20220919_134017_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:40:17,1,0,0,1,0,Oidio,0,g107,0,2,train
+train,train/images/20220919_134018_jpg.rf.6b4bb9872c02bafae3822ef45156707f.jpg,20220919_134018_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:40:18,1,0,0,1,0,Oidio,0,g107,0,2,train
+test,test/images/20220919_134029_jpg.rf.59962922254ccd5da1d791f78f181ccb.jpg,20220919_134029_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:40:29,1,0,0,1,0,Oidio,0,g108,1,6,valid
+train,train/images/20220919_134030_jpg.rf.a20a6d902e7c177a897d34b9cb754a6c.jpg,20220919_134030_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:40:30,1,0,0,1,0,Oidio,0,g108,1,6,valid
+train,train/images/20220919_134038_jpg.rf.b9aac48fbbe5c0a4d7085590ec95f6c7.jpg,20220919_134038_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:40:38,1,0,0,1,0,Oidio,0,g108,1,6,valid
+train,train/images/20220919_134039_jpg.rf.626c1a2b5cde73b2c11d9c0ea7fea540.jpg,20220919_134039_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:40:39,1,0,0,1,0,Oidio,0,g108,1,6,valid
+train,train/images/20220919_134049-0-_jpg.rf.26ebb68addcfcfe763e6c006bac820a8.jpg,20220919_134049-0-_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:40:49,3,0,0,3,0,Oidio,0,g108,1,6,valid
+train,train/images/20220919_134049_jpg.rf.5d3fd2d0eb6dbfb36ab1e2f404437dd5.jpg,20220919_134049_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:40:49,3,0,0,3,0,Oidio,0,g108,1,6,valid
+train,train/images/20220919_134111_jpg.rf.95d40cd67f1d2dff9e9b59fb7a89b914.jpg,20220919_134111_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:41:11,1,0,1,0,0,Heliothis,0,g109,0,2,train
+train,train/images/20220919_134112_jpg.rf.b32d4145ff16c8a69a128ed5dc3f1ee1.jpg,20220919_134112_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:41:12,1,0,1,0,0,Heliothis,0,g109,0,2,train
+test,test/images/20220919_134412_jpg.rf.0e00d541ada66b20f954f0c55511bb6a.jpg,20220919_134412_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:44:12,1,0,0,1,0,Oidio,0,g110,1,2,valid
+train,train/images/20220919_134413_jpg.rf.18192b9d8fc9fbfc2b8e79d91af6aca0.jpg,20220919_134413_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:44:13,1,0,0,1,0,Oidio,0,g110,1,2,valid
+train,train/images/20220919_134534_jpg.rf.86115bd0a4c652dea6ca9d77cf69f7cf.jpg,20220919_134534_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:45:34,1,0,0,1,0,Oidio,0,g111,0,4,train
+train,train/images/20220919_134535_jpg.rf.6064c294fcb3409b500da65c65035a30.jpg,20220919_134535_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:45:35,1,0,0,1,0,Oidio,0,g111,0,4,train
+train,train/images/20220919_134540-0-_jpg.rf.217a0459c288bb02c2c8ad1570b2571f.jpg,20220919_134540-0-_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:45:40,2,0,0,2,0,Oidio,0,g111,0,4,train
+train,train/images/20220919_134540_jpg.rf.adf4c6d62a19e1291776e08f46afdf22.jpg,20220919_134540_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:45:40,2,0,0,2,0,Oidio,0,g111,0,4,train
+train,train/images/20220919_134608_jpg.rf.e3f98f6a7bb0d1f9f864351698b566f1.jpg,20220919_134608_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:46:08,1,0,1,0,0,Heliothis,0,g112,0,1,test
+train,train/images/20220919_134718_jpg.rf.f93ba097f59c3a6a1a15c0ff0c35ada7.jpg,20220919_134718_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:47:18,1,0,0,1,0,Oidio,0,g113,1,2,test
+valid,valid/images/20220919_134719_jpg.rf.15bca73ea3ded53811b96edb0f2b5c23.jpg,20220919_134719_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:47:19,1,0,0,1,0,Oidio,0,g113,1,2,test
+train,train/images/20220919_134744_jpg.rf.303b3f80a6167fa194424eb29dfd1018.jpg,20220919_134744_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:47:44,1,1,0,0,0,Alternaria,0,g114,0,6,train
+train,train/images/20220919_134745_jpg.rf.1fef82ecbbe02a4b100c6b57827c3a2b.jpg,20220919_134745_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:47:45,2,2,0,0,0,Alternaria,0,g114,0,6,train
+train,train/images/20220919_134746_jpg.rf.200fa7c7fa475683375304ab630ec2e7.jpg,20220919_134746_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:47:46,2,2,0,0,0,Alternaria,0,g114,0,6,train
+train,train/images/20220919_134754_jpg.rf.0b1317c3b039af53fb6f2ef2edc036d9.jpg,20220919_134754_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:47:54,1,1,0,0,0,Alternaria,0,g114,0,6,train
+train,train/images/20220919_134758_jpg.rf.177471cb5b418ac9c6de6a8a91b996a2.jpg,20220919_134758_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:47:58,2,2,0,0,0,Alternaria,0,g114,0,6,train
+train,train/images/20220919_134759_jpg.rf.79833466ae9b4af86b3b189c38b4bab4.jpg,20220919_134759_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:47:59,1,1,0,0,0,Alternaria,0,g114,0,6,train
+train,train/images/20220919_134827_jpg.rf.f32384a1bd92124473b5e4a543395f77.jpg,20220919_134827_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:48:27,2,2,0,0,0,Alternaria,0,g115,0,4,test
+train,train/images/20220919_134833_jpg.rf.75573b03c1485fdc2606c8adb75bd8b1.jpg,20220919_134833_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:48:33,2,2,0,0,0,Alternaria,0,g115,0,4,test
+train,train/images/20220919_134836_jpg.rf.3f742680918120188de1bf5c023b8b3d.jpg,20220919_134836_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:48:36,2,2,0,0,0,Alternaria,0,g115,0,4,test
+train,train/images/20220919_134837_jpg.rf.e5d0616647e393fc0bb3f3c3b21c1f8b.jpg,20220919_134837_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:48:37,2,2,0,0,0,Alternaria,0,g115,0,4,test
+test,test/images/20220919_134853_jpg.rf.1e90850c11268f5c70b4ae872f8854e7.jpg,20220919_134853_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:48:53,2,2,0,0,0,Alternaria,0,g116,1,3,train
+train,train/images/20220919_134854_jpg.rf.bbebf99f32ef1314eadc63786585e64e.jpg,20220919_134854_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:48:54,1,1,0,0,0,Alternaria,0,g116,1,3,train
+train,train/images/20220919_134855_jpg.rf.c8da706178ebbc3edbeb8490a1ade62d.jpg,20220919_134855_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:48:55,2,2,0,0,0,Alternaria,0,g116,1,3,train
+train,train/images/20220919_134942_jpg.rf.4b25e7405f45af4dc08af40f0b97dd8a.jpg,20220919_134942_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:49:42,2,2,0,0,0,Alternaria,0,g117,1,3,train
+train,train/images/20220919_134943_jpg.rf.000e70a8987ccf2e9b4ba83c6bd84f5b.jpg,20220919_134943_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:49:43,2,2,0,0,0,Alternaria,0,g117,1,3,train
+test,test/images/20220919_134944_jpg.rf.1c5c59893364fd9126d4eebdef7586ac.jpg,20220919_134944_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:49:44,2,2,0,0,0,Alternaria,0,g117,1,3,train
+train,train/images/20220919_134956_jpg.rf.8ed998dc173d45722ca88b1a31453587.jpg,20220919_134956_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:49:56,1,0,0,0,1,Sana,0,g118,1,7,train
+valid,valid/images/20220919_134957_jpg.rf.beb7d62f9c375e0e2defbfb508df0663.jpg,20220919_134957_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:49:57,1,0,0,0,1,Sana,0,g118,1,7,train
+test,test/images/20220919_135007_jpg.rf.3a1f9db612f2f83b419d977643f20fe7.jpg,20220919_135007_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:50:07,1,0,0,1,0,Oidio,0,g118,1,7,train
+train,train/images/20220919_135008_jpg.rf.ff99ab3c3d08d285f76d1da4192bfc80.jpg,20220919_135008_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:50:08,1,0,0,1,0,Oidio,0,g118,1,7,train
+train,train/images/20220919_135018_jpg.rf.a8a7474ebb4447c47d96e36caba5d1ad.jpg,20220919_135018_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:50:18,1,0,0,1,0,Oidio,0,g118,1,7,train
+train,train/images/20220919_135019_jpg.rf.77da45c87e6b3e25fc4a7947d78fab7a.jpg,20220919_135019_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:50:19,1,0,0,1,0,Oidio,0,g118,1,7,train
+test,test/images/20220919_135020_jpg.rf.169fe379e3308bdd171500fcfddc8bbd.jpg,20220919_135020_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:50:20,1,0,0,1,0,Oidio,0,g118,1,7,train
+test,test/images/20220919_135158_jpg.rf.490b0326675d45dad298a8510324711c.jpg,20220919_135158_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:51:58,2,0,2,0,0,Heliothis,0,g119,1,4,valid
+test,test/images/20220919_135200_jpg.rf.23056a786439b92f261ea2f0a8a7922d.jpg,20220919_135200_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:52:00,3,1,2,0,0,Heliothis,1,g119,1,4,valid
+train,train/images/20220919_135205_jpg.rf.8ba25c866eaf2379865ed16ff9faac49.jpg,20220919_135205_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:52:05,2,0,2,0,0,Heliothis,0,g119,1,4,valid
+train,train/images/20220919_135206_jpg.rf.ff99d469b6e6e982ea012adaf90790df.jpg,20220919_135206_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:52:06,2,0,2,0,0,Heliothis,0,g119,1,4,valid
+train,train/images/20220919_135401_jpg.rf.41964878bcda6fe34d613974bcdc7565.jpg,20220919_135401_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:54:01,1,0,1,0,0,Heliothis,0,g120,1,2,test
+valid,valid/images/20220919_135402_jpg.rf.a6f42cedbcef4407c197f15dfa1879d3.jpg,20220919_135402_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:54:02,1,0,1,0,0,Heliothis,0,g120,1,2,test
+valid,valid/images/20220919_135540_jpg.rf.d7d37c487a5741e2b32fc3055437c498.jpg,20220919_135540_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:55:40,1,0,1,0,0,Heliothis,0,g121,1,6,train
+train,train/images/20220919_135541_jpg.rf.2bbd99b1e86fe2c855ea4b9d5c689b89.jpg,20220919_135541_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:55:41,1,0,1,0,0,Heliothis,0,g121,1,6,train
+train,train/images/20220919_135546_jpg.rf.b49760a34f41b9299398cbc030189e40.jpg,20220919_135546_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:55:46,2,0,2,0,0,Heliothis,0,g121,1,6,train
+train,train/images/20220919_135547_jpg.rf.272992e1670cb2056d1abe45f249244b.jpg,20220919_135547_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:55:47,2,0,2,0,0,Heliothis,0,g121,1,6,train
+test,test/images/20220919_135553_jpg.rf.9016066f1255d1ccba667f436d3136c8.jpg,20220919_135553_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:55:53,1,0,1,0,0,Heliothis,0,g121,1,6,train
+train,train/images/20220919_135554_jpg.rf.a8e9d2735ed9019ee040b628cb53b17c.jpg,20220919_135554_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:55:54,1,0,1,0,0,Heliothis,0,g121,1,6,train
+train,train/images/20220919_135712_jpg.rf.f6b01b778242db90eaf689a755415a60.jpg,20220919_135712_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:57:12,1,0,1,0,0,Heliothis,0,g122,1,2,train
+test,test/images/20220919_135713_jpg.rf.008c11218dadf86a86be7c57bea65688.jpg,20220919_135713_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:57:13,1,0,1,0,0,Heliothis,0,g122,1,2,train
+train,train/images/20220919_135741_jpg.rf.927ee36108b84cb9754e3deef9774aa2.jpg,20220919_135741_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:57:41,1,0,1,0,0,Heliothis,0,g123,0,2,train
+train,train/images/20220919_135742_jpg.rf.97d97db86fbc189a62f5b09219afbf9f.jpg,20220919_135742_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T13:57:42,1,0,1,0,0,Heliothis,0,g123,0,2,train
+test,test/images/20220919_141028_jpg.rf.64640e31fb5fdfd00ff7e4b105f0fbce.jpg,20220919_141028_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:10:28,1,0,0,1,0,Oidio,0,g124,1,2,train
+valid,valid/images/20220919_141031_jpg.rf.7343b1ce7c216a6b87e9f1079916e86e.jpg,20220919_141031_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:10:31,1,0,0,1,0,Oidio,0,g124,1,2,train
+train,train/images/20220919_142009_jpg.rf.ab462c2d15d4a36a10e5559fe464b0e0.jpg,20220919_142009_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:20:09,7,0,0,0,7,Sana,0,g125,0,3,train
+train,train/images/20220919_142011_jpg.rf.5e784e8f7b7aa050811a5d23613984c4.jpg,20220919_142011_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:20:11,2,0,0,0,2,Sana,0,g125,0,3,train
+train,train/images/20220919_142012_jpg.rf.587ed43dcf7040f9574199e9e73595da.jpg,20220919_142012_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:20:12,2,0,0,0,2,Sana,0,g125,0,3,train
+test,test/images/20220919_142503_jpg.rf.926cc1f8a6d5b4c7393569ef9983808c.jpg,20220919_142503_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:25:03,1,0,1,0,0,Heliothis,0,g126,0,1,train
+train,train/images/20220919_143106_jpg.rf.8bdaa42b17f341235881cf337a5b833a.jpg,20220919_143106_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:31:06,1,0,0,0,1,Sana,0,g127,0,3,train
+train,train/images/20220919_143107_jpg.rf.97daee39898c41a6df3a7c731d32c5a1.jpg,20220919_143107_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:31:07,1,0,0,0,1,Sana,0,g127,0,3,train
+train,train/images/20220919_143112_jpg.rf.7a76031bd29cf48ed9ef147b97ad50d1.jpg,20220919_143112_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:31:12,1,1,0,0,0,Alternaria,0,g127,0,3,train
+train,train/images/20220919_143125_jpg.rf.d07271ba25ed27a97119b4e6f8c70e14.jpg,20220919_143125_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:31:25,4,4,0,0,0,Alternaria,0,g128,1,4,train
+test,test/images/20220919_143127_jpg.rf.a760d1683f1a618c9c9f2edf62f55842.jpg,20220919_143127_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:31:27,3,3,0,0,0,Alternaria,0,g128,1,4,train
+train,train/images/20220919_143132_jpg.rf.8ebe38faa59578a7d57164bde1e9b11f.jpg,20220919_143132_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:31:32,1,0,0,0,1,Sana,0,g128,1,4,train
+train,train/images/20220919_143133_jpg.rf.765c983a4e6e222ab340ff980f346883.jpg,20220919_143133_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:31:33,1,0,0,0,1,Sana,0,g128,1,4,train
+train,train/images/20220919_143536_jpg.rf.3cc3d89825cd7518e85a340fdf18a233.jpg,20220919_143536_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:35:36,1,0,0,0,1,Sana,0,g129,0,2,train
+train,train/images/20220919_143537_jpg.rf.3f57c74780156ef2c86860bf56f2b0da.jpg,20220919_143537_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:35:37,1,0,0,0,1,Sana,0,g129,0,2,train
+train,train/images/20220919_143718_jpg.rf.b52908510268bbaab188bc4ad2f2683d.jpg,20220919_143718_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:37:18,1,0,0,0,1,Sana,0,g130,0,2,train
+train,train/images/20220919_143720_jpg.rf.252a737b61f5a36f7f8e684a8c75052d.jpg,20220919_143720_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:37:20,1,0,0,0,1,Sana,0,g130,0,2,train
+train,train/images/20220919_144111_jpg.rf.ec26563fc2334a32e5216cf6aa25476d.jpg,20220919_144111_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:41:11,2,0,0,0,2,Sana,0,g131,1,2,test
+valid,valid/images/20220919_144112_jpg.rf.a86eda442152b1ea33b5c201c4f33359.jpg,20220919_144112_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:41:12,2,0,0,0,2,Sana,0,g131,1,2,test
+train,train/images/20220919_144152_jpg.rf.262bc40b5c358342adb1764d126c06c1.jpg,20220919_144152_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:41:52,1,0,1,0,0,Heliothis,0,g132,0,4,train
+train,train/images/20220919_144153_jpg.rf.1a79c23f0437096f736d0f54ebae29fa.jpg,20220919_144153_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:41:53,1,0,1,0,0,Heliothis,0,g132,0,4,train
+train,train/images/20220919_144201_jpg.rf.57b9183b6593e9e2d2b5975e713e5166.jpg,20220919_144201_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:42:01,2,0,2,0,0,Heliothis,0,g132,0,4,train
+train,train/images/20220919_144202_jpg.rf.a7049624b3e2de31d5c09c3776750710.jpg,20220919_144202_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:42:02,2,0,2,0,0,Heliothis,0,g132,0,4,train
+train,train/images/20220919_144213-0-_jpg.rf.b8cff381d5fe9de6233cbdd3302dd93f.jpg,20220919_144213-0-_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:42:13,1,0,1,0,0,Heliothis,0,g133,1,2,train
+valid,valid/images/20220919_144213_jpg.rf.80d9370412c7cd229bfe90c79834d3db.jpg,20220919_144213_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:42:13,1,0,1,0,0,Heliothis,0,g133,1,2,train
+train,train/images/20220919_144227_jpg.rf.e77835c5185caadad996e365090d711d.jpg,20220919_144227_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:42:27,1,0,1,0,0,Heliothis,0,g134,0,2,train
+train,train/images/20220919_144229_jpg.rf.7d5a259cab90ff7de565c6ca763a772a.jpg,20220919_144229_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:42:29,1,0,1,0,0,Heliothis,0,g134,0,2,train
+train,train/images/20220919_144240_jpg.rf.854fceba32d80908ba962c0dd8621f8c.jpg,20220919_144240_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:42:40,1,0,1,0,0,Heliothis,0,g135,0,2,train
+train,train/images/20220919_144241_jpg.rf.b5117d91c89759d62f088708b8391886.jpg,20220919_144241_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:42:41,1,0,1,0,0,Heliothis,0,g135,0,2,train
+train,train/images/20220919_144309_jpg.rf.4c265fd87b3c3e3d7a71564fa7433e08.jpg,20220919_144309_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:43:09,1,0,1,0,0,Heliothis,0,g136,1,3,train
+valid,valid/images/20220919_144315_jpg.rf.52d0595284b02456088b730889d9dad3.jpg,20220919_144315_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:43:15,1,0,1,0,0,Heliothis,0,g136,1,3,train
+train,train/images/20220919_144316_jpg.rf.84d03ca2650199c4925a448c538bd7ae.jpg,20220919_144316_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:43:16,1,0,1,0,0,Heliothis,0,g136,1,3,train
+train,train/images/20220919_144340_jpg.rf.7afadaa76363d2e1a286b21134381fc6.jpg,20220919_144340_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:43:40,2,0,2,0,0,Heliothis,0,g137,1,4,train
+train,train/images/20220919_144342_jpg.rf.b20bc08157ef93a11af216ea02621f9d.jpg,20220919_144342_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:43:42,1,0,1,0,0,Heliothis,0,g137,1,4,train
+valid,valid/images/20220919_144351_jpg.rf.6b914205511a4ddc7527d58c9cd01740.jpg,20220919_144351_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:43:51,1,0,1,0,0,Heliothis,0,g137,1,4,train
+train,train/images/20220919_144353_jpg.rf.ff65ad780aa210a457f309369cc471d4.jpg,20220919_144353_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:43:53,1,0,1,0,0,Heliothis,0,g137,1,4,train
+train,train/images/20220919_144406_jpg.rf.cb0cd1a736467d7859fdcdc04f37d1f5.jpg,20220919_144406_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:44:06,2,0,2,0,0,Heliothis,0,g138,0,1,train
+test,test/images/20220919_144423_jpg.rf.72371e732ca28fd6b4f5f403904ce630.jpg,20220919_144423_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:44:23,1,0,1,0,0,Heliothis,0,g139,1,2,train
+train,train/images/20220919_144423-0-_jpg.rf.60a83cce914794907ce1cfc74ac31890.jpg,20220919_144423-0-_jpg,YYYYMMDD_HHMMSS (Samsung A30? inferido),2022-09-19T14:44:23,1,0,1,0,0,Heliothis,0,g139,1,2,train

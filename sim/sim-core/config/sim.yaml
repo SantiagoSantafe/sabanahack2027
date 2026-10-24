@@ -1,0 +1,74 @@
+# Simulation clock and run defaults
+
+# Time model (simulated clock in seconds):
+# - while a robot/scout is moving, each step advances patrol_dt_s (real-time feel at 1x)
+# - otherwise each step advances idle_dt_min (fast-forward between patrols)
+time:
+  patrol_dt_s: 0.1          # live viewer: 10 steps/s at 1x = real time
+  batch_patrol_dt_s: 2.0    # headless batch: coarser step, same logic
+  idle_dt_min: 30           # 48 idle steps per day
+  # Hora de salida por defecto de los recorridos con robot (cada alternativa puede fijar schedule.start_hour).
+  # Dato empresa (AGRAR): el robot NO va ligado al aspersor (AGRAR no asperja; lo decide el agrónomo de cada
+  # finca) y debe patrullar sobre todo de noche o al amanecer, porque la alternaria por gutación aparece de
+  # una noche a otra. A las 05:00 el robot recorre el bloque con la hoja aún mojada y sincroniza en la base
+  # antes del turno de 06:00 (operarios 6-14 h, dato empresa). La hora exacta es SUPUESTO.
+  # Antes: 09:00 "después del rocío, antes de la aspersión" (premisa descartada por el cliente).
+  # Costo modelado: con hoja mojada sube la tasa de falsas alarmas (detector.yaml, wet_leaf_fpr_multiplier).
+  # SUPUESTO no modelado: el robot lleva luz propia y la sensibilidad medida (fotos de día) vale de noche.
+  patrol_start_hour: 5.0
+
+# Kept for reference: idle steps per day
+ticks_per_day: 48
+
+# WebSocket emit rate (Hz). One engine step per emit at speed 1x.
+emit_hz: 10
+
+# Default playback speed multiplier
+default_speed: 1.0
+
+# Max simulated days per run (batch and live)
+max_days: 90
+
+# Default seed (overridable via WS / CLI)
+default_seed: 42
+
+# Initial foci planted at day 0
+initial_foci_min: 1
+initial_foci_max: 3
+
+# Propagation base probabilities per day (scaled by disease risk)
+# SUPUESTO — no published blueberry neighbor-infection rates found
+propagation:
+  p_same_bed: 0.28  # SUPUESTO — same bed, adjacent plants (tuned for demo visibility)
+  p_adjacent_bed: 0.08  # SUPUESTO — neighboring bed, weaker
+  # SUPUESTO — escala el índice diario de riesgo (risk.yaml) a probabilidad de contagio. Re-escalado de 1,35
+  # a 0,45 al cambiar los modelos de riesgo: con el clima 2025 dentro del túnel la media del índice por cama
+  # pasó de 0,050 (coeficientes "Miles 2013" sin fuente + Botrytis "fruto" sin fuente) a 0,151 (Wilson 1990 +
+  # Gillett y Schilder 2009, Bulger 1987 de NCSU, GIM). 1,35 x 0,050 / 0,151 = 0,45 conserva la velocidad
+  # media de brote que se había ajustado para la demo; no es un dato. Sin re-escalar, el brote iría ~3x más
+  # rápido por un cambio de unidades, no por evidencia.
+  risk_scale: 0.45
+
+# Latent period (days without symptoms after infection). El motor usa UN solo rango para las tres
+# enfermedades. 3-7 d es el de Botrytis, la enfermedad principal según el cliente: conidias visibles 3-4 d
+# tras infectar la flor, rango 3-7 (Neugebauer et al. 2024, revisión en arándano citando a Bristow et al.
+# 2017; datos/simulacion/parametros.yaml). LIMITACIÓN: acorta la antracnosis (7 d, rango 5-10; MSU E-3039) y
+# sobre todo la roya (10-21 d; 15-21 d en 'Biloxi', Huarhua et al. 2020). Latencia por enfermedad = pendiente.
+latent_days_min: 3  # FUENTE (Botrytis) — ver arriba
+latent_days_max: 7  # FUENTE (Botrytis)
+
+# Spray schedule (days between applications) — only used by alternative C (camera on the sprayer).
+# AGRAR no asperja: la aplicación la decide el agrónomo de cada finca. C se conserva como alternativa comparada.
+# SUPUESTO — UF/IFAS / VT guides: fungicide every 7–14 days under pressure
+spray_interval_days: 10  # SUPUESTO
+
+# Human scouting baseline. Dato empresa: a 15-block farm (~1 ha blocks) takes a scout
+# 4–5 days working 6 am–2 pm → 4.5 d × 8 h / 15 ha = 2.4 h per hectare.
+human_baseline_hours_per_ha: 2.4
+
+# Cost assumptions for decision threshold (finance analysis). The engine does not use them; they document
+# why the detector favors sensitivity. Both are SUPUESTOS DEL EQUIPO (REPORTE_DATOS §4, corrección 32):
+# 2.160 USD/ha/semana = 12.000 kg/ha x 3 % x 6 USD/kg; debe confirmarlo un piloto.
+cost_false_alarm_usd: 30  # SUPUESTO del equipo
+cost_missed_week_per_ha_usd: 2160  # SUPUESTO del equipo (USD por ha y semana sin detectar)
+hectares_per_block: 0.5  # SUPUESTO — scale for cost weighting

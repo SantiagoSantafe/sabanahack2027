@@ -1,0 +1,135 @@
+# =============================================================================
+# CATÁLOGO DE MODELOS DE RIESGO PARA LOS CULTIVOS SIN PERFIL COMPLETO TODAVÍA
+# (uva de mesa, frambuesa, aguacate Hass, gulupa). Mismo formato que los bloques
+# "modelos_riesgo" de los perfiles: el motor genérico los corre sin código nuevo.
+# Estados: VERIFICADO | CALCULO | SUPUESTO | NO_VERIFICADO
+# =============================================================================
+
+esquema: catalogo_modelos/v0.1
+
+fuentes:
+  ucipm_botrytis_uva: {url: "https://ipm.ucanr.edu/DISEASE/DATABASE/grapebotrytis.html", nota: "ecuación de Broome et al. 1995 y umbrales de UC IPM"}
+  broome1995: {url: "https://repositorio.uc.cl/dspace/items/ec17bdfd-07f1-4703-9bc8-947219d54fe1/full", nota: "Phytopathology 85:97-102; validado 2 temporadas en uva de mesa Thompson Seedless, Chile"}
+  ucipm_oidio_uva: {url: "https://ipm.ucanr.edu/DISEASE/DATABASE/grapepowderymildew.html", nota: "modelo Gubler-Thomas (estado conidial)"}
+  regla_3_10: {url: "https://www.agric.wa.gov.au/table-grapes/downy-mildew-grapevines?page=0%2C2", nota: "regla 10:10:24 / 3-10 para infección primaria de mildiú; URL vista solo en resultados de búsqueda: NO_VERIFICADO"}
+  magarey2005: {url: "https://www.suddenoakdeath.org/wp-content/uploads/pdf/PHYTO-95-0092%20Magarey%20nappfast.pdf", nota: "GIM, Tabla 2"}
+  ica_vid2012: {url: "https://www.ica.gov.co/getattachment/cfd74811-9005-41ca-87b3-57b7984c5afb/Manejo-fitosanitario-del-cultivo-de-la-vid.pdf", nota: "ICA 2012: mildeo velloso 11-30 °C; moho gris 15-25 °C y HR >= 92 %; pudrición negra 20-25 °C; 2 cosechas/año en Valle"}
+  flsas_ncsu: {url: "https://ipm.ces.ncsu.edu/development-of-anthacnose-and-botrytis-strawberry-fruit-infection-risk-models", nota: "Bulger 1987 (Botrytis, fresa)"}
+  rodriguez2022_gulupa: {url: "https://portal.amelica.org/ameli/journal/130/1302674007/html/", nota: "AGROSAVIA, Tolima: marchitez por Fusarium 3-59 %, mancha aceitosa (Xanthomonas) hasta 36 % en fruto, roña 2-10 %"}
+
+uva_mesa:
+  - id: botrytis_broome1995
+    enfermedad: moho_gris
+    agente: "Botrytis cinerea"
+    motor: logit_polinomico
+    entradas: {W: horas_humectacion_evento, T: temp_media_humectacion_C}
+    terminos:                          # Índice = ln(Y/(1-Y)) = -2.647866 - 0.374927 W + 0.061601 W T - 0.001511 W T^2
+      - {coef: -2.647866, w: 0, t: 0}
+      - {coef: -0.374927, w: 1, t: 0}
+      - {coef: 0.061601, w: 1, t: 1}
+      - {coef: -0.001511, w: 1, t: 2}
+    salida: indice_logit               # los umbrales de UC IPM se aplican al logit, no a la probabilidad
+    umbrales: {bajo: 0.0, moderado: 0.5, alto: 1.0}
+    reglas_entrada: {T_min_C: 12, T_max_C: 32, T_sin_riesgo_C: 40, HR_humeda_pct: 95, corte_seco_h: 4}
+    fuente: ucipm_botrytis_uva
+    origen: {cultivo: "uva de mesa", region: "Chile (validación) / California"}
+    estado_local: no_calibrado
+  - id: oidio_gubler_thomas
+    enfermedad: oidio
+    agente: "Erysiphe necator"
+    motor: indice_gubler_thomas
+    parametros:
+      ventana_C: [21.1, 29.4]            # 70-85 °F convertidos
+      horas_continuas_min: 6
+      dias_consecutivos_para_iniciar: 3
+      puntos_dia_favorable: 20
+      puntos_dia_desfavorable: -10
+      temp_letal_C: 35                   # 95 °F por 15 min
+      indice_min: 0
+      indice_max: 100
+    umbrales: {moderado: 40, alto: 60}
+    reinicio_tras_tratamiento: true
+    fuente: ucipm_oidio_uva
+    estado_local: no_calibrado
+    nota_tropico: "en el Valle del Cauca (800-1.600 msnm) muchos días caen dentro de 21-29 °C: el índice puede quedarse en 100; calibrar"
+  - id: mildiu_regla_3_10
+    enfermedad: mildeo_velloso
+    agente: "Plasmopara viticola"
+    motor: regla_umbral
+    condiciones:
+      todas:
+        - {variable: temp_media_C, operador: ">", valor: 10}
+        - {variable: lluvia_mm_24_48h, operador: ">=", valor: 10}
+        - {variable: longitud_brote_cm, operador: ">=", valor: 10, origen_dato: "fenología del lote / visión"}
+    fuente: regla_3_10
+    estado_fuente: NO_VERIFICADO
+    nota_tropico: "regla de clima templado para infección primaria; en el trópico con poda escalonada hay brotes nuevos casi siempre"
+  - id: mildiu_gim
+    enfermedad: mildeo_velloso
+    agente: "Plasmopara viticola"
+    motor: gim_magarey2005
+    parametros: {Tmin: 1, Topt: 20, Tmax: 30, Wmin: 2, Wmax: 14}
+    fuente: magarey2005
+    estado_local: no_calibrado
+  - id: pudricion_negra_gim
+    enfermedad: pudricion_negra
+    agente: "Guignardia bidwellii"
+    motor: gim_magarey2005
+    parametros: {Tmin: 7, Topt: 27, Tmax: 35, Wmin: 6, Wmax: 24}
+    fuente: magarey2005
+    estado_local: no_calibrado
+
+frambuesa:
+  - id: botrytis_bulger1987_prestado
+    enfermedad: moho_gris
+    agente: "Botrytis cinerea"
+    motor: logit_polinomico
+    entradas: {W: horas_humectacion_evento, T: temp_media_humectacion_C}
+    terminos:
+      - {coef: -4.268, w: 0, t: 0}
+      - {coef: -0.0901, w: 1, t: 0}
+      - {coef: 0.0294, w: 1, t: 1}
+      - {coef: -2.35e-5, w: 1, t: 3}
+    salida: probabilidad_logistica
+    umbrales: {moderado: 0.50, alto: 0.70}
+    fuente: flsas_ncsu
+    estado_local: no_validado_en_frambuesa
+  - id: botrytis_gim_uva
+    enfermedad: moho_gris
+    agente: "Botrytis cinerea"
+    motor: gim_magarey2005
+    parametros: {Tmin: 10, Topt: 20, Tmax: 35, Wmin: 4, Wmax: 10}
+    fuente: magarey2005
+    nota: "fila 'Botrytis cinerea / Grape' (r = 0,94); la fila de fresa (flores) tiene r = 0,13"
+    estado_local: no_validado_en_frambuesa
+
+aguacate_hass:
+  - id: antracnosis_gim_proxy
+    enfermedad: antracnosis
+    agente: "Colletotrichum gloeosporioides"
+    motor: gim_magarey2005
+    parametros: {Tmin: 7, Topt: 27.5, Tmax: 35, Wmin: 6, Wmax: 36}
+    fuente: magarey2005
+    nota: "parámetros de C. acutatum en fresa; en Hass la antracnosis se ve sobre todo en poscosecha"
+    estado_local: no_validado_en_aguacate
+  - id: phytophthora_raiz_suelo
+    enfermedad: marchitez_phytophthora
+    agente: "Phytophthora cinnamomi (y otros agentes)"
+    motor: regla_umbral
+    condiciones:
+      todas:
+        - {variable: horas_suelo_saturado_7d, operador: ">=", valor: 48}
+    estado_parametros: SUPUESTO
+    nota: "la variable que importa es la humedad del suelo (drenaje), no la humectación foliar"
+
+gulupa:
+  - id: roña_mancha_aceitosa_regla
+    enfermedad: [roña, mancha_aceitosa]
+    agente: "Cladosporium cladosporioides; Xanthomonas axonopodis pv. passiflorae"
+    motor: regla_umbral
+    condiciones:
+      todas:
+        - {variable: horas_humectacion_dia, operador: ">=", valor: 8}
+        - {variable: lluvia_dias_consecutivos, operador: ">=", valor: 2}
+    estado_parametros: SUPUESTO
+    contexto: "rodriguez2022_gulupa asocia más mancha aceitosa a la falta de cubierta plástica (semitecho)"

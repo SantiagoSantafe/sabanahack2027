@@ -1,0 +1,80 @@
+Pruebas adversarias de aislamiento (verificacion-tecnica, 2026-10-23)
+PostgreSQL: postgres (PostgreSQL) 16.14
+Sustituto de PostGIS: pruebas_arquitectura/transformar.py (sin PostGIS real). Contenedor desechable postgres:16-alpine local, sin descargas.
+
+=== ANTES: modelo_datos.sql tal como lo entrego arquitectura-multifinca ===
+ V1 filas de auditoria de A visibles para B |     1
+ V2 A cambia dueno y huella mTLS del robot del proveedor | OK 1 filas
+ V3a B marca roya global como propia | OK 1 filas
+ V3b filas ICA de A despues (antes 6) |     5
+ V4a B se apropia del modelo global roya_regla y cambia parametros | OK 1 filas
+ V4b A todavia ve roya_regla |     0
+ V4c B borra el problema global desconocido | OK 1 filas
+ V5a recorrido_cama de B apunta a cama de A | OK 1 filas
+ V5b aplicacion_cama de B apunta a cama de A | OK 1 filas
+ V5c incidencia de B "duplicada de" una incidencia de A | OK 1 filas
+ V5d recorrido de B usa el robot asignado hoy a A | OK 1 filas
+ V6 B edita el nombre del agronomo que tambien trabaja para A | OK 1 filas
+ W1 incidencias                          |     0
+ W1 eventos de incidencias de otra finca |     1
+ W1 evidencias (fotos) de otra finca     |     1
+ W1 recorrido_cama de otra finca         |     2
+ W1 registro_cambios de otra finca       |     6
+ X1 B reserva el robot del proveedor para todo 2027 | OK 1 filas
+
+=== DESPUES: modelo_datos.sql corregido ===
+ V1 filas de auditoria de A visibles para B |     0
+ V2 A cambia dueno y huella mTLS del robot del proveedor | OK 0 filas
+ V3a B marca roya global como propia | OK 0 filas
+ V3b filas ICA de A despues (antes 6) |     6
+ V4a B se apropia del modelo global roya_regla y cambia parametros | OK 0 filas
+ V4b A todavia ve roya_regla |     1
+ V4c B borra el problema global desconocido | OK 0 filas
+ V5a recorrido_cama de B apunta a cama de A | 23503 insert or update on table "recorrido_cama" violates foreign key constraint "recorrido_cama_cama_id_empresa_id_fkey"
+ V5b aplicacion_cama de B apunta a cama de A | 23503 insert or update on table "aplicacion_cama" violates foreign key constraint "aplicacion_cama_cama_id_empresa_id_fkey"
+ V5c incidencia de B "duplicada de" una incidencia de A | 23503 insert or update on table "incidencia" violates foreign key constraint "incidencia_incidencia_origen_id_empresa_id_fkey"
+ V5d recorrido de B usa el robot asignado hoy a A | OK 1 filas
+ V6 B edita el nombre del agronomo que tambien trabaja para A | OK 0 filas
+ W1 incidencias                          |     0
+ W1 eventos de incidencias de otra finca |     0
+ W1 evidencias (fotos) de otra finca     |     0
+ W1 recorrido_cama de otra finca         |     0
+ W1 registro_cambios de otra finca       |     0
+ X1 B reserva el robot del proveedor para todo 2027 | OK 1 filas
+
+=== Pruebas originales P1-P11 sobre el DDL corregido (mismo resultado que resultado_pruebas_sql.txt) ===
+ P1 incidencias                   |     1
+ P1 fincas                        |     1
+ P1 dispositivos (robot prestado) |     1
+ P1 usuarios visibles             |     3
+ P1 filas vista ICA monitoreo     |     6
+ P2 incidencias      |     0
+ P2 fincas           |     1
+ P2 dispositivos     |     0
+ P2 vista ICA        |     0
+ P2 registro_cambios |     3
+ P3 incidencias |     0
+ P3 empresas    |     0
+ P4a B escribe incidencia con empresa A | 42501 new row violates row-level security policy for table "incidencia"
+ P4b B apunta a cama de A | 23503 insert or update on table "incidencia" violates foreign key constraint "incidencia_cama_id_bloque_id_finca_id_empresa_id_fkey"
+ P4c B crea su propia incidencia | OK
+ P5a robot sin modelo | 23514 new row for relation "incidencia" violates check constraint "incidencia_check"
+ P5b salto detectada->cerrada | 23514 Transición no permitida: detectada -> cerrada
+ P5c pasa a verificacion_asignada | OK
+ P5c2 confirmada sin verificacion | 23514 new row for relation "incidencia" violates check constraint "incidencia_check3"
+ P5d confirmada con verificacion | OK
+ P5e version tras 2 updates | 3
+ P5f vista ICA: oidio confirmado | 1 camas, 50.0 %
+ P5g editar evento (bgi_app) | 42501 permission denied for table incidencia_evento
+ P5h robot asignado 2 veces | 23P01 conflicting key value violates exclusion constraint "asignacion_dispositivo_dispositivo_id_vigencia_excl"
+ P5i cambios registrados para sync | 3
+ P6 superusuario edita evento | 42501 La tabla incidencia_evento es de solo inserción
+ P7a particion | lectura_ambiental_2026_10 |     1
+ P7a particion | lectura_ambiental_defecto |     1
+ P7b leer particion directo | 42501 permission denied for table lectura_ambiental_2026_10
+ P7c empresa B ve lecturas de A |     0
+ P8 operario de otra finca ve incidencias |     0
+ P9a flota ve dispositivos | 1
+ P9b flota lee incidencias | 42501 permission denied for table incidencia
+ P10b B pide GeoJSON del bloque de A | {"type": "FeatureCollection", "features": []}
+ P11 fincas visibles |     2

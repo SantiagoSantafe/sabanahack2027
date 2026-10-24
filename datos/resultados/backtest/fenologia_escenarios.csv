@@ -1,0 +1,73 @@
+punto,escenario,enfermedad,multiplicador,dias_medio,dias_alto,etiqueta
+sotaquira,sin_fenologia (m=1),antracnosis,1.0,38,3,referencia
+sotaquira,produccion_continua,antracnosis,1.0,38,3,SUPUESTO (todas las etapas coexisten)
+sotaquira,etapa_unica_vegetativo,antracnosis,0.2,0,0,SUPUESTO (sensibilidad por cama)
+sotaquira,etapa_unica_floracion,antracnosis,0.6,18,0,SUPUESTO (sensibilidad por cama)
+sotaquira,etapa_unica_fruto_verde,antracnosis,1.0,38,3,SUPUESTO (sensibilidad por cama)
+sotaquira,etapa_unica_maduracion,antracnosis,1.0,38,3,SUPUESTO (sensibilidad por cama)
+sotaquira,sin_fenologia (m=1),botrytis,1.0,6,18,referencia
+sotaquira,produccion_continua,botrytis,1.0,6,18,SUPUESTO (todas las etapas coexisten)
+sotaquira,etapa_unica_vegetativo,botrytis,0.3,0,0,SUPUESTO (sensibilidad por cama)
+sotaquira,etapa_unica_floracion,botrytis,1.0,6,18,SUPUESTO (sensibilidad por cama)
+sotaquira,etapa_unica_fruto_verde,botrytis,0.5,0,0,SUPUESTO (sensibilidad por cama)
+sotaquira,etapa_unica_maduracion,botrytis,0.7,17,0,SUPUESTO (sensibilidad por cama)
+sotaquira,sin_fenologia (m=1),roya,1.0,17,4,referencia
+sotaquira,produccion_continua,roya,1.0,17,4,SUPUESTO (todas las etapas coexisten)
+sotaquira,etapa_unica_vegetativo,roya,1.0,17,4,SUPUESTO (sensibilidad por cama)
+sotaquira,etapa_unica_floracion,roya,1.0,17,4,SUPUESTO (sensibilidad por cama)
+sotaquira,etapa_unica_fruto_verde,roya,1.0,17,4,SUPUESTO (sensibilidad por cama)
+sotaquira,etapa_unica_maduracion,roya,1.0,17,4,SUPUESTO (sensibilidad por cama)
+tausa,sin_fenologia (m=1),antracnosis,1.0,20,3,referencia
+tausa,produccion_continua,antracnosis,1.0,20,3,SUPUESTO (todas las etapas coexisten)
+tausa,etapa_unica_vegetativo,antracnosis,0.2,0,0,SUPUESTO (sensibilidad por cama)
+tausa,etapa_unica_floracion,antracnosis,0.6,15,0,SUPUESTO (sensibilidad por cama)
+tausa,etapa_unica_fruto_verde,antracnosis,1.0,20,3,SUPUESTO (sensibilidad por cama)
+tausa,etapa_unica_maduracion,antracnosis,1.0,20,3,SUPUESTO (sensibilidad por cama)
+tausa,sin_fenologia (m=1),botrytis,1.0,6,17,referencia
+tausa,produccion_continua,botrytis,1.0,6,17,SUPUESTO (todas las etapas coexisten)
+tausa,etapa_unica_vegetativo,botrytis,0.3,0,0,SUPUESTO (sensibilidad por cama)
+tausa,etapa_unica_floracion,botrytis,1.0,6,17,SUPUESTO (sensibilidad por cama)
+tausa,etapa_unica_fruto_verde,botrytis,0.5,0,0,SUPUESTO (sensibilidad por cama)
+tausa,etapa_unica_maduracion,botrytis,0.7,16,0,SUPUESTO (sensibilidad por cama)
+tausa,sin_fenologia (m=1),roya,1.0,2,0,referencia
+tausa,produccion_continua,roya,1.0,2,0,SUPUESTO (todas las etapas coexisten)
+tausa,etapa_unica_vegetativo,roya,1.0,2,0,SUPUESTO (sensibilidad por cama)
+tausa,etapa_unica_floracion,roya,1.0,2,0,SUPUESTO (sensibilidad por cama)
+tausa,etapa_unica_fruto_verde,roya,1.0,2,0,SUPUESTO (sensibilidad por cama)
+tausa,etapa_unica_maduracion,roya,1.0,2,0,SUPUESTO (sensibilidad por cama)
+guasca,sin_fenologia (m=1),antracnosis,1.0,17,4,referencia
+guasca,produccion_continua,antracnosis,1.0,17,4,SUPUESTO (todas las etapas coexisten)
+guasca,etapa_unica_vegetativo,antracnosis,0.2,2,0,SUPUESTO (sensibilidad por cama)
+guasca,etapa_unica_floracion,antracnosis,0.6,11,1,SUPUESTO (sensibilidad por cama)
+guasca,etapa_unica_fruto_verde,antracnosis,1.0,17,4,SUPUESTO (sensibilidad por cama)
+guasca,etapa_unica_maduracion,antracnosis,1.0,17,4,SUPUESTO (sensibilidad por cama)
+guasca,sin_fenologia (m=1),botrytis,1.0,5,10,referencia
+guasca,produccion_continua,botrytis,1.0,5,10,SUPUESTO (todas las etapas coexisten)
+guasca,etapa_unica_vegetativo,botrytis,0.3,0,0,SUPUESTO (sensibilidad por cama)
+guasca,etapa_unica_floracion,botrytis,1.0,5,10,SUPUESTO (sensibilidad por cama)
+guasca,etapa_unica_fruto_verde,botrytis,0.5,0,0,SUPUESTO (sensibilidad por cama)
+guasca,etapa_unica_maduracion,botrytis,0.7,10,0,SUPUESTO (sensibilidad por cama)
+guasca,sin_fenologia (m=1),roya,1.0,13,6,referencia
+guasca,produccion_continua,roya,1.0,13,6,SUPUESTO (todas las etapas coexisten)
+guasca,etapa_unica_vegetativo,roya,1.0,13,6,SUPUESTO (sensibilidad por cama)
+guasca,etapa_unica_floracion,roya,1.0,13,6,SUPUESTO (sensibilidad por cama)
+guasca,etapa_unica_fruto_verde,roya,1.0,13,6,SUPUESTO (sensibilidad por cama)
+guasca,etapa_unica_maduracion,roya,1.0,13,6,SUPUESTO (sensibilidad por cama)
+chia,sin_fenologia (m=1),antracnosis,1.0,36,6,referencia
+chia,produccion_continua,antracnosis,1.0,36,6,SUPUESTO (todas las etapas coexisten)
+chia,etapa_unica_vegetativo,antracnosis,0.2,1,0,SUPUESTO (sensibilidad por cama)
+chia,etapa_unica_floracion,antracnosis,0.6,16,0,SUPUESTO (sensibilidad por cama)
+chia,etapa_unica_fruto_verde,antracnosis,1.0,36,6,SUPUESTO (sensibilidad por cama)
+chia,etapa_unica_maduracion,antracnosis,1.0,36,6,SUPUESTO (sensibilidad por cama)
+chia,sin_fenologia (m=1),botrytis,1.0,11,16,referencia
+chia,produccion_continua,botrytis,1.0,11,16,SUPUESTO (todas las etapas coexisten)
+chia,etapa_unica_vegetativo,botrytis,0.3,0,0,SUPUESTO (sensibilidad por cama)
+chia,etapa_unica_floracion,botrytis,1.0,11,16,SUPUESTO (sensibilidad por cama)
+chia,etapa_unica_fruto_verde,botrytis,0.5,0,0,SUPUESTO (sensibilidad por cama)
+chia,etapa_unica_maduracion,botrytis,0.7,15,0,SUPUESTO (sensibilidad por cama)
+chia,sin_fenologia (m=1),roya,1.0,20,6,referencia
+chia,produccion_continua,roya,1.0,20,6,SUPUESTO (todas las etapas coexisten)
+chia,etapa_unica_vegetativo,roya,1.0,20,6,SUPUESTO (sensibilidad por cama)
+chia,etapa_unica_floracion,roya,1.0,20,6,SUPUESTO (sensibilidad por cama)
+chia,etapa_unica_fruto_verde,roya,1.0,20,6,SUPUESTO (sensibilidad por cama)
+chia,etapa_unica_maduracion,roya,1.0,20,6,SUPUESTO (sensibilidad por cama)

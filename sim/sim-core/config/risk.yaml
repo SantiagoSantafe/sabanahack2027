@@ -1,0 +1,112 @@
+# Modelos de riesgo de enfermedad. Índice 0-1 por periodo de mojadura (LWD = horas de hoja mojada,
+# T = °C media SOLO de las horas mojadas, como lo publica NC State IPM).
+# Portado de la capa verificada del equipo: BerryGoodIdea_handoff/datos/riesgo/risk.py (136 pruebas) y su
+# README. La simulación no importa nada de datos/: copia las funciones en sim-core/risk.py, y
+# tests/test_risk.py fija estos coeficientes contra los casos de libro de esas pruebas.
+#
+# Etiquetas: PUBLICADO (copiado de la fuente citada), APROXIMACION (construido por el equipo a partir de
+# datos publicados), SUPUESTO (sin fuente directa), NO VERIFICADO (visto solo en un resumen secundario).
+#
+# Sin mojadura (LWD = 0) todos los índices valen 0. La simulación NO aplica el multiplicador de fenología
+# de datos/riesgo (no modela etapas): equivale a la etapa más susceptible (m = 1). # SUPUESTO
+
+# ---------------------------------------------------------------------------
+# Antracnosis (Colletotrichum acutatum / C. fioriniae)
+# Índice del sistema = envolvente = máx(Wilson 1990, aproximación Gillett y Schilder 2009), orientada a la
+# sensibilidad. En frío la ecuación de fresa subestima al arándano (a 15 °C Wilson necesita ~35 h para 0,5;
+# el arándano mostró infección considerable a 24 h).
+# NO se usa Miles, Gillett, Jarosz y Schilder 2013 (Plant Pathol. 62:1238, doi:10.1111/ppa.12061): sus
+# coeficientes nunca se obtuvieron (artículo cerrado; copia de MSU tras Incapsula; tesis 403). Los valores
+# "de Miles" que tenía este archivo no tenían fuente y se eliminaron.
+# ---------------------------------------------------------------------------
+anthracnose:
+  model: envelope            # envelope | wilson1990 | gillett_schilder2009
+  source: "Wilson, Madden y Ellis 1990 (Phytopathology 80:111-116) + aproximación con Gillett y Schilder 2009 (Acta Hortic. 810:355-360)"
+  # a) PUBLICADO. Wilson et al. 1990, fruto de fresa; coeficientes de NC State IPM ("FLSAS Models",
+  #    actualizada 23-jul-2025). Ecuación del Strawberry y del Blueberry Advisory System (UF/IFAS;
+  #    Gama et al. 2022, EDIS PP366; validada en arándano en Florida por Gama et al. 2021, Plant Dis. 105:1806).
+  #    f = c0 + c1*LWD + c2*LWD*T + c3*LWD*T^2 + c4*LWD*T^3 ; índice = e^f / (1 + e^f)
+  #    Recorte frío (implementación del equipo): bajo ~9,33 °C se usa la pendiente en 9,33 °C.
+  wilson1990:
+    c0: -3.7
+    c1: 0.33
+    c2: -0.069
+    c3: 0.005
+    c4: -9.3e-5
+  # b) APROXIMACION. Gillett y Schilder 2009 inocularon fruto de arándano 'Jersey': "aumento considerable"
+  #    de la infección tras 36-48 h a 10 °C, 24 h a 15 °C, 12-18 h a 20-25 °C y 18-24 h a 30 °C; bajo a 6 h.
+  #    W50 = punto medio de cada rango (LWD a la que el índice vale 0,5); g(T) = -intercept / W50, lineal
+  #    entre anclas; g = 0 a 5 y 35 °C (Miles 2013, solo resumen Crossref: crecimiento escaso o nulo).
+  gillett_schilder2009:
+    intercept: -3.7          # mismo intercepto de Wilson
+    w50_anchors:             # [T °C, W50 h]
+      - [10.0, 42.0]         # 36-48 h
+      - [15.0, 24.0]         # 24 h
+      - [20.0, 15.0]         # 12-18 h
+      - [25.0, 15.0]         # 12-18 h
+      - [30.0, 21.0]         # 18-24 h
+    zero_slope_temps_c: [5.0, 35.0]
+  # Umbrales (medio, alto): PUBLICADO, NCSU FLSAS; MacKenzie y Peres 2012a (Plant Dis. 96:522):
+  # captan si INF > 0,15, piraclostrobina si INF > 0,5.
+  thresholds: [0.15, 0.50]
+  # Validez: fuera de 10-30 °C la curva es extrapolación. En la Sabana fría casi todo el riesgo sale de la
+  # aproximación (Wilson sola da 0 días en alto en el backtest 2025 del equipo).
+
+# ---------------------------------------------------------------------------
+# Botrytis cinerea: ENFERMEDAD PRINCIPAL según el cliente (AGRAR) y presente en 8 de 9 fincas de
+# Cundinamarca y Boyacá (Valbuena-Gaona 2025).
+# PUBLICADO. Bulger, Ellis y Madden 1987, Phytopathology 77:1225-1230, coeficientes de NC State IPM
+# ("FLSAS Botrytis formula"). Modela infección de FLORES de fresa: proxy para arándano.
+#   f = c0 + c_lwd*LWD + c_lwd_t*LWD*T + c_lwd_t3*LWD*T^3 ; índice = e^f / (1 + e^f)
+# Comprobación: reproduce la gráfica NCSU a 20,5 °C (0,50 a 13,8 h; 0,70 a 16,5 h); óptimo 20,4 °C.
+# Este archivo tenía antes un juego "fruit_graymold, Tabla 2" (b0 -3,526...) sin fuente verificable: se
+# eliminó. El juego que queda es el que la simulación llamaba "petal_necrosis".
+# ---------------------------------------------------------------------------
+botrytis:
+  model: bulger1987
+  source: "Bulger, Ellis y Madden 1987 (Phytopathology 77:1225-1230), flor de fresa como proxy; coeficientes de NC State IPM"
+  coefficients:
+    c0: -4.268
+    c_lwd: -0.0901
+    c_lwd_t: 0.0294
+    c_lwd_t3: -2.35e-5
+  # Umbrales (medio, alto): PUBLICADO, NCSU FLSAS; umbral de acción 0,50 validado en campo por
+  # MacKenzie y Peres 2012b (Plant Dis. 96:529-536).
+  thresholds: [0.50, 0.70]
+  # Rango de validez: ensayos a 5-30 °C y hasta 32 h de mojadura. NO VERIFICADO directamente (APS
+  # respondió 403; dato del resumen). Fuera de ese rango el índice es extrapolación; risk.bulger_out_of_range()
+  # lo marca. En la Sabana la T de las horas mojadas suele ser 8-11 °C (borde frío del rango) y, en el
+  # backtest 2025 del equipo, 30 de los 61 días en alto salieron de periodos de más de 32 h.
+  valid_temp_c: [5.0, 30.0]
+  valid_max_wetness_h: 32
+  # Reglas operativas (no entran al índice; contexto para el agrónomo):
+  # - Arándano: más de 6 h de mojadura entre 14 y 25 °C (Rivera, Zoffoli y Latorre 2013, Plant Dis.
+  #   97:1069; r = 0,96 con moho gris en fruta almacenada; sin validar en campo).
+  # - "HR > 90 % y 8 h" son reglas operativas del equipo. # SUPUESTO
+
+# ---------------------------------------------------------------------------
+# Roya del arándano (Thekopsora minima = Pucciniastrum minimum). APROXIMACION, regla de vigilancia.
+# No hay modelo publicado T x mojadura para esta roya. Se usa el modelo genérico de infección (GIM) de
+# Magarey, Sutton y Thayer 2005 (Phytopathology 95:92-100), en la forma que publica NCSU:
+#   alfa = ln2 / ln[(Tmax-Tmin)/(Topt-Tmin)]
+#   f_T  = [2(T-Tmin)^alfa (Topt-Tmin)^alfa - (T-Tmin)^(2 alfa)] / (Topt-Tmin)^(2 alfa)  (0 fuera de [Tmin, Tmax])
+#   I    = LWD * f_T / LWDmin  (I = 0 si LWDmin / f_T > LWDmax: lectura del equipo, NO VERIFICADO)
+#   índice = 0,15^(3,5 * 0,15^(0,75 I))   (I = 1 -> 0,20; I = 2 -> 0,68)
+# Límite conocido: los días de riesgo de roya en la Sabana son artefacto de Tmin = 8 °C (con Tmin >= 12 °C
+# hay 0 días). La regla anterior "19-25 °C y 7 h" (brief) no está verificada y casi nunca se activa con
+# medias de 12-18 °C: se eliminó.
+# ---------------------------------------------------------------------------
+rust:
+  model: gim_magarey2005
+  source: "APROXIMACION: GIM (Magarey et al. 2005) con Topt de Pfister et al. 2004 (rododendro) y LWDmax de EPPO/DEFRA 2021"
+  gim:
+    t_opt_c: 21.5    # óptimo de germinación de urediniosporas (Pfister, Halik y Bergdahl 2004, Plant Dis. 88:359; rododendro)
+    t_min_c: 8.0     # SUPUESTO — germinación "muy reducida" bajo 15 °C pero ocurre a 10 °C (Pfister 2004)
+    t_max_c: 32.0    # SUPUESTO — a 30 °C caen los uredinios sin llegar a cero (Pfister 2004)
+    lwd_min_h: 8.0   # SUPUESTO — 4-8 h de otras royas (Uromyces; Griffin y Anderson 2026, J. Fungi 12:133)
+    lwd_max_h: 48.0  # evaluación EPPO resumida por DEFRA (2021): 15-25 °C y 48 h de mojadura
+  thresholds: [0.20, 0.50]  # SUPUESTO — 0,20 = 1 ciclo GIM (~20 % de incidencia según NCSU)
+
+# Presión combinada que usa el motor por cama (propagación, orden de pasillos de F, disparo de B):
+# máximo de los tres índices, orientado a la sensibilidad. # SUPUESTO
+combine: max  # max | mean

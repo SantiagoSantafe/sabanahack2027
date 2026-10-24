@@ -1,0 +1,8 @@
+{
+  "registrado": "2026-10-23T18:03:25-05:00",
+  "unidad_principal": "imagen completa (modo image): es lo que ve el D1 en la pantalla; el modo recortes (crops) es la cota superior con localizacion perfecta",
+  "paso_1": "Familia de modelo elegida en VALIDACION (umbral sens>=0.90, minimo FPR en val; desempate macro-F1 val). Resultado en val: sonda CLIP (FPR val 0.0 con teselas 2) supera a YOLO11n-cls 224/448 (FPR val 0.6/0.2).",
+  "paso_2": "Dentro de la sonda CLIP, variante (teselas 0/2/3) y C elegidos por validacion cruzada agrupada 5 pliegues sobre train+val (OOF): minimo FPR OOF con sens OOF>=0.90; desempate macro-F1 OOF.",
+  "paso_3": "Umbral final = threshold.py sobre las predicciones OOF (sens>=0.90, minimo FP). Modelo final entrenado en train+val. El test congelado se evalua UNA vez con ese umbral.",
+  "declaracion": "El cambio a CV se decidio DESPUES de ver que el umbral fijado en val (25 grupos) no sostuvo la sensibilidad en test en 4 de 5 modelos de imagen; es una mirada al test que se declara en RESULTADOS.md."
+}

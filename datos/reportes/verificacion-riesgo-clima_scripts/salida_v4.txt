@@ -1,0 +1,17 @@
+== Roya: dias medio/alto 2025 (HR>=90 o lluvia>=0.5) segun Tmin del GIM ==
+Tmin= 8.0  sotaquira 17/4  tausa 2/0  guasca 13/6  chia 20/6
+Tmin=10.0  sotaquira 6/0  tausa 0/0  guasca 8/3  chia 8/2
+Tmin=12.0  sotaquira 0/0  tausa 0/0  guasca 0/0  chia 0/0
+Tmin=15.0  sotaquira 0/0  tausa 0/0  guasca 0/0  chia 0/0
+
+== Roya, regla empirica del equipo: periodo con T media 19-25 C y >= 48 h mojadas (EPPO) o >= 24 h ==
+sotaquira  periodos: 390; 19-25C>=48h: 0; 19-25C>=24h: 0; 15-25C>=24h: 0; T media maxima en periodos >=12 h: 12.5 C
+tausa      periodos: 386; 19-25C>=48h: 0; 19-25C>=24h: 0; 15-25C>=24h: 0; T media maxima en periodos >=12 h: 10.7 C
+guasca     periodos: 392; 19-25C>=48h: 0; 19-25C>=24h: 0; 15-25C>=24h: 0; T media maxima en periodos >=12 h: 13.7 C
+chia       periodos: 397; 19-25C>=48h: 0; 19-25C>=24h: 0; 15-25C>=24h: 0; T media maxima en periodos >=12 h: 13.0 C
+
+== Botrytis: dias en alto, dependencia de LWD > 32 h y umbral de accion 0.50 ==
+sotaquira  alto(>=0.70): 18, de ellos con LWD>32 h: 8; dias >= 0.50 (umbral validado MacKenzie y Peres): 24
+tausa      alto(>=0.70): 17, de ellos con LWD>32 h: 11; dias >= 0.50 (umbral validado MacKenzie y Peres): 23
+guasca     alto(>=0.70): 10, de ellos con LWD>32 h: 4; dias >= 0.50 (umbral validado MacKenzie y Peres): 15
+chia       alto(>=0.70): 16, de ellos con LWD>32 h: 7; dias >= 0.50 (umbral validado MacKenzie y Peres): 27

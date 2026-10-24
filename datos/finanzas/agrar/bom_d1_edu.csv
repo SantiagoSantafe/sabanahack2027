@@ -1,0 +1,21 @@
+categoria,item,cantidad,origen,fob_usd_unitario,fob_usd_total,costo_puesto_cop_sin_iva,iva_cop,tipo,nota
+Robot,Robot AgiBot D1 EDU,1,import,5999.0,5999.0,22083241,4022661,NO VERIFICADO,Hoja del equipo (FOB México); tienda 9.600 (Ultra) / 6.080 (EDU)
+Robot,Batería de repuesto (1 por robot),1,import,450.0,450.0,1656519,301750,NO VERIFICADO,ESCALABILIDAD §2.7
+Visión,Cámara RGB 4K con iluminación,1,import,350.0,350.0,1288404,234694,SUPUESTO,"Ve fruto/hoja a la altura del arbusto, de noche"
+Visión,Cómputo de borde tipo Jetson Orin Nano Super,1,import,249.0,249.0,916607,166968,SUPUESTO,"Precio de lista ~249 USD, no reverificado"
+Visión,"SSD, fuente DC-DC y caja del cómputo",1,import,150.0,150.0,552173,100583,SUPUESTO,
+Sensado,Sensor T/HR a bordo,1,import,60.0,60.0,220869,40233,SUPUESTO,Requisito explícito del mentor (§5)
+Comunicación,Módulo LoRaWAN / Modbus RS485,1,import,80.0,80.0,294492,53644,SUPUESTO,Envío al PLC/controlador de AGRAR; buffer y reenvío al volver
+Mecánica,Mástil y soporte de cámara (local),1,local,,,800000,152000,SUPUESTO,Fabricación local
+Infraestructura,"Base de carga (caseta, cargador, UPS, punto de acceso)",1,local,,,2200000,418000,SUPUESTO,Descarga de datos con red de la finca
+Infraestructura,"Cableado, conectores y protección",1,local,,,320000,60800,SUPUESTO,
+Ingeniería,Levantamiento de finca y rutas (40 bloques),1,servicio,,,4800000,0,SUPUESTO,60 h x 80.000 COP/h
+Ingeniería,Integración con PLC/controlador (Modbus / LoRaWAN),1,servicio,,,3200000,0,SUPUESTO,40 h x 80.000 COP/h
+Ingeniería,"Software: navegación por pasillo, captura, buffer",1,servicio,,,4000000,0,SUPUESTO,50 h x 80.000 COP/h
+Ingeniería,"Clasificador, panel y alertas",1,servicio,,,3200000,0,SUPUESTO,40 h x 80.000 COP/h
+Ingeniería,"Instalación, pruebas y capacitación en sitio",1,servicio,,,3840000,0,SUPUESTO,48 h x 80.000 COP/h
+Ingeniería,Viáticos y transporte a la finca,1,servicio,,,1900000,0,SUPUESTO,
+Ingeniería,Amortización del desarrollo base (NRE),1,servicio,,,2133333,0,SUPUESTO,64 M COP / 30 proyectos
+Provisión,Garantía y contingencia (5 % del hardware),1,provisión,,,1516615,0,SUPUESTO,
+TOTAL,Costo de AGRAR sin IVA,,,,,54922254,5551335,,IVA de importación y compras locales aparte
+TOTAL,Precio de venta con margen 40 %,,,,,91537090,,,Antes de IVA

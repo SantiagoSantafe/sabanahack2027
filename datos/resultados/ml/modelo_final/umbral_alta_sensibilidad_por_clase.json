@@ -1,0 +1,70 @@
+{
+  "creado": "2026-10-23T18:09:03-05:00",
+  "umbral": 0.4147515,
+  "puntaje": "1 - p(sana)",
+  "regla": "sospecha si puntaje >= umbral; clase = enfermedad más probable",
+  "objetivo_sensibilidad": 0.9,
+  "criterio": "por_clase",
+  "desempate": "sensibilidad",
+  "clase_sana": "sana",
+  "clases": [
+    "alternaria",
+    "heliothis",
+    "oidio",
+    "sana"
+  ],
+  "elegido_en": {
+    "archivo": "/Users/santiagosantafe/Downloads/SabanaHack/datos/resultados/ml/drberry_image/clip_cv_tiles3/predicciones_cvprobe_val.csv",
+    "sha256": "5307e84e6ca5b1ff28524d401af9821fe894bd2669de87a5d443472884326d44",
+    "n": 342,
+    "n_enfermos": 296,
+    "n_sanos": 46
+  },
+  "validacion": {
+    "tp": 280,
+    "fp": 24,
+    "fn": 16,
+    "tn": 22,
+    "sensibilidad": 0.9459459459459459,
+    "especificidad": 0.4782608695652174,
+    "tasa_fp": 0.5217391304347826,
+    "tasa_falsa_alarma_fdr": 0.07894736842105263,
+    "vpp": 0.9210526315789473,
+    "vpn": 0.5789473684210527,
+    "falsas_alarmas_por_100": 7.017543859649122,
+    "no_detectados_por_100": 4.678362573099415,
+    "ic95_clopper_pearson": {
+      "sensibilidad": [
+        0.9137021331861427,
+        0.9687913728386813
+      ],
+      "tasa_fp": [
+        0.3694564735699834,
+        0.6711213130726599
+      ],
+      "tasa_falsa_alarma_fdr": [
+        0.05123638686474417,
+        0.11519099899045271
+      ]
+    },
+    "deteccion_por_clase": {
+      "alternaria": {
+        "detectados": 49,
+        "n": 54,
+        "tasa": 0.9074074074074074
+      },
+      "heliothis": {
+        "detectados": 137,
+        "n": 143,
+        "tasa": 0.958041958041958
+      },
+      "oidio": {
+        "detectados": 94,
+        "n": 99,
+        "tasa": 0.9494949494949495
+      }
+    }
+  },
+  "umbral_puntaje_observado": 0.41497399999999995,
+  "avisos": []
+}

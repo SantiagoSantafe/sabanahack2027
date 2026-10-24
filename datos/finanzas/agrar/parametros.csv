@@ -1,0 +1,85 @@
+parametro,base,pesimista_o_min,optimista_o_max,tipo,fuente_o_nota
+trm_cop_usd,3185.01,3048.12,3900.82,FUENTE,"TRM vigente el 2026-10-23 (datos.gov.co 32sa-8pi3); 3.158,43 rige 24-26 oct. lo/hi = mínimo/máximo de 12 meses (3.048,12 / 3.900,82)."
+iva,0.19,,,FUENTE,ET art. 468; base = valor aduanero + arancel (art. 459).
+arancel,0.05,,,FUENTE / NO VERIFICADO,"5 % para 8479.50 / 8479.89 (DIAN, Decreto 1881/2021); clasificación del cuadrúpedo sin confirmar (8543.70.90 pagaría 0 %)."
+flete_usd_kg,5.0,,,SUPUESTO,"Aéreo México-Bogotá, kg tasable (igual a finanzas/parametros.yaml)."
+flete_fijo_usd,150.0,,,SUPUESTO,Documentación y manejo por embarque.
+seguro_frac,0.01,,,SUPUESTO,1 % del FOB.
+agencia_transporte_usd,350.0,,,SUPUESTO,Agencia de aduanas + bodegaje + transporte interno.
+iva_recuperable_agrar,True,,,SUPUESTO / NO VERIFICADO,"AGRAR vende bienes gravados: se supone que descuenta el IVA de importación y de compras locales. Consultar contador. Si no, el IVA es costo (escenario 'IVA costo')."
+factor_previo,1.35,,,SUPUESTO (equipo),"Factor de importación previo; el cálculo da ~1,35-1,36."
+presupuesto_min_cop,90000000.0,,,FUENTE,RESPUESTAS_MENTOR §2: inversión por proyecto 90-110 M COP ('dato al aire').
+presupuesto_max_cop,110000000.0,,,FUENTE,Ídem.
+margen_min,0.4,,,FUENTE,"Margen mínimo de AGRAR. Se interpreta como margen bruto sobre el precio (SUPUESTO de lectura; si fuera recargo sobre costo, el precio baja un 17 %)."
+proyectos_anio,10,,,FUENTE,"~10 proyectos/año (nicho, específicos de cada cliente)."
+payback_max_meses,24,,,FUENTE,Punto de equilibrio del cliente final < 2 años.
+precio_ref_ventilador_cop,3000000.0,,,FUENTE,"1,5-4,5 M COP por ventilador (referencia del mentor)."
+tarifa_hora_cop,80000.0,,,SUPUESTO,Costo cargado de ingeniero ~12 M COP/mes / 160 h = 75 mil; ~25 USD/h a TRM base.
+horas_levantamiento,60,,,SUPUESTO,"Mapa de 40 bloques/naves/camas, marcadores y rutas del robot."
+horas_integracion_plc,40,,,SUPUESTO,Modbus RTU / LoRaWAN hacia el controlador existente (protocolo abierto).
+horas_software,50,,,SUPUESTO,"Navegación por pasillo (el D1 no tiene ROS), captura, buffer y reenvío."
+horas_clasificador_panel,40,,,SUPUESTO,"Ajuste del detector con fotos de la finca, panel y alertas."
+horas_instalacion,48,,,SUPUESTO,2 personas x 3 días x 8 h: puesta en marcha y capacitación.
+viaticos_cop,1900000.0,,,SUPUESTO,Transporte y viáticos del equipo a la finca.
+nre_desarrollo_cop,64000000.0,,,SUPUESTO,"Desarrollo base reutilizable (~20.000 USD), amortizado entre los proyectos."
+proyectos_amortizacion,30,,,SUPUESTO,3 años x 10 proyectos.
+garantia_frac,0.05,,,SUPUESTO,Provisión de garantía/contingencia sobre el hardware puesto.
+horas_mult_adverso,1.25,,,SUPUESTO,Sobrecosto de horas en el escenario adverso.
+horas_extra_2do_robot,0.35,,,SUPUESTO,Fracción de horas adicionales por cada robot extra (levantamiento compartido).
+fob_d1_ultra,7499.0,7499.0,9600.0,NO VERIFICADO,Hoja del equipo (FOB México). La tienda AgiBot lista 9.600 USD (2026-10-23).
+fob_d1_edu,5999.0,5999.0,6080.0,NO VERIFICADO,Hoja del equipo; tienda AgiBot 6.080 USD.
+fob_bateria,450.0,,,NO VERIFICADO,ESCALABILIDAD §2.7 (AgiBot no la vende en su tienda).
+fob_camara,350.0,,,SUPUESTO,Cámara RGB 4K + iluminación (noche/amanecer).
+fob_jetson,249.0,,,SUPUESTO,"Jetson Orin Nano Super 8 GB; precio de lista anunciado ~249 USD, no reverificado hoy."
+fob_jetson_acc,150.0,,,SUPUESTO,"SSD NVMe, fuente DC-DC, caja con protección."
+fob_sensor_thr,60.0,,,SUPUESTO,Sensor T/HR calibrado con filtro (clase SHT4x). Referencia: Dragino LLMS01 129 USD (hoja foliar).
+fob_lora,80.0,,,SUPUESTO,Módulo LoRaWAN/Modbus RS485 + antena.
+peso_d1,30.0,,,SUPUESTO,kg con caja (finanzas/parametros.yaml).
+fob_x2_ultra,39999.0,,,NO VERIFICADO,"Hoja del equipo (humanoide X2 Ultra, FOB)."
+peso_x2,80.0,,,SUPUESTO,kg de envío (finanzas/parametros.yaml).
+fob_amiga,22500.0,,,NO VERIFICADO,Rango 20-25 mil USD (finanzas/parametros.yaml).
+peso_amiga,250.0,,,SUPUESTO,kg de envío (finanzas/parametros.yaml).
+local_mastil_cop,800000.0,,,SUPUESTO,"Mástil y soporte estabilizado, fabricación local."
+local_base_carga_cop,2200000.0,,,SUPUESTO,"Base de carga: caseta techada, cargador, UPS y punto de acceso wifi para descarga."
+local_cableado_cop,320000.0,,,SUPUESTO,"Cableado, conectores y protección."
+area_bloque_ha,0.5,,,FUENTE,"Bloques de 0,5 ha (o 1 ha)."
+nave_ancho_m,6.8,,,FUENTE,"Mentor: 6,8 m en invernadero (12,5-13 m en macrotúnel)."
+nave_largo_m,80.0,,,FUENTE,Mentor: unos 80 m.
+camas_por_nave,2.5,2.0,3.0,FUENTE,Mentor: 2-3 camas por nave.
+naves_por_bloque,9,,,DERIVADO,"floor(5.000 m2 / (6,8 x 80 m)) = 9; el camino central de 5-6 m ya está fuera de este cálculo."
+pasillos_por_nave,camas-1,,,SUPUESTO,El robot camina entre camas; las plantas crecen hacia el pasillo (mentor). Rango 1-2 pasillos por nave.
+overhead_recorrido,1.3,,,SUPUESTO,"Giros en cabeceras, paradas de captura (igual a finanzas)."
+velocidad_m_s,0.5,0.4,0.8,SUPUESTO,Velocidad efectiva de inspección con fotos útiles.
+velocidad_transito_m_s,1.0,,,SUPUESTO,Traslado base-bloque por el camino central.
+dist_base_bloque_m,250.0,,,DERIVADO,"Finca de ~22,5 ha (~475 m de lado): 0,38 x lado = 181 m x 1,3 de trazado ~ 236, redondeado a 250 m (una vía)."
+autonomia_h,1.5,1.0,2.0,FUENTE / SUPUESTO,Ficha D1 Ultra: 1-2 h; con cámara y cómputo puede bajar.
+reserva_bateria,0.2,,,SUPUESTO,Reserva de seguridad (ESCALABILIDAD §6.3).
+carga_min,60.0,,,FUENTE,Carga ~1 h del 10 al 90 % (manual D1 Ultra).
+cambio_bateria_min,5.0,,,SUPUESTO,Cambio manual con batería de repuesto (requiere una persona).
+ventana_noche_h,8.0,,,SUPUESTO,"Patrulla de riesgo de noche/amanecer, p. ej. 22:00-06:00 (operarios trabajan 6-14 h)."
+noches_operacion_anio,200,,,SUPUESTO,"Noches con patrulla al año (lluvia fuerte, mantenimiento, noches sin riesgo); define el desgaste de baterías."
+vida_bateria_ciclos,300,,,SUPUESTO,ESCALABILIDAD §2.7; la garantía de AgiBot cubre 200 ciclos.
+bloques_finca,40,,,FUENTE,Finca típica de ~40 bloques.
+monitoreo_bloques_persona,"(12, 15)",,,FUENTE,Una persona monitorea 12-15 bloques en 4-5 días de jornada.
+monitoreo_dias_persona,"(4, 5)",,,FUENTE,"Ídem (mentor, en papel)."
+nube_usd_anio,240.0,,,SUPUESTO,Almacenamiento y sincronización (finanzas/parametros.yaml).
+ingeniero_soporte_cop_mes,7000000.0,,,SUPUESTO,Costo cargado de un ingeniero de soporte remoto.
+fincas_por_ingeniero,25,,,SUPUESTO,Fincas atendidas por un ingeniero de soporte.
+repuestos_frac_hw,0.04,,,SUPUESTO,Repuestos y reparaciones: 4 % del hardware puesto al año.
+retencion_suscripcion,0.9,,,SUPUESTO,Fincas que renuevan cada año.
+ha_finca,22.5,20.0,25.0,FUENTE,20-25 ha (mentor).
+rend_t_ha_cons,9.07,,,FUENTE,"EVA 2025: 6.030,66 t / 664,72 ha cosechadas."
+rend_t_ha_central,12.0,,,FUENTE,Forbes Colombia 26-may-2026 ('algunos cultivos rinden ~12 t/ha').
+precio_usd_kg_cons,6.0,,,SUPUESTO,"FOB implícito Colombia 2025 (5,2-6,1) y FOB Perú 6,22 (finanzas.md)."
+precio_usd_kg_central,8.0,,,SUPUESTO,"Extremo bajo del rango Planasa 8-10 USD/kg en finca (fuente interesada, Forbes 2026)."
+precio_usd_kg_alto,10.0,,,SUPUESTO,Extremo alto de Planasa.
+perdida_frac,"(0.1, 0.25)",,,FUENTE,Mentor: pérdida fitosanitaria 10-25 % de lo cosechado.
+perdida_sin_prevencion,"(0.3, 0.4)",,,FUENTE,Mentor: 30-40 % sin manejo preventivo.
+puntos_evitados,"(0.5, 1.0, 2.0, 3.0)",,,SUPUESTO,"Puntos porcentuales de pérdida que el sistema evita, a medir en piloto con camas testigo. AGRAR ya tiene un modelo predictivo en el PLC: el aporte incremental del robot es probablemente de 0,5-2 puntos."
+jornal_usd,19.0,19.0,23.82,SUPUESTO,"Jornal indicado por el equipo; finanzas.md calcula 23,82 USD con prestaciones (PL 504/2025)."
+vueltas_anio,26,12,52,SUPUESTO,Vueltas de monitoreo manual por año (quincenal). Rango 12-52.
+fraccion_monitoreo_sustituida,0.5,,,SUPUESTO,Parte del recorrido en papel que el robot reemplaza (el resto verifica alertas).
+operador_robot_min_dia,20.0,,,SUPUESTO,Operario del cliente: cambio de baterías y confirmación de alertas (ESCALABILIDAD §6.4).
+falsas_alarmas_ha_anio,5.0,,,SUPUESTO,finanzas/parametros.yaml; reemplazar con la matriz de confusión.
+costo_falsa_alarma_usd,30.0,,,SUPUESTO,Visita del agrónomo/operario a verificar.
+vida_util_anios,3,,,SUPUESTO (equipo),"Para el costo anualizado por ha (línea recta, igual a finanzas)."

@@ -1,0 +1,17 @@
+dataset,version,split,clase,n_cajas,pct_cajas_split,n_imagenes_con_clase,n_imagenes_clase_dominante,n_imagenes_split
+drberry/drberry-original-data,1,train,Alternaria,219,37.6,62,54,327
+drberry/drberry-original-data,1,train,Heliothis,163,28.0,130,129,327
+drberry/drberry-original-data,1,train,Oidio,131,22.5,97,96,327
+drberry/drberry-original-data,1,train,Sana,69,11.9,50,48,327
+drberry/drberry-original-data,1,valid,Alternaria,38,46.3,6,6,40
+drberry/drberry-original-data,1,valid,Heliothis,22,26.8,16,16,40
+drberry/drberry-original-data,1,valid,Oidio,15,18.3,13,12,40
+drberry/drberry-original-data,1,valid,Sana,7,8.5,6,6,40
+drberry/drberry-original-data,1,test,Alternaria,32,43.8,10,8,43
+drberry/drberry-original-data,1,test,Heliothis,19,26.0,16,16,43
+drberry/drberry-original-data,1,test,Oidio,16,21.9,13,13,43
+drberry/drberry-original-data,1,test,Sana,6,8.2,6,6,43
+drberry/drberry-original-data,1,total,Alternaria,289,39.2,78,68,410
+drberry/drberry-original-data,1,total,Heliothis,204,27.7,162,161,410
+drberry/drberry-original-data,1,total,Oidio,162,22.0,123,121,410
+drberry/drberry-original-data,1,total,Sana,82,11.1,62,60,410

@@ -1,0 +1,7 @@
+estacion,punto,referencia,horas_pareadas,dias_completos,horas_mojadas_estacion,horas_mojadas_om_HR85,horas_mojadas_om_HR90,horas_mojadas_om_HR95,dias_alto_estacion_antracnosis,dias_alto_estacion_botrytis,dias_alto_estacion_roya
+2120500135,chia,est_HR90_P>0,7449,294,3011,4196,3556,2167,11,16,12
+2120500135,chia,est_HR90_P>=0.5,7449,294,2849,4196,3556,2167,7,11,11
+2401500040,tausa,est_HR90_P>0,6409,256,3195,3648,2953,1832,9,20,5
+2401500040,tausa,est_HR90_P>=0.5,6409,256,3136,3648,2953,1832,5,16,2
+2403500041,sotaquira,est_HR90_P>0,7377,269,3858,3133,2573,1795,0,2,0
+2403500041,sotaquira,est_HR90_P>=0.5,7377,269,3809,3133,2573,1795,0,1,0

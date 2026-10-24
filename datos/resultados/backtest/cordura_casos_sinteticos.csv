@@ -1,0 +1,19 @@
+caso,descripcion,criterio,esperado,dias_alto_antracnosis,dias_medio_antracnosis,idx_max_antracnosis,clases_antracnosis,dias_alto_botrytis,dias_medio_botrytis,idx_max_botrytis,clases_botrytis,dias_alto_roya,dias_medio_roya,idx_max_roya,clases_roya,resultado
+seco_14d,"14 d sin lluvia, HR 50-80 %, T 7-19 C",HR85,bajo_todos,0,0,0.0,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,PASA
+seco_14d,"14 d sin lluvia, HR 50-80 %, T 7-19 C",HR90,bajo_todos,0,0,0.0,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,PASA
+seco_14d,"14 d sin lluvia, HR 50-80 %, T 7-19 C",HR95,bajo_todos,0,0,0.0,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,PASA
+seco_con_rocio_6h,14 d secos con 6 h/noche de HR 92 % a 9 C,HR85,bajo_todos,0,0,0.036,BBBBBBBBBBBBBB,0,0,0.035,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,PASA
+seco_con_rocio_6h,14 d secos con 6 h/noche de HR 92 % a 9 C,HR90,bajo_todos,0,0,0.036,BBBBBBBBBBBBBB,0,0,0.035,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,PASA
+seco_con_rocio_6h,14 d secos con 6 h/noche de HR 92 % a 9 C,HR95,bajo_todos,0,0,0.0,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,0,0,0.0,BBBBBBBBBBBBBB,PASA
+chubasco_3h,"1 chubasco de 3 h (2 mm/h, 15 C) en 7 d secos",HR85,bajo_todos,0,0,0.038,BBBBBBB,0,0,0.031,BBBBBBB,0,0,0.01,BBBBBBB,PASA
+chubasco_3h,"1 chubasco de 3 h (2 mm/h, 15 C) en 7 d secos",HR90,bajo_todos,0,0,0.038,BBBBBBB,0,0,0.031,BBBBBBB,0,0,0.01,BBBBBBB,PASA
+chubasco_3h,"1 chubasco de 3 h (2 mm/h, 15 C) en 7 d secos",HR95,bajo_todos,0,0,0.038,BBBBBBB,0,0,0.031,BBBBBBB,0,0,0.01,BBBBBBB,PASA
+semana_lluviosa_15C,"7 d con HR 97 % y 10 h/d de lluvia 1,5 mm/h, T 13-17 C",HR85,alto_todos,7,0,1.0,AAAAAAA,7,0,1.0,AAAAAAA,7,0,1.0,AAAAAAA,PASA
+semana_lluviosa_15C,"7 d con HR 97 % y 10 h/d de lluvia 1,5 mm/h, T 13-17 C",HR90,alto_todos,7,0,1.0,AAAAAAA,7,0,1.0,AAAAAAA,7,0,1.0,AAAAAAA,PASA
+semana_lluviosa_15C,"7 d con HR 97 % y 10 h/d de lluvia 1,5 mm/h, T 13-17 C",HR95,alto_todos,7,0,1.0,AAAAAAA,7,0,1.0,AAAAAAA,7,0,1.0,AAAAAAA,PASA
+aguacero_y_secado,1 d de lluvia (15 C) y luego 6 d secos,HR85,alto_dia1_y_bajo_desde_dia3,1,0,0.5,ABBBBBB,1,0,0.905,ABBBBBB,1,0,0.717,ABBBBBB,PASA
+aguacero_y_secado,1 d de lluvia (15 C) y luego 6 d secos,HR90,alto_dia1_y_bajo_desde_dia3,1,0,0.5,ABBBBBB,1,0,0.905,ABBBBBB,1,0,0.717,ABBBBBB,PASA
+aguacero_y_secado,1 d de lluvia (15 C) y luego 6 d secos,HR95,alto_dia1_y_bajo_desde_dia3,1,0,0.5,ABBBBBB,1,0,0.905,ABBBBBB,1,0,0.717,ABBBBBB,PASA
+semana_lluviosa_fria_8C,7 d mojados a 7-9 C (tipo Tausa),HR85,informativo,5,1,0.994,BMAAAAA,6,0,1.0,BAAAAAA,0,0,0.0,BBBBBBB,INFORMATIVO
+semana_lluviosa_fria_8C,7 d mojados a 7-9 C (tipo Tausa),HR90,informativo,5,1,0.994,BMAAAAA,6,0,1.0,BAAAAAA,0,0,0.0,BBBBBBB,INFORMATIVO
+semana_lluviosa_fria_8C,7 d mojados a 7-9 C (tipo Tausa),HR95,informativo,5,1,0.994,BMAAAAA,6,0,1.0,BAAAAAA,0,0,0.0,BBBBBBB,INFORMATIVO

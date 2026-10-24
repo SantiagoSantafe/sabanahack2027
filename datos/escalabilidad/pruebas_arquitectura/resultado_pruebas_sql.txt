@@ -1,0 +1,264 @@
+# Ejecutado 2026-10-23 17:30 -05 en PostgreSQL 16.14 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+# DDL con sustituto de PostGIS (transformar.py)
+DDL + semillas: OK
+SET
+CREATE FUNCTION
+GRANT
+--- P1 empresa A ve lo suyo
+BEGIN
+SET
+SET
+                t                 | count 
+----------------------------------+-------
+ P1 incidencias                   |     1
+ P1 fincas                        |     1
+ P1 dispositivos (robot prestado) |     1
+ P1 usuarios visibles             |     3
+ P1 filas vista ICA monitoreo     |     6
+(5 rows)
+
+ fecha_monitoreo | cultivo  | lote |   plaga_monitoreada   | camas_inspeccionadas | camas_con_hallazgo_confirmado | incidencia_camas_pct | alertas_sin_verificar | responsable_monitoreo | metodo 
+-----------------+----------+------+-----------------------+----------------------+-------------------------------+----------------------+-----------------------+-----------------------+--------
+ 2026-10-24      | Arándano | B03  | Antracnosis           |                    2 |                             0 |                  0.0 |                     0 | Operario Demo         | robot
+ 2026-10-24      | Arándano | B03  | Daño por Heliothis    |                    2 |                             0 |                  0.0 |                     0 | Operario Demo         | robot
+ 2026-10-24      | Arándano | B03  | Mancha por Alternaria |                    2 |                             0 |                  0.0 |                     0 | Operario Demo         | robot
+ 2026-10-24      | Arándano | B03  | Moho gris (Botrytis)  |                    2 |                             0 |                  0.0 |                     0 | Operario Demo         | robot
+ 2026-10-24      | Arándano | B03  | Oídio                 |                    2 |                             0 |                  0.0 |                     1 | Operario Demo         | robot
+ 2026-10-24      | Arándano | B03  | Roya del arándano     |                    2 |                             0 |                  0.0 |                     0 | Operario Demo         | robot
+(6 rows)
+
+COMMIT
+--- P2 empresa B no ve nada de A
+BEGIN
+SET
+SET
+          t          | count 
+---------------------+-------
+ P2 incidencias      |     0
+ P2 fincas           |     1
+ P2 dispositivos     |     0
+ P2 vista ICA        |     0
+ P2 registro_cambios |     3
+(5 rows)
+
+COMMIT
+--- P3 sin contexto no se ve nada
+BEGIN
+SET
+       t        | count 
+----------------+-------
+ P3 incidencias |     0
+ P3 empresas    |     0
+(2 rows)
+
+COMMIT
+--- P4 intentos de cruzar empresas
+BEGIN
+SET
+SET
+                   t                    |                                intentar                                 
+----------------------------------------+-------------------------------------------------------------------------
+ P4a B escribe incidencia con empresa A | 42501 new row violates row-level security policy for table "incidencia"
+(1 row)
+
+            t             |                                                               intentar                                                               
+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------
+ P4b B apunta a cama de A | 23503 insert or update on table "incidencia" violates foreign key constraint "incidencia_cama_id_bloque_id_finca_id_empresa_id_fkey"
+(1 row)
+
+                t                | intentar 
+---------------------------------+----------
+ P4c B crea su propia incidencia | OK
+(1 row)
+
+ROLLBACK
+--- P5 reglas de la incidencia
+BEGIN
+SET
+SET
+          t           |                                       intentar                                       
+----------------------+--------------------------------------------------------------------------------------
+ P5a robot sin modelo | 23514 new row for relation "incidencia" violates check constraint "incidencia_check"
+(1 row)
+
+              t               |                      intentar                       
+------------------------------+-----------------------------------------------------
+ P5b salto detectada->cerrada | 23514 Transición no permitida: detectada -> cerrada
+(1 row)
+
+                t                 | intentar 
+----------------------------------+----------
+ P5c pasa a verificacion_asignada | OK
+(1 row)
+
+                t                 |                                       intentar                                        
+----------------------------------+---------------------------------------------------------------------------------------
+ P5c2 confirmada sin verificacion | 23514 new row for relation "incidencia" violates check constraint "incidencia_check3"
+(1 row)
+
+                t                | intentar 
+---------------------------------+----------
+ P5d confirmada con verificacion | OK
+(1 row)
+
+             t              | version 
+----------------------------+---------
+ P5e version tras 2 updates | 3
+(1 row)
+
+                t                |    ?column?     
+---------------------------------+-----------------
+ P5f vista ICA: oidio confirmado | 1 camas, 50.0 %
+(1 row)
+
+              t              |                      intentar                       
+-----------------------------+-----------------------------------------------------
+ P5g editar evento (bgi_app) | 42501 permission denied for table incidencia_evento
+(1 row)
+
+             t              |                                                    intentar                                                     
+----------------------------+-----------------------------------------------------------------------------------------------------------------
+ P5h robot asignado 2 veces | 23P01 conflicting key value violates exclusion constraint "asignacion_dispositivo_dispositivo_id_vigencia_excl"
+(1 row)
+
+                 t                 | count 
+-----------------------------------+-------
+ P5i cambios registrados para sync | 3
+(1 row)
+
+ROLLBACK
+--- P6 inmutabilidad para cualquier rol
+              t               |                       intentar                        
+------------------------------+-------------------------------------------------------
+ P6 superusuario edita evento | 42501 La tabla incidencia_evento es de solo inserción
+(1 row)
+
+--- P7 particiones de lecturas
+BEGIN
+INSERT 0 1
+SET
+SET
+INSERT 0 2
+       t       |         tableoid          | count 
+---------------+---------------------------+-------
+ P7a particion | lectura_ambiental_2026_10 |     1
+ P7a particion | lectura_ambiental_defecto |     1
+(2 rows)
+
+             t              |                          intentar                           
+----------------------------+-------------------------------------------------------------
+ P7b leer particion directo | 42501 permission denied for table lectura_ambiental_2026_10
+(1 row)
+
+SET
+               t                | count 
+--------------------------------+-------
+ P7c empresa B ve lecturas de A |     0
+(1 row)
+
+ROLLBACK
+--- P8 alcance por finca (politica restrictiva)
+BEGIN
+SET
+SET
+SET
+                    t                     | count 
+------------------------------------------+-------
+ P8 operario de otra finca ve incidencias |     0
+(1 row)
+
+COMMIT
+--- P9 consola de flota del vendedor
+BEGIN
+SET
+             t             | count 
+---------------------------+-------
+ P9a flota ve dispositivos | 1
+(1 row)
+
+             t             |                   intentar                   
+---------------------------+----------------------------------------------
+ P9b flota lee incidencias | 42501 permission denied for table incidencia
+(1 row)
+
+COMMIT
+--- P10 GeoJSON de camas (bloque A)
+BEGIN
+SET
+SET
+                       jsonb_pretty                        
+-----------------------------------------------------------
+ {                                                        +
+     "type": "FeatureCollection",                         +
+     "features": [                                        +
+         {                                                +
+             "id": "c1000000-0000-4000-8000-000000000007",+
+             "type": "Feature",                           +
+             "geometry": {                                +
+                 "type": "LineString",                    +
+                 "coordinates": [                         +
+                     [                                    +
+                         -74.06000,                       +
+                         4.86000                          +
+                     ],                                   +
+                     [                                    +
+                         -74.06000,                       +
+                         4.86027                          +
+                     ]                                    +
+                 ]                                        +
+             },                                           +
+             "properties": {                              +
+                 "cama": 7,                               +
+                 "bloque": "B03",                         +
+                 "longitud_m": 30.02,                     +
+                 "riesgo_nivel": "alto",                  +
+                 "riesgo_problema": "botrytis",           +
+                 "incidencias_abiertas": 1                +
+             }                                            +
+         },                                               +
+         {                                                +
+             "id": "c1000000-0000-4000-8000-000000000008",+
+             "type": "Feature",                           +
+             "geometry": {                                +
+                 "type": "LineString",                    +
+                 "coordinates": [                         +
+                     [                                    +
+                         -74.05997,                       +
+                         4.86000                          +
+                     ],                                   +
+                     [                                    +
+                         -74.05997,                       +
+                         4.86027                          +
+                     ]                                    +
+                 ]                                        +
+             },                                           +
+             "properties": {                              +
+                 "cama": 8,                               +
+                 "bloque": "B03",                         +
+                 "longitud_m": 30.02,                     +
+                 "riesgo_nivel": "alto",                  +
+                 "riesgo_problema": "botrytis",           +
+                 "incidencias_abiertas": 0                +
+             }                                            +
+         }                                                +
+     ]                                                    +
+ }
+(1 row)
+
+SET
+                  t                  |                 geojson_camas                 
+-------------------------------------+-----------------------------------------------
+ P10b B pide GeoJSON del bloque de A | {"type": "FeatureCollection", "features": []}
+(1 row)
+
+COMMIT
+--- P11 agronomo con dos empresas (asistente tecnico)
+BEGIN
+SET
+SET
+          t          | count 
+---------------------+-------
+ P11 fincas visibles |     2
+(1 row)
+
+COMMIT

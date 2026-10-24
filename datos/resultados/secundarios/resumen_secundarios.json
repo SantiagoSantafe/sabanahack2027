@@ -1,0 +1,676 @@
+{
+ "plantdoc": {
+  "train/Apple Scab Leaf": {
+   "imagenes": 83,
+   "ancho_mediana": 612,
+   "alto_mediana": 459,
+   "lado_min_p10": 200
+  },
+  "train/Apple leaf": {
+   "imagenes": 82,
+   "ancho_mediana": 927.5,
+   "alto_mediana": 782.5,
+   "lado_min_p10": 380
+  },
+  "train/Apple rust leaf": {
+   "imagenes": 79,
+   "ancho_mediana": 736,
+   "alto_mediana": 600,
+   "lado_min_p10": 237
+  },
+  "train/Bell_pepper leaf": {
+   "imagenes": 53,
+   "ancho_mediana": 800,
+   "alto_mediana": 756,
+   "lado_min_p10": 330
+  },
+  "train/Bell_pepper leaf spot": {
+   "imagenes": 62,
+   "ancho_mediana": 800.0,
+   "alto_mediana": 629.5,
+   "lado_min_p10": 300
+  },
+  "train/Blueberry leaf": {
+   "imagenes": 106,
+   "ancho_mediana": 1200.0,
+   "alto_mediana": 957.0,
+   "lado_min_p10": 390
+  },
+  "train/Cherry leaf": {
+   "imagenes": 47,
+   "ancho_mediana": 1056,
+   "alto_mediana": 1024,
+   "lado_min_p10": 570
+  },
+  "train/Corn Gray leaf spot": {
+   "imagenes": 64,
+   "ancho_mediana": 524.0,
+   "alto_mediana": 394.0,
+   "lado_min_p10": 228
+  },
+  "train/Corn leaf blight": {
+   "imagenes": 180,
+   "ancho_mediana": 640.0,
+   "alto_mediana": 511.5,
+   "lado_min_p10": 267
+  },
+  "train/Corn rust leaf": {
+   "imagenes": 106,
+   "ancho_mediana": 769.0,
+   "alto_mediana": 650.0,
+   "lado_min_p10": 263
+  },
+  "train/Peach leaf": {
+   "imagenes": 103,
+   "ancho_mediana": 1200,
+   "alto_mediana": 1033,
+   "lado_min_p10": 450
+  },
+  "train/Potato leaf early blight": {
+   "imagenes": 109,
+   "ancho_mediana": 675,
+   "alto_mediana": 510,
+   "lado_min_p10": 300
+  },
+  "train/Potato leaf late blight": {
+   "imagenes": 97,
+   "ancho_mediana": 802,
+   "alto_mediana": 559,
+   "lado_min_p10": 269
+  },
+  "train/Raspberry leaf": {
+   "imagenes": 112,
+   "ancho_mediana": 1200.0,
+   "alto_mediana": 1016.0,
+   "lado_min_p10": 567
+  },
+  "train/Soyabean leaf": {
+   "imagenes": 57,
+   "ancho_mediana": 960,
+   "alto_mediana": 680,
+   "lado_min_p10": 402
+  },
+  "train/Squash Powdery mildew leaf": {
+   "imagenes": 124,
+   "ancho_mediana": 800.0,
+   "alto_mediana": 640.0,
+   "lado_min_p10": 347
+  },
+  "train/Strawberry leaf": {
+   "imagenes": 88,
+   "ancho_mediana": 1080.0,
+   "alto_mediana": 955.0,
+   "lado_min_p10": 419
+  },
+  "train/Tomato Early blight leaf": {
+   "imagenes": 79,
+   "ancho_mediana": 567,
+   "alto_mediana": 450,
+   "lado_min_p10": 240
+  },
+  "train/Tomato Septoria leaf spot": {
+   "imagenes": 140,
+   "ancho_mediana": 600.0,
+   "alto_mediana": 519.5,
+   "lado_min_p10": 212
+  },
+  "train/Tomato leaf": {
+   "imagenes": 55,
+   "ancho_mediana": 1200,
+   "alto_mediana": 1125,
+   "lado_min_p10": 465
+  },
+  "train/Tomato leaf bacterial spot": {
+   "imagenes": 101,
+   "ancho_mediana": 600,
+   "alto_mediana": 480,
+   "lado_min_p10": 225
+  },
+  "train/Tomato leaf late blight": {
+   "imagenes": 101,
+   "ancho_mediana": 900,
+   "alto_mediana": 675,
+   "lado_min_p10": 300
+  },
+  "train/Tomato leaf mosaic virus": {
+   "imagenes": 44,
+   "ancho_mediana": 388.0,
+   "alto_mediana": 320.0,
+   "lado_min_p10": 173
+  },
+  "train/Tomato leaf yellow virus": {
+   "imagenes": 70,
+   "ancho_mediana": 638.0,
+   "alto_mediana": 516.0,
+   "lado_min_p10": 250
+  },
+  "train/Tomato mold leaf": {
+   "imagenes": 85,
+   "ancho_mediana": 800,
+   "alto_mediana": 605,
+   "lado_min_p10": 209
+  },
+  "train/Tomato two spotted spider mites leaf": {
+   "imagenes": 2,
+   "ancho_mediana": 960.0,
+   "alto_mediana": 720.0,
+   "lado_min_p10": 720
+  },
+  "train/grape leaf": {
+   "imagenes": 57,
+   "ancho_mediana": 1300,
+   "alto_mediana": 1080,
+   "lado_min_p10": 600
+  },
+  "train/grape leaf black rot": {
+   "imagenes": 56,
+   "ancho_mediana": 800.0,
+   "alto_mediana": 600.0,
+   "lado_min_p10": 243
+  },
+  "test/Apple Scab Leaf": {
+   "imagenes": 10,
+   "ancho_mediana": 493.0,
+   "alto_mediana": 383.5,
+   "lado_min_p10": 239
+  },
+  "test/Apple leaf": {
+   "imagenes": 9,
+   "ancho_mediana": 1300,
+   "alto_mediana": 1174,
+   "lado_min_p10": 594
+  },
+  "test/Apple rust leaf": {
+   "imagenes": 10,
+   "ancho_mediana": 537.5,
+   "alto_mediana": 415.5,
+   "lado_min_p10": 188
+  },
+  "test/Bell_pepper leaf": {
+   "imagenes": 8,
+   "ancho_mediana": 720.0,
+   "alto_mediana": 600.0,
+   "lado_min_p10": 300
+  },
+  "test/Bell_pepper leaf spot": {
+   "imagenes": 9,
+   "ancho_mediana": 638,
+   "alto_mediana": 479,
+   "lado_min_p10": 166
+  },
+  "test/Blueberry leaf": {
+   "imagenes": 11,
+   "ancho_mediana": 1012,
+   "alto_mediana": 1148,
+   "lado_min_p10": 335
+  },
+  "test/Cherry leaf": {
+   "imagenes": 10,
+   "ancho_mediana": 1056.0,
+   "alto_mediana": 1260.0,
+   "lado_min_p10": 972
+  },
+  "test/Corn Gray leaf spot": {
+   "imagenes": 4,
+   "ancho_mediana": 450.0,
+   "alto_mediana": 349.0,
+   "lado_min_p10": 230
+  },
+  "test/Corn leaf blight": {
+   "imagenes": 12,
+   "ancho_mediana": 817.5,
+   "alto_mediana": 536.5,
+   "lado_min_p10": 200
+  },
+  "test/Corn rust leaf": {
+   "imagenes": 10,
+   "ancho_mediana": 432.0,
+   "alto_mediana": 406.0,
+   "lado_min_p10": 252
+  },
+  "test/Peach leaf": {
+   "imagenes": 9,
+   "ancho_mediana": 1056,
+   "alto_mediana": 1000,
+   "lado_min_p10": 500
+  },
+  "test/Potato leaf early blight": {
+   "imagenes": 8,
+   "ancho_mediana": 1162.0,
+   "alto_mediana": 862.0,
+   "lado_min_p10": 150
+  },
+  "test/Potato leaf late blight": {
+   "imagenes": 8,
+   "ancho_mediana": 495.0,
+   "alto_mediana": 455.0,
+   "lado_min_p10": 233
+  },
+  "test/Raspberry leaf": {
+   "imagenes": 7,
+   "ancho_mediana": 1101,
+   "alto_mediana": 1024,
+   "lado_min_p10": 768
+  },
+  "test/Soyabean leaf": {
+   "imagenes": 8,
+   "ancho_mediana": 851.0,
+   "alto_mediana": 773.0,
+   "lado_min_p10": 280
+  },
+  "test/Squash Powdery mildew leaf": {
+   "imagenes": 6,
+   "ancho_mediana": 546.0,
+   "alto_mediana": 486.0,
+   "lado_min_p10": 320
+  },
+  "test/Strawberry leaf": {
+   "imagenes": 8,
+   "ancho_mediana": 1300.0,
+   "alto_mediana": 1165.0,
+   "lado_min_p10": 571
+  },
+  "test/Tomato Early blight leaf": {
+   "imagenes": 9,
+   "ancho_mediana": 638,
+   "alto_mediana": 479,
+   "lado_min_p10": 150
+  },
+  "test/Tomato Septoria leaf spot": {
+   "imagenes": 11,
+   "ancho_mediana": 534,
+   "alto_mediana": 640,
+   "lado_min_p10": 332
+  },
+  "test/Tomato leaf": {
+   "imagenes": 8,
+   "ancho_mediana": 1600.0,
+   "alto_mediana": 1200.0,
+   "lado_min_p10": 462
+  },
+  "test/Tomato leaf bacterial spot": {
+   "imagenes": 9,
+   "ancho_mediana": 500,
+   "alto_mediana": 300,
+   "lado_min_p10": 230
+  },
+  "test/Tomato leaf late blight": {
+   "imagenes": 10,
+   "ancho_mediana": 515.0,
+   "alto_mediana": 491.0,
+   "lado_min_p10": 268
+  },
+  "test/Tomato leaf mosaic virus": {
+   "imagenes": 10,
+   "ancho_mediana": 903.5,
+   "alto_mediana": 640.0,
+   "lado_min_p10": 317
+  },
+  "test/Tomato leaf yellow virus": {
+   "imagenes": 6,
+   "ancho_mediana": 703.0,
+   "alto_mediana": 420.5,
+   "lado_min_p10": 200
+  },
+  "test/Tomato mold leaf": {
+   "imagenes": 6,
+   "ancho_mediana": 625.0,
+   "alto_mediana": 426.5,
+   "lado_min_p10": 137
+  },
+  "test/grape leaf": {
+   "imagenes": 12,
+   "ancho_mediana": 1024.0,
+   "alto_mediana": 906.0,
+   "lado_min_p10": 530
+  },
+  "test/grape leaf black rot": {
+   "imagenes": 8,
+   "ancho_mediana": 737.0,
+   "alto_mediana": 720.0,
+   "lado_min_p10": 263
+  }
+ },
+ "plantvillage": {
+  "Blueberry___healthy": {
+   "imagenes": 1502,
+   "hojas_fisicas_leaf_id": 160,
+   "imgs_por_hoja_min_mediana_max": [
+    3,
+    8.0,
+    29
+   ],
+   "imagenes_sin_leaf_id": 0,
+   "hf_test": 324,
+   "hf_train": 1178,
+   "tamanos": {
+    "256x256": 1502
+   }
+  },
+  "Cherry_(including_sour)___Powdery_mildew": {
+   "imagenes": 1052,
+   "hojas_fisicas_leaf_id": 65,
+   "imgs_por_hoja_min_mediana_max": [
+    1,
+    19,
+    24
+   ],
+   "imagenes_sin_leaf_id": 0,
+   "hf_test": 219,
+   "hf_train": 833,
+   "tamanos": {
+    "256x256": 1052
+   }
+  },
+  "Potato___Early_blight": {
+   "imagenes": 1000,
+   "hojas_fisicas_leaf_id": 250,
+   "imgs_por_hoja_min_mediana_max": [
+    4,
+    4.0,
+    4
+   ],
+   "imagenes_sin_leaf_id": 0,
+   "hf_test": 164,
+   "hf_train": 836,
+   "tamanos": {
+    "256x256": 1000
+   }
+  },
+  "Squash___Powdery_mildew": {
+   "imagenes": 1835,
+   "hojas_fisicas_leaf_id": 0,
+   "imgs_por_hoja_min_mediana_max": null,
+   "imagenes_sin_leaf_id": 1835,
+   "hf_test": 378,
+   "hf_train": 1457,
+   "tamanos": {
+    "256x256": 1835
+   }
+  },
+  "Tomato___Early_blight": {
+   "imagenes": 1000,
+   "hojas_fisicas_leaf_id": 250,
+   "imgs_por_hoja_min_mediana_max": [
+    3,
+    4.0,
+    4
+   ],
+   "imagenes_sin_leaf_id": 1,
+   "hf_test": 215,
+   "hf_train": 785,
+   "tamanos": {
+    "256x256": 1000
+   }
+  }
+ },
+ "plantdoc_crops": {
+  "Blueberry leaf|test|apto=si": 22,
+  "Blueberry leaf|train|apto=no": 62,
+  "Blueberry leaf|train|apto=si": 765,
+  "Potato leaf early blight|test|apto=si": 17,
+  "Potato leaf early blight|train|apto=no": 34,
+  "Potato leaf early blight|train|apto=si": 276,
+  "Squash Powdery mildew leaf|test|apto=si": 6,
+  "Squash Powdery mildew leaf|train|apto=si": 248,
+  "Tomato Early blight leaf|test|apto=si": 19,
+  "Tomato Early blight leaf|train|apto=no": 25,
+  "Tomato Early blight leaf|train|apto=si": 170
+ },
+ "duplicados": {
+  "plantdoc_grupos_phash_identico": 55,
+  "plantdoc_imagenes_en_grupos": 112,
+  "plantdoc_grupos_train_y_test": 14,
+  "plantdoc_grupos_entre_clases": 27,
+  "plantdoc_grupos_con_blueberry": [
+   [
+    "raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg"
+   ]
+  ],
+  "plantdoc_ejemplos_entre_clases": [
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Corn Gray leaf spot/2015070295153021.jpg",
+     "Corn Gray leaf spot"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/test/Corn leaf blight/2015070295153021.jpg",
+     "Corn leaf blight"
+    ]
+   ],
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Corn Gray leaf spot/corn-gray-leaf-spot-f4.jpg",
+     "Corn Gray leaf spot"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/test/Corn leaf blight/corn-gray-leaf-spot-f4.jpg",
+     "Corn leaf blight"
+    ]
+   ],
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Corn Gray leaf spot/gls99-anamosa.jpg",
+     "Corn Gray leaf spot"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Corn leaf blight/gls99-anamosa-400x334.jpg",
+     "Corn leaf blight"
+    ]
+   ],
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Corn leaf blight/IMG_42231.jpg",
+     "Corn leaf blight"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/test/Corn Gray leaf spot/IMG_42231.jpg",
+     "Corn Gray leaf spot"
+    ]
+   ],
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/1421_0.jpeg?itok=FMtmgePj.jpg",
+     "Potato leaf early blight"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/test/Potato leaf late blight/1421_0.jpeg?itok=FMtmgePj.jpg",
+     "Potato leaf late blight"
+    ]
+   ],
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/14321627273_58d893c3e2_potato-plant.jpg",
+     "Potato leaf early blight"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf late blight/14321627273_58d893c3e2_b.jpg",
+     "Potato leaf late blight"
+    ]
+   ],
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/18028_1.jpg",
+     "Potato leaf early blight"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf late blight/24064_1.jpg",
+     "Potato leaf late blight"
+    ]
+   ],
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/36-early-blight-concentric-rings.jpg",
+     "Potato leaf early blight"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Tomato Early blight leaf/EBTomato.jpg",
+     "Tomato Early blight leaf"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Tomato Early blight leaf/tomatoblight.jpg",
+     "Tomato Early blight leaf"
+    ]
+   ],
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/45035_1.jpg",
+     "Potato leaf early blight"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf late blight/Late+blight+on+potato.jpg",
+     "Potato leaf late blight"
+    ]
+   ],
+   [
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg",
+     "Potato leaf early blight"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/train/Tomato leaf late blight/tomato-late-blight-foliar-lesions_Scot-Nelson_CC-BY-SA-2.0.jpg",
+     "Tomato leaf late blight"
+    ],
+    [
+     "raw/plantdoc/PlantDoc-Dataset/test/Potato leaf late blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg",
+     "Potato leaf late blight"
+    ]
+   ]
+  ],
+  "plantdoc_pares_casi_dup_hamming_le6": 78,
+  "plantdoc_pares_casi_dup_train_vs_test": 16,
+  "plantdoc_pares_casi_dup_entre_clases": 35,
+  "plantdoc_pares_casi_dup_con_blueberry": [
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/test/Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg"
+   ]
+  ],
+  "plantdoc_pares_casi_dup_entre_clases_ej": [
+   [
+    2,
+    "raw/plantdoc/PlantDoc-Dataset/train/Bell_pepper leaf spot/Septoria-leaf-spot.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Tomato Septoria leaf spot/tomato-blight-treatment-blight.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Corn Gray leaf spot/2015070295153021.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/test/Corn leaf blight/2015070295153021.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Corn Gray leaf spot/corn-gray-leaf-spot-f4.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/test/Corn leaf blight/corn-gray-leaf-spot-f4.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Corn Gray leaf spot/gls99-anamosa.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Corn leaf blight/gls99-anamosa-400x334.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Corn leaf blight/IMG_42231.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/test/Corn Gray leaf spot/IMG_42231.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/1421_0.jpeg?itok=FMtmgePj.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/test/Potato leaf late blight/1421_0.jpeg?itok=FMtmgePj.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/14321627273_58d893c3e2_potato-plant.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf late blight/14321627273_58d893c3e2_b.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/18028_1.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf late blight/24064_1.jpg"
+   ],
+   [
+    2,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/2OBH_29_Gardening_early_blight.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Tomato Early blight leaf/Early_Blight_of_Tomato1687.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/36-early-blight-concentric-rings.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Tomato Early blight leaf/EBTomato.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/36-early-blight-concentric-rings.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Tomato Early blight leaf/tomatoblight.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/45035_1.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf late blight/Late+blight+on+potato.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Tomato leaf late blight/tomato-late-blight-foliar-lesions_Scot-Nelson_CC-BY-SA-2.0.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/test/Potato leaf late blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg"
+   ],
+   [
+    0,
+    "raw/plantdoc/PlantDoc-Dataset/train/Potato leaf early blight/Blght.jpg",
+    "raw/plantdoc/PlantDoc-Dataset/train/Tomato leaf late blight/LBleaf2INIA_0.jpg"
+   ]
+  ]
+ },
+ "plantdoc_errores_lectura": [],
+ "plantdoc_crops_sin_imagen": {
+  "Potato leaf early blight": 6,
+  "Squash Powdery mildew leaf": 3
+ },
+ "plantdoc_blueberry_triage": {
+  "PlantDoc|test|coloracion_rojiza_otono_o_brotes": 1,
+  "PlantDoc|test|sintomas_o_desorden_visible": 3,
+  "PlantDoc|test|verde_sin_sintomas_visibles": 7,
+  "PlantDoc|train|coloracion_rojiza_otono_o_brotes": 26,
+  "PlantDoc|train|dudosa": 3,
+  "PlantDoc|train|no_apta": 3,
+  "PlantDoc|train|sintomas_o_desorden_visible": 16,
+  "PlantDoc|train|verde_sin_sintomas_visibles": 58,
+  "PlantDoc-OD-recorte|test|coloracion_rojiza_otono_o_brotes": 1,
+  "PlantDoc-OD-recorte|test|sintomas_o_desorden_visible": 4,
+  "PlantDoc-OD-recorte|test|verde_sin_sintomas_visibles": 17,
+  "PlantDoc-OD-recorte|train|coloracion_rojiza_otono_o_brotes": 208,
+  "PlantDoc-OD-recorte|train|dudosa": 9,
+  "PlantDoc-OD-recorte|train|no_apta": 46,
+  "PlantDoc-OD-recorte|train|sintomas_o_desorden_visible": 85,
+  "PlantDoc-OD-recorte|train|verde_sin_sintomas_visibles": 479
+ },
+ "plantdoc_blueberry_crops_aptos_triage": {
+  "test|coloracion_rojiza_otono_o_brotes": 1,
+  "test|sintomas_o_desorden_visible": 4,
+  "test|verde_sin_sintomas_visibles": 17,
+  "train|coloracion_rojiza_otono_o_brotes": 191,
+  "train|dudosa": 9,
+  "train|no_apta": 46,
+  "train|sintomas_o_desorden_visible": 85,
+  "train|verde_sin_sintomas_visibles": 434
+ },
+ "conteo_por_categoria_eval": {
+  "PlantDoc|alternaria_otra_especie": 205,
+  "PlantDoc|excluir_acaros_fuera_de_foco": 2,
+  "PlantDoc|oidio_otra_especie": 130,
+  "PlantDoc|otra_enfermedad_otra_especie": 1391,
+  "PlantDoc|sana_arandano": 117,
+  "PlantDoc|sana_otra_especie": 733,
+  "PlantDoc-OD-recorte|alternaria_otra_especie": 541,
+  "PlantDoc-OD-recorte|oidio_otra_especie": 254,
+  "PlantDoc-OD-recorte|sana_arandano": 849,
+  "PlantVillage|alternaria_otra_especie": 2000,
+  "PlantVillage|oidio_otra_especie": 2887,
+  "PlantVillage|sana_arandano": 1502
+ }
+}
