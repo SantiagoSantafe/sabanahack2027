@@ -1,6 +1,8 @@
 # Berry Good Idea · Sabana Hack 2026
 
 **Detección temprana de enfermedades en arándano, cama por cama, con un robot que patrulla de noche.**
+<p align="center"><img src="docs/img/presentacion_portada.jpg" width="820" alt="Portada del pitch Berry Good Idea"></p>
+
 Reto *Berry Good Idea* (Sabana Hack 2026) · cliente de referencia: AGRAR (automatización de invernaderos).
 
 ## El problema
@@ -16,6 +18,19 @@ D1 real ◄── SDK ◄── robot_d1/d1_bridge.py (Docker/OrbStack) ◄─�
                                                                                      │
 sim/web (gemelo 3D, :5173)  ◄──── estado ────┘        dashboard/ (panel del supervisor, :5180)
 ```
+
+## Así se ve
+| Robot real en la demo | Cámara del D1 leyendo hojas |
+|---|---|
+| <img src="docs/img/demo_robot_real.jpg" width="400" alt="AgiBot D1 real recorriendo la ruta en sala"> | <img src="docs/img/demo_camara_hojas.jpg" width="400" alt="La cámara del D1 clasifica hojas mostradas en pantalla"> |
+| **Gemelo digital (simulador 3D)** | **Panel del supervisor** |
+| <img src="docs/img/demo_gemelo_digital.jpg" width="400" alt="Gemelo digital del bloque con el robot patrullando"> | <img src="docs/img/demo_dashboard.jpg" width="400" alt="Dashboard con mapa cenital y focos"> |
+| **Concepto: el robot en campo** *(render)* | **Concepto: lo que ve la cámara** *(render)* |
+| <img src="docs/img/robot_concepto.jpg" width="400" alt="Render conceptual del D1 con mástil y alerta de oídio"> | <img src="docs/img/camara_oidio_concepto.jpg" width="400" alt="Render conceptual: hoja con oídio y ubicación"> |
+
+**Pitch** (`presentacion/BerryGoodIdea_pitch.pptx`, 11 diapositivas + respaldo; los videos de la demo no se suben por tamaño):
+
+<img src="docs/img/presentacion_vista_previa.jpg" width="820" alt="Vista previa de las diapositivas del pitch">
 
 ## Estructura
 | Carpeta | Qué hay |
