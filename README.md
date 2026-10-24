@@ -56,6 +56,8 @@ HF_HUB_OFFLINE=1 .venv/bin/python -I robot/panel_demo.py --robot-ip <IP_ROBOT> -
 # 5) Puente con el D1 real (Docker/OrbStack + SDK de AgiBot, ver docs/GUIA_ROBOT_SIN_INTERNET.md)
 MAC_IP=<IP_MAC> ROBOT_IP=<IP_ROBOT> bash datos/robot/abrir_puente.sh red
 ```
+Antes de usar el robot: [docs/GUIA_RED_ROBOT.md](docs/GUIA_RED_ROBOT.md) y `bash datos/robot/buscar_robot.sh` (encuentra el D1 en la red e imprime los comandos). Guion del pitch: [presentacion/PITCH_FINAL.md](presentacion/PITCH_FINAL.md).
+
 Visor de hojas para mostrar a la cámara: `http://<IP_MAC>:8092/hoja?robot=1`.
 
 ## Resultados (ver `docs/CIFRAS_CLAVE.md`)
