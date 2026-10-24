@@ -1,0 +1,39 @@
+%% Render: ./node_modules/.bin/mmdc -i 01_arquitectura_solucion.mmd -o 01_arquitectura_solucion.png -c mermaid_config.json -C 01_arquitectura_solucion.css -p puppeteer.json -b white -s 3 -w 1600
+%% Truco de diseno: las flechas hacia REG y OPE se declaran en sentido contrario (para plegar el diagrama en 4 columnas) y el .css oculta la punta sobrante.
+%% Los tamanos de letra van en linea (style=) porque Mermaid mide el texto antes de aplicar el .css.
+%%{init: {"themeVariables": {"fontSize": "27px"}, "flowchart": {"curve": "basis", "nodeSpacing": 30, "rankSpacing": 48, "padding": 12, "subGraphTitleMargin": {"top": 8, "bottom": 46}, "wrappingWidth": 900}}}%%
+flowchart LR
+  LEG["<span style='font-size:25px'><b>Leyenda</b><br/>Continuo: funciona<br/>en la demo<br/>Ámbar punteado:<br/>diseño, se valida<br/>en el piloto<br/>En la demo: portátil,<br/>datos simulados<br/>y Wi-Fi</span>"]:::leyenda
+  PLC["<b>Sensores y PLC</b><br/>de AGRAR<br/>marcan las camas<br/>en riesgo"]:::diseno
+  SEL["<b>Supervisor</b><br/>elige el bloque<br/>en el panel"]:::ok
+  REG["<b>Registro de focos</b><br/>Nuevo → Asignado →<br/>Verificado → Tratado<br/>→ Cerrado<br/><span style='font-size:25px'><i>falsa alarma:<br/>etiqueta para<br/>reentrenar (hipótesis)</i></span>"]:::ok
+
+  subgraph ROBOT["<span style='font-size:31px;font-weight:700;color:#1E7A46'>Robot D1</span>"]
+    PATR["<b>Patrulla de noche</b><br/>empieza por las<br/>camas en riesgo<br/>para y gira:<br/>izquierda y derecha"]:::ok
+    KIT["<b>Clasificador de hoja</b><br/>sana: se registra<br/>sospechosa: alerta con<br/>nave · cama · planta<br/>+ temperatura y humedad<br/><span style='font-size:25px'><i>Jetson y sensor: diseño</i></span>"]:::core
+  end
+
+  OPE["<b>Operario en campo</b><br/>confirma o descarta<br/>y registra el<br/>tratamiento"]:::ok
+  GW["<b>Gateway LoRaWAN</b><br/>o controlador<br/>de la finca<br/><span style='font-size:25px'><i>si el protocolo es abierto</i></span>"]:::diseno
+  PAN["<b>Panel del</b><br/><b>supervisor</b><br/>mapa de focos<br/>prioriza los focos"]:::ok
+
+  PLC -.->|"<span style='font-size:25px'>riesgo</span>"| PATR
+  SEL -.->|"<span style='font-size:25px'>bloque<br/>elegido</span>"| PATR
+  KIT -.->|"<span style='font-size:25px'>alerta</span>"| GW
+  GW -.-> PAN
+  REG <-->|"<span style='font-size:25px'>sana:<br/>sin alerta</span>"| KIT
+  REG <-.->|"<span style='font-size:25px'>fotos en la<br/>base de carga<br/>(Wi-Fi)</span>"| PATR
+  REG <-->|"<span style='font-size:25px'>confirma<br/>o descarta</span>"| OPE
+  OPE <-->|"<span style='font-size:25px'>Enviar<br/>operario</span>"| PAN
+  OPE ~~~ GW
+  PATR ~~~ LEG
+
+  classDef ok fill:#EAF5E1,stroke:#1E7A46,stroke-width:3px,color:#0B2B1C;
+  classDef core fill:#B8F04A,stroke:#0B2B1C,stroke-width:3px,color:#0B2B1C;
+  classDef diseno fill:#FFF4E2,stroke:#F2A33A,stroke-width:4px,stroke-dasharray:9 6,color:#0B2B1C;
+  classDef leyenda fill:#FFFFFF,stroke:#B8C7BD,stroke-width:2px,color:#0B2B1C;
+  style ROBOT fill:#F7FBF4,stroke:#1E7A46,stroke-width:3px,color:#0B2B1C
+
+  linkStyle default stroke:#0B2B1C,stroke-width:3.5px
+  linkStyle 0,1,2,3,5 stroke:#F2A33A,stroke-width:5px,stroke-dasharray:11 7
+  linkStyle 8,9 stroke:none,stroke-width:0px,opacity:0

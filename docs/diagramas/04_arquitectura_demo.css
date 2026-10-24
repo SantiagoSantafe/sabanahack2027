@@ -1,0 +1,6 @@
+/* Puntas de flecha mas grandes para proyector (Mermaid las dibuja de 8 px). */
+marker { overflow: visible !important; }
+marker[id*="pointEnd"] path,
+marker[id*="pointEnd"] polygon { transform: scale(2.3); transform-origin: 10px 5px; }
+marker[id*="pointStart"] path,
+marker[id*="pointStart"] polygon { transform: scale(2.3); transform-origin: 0px 5px; }

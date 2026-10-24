@@ -1,4 +1,4 @@
-// build_deck.js · Berry Good Idea · pitch Sabana Hack 2026 (11 diapositivas + 2 de respaldo)
+// build_deck.js · Berry Good Idea · pitch Sabana Hack 2026 (11 diapositivas + 6 de respaldo: 4 diagramas, supuestos y preguntas)
 // Uso: cd presentacion && node build_deck.js  ->  BerryGoodIdea_pitch.pptx
 // Parte de kit_visual.js (sistema visual validado de diseno.md). Reglas del equipo (INSTRUCCIONES.md): sin modelo de negocio.
 // Marcos VIDEO_<id>: solo donde va video real (robot real, camara, dashboard, simulador). Las imagenes del equipo van incrustadas.
@@ -20,6 +20,7 @@ const DIR = '/Users/santiagosantafe/Downloads/SabanaHack/presentacion/';
 const IMG = DIR + 'imagenes/';
 const REC = IMG + 'recortes/';
 const OPT = IMG + 'optimizadas/';
+const DIA = DIR + 'diagramas/';
 // CON_VIDEOS=1 incrusta los videos grabados del equipo en sus marcos (archivo aparte, pesa ~120 MB)
 const CON_VIDEOS = process.env.CON_VIDEOS === '1';
 const OUT = DIR + (CON_VIDEOS ? 'BerryGoodIdea_pitch_con_videos.pptx' : 'BerryGoodIdea_pitch.pptx');
@@ -160,6 +161,20 @@ function barChart(s, name, labels, values, colors, o) {
 }
 // frase obligatoria de limites (CIFRAS_CLAVE.md §6): se muestra completa solo en la diapositiva 7
 const LIMITES = 'Probado con 68 hojas de laboratorio mostradas a la cámara del robot, solo 14 sanas; alternaria es la clase débil; el riesgo ambiental no está validado contra enfermedad real. Por eso el robot sugiere y el supervisor manda a un operario a confirmar.';
+
+// diapositiva de respaldo con un diagrama PNG: tarjeta blanca con sombra e imagen 'contain' (sin deformar) centrada en el area de contenido
+async function diagramSlide(file, title, alt, notes) {
+  const s = slideFor('CLARO', 'Respaldo', 'DIAGRAMA', title, false);
+  const meta = await sharp(DIA + file + '.png').metadata();
+  const ratio = meta.width / meta.height;
+  const bx = L, by = 1.85, bw = CW, bh = 4.7, pad = 0.2; // area de contenido (bajo el titulo, sobre el pie)
+  const iw = Math.min(bw - 2 * pad, (bh - 2 * pad) * ratio), ih = iw / ratio; // tamano real que ocupa el diagrama
+  s.addShape(pres.ShapeType.roundRect, { objectName: 'TARJETA_diagrama', x: bx + (bw - iw) / 2 - pad, y: by + (bh - ih) / 2 - pad, w: iw + 2 * pad, h: ih + 2 * pad, rectRadius: 0.12, fill: { color: C.background1 }, line: { type: 'none' }, shadow: shCard() });
+  const aw = bw - 2 * pad;
+  s.addImage({ path: DIA + file + '.png', objectName: 'IMAGEN_diagrama_' + file, altText: alt, x: bx + pad, y: by + pad, w: aw, h: aw / ratio, sizing: { type: 'contain', w: aw, h: bh - 2 * pad } });
+  s.addNotes(notes);
+  return s;
+}
 
 async function main() {
   // ---- optimizacion (JPG) y recortes de las imagenes del equipo (el logo STIHL queda fuera del archivo) ----
@@ -534,7 +549,7 @@ TIEMPO · 5 min: 35 s (10 s el kit, 25 s la comparación) · 3 min: 31 s, se que
 
 Qué existe hoy y qué es diseño: el formato de incidencia es un esquema JSON validado con 20 casos sintéticos. Hoy solo el robot genera datos; el celular del operario, la cámara en la aspersora y los sensores de los PLC son diseño (por eso la etiqueta DISEÑO). Las fincas B y C son ejemplos, no clientes.
 
-Qué cambiaría con otro frutal (la pregunta de la rúbrica; antes iba en una franja al pie y ahora vive solo aquí y en la diapositiva 13): no es solo un archivo de configuración. Hace falta un perfil de riesgo del cultivo, fotos y clases visuales nuevas, reentrenar el modelo y un ciclo de cultivo de piloto para validarlo (ESCALABILIDAD §4). Los perfiles de fresa y mora existen en el motor de riesgo (22 modelos y 6 motores), pero se validan en el motor, no en campo.
+Qué cambiaría con otro frutal (la pregunta de la rúbrica; antes iba en una franja al pie y ahora vive solo aquí y en la diapositiva 17): no es solo un archivo de configuración. Hace falta un perfil de riesgo del cultivo, fotos y clases visuales nuevas, reentrenar el modelo y un ciclo de cultivo de piloto para validarlo (ESCALABILIDAD §4). Los perfiles de fresa y mora existen en el motor de riesgo (22 modelos y 6 motores), pero se validan en el motor, no en campo.
 
 Sobre el 2\u00A0%: ≈ 1.000 de ≈ 54.500 ha (Colombia, Perú, Chile y México; cálculo del equipo, ESCALABILIDAD §8.1; las hectáreas salieron de la pantalla para aligerarla). Otro frutal: perfil de riesgo + fotos y clases nuevas + un ciclo de piloto; fresa y mora: solo en el motor de riesgo, sin validar en campo. Quiere decir que casi todo el arándano de esos países está fuera de Colombia; no prueba por sí solo que haya demanda: eso lo mide el piloto.
 
@@ -575,7 +590,24 @@ Criterios de éxito del piloto (supuestos del equipo, a acordar con el cliente):
 TIEMPO · 5 min: 18 s · 3 min: 17 s, se queda · 9 min: 37 s, AMPLIAR: lista completa de lo que falta (fotos de campo andino y reentreno con confirmaciones; navegación en pasillos de 6,8 m, carga automática y línea de vista del manual; IP54 y autonomía de 1–2 h; cotización formal del D1; medir cuántas pérdidas se evitan).`);
   }
 
-  // =============== 12 RESPALDO · SUPUESTOS Y FUENTES ===============
+  // =============== 12-15 RESPALDO · DIAGRAMAS ===============
+  await diagramSlide('01_arquitectura_solucion', 'DEL RIESGO DEL PLC AL OPERARIO EN CAMPO',
+    'Diagrama de arquitectura de la solución: sensores y PLC de AGRAR y el supervisor marcan el bloque; el robot D1 patrulla y clasifica cada hoja; la hoja sana se registra y la sospechosa viaja como alerta por LoRaWAN al panel del supervisor, que envía a un operario que confirma o descarta; todo queda en un registro de focos. Lo punteado en ámbar es diseño.',
+    `Este diagrama junta todas las piezas: los sensores y el PLC de AGRAR, o el supervisor desde el panel, marcan el bloque, y el robot D1 patrulla de noche empezando por esas camas. La hoja sana se registra sin alerta y la sospechosa sale como alerta con nave, cama, planta, temperatura y humedad hacia el panel del supervisor, que envía a un operario a confirmar o descartar, y todo queda en un solo registro de focos. Lo punteado en ámbar es diseño que se valida en el piloto; lo continuo funciona en la demo.`);
+
+  await diagramSlide('02_secuencia_alerta', 'ALERTA A LAS 2, OPERARIO A LAS 6',
+    'Diagrama de secuencia de una alerta entre cuatro actores: PLC y sensores de AGRAR, robot D1, panel y registro del supervisor, y operario. A las 2 a. m. el PLC marca riesgo y el robot va primero a esa cama; la hoja sana se registra sin alerta y la sospechosa abre un foco nuevo. A las 6 a. m. el supervisor envía al operario, que confirma y trata o descarta, y el foco se cierra en ambos casos.',
+    `Se lee de arriba abajo: a las 2 a. m. el PLC marca riesgo en el bloque y el D1 va primero a esa cama, donde registra la hoja sana sin alerta o abre un foco nuevo si es sospechosa. A las 6 a. m. entra el operario, que confirma y registra el tratamiento o descarta como falsa alarma, y en ambos casos el foco se cierra. La meta de alerta en minutos y el aviso del PLC al robot son diseño, y se validan en el piloto.`);
+
+  await diagramSlide('03_ciclo_hallazgo', 'DE LA FOTO AL CIERRE, EN CINCO ESTADOS',
+    'Diagrama del ciclo de un hallazgo: el robot captura y clasifica la hoja; si es sana se registra sin alerta y si es sospechosa pasa a Nuevo y luego a Asignado cuando el supervisor envía un operario. En campo el operario la deja Verificada: si se confirma pasa a Tratado y luego a Cerrado, y si es falsa alarma pasa directo a Cerrado. Cada verificación es una etiqueta para reentrenar, una hipótesis.',
+    `Cada hoja que mira el robot queda guardada con foto, clase, confianza, hora y ubicación; si es sana solo se registra, y si es sospechosa nace un foco Nuevo que el supervisor pasa a Asignado enviando a un operario. El operario lo verifica en campo: si se confirma se registra el tratamiento y se cierra, y si es falsa alarma se cierra directo, así que ningún foco se cierra solo. Que cada verificación sirva de etiqueta para reentrenar el modelo es una hipótesis que el piloto mide.`);
+
+  await diagramSlide('04_arquitectura_demo', 'ASÍ CORRE LA DEMO EN VIVO',
+    'Diagrama de la arquitectura de la demo: la cámara y el control del robot D1 se conectan por Wi-Fi a un portátil Mac, donde corren el puente del robot, el clasificador y sim-core, que simula temperatura y humedad. Los resultados van al panel del supervisor, al gemelo 3D y a un PC con visor que muestra la hoja a la cámara. El sensor de T y HR, la alerta LoRaWAN y el Jetson del kit real, en ámbar punteado, sustituirían esas piezas y no se probaron.',
+    `Esta es la arquitectura de lo que corre en vivo, no la del kit de finca: la cámara del D1 real manda video por Wi-Fi al portátil, donde el clasificador lee la hoja y sim-core simula T y HR y arma la alerta. Los focos llegan al panel del supervisor, al gemelo 3D y a un PC con visor que le muestra la hoja a la cámara, y desde el panel se elige el bloque y se envía al operario. Lo punteado en ámbar es el kit real (sensor de T y HR, alerta LoRaWAN y Jetson), que sustituiría esas piezas y no se probó.`);
+
+  // =============== 16 RESPALDO · SUPUESTOS Y FUENTES ===============
   {
     const s = slideFor('CLARO', 'Respaldo', 'RESPALDO', 'SUPUESTOS Y FUENTES', false);
     const hdr = (t) => ({ text: t, options: { bold: true, color: HEX.blanco, fill: { color: HEX.bosque900 }, fontSize: 12, fontFace: 'Calibri', valign: 'middle' } });
@@ -604,7 +636,7 @@ Este deck no presenta modelo comercial: AGRAR define su precio. Lo que se muestr
 Licencias: DrBerry CC BY 4.0; PlantVillage CC BY-SA; dataset de fresa de Mendeley CC BY-NC (solo evaluación); YOLO/ultralytics AGPL-3.0; Open-Meteo gratuita solo para uso no comercial, con atribución "Weather data by Open-Meteo.com".`);
   }
 
-  // =============== 13 RESPALDO · PREGUNTAS DEL JURADO ===============
+  // =============== 17 RESPALDO · PREGUNTAS DEL JURADO ===============
   {
     const s = slideFor('CLARO', 'Respaldo', 'RESPALDO', 'PREGUNTAS DEL JURADO', false);
     const qa = [

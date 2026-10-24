@@ -1,0 +1,44 @@
+%%{init: {"themeVariables": {"fontSize": "34px", "edgeLabelBackground": "#FFFFFF"}, "flowchart": {"nodeSpacing": 28, "rankSpacing": 60, "padding": 16, "wrappingWidth": 900}}}%%
+flowchart TB
+  subgraph R1[" "]
+    direction LR
+    CAP["<b>Captura</b><br/>robot mira y clasifica<br/><span style='font-size:25px'>guarda foto · clase · confianza · hora<br/>nave · cama · planta<br/>+ temperatura y humedad <b>(diseño)</b></span>"]
+    SAN["<b>Sana</b><br/>se registra, sin alerta"]
+    NUE["<b>Nuevo</b><br/>el robot se detiene<br/>y alerta al panel"]
+    ASI["<b>Asignado</b><br/>supervisor envía operario<br/><span style='font-size:25px'>guarda operario asignado</span>"]
+    CAP -->|"sospechosa"| NUE
+    CAP -->|"sana"| SAN
+    NUE --> ASI
+  end
+  subgraph R2[" "]
+    direction LR
+    VER["<b>Verificado</b><br/>operario confirma o descarta<br/><span style='font-size:25px'>guarda resultado en campo</span>"]
+    TRA["<b>Tratado</b><br/>se registra qué se hizo"]
+    CER(["<b>Cerrado</b>"])
+    ETI["Cada verificación: etiqueta<br/>para reentrenar <b>(hipótesis)</b>"]
+    VER -->|"confirmado"| TRA
+    TRA --> CER
+    VER -->|"falsa alarma"| CER
+    VER -.- ETI
+  end
+  R1 ==>|"va a campo"| R2
+
+  classDef captura fill:#EAF5E1,stroke:#1E7A46,color:#0B2B1C,stroke-width:3px
+  classDef sana fill:#FFFFFF,stroke:#1E7A46,color:#0B2B1C,stroke-width:3px
+  classDef alerta fill:#F2A33A,stroke:#0B2B1C,color:#0B2B1C,stroke-width:3px
+  classDef estado fill:#1E7A46,stroke:#0B2B1C,color:#FFFFFF,stroke-width:3px
+  classDef cierre fill:#0B2B1C,stroke:#B8F04A,color:#FFFFFF,stroke-width:5px
+  classDef hipotesis fill:#FFFFFF,stroke:#F2A33A,color:#0B2B1C,stroke-width:4px,stroke-dasharray:8 6
+
+  class CAP captura
+  class SAN sana
+  class NUE alerta
+  class ASI,VER,TRA estado
+  class CER cierre
+  class ETI hipotesis
+
+  style R1 fill:#FFFFFF,stroke:#B8C7BD,stroke-width:4px
+  style R2 fill:#FFFFFF,stroke:#B8C7BD,stroke-width:4px
+  linkStyle default stroke:#0B2B1C,stroke-width:3px
+  linkStyle 6 stroke:#F2A33A,stroke-width:5px,stroke-dasharray:10 6
+  linkStyle 7 stroke:#0B2B1C,stroke-width:5px

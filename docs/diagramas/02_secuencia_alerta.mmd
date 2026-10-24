@@ -1,0 +1,42 @@
+%%{init: {
+  "fontSize": 28,
+  "themeVariables": {
+    "actorBkg": "#0B2B1C", "actorBorder": "#0B2B1C", "actorTextColor": "#FFFFFF",
+    "actorLineColor": "#B8C7BD",
+    "signalColor": "#0B2B1C", "signalTextColor": "#0B2B1C",
+    "noteBkgColor": "#1E7A46", "noteBorderColor": "#1E7A46", "noteTextColor": "#FFFFFF"
+  },
+  "themeCSS": ".messageLine0{stroke-width:4px;} .messageLine1{stroke:#F2A33A;stroke-width:5px;stroke-dasharray:10 6;} .actor-line{stroke:#B8C7BD;stroke-width:3px;} marker{overflow:visible;} marker path{transform-box:fill-box;transform-origin:81% 50%;transform:scale(1.7);} .rect{filter:none;stroke:none;} g:nth-of-type(7) rect.note, g:nth-of-type(9) rect.note{fill:#EAF5E1 !important;stroke:#1E7A46 !important;stroke-width:3px;} g:nth-of-type(7) .noteText, g:nth-of-type(7) .noteText tspan, g:nth-of-type(9) .noteText, g:nth-of-type(9) .noteText tspan{fill:#0B2B1C !important;} g:nth-of-type(7){transform:translate(0,3px);} .actor-line{stroke-dasharray:1024 4000;}",
+  "sequence": {
+    "mirrorActors": false, "useMaxWidth": false,
+    "width": 300, "height": 90, "actorMargin": 110,
+    "boxMargin": 5, "noteMargin": 23, "messageMargin": 17,
+    "diagramMarginX": 30, "diagramMarginY": 24,
+    "showSequenceNumbers": false
+  }
+}}%%
+sequenceDiagram
+    participant P as PLC y sensores<br/>de AGRAR
+    participant R as Robot D1
+    participant S as Panel y registro<br/>(supervisor)
+    participant O as Operario
+
+    Note over P,O: 2:00 a. m. · hoja mojada · meta: alerta en minutos
+    P-->>R: Riesgo en el bloque<br/>(diseño, se valida en piloto)
+    Note over R: Va primero a esa cama y mira a ambos lados
+    rect rgba(184, 240, 74, 0.5)
+        R->>S: Sana: registra sin alerta
+    end
+    rect rgba(242, 163, 58, 0.5)
+        R->>S: Sospechosa: alerta, foco nuevo<br/>nave · cama · planta<br/>+ temperatura y humedad<br/>(sensor a bordo y LoRaWAN, diseño)
+    end
+    Note over P,O: 6:00 a. m. · entra el operario
+    S->>O: Envía operario: foco asignado
+    rect rgba(184, 240, 74, 0.5)
+        O->>S: Confirma: foco verificado
+        O->>S: Registra tratamiento: foco tratado
+    end
+    rect rgba(184, 199, 189, 0.6)
+        O->>S: Descarta: falsa alarma, foco verificado<br/>Etiqueta para reentrenar (hipótesis)
+    end
+    Note over S: En ambos casos, cierra el foco: foco cerrado

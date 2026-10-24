@@ -1,0 +1,10 @@
+/* Puntas de flecha mas grandes para proyector (Mermaid las dibuja de 8 px). */
+marker { overflow: visible !important; }
+marker[id*="pointEnd"] path,
+marker[id*="pointEnd"] polygon { transform: scale(2.3); transform-origin: 10px 5px; }
+marker[id*="pointStart"] path,
+marker[id*="pointStart"] polygon { transform: scale(2.3); transform-origin: 0px 5px; }
+/* Flechas declaradas al reves para plegar el diseno: se oculta la punta del extremo declarado como destino. */
+path[data-id="L_REG_KIT_0"], path[data-id="L_REG_PATR_0"], path[data-id="L_REG_OPE_0"], path[data-id="L_OPE_PAN_0"] { marker-end: none !important; }
+/* Enlaces invisibles (solo ordenan el diseno). */
+path[data-id="L_OPE_GW_0"], path[data-id="L_PATR_LEG_0"] { stroke: none !important; opacity: 0 !important; marker-start: none !important; marker-end: none !important; }

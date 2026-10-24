@@ -1,0 +1,57 @@
+%% Render: ./node_modules/.bin/mmdc -i 04_arquitectura_demo.mmd -o 04_arquitectura_demo.png -c mermaid_config.json -C 04_arquitectura_demo.css -p puppeteer.json -b white -s 3 -w 1600
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"curve": "bumpX", "nodeSpacing": 80, "rankSpacing": 30, "padding": 16, "wrappingWidth": 500, "subGraphTitleMargin": {"top": 8, "bottom": 50}}}}%%
+flowchart LR
+  subgraph ROBOT["<span style='font-size:34px;font-weight:700;color:#1E7A46'>Robot AgiBot D1</span>"]
+    direction TB
+    SDK["<b>Control</b><br/>del robot"]
+    SENS["<b>Sensor T y HR</b><br/>kit real (diseño)"]
+    LORA["<b>Alerta LoRaWAN</b><br/>kit real (diseño)"]
+    JET["<b>Jetson a bordo</b><br/>kit real (diseño)"]
+    CAM["<b>Cámara</b><br/>del robot"]
+  end
+
+  subgraph MAC["<span style='font-size:34px;font-weight:700;color:#1E7A46'>Portátil Mac de la demo</span>"]
+    direction TB
+    BR["<b>Puente</b><br/>d1_bridge<br/>(Docker)"]
+    PANEL["<b>Clasificador</b><br/>panel_demo"]
+    SIM["<b>sim-core</b><br/>cerebro de la demo<br/>T y HR simuladas"]
+  end
+
+  subgraph PANT["<span style='font-size:34px;font-weight:700;color:#1E7A46'>Pantallas</span>"]
+    direction TB
+    DASH["<b>Panel del<br/>supervisor</b>"]
+    WEB["<b>Gemelo 3D</b><br/>video y estado"]
+    PCS["<b>PC con visor</b><br/>/hoja?robot=1"]
+  end
+
+  SDK <-->|"<span style='white-space:nowrap'><b>Wi-Fi · UDP<br/>udp_relay</b></span>"| BR
+  SENS -.->|"<span style='white-space:nowrap'><b>sustituye</b></span>"| SIM
+  LORA -.->|"<span style='white-space:nowrap'><b>sustituye<br/>Wi-Fi/HTTP</b></span>"| SIM
+  JET -.->|"<span style='white-space:nowrap'><b>sustituye<br/>al portátil</b></span>"| PANEL
+  CAM -->|"<span style='white-space:nowrap'><b>Wi-Fi · RTSP</b></span>"| PANEL
+  BR <-->|"<span style='white-space:nowrap'><b>WebSocket</b></span>"| SIM
+  PANEL <-->|"<span style='white-space:nowrap'><b>detecciones<br/>y T y HR</b></span>"| SIM
+  SIM -->|"<span style='white-space:nowrap'><b>focos · SSE</b></span>"| DASH
+  DASH -->|"<span style='white-space:nowrap'><b>elige bloque<br/>envía operario<br/>registra<br/>confirmación</b></span>"| SIM
+  SIM -->|"<span style='white-space:nowrap'><b>WebSocket</b></span>"| WEB
+  PANEL -->|"<span style='white-space:nowrap'><b>video MJPEG</b></span>"| WEB
+  PANEL -->|"<span style='white-space:nowrap'><b>visor web</b></span>"| PCS
+  CAM -.->|"<span style='white-space:nowrap'><b>mira la pantalla</b></span>"| PCS
+
+  classDef hw fill:#1E7A46,stroke:#0B2B1C,color:#FFFFFF,stroke-width:3px
+  classDef proc fill:#FFFFFF,stroke:#1E7A46,color:#0B2B1C,stroke-width:3px
+  classDef core fill:#0B2B1C,stroke:#B8F04A,color:#FFFFFF,stroke-width:5px
+  classDef disen fill:#FFF4E2,stroke:#F2A33A,color:#0B2B1C,stroke-width:3px,stroke-dasharray:8 5
+
+  class SDK,CAM hw
+  class BR,PANEL,DASH,WEB,PCS proc
+  class SIM core
+  class JET,SENS,LORA disen
+
+  style ROBOT fill:#EAF5E1,stroke:#1E7A46,stroke-width:3px
+  style MAC fill:#EAF5E1,stroke:#1E7A46,stroke-width:3px
+  style PANT fill:#EAF5E1,stroke:#1E7A46,stroke-width:3px
+
+  linkStyle default stroke:#0B2B1C,stroke-width:4px
+  linkStyle 1,2,3 stroke:#F2A33A,stroke-width:4px,stroke-dasharray:8 5
+  linkStyle 12 stroke:#1E7A46,stroke-width:4px,stroke-dasharray:3 6

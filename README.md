@@ -32,6 +32,15 @@ sim/web (gemelo 3D, :5173)  ◄──── estado ────┘        dashbo
 
 <img src="docs/img/presentacion_vista_previa.jpg" width="820" alt="Vista previa de las diapositivas del pitch">
 
+## Diagramas de la solución
+| Arquitectura: del riesgo del PLC al operario | Una alerta, de las 2 a. m. a las 6 a. m. |
+|---|---|
+| <img src="docs/diagramas/01_arquitectura_solucion.png" width="420" alt="Arquitectura de la solución"> | <img src="docs/diagramas/02_secuencia_alerta.png" width="420" alt="Secuencia de una alerta"> |
+| **Ciclo de cada hallazgo (cinco estados)** | **Así corre la demo (técnico)** |
+| <img src="docs/diagramas/03_ciclo_hallazgo.png" width="420" alt="Ciclo de un hallazgo"> | <img src="docs/diagramas/04_arquitectura_demo.png" width="420" alt="Arquitectura de la demo"> |
+
+Fuentes Mermaid en `docs/diagramas/*.mmd`. Línea continua = funciona en la demo; ámbar punteado = diseño que se valida en el piloto.
+
 ## Estructura
 | Carpeta | Qué hay |
 |---|---|
